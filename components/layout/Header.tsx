@@ -46,7 +46,7 @@ const Header = () => {
             </div>
          </Container>
          {/* Inferior */}
-         <div className="py-2.5 bg-theme1 text-white text-lg font-medium uppercase">
+         <div className="py-3 bg-theme1 text-white text-lg font-medium uppercase">
             <Container className="flex items-center justify-center gap-20">
                {categorias.map((v, k) => (
                   <Link href={v.url} key={k}>
