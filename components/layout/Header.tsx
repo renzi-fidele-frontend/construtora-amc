@@ -28,8 +28,8 @@ const Header = () => {
       <header>
          {/* Superior */}
          <Container className="w-full flex items-center justify-between">
-            <Image className="my-2" width={194} height={73} src="/img/logo.png" alt="Ilustração do logotipo da marca Amc Contruções" />
-            <div className="flex gap-7 items-stretch">
+            <Image className="my-2 w-41 object-contain" width={194} height={73} src="/img/logo.png" alt="Ilustração do logotipo da marca Amc Contruções" />
+            <div className="flex gap-8 items-stretch">
                {/* Menu de navegação */}
                <Nav />
                {/* CTA da Área do cliente */}
@@ -60,7 +60,7 @@ const Header = () => {
                      <Image
                         width={105}
                         height={74}
-                        className="w-auto object-contain h-8.75"
+                        className="w-auto object-contain h-7"
                         src="/img/minha-casa.webp"
                         alt="Ilustração da logo marca do minha casa minha vida"
                      />
