@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "../ui/carousel";
+import { Carousel, CarouselContent, CarouselItem } from "../ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
 import { useRef } from "react";
 
@@ -8,6 +8,7 @@ interface CarouselDeFotosProps {
    fotos: string[];
 }
 
+// TODO: Mais tarde implementar a seção de dots
 const CarouselDeFotos = ({ fotos }: CarouselDeFotosProps) => {
    const AutoplayPlugin = useRef(Autoplay({ delay: 6000, stopOnInteraction: false }));
 
