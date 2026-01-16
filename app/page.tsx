@@ -1,10 +1,10 @@
 import Barra from "@/components/layout/Barra";
 import Container from "@/components/layout/Container";
 import { Title, TitleDescription } from "@/components/layout/Typography";
+import Btn from "@/components/shared/Btn";
 import CardEmpreendimento from "@/components/shared/CardEmpreendimento";
 import CarouselDeFotos from "@/components/shared/CarouselDeFotos";
 import { empreendimentos, fotosDestaques } from "@/data/data";
-import Image from "next/image";
 
 export default function Home() {
    return (
@@ -26,6 +26,11 @@ export default function Home() {
                      .map((v, k) => (
                         <CardEmpreendimento empreendimento={v} key={k} />
                      ))}
+               </div>
+               {/* Separador */}
+               <hr className="mt-16 mb-7" />
+               <div className="flex justify-center">
+                  <Btn className="uppercase">Ver mais imóveis</Btn>
                </div>
             </Container>
          </div>
