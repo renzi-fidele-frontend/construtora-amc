@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Container from "./Container";
-import { CircleUserRound, ShieldUser, UserStar } from "lucide-react";
+import { UserStar } from "lucide-react";
 import Nav from "./Nav";
 import Link from "next/link";
 
@@ -28,7 +28,13 @@ const Header = () => {
       <header>
          {/* Superior */}
          <Container className="w-full flex items-center justify-between">
-            <Image className="my-2 w-41 object-contain" width={194} height={73} src="/img/logo.png" alt="Ilustração do logotipo da marca Amc Contruções" />
+            <Image
+               className="my-2 w-41 object-contain"
+               width={194}
+               height={73}
+               src="/img/logo.png"
+               alt="Ilustração do logotipo da marca Amc Contruções"
+            />
             <div className="flex gap-8 items-stretch">
                {/* Menu de navegação */}
                <Nav />
@@ -36,7 +42,7 @@ const Header = () => {
                <Link href="#">
                   <div className="text-white bg-theme2 px-[26] py-[22] flex gap-3.5 items-center font-medium">
                      <UserStar className="size-11" />
-                     <div className="h-[55] border-s border-white"></div>
+                     <div className="h-13.75 border-s border-white"></div>
                      <p className="text-[16px] leading-6">
                         Área do <br />
                         <span className="text-[28px] font-bold">Cliente</span>

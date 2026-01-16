@@ -23,7 +23,7 @@ export default function RootLayout({
 }>) {
    return (
       <html lang="pt-BR">
-         <body className={`${fontRubik.variable} antialiased min-h-dvh`}>
+         <body className={`${fontRubik.variable} font-rubik antialiased min-h-dvh`}>
             <Header />
             {children}
          </body>

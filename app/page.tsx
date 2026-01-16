@@ -1,17 +1,11 @@
 import Barra from "@/components/layout/Barra";
+import Container from "@/components/layout/Container";
 import { Title, TitleDescription } from "@/components/layout/Typography";
+import CardEmpreendimento from "@/components/shared/CardEmpreendimento";
 import CarouselDeFotos from "@/components/shared/CarouselDeFotos";
+import { empreendimentos, fotosDestaques } from "@/data/data";
+import Image from "next/image";
 
-const fotosDestaques = [
-   "/img/slides-home/0.png",
-   "/img/slides-home/1.jpg",
-   "/img/slides-home/2.jpg",
-   "/img/slides-home/3.jpg",
-   "/img/slides-home/4.jpg",
-   "/img/slides-home/5.jpg",
-   "/img/slides-home/6.jpg",
-   "/img/slides-home/7.jpg",
-];
 export default function Home() {
    return (
       <div className="overflow-x-hidden">
@@ -19,12 +13,19 @@ export default function Home() {
          <CarouselDeFotos fotos={fotosDestaques} />
          {/* Empreendimentos */}
          <div className="pt-25 pb-32.5">
-            {/* Introdução */}
-            <div className="flex flex-col justify-center items-center gap-2.5">
-               <Barra />
-               <Title>Empreendimentos</Title>
-               <TitleDescription>Conheça os nossos imóveis e encontre seu novo lar.</TitleDescription>
-            </div>
+            <Container>
+               {/* Introdução */}
+               <div className="flex flex-col justify-center items-center gap-2.5 mb-18">
+                  <Barra />
+                  <Title>Empreendimentos</Title>
+                  <TitleDescription>Conheça os nossos imóveis e encontre seu novo lar.</TitleDescription>
+               </div>
+               <div className="flex gap-14 *:basis-[fit-content] justify-center flex-wrap">
+                  {empreendimentos.map((v, k) => (
+                     <CardEmpreendimento empreendimento={v} key={k} />
+                  ))}
+               </div>
+            </Container>
          </div>
       </div>
    );
