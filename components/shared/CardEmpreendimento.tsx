@@ -2,10 +2,16 @@ import { IEmpreendimento } from "@/types/types";
 import Image from "next/image";
 
 const CardEmpreendimento = ({ empreendimento }: { empreendimento: IEmpreendimento }) => {
+   function analisarCor(categoria: typeof empreendimento.categoria) {
+      if (categoria === "Lançamento") return "bg-lancamento";
+      if (categoria === "Pré-lançamento") return "bg-prelancamento";
+      if (categoria === "Entregue") return "bg-entregue";
+      if (categoria === "Urbanismo") return "bg-urbanismo";
+   }
    return (
-      <div className="text-grey  w-fit bg-zinc-50">
+      <div className="text-grey w-fit bg-zinc-50">
          {/* Status */}
-         <div className="uppercase font-semibold bg-[#DE274A] text-white py-2 px-5 relative overflow-hidden">
+         <div className={`uppercase font-semibold ${analisarCor(empreendimento.categoria)} text-white py-2 px-5 relative overflow-hidden`}>
             <p>{empreendimento.categoria}</p>
             {/* Rectângulo overlay */}
             <svg className="absolute end-0 inset-y-0" width="96" height="55" viewBox="0 0 96 55" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -47,7 +53,7 @@ const CardEmpreendimento = ({ empreendimento }: { empreendimento: IEmpreendiment
                   ))}
                </div>
                {/* Retângulo */}
-               <div className="absolute bg-[#DE274A] start-0 top-7 h-11 w-1.5"></div>
+               <div className={`absolute ${analisarCor(empreendimento.categoria)} start-0 top-7 h-11 w-1.5`}></div>
             </div>
          </div>
       </div>

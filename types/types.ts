@@ -1,5 +1,5 @@
 export interface IEmpreendimento {
-   categoria: "Lançamento" | "Pré-lançamento" | "Pronto para morar";
+   categoria: "Lançamento" | "Pré-lançamento" | "Entregue" | "Urbanismo";
    nome: string;
    /** Tamanho da imagem 352 x 198 */
    thumbnail: string;
@@ -22,6 +22,8 @@ export interface IEmpreendimento {
       | "portao-automatico"
       | "sala-de-festas"
       | "spa"
+      | "sacada-com-churasqueira"
+      | "telefone"
    )[];
    id: string;
 }
