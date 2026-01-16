@@ -21,9 +21,11 @@ export default function Home() {
                   <TitleDescription>Conheça os nossos imóveis e encontre seu novo lar.</TitleDescription>
                </div>
                <div className="flex gap-14 *:basis-[fit-content] justify-center flex-wrap">
-                  {empreendimentos.map((v, k) => (
-                     <CardEmpreendimento empreendimento={v} key={k} />
-                  ))}
+                  {empreendimentos
+                     .filter((v) => v.destacado)
+                     .map((v, k) => (
+                        <CardEmpreendimento empreendimento={v} key={k} />
+                     ))}
                </div>
             </Container>
          </div>

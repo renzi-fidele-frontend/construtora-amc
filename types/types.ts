@@ -25,5 +25,6 @@ export interface IEmpreendimento {
       | "sacada-com-churasqueira"
       | "telefone"
    )[];
+   destacado: boolean;
    id: string;
 }
