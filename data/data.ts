@@ -1,4 +1,4 @@
-import { ICardArtigo, IEmpreendimento } from "@/types/types";
+import { ICardArtigo, IDepoimento, IEmpreendimento } from "@/types/types";
 
 export const fotosDestaques = [
    "/img/slides-home/0.png",
@@ -202,5 +202,26 @@ export const artigos: ICardArtigo[] = [
       data: new Date(),
       link: "",
       thumbnail: "https://placehold.co/300x300",
+   },
+];
+
+export const depoimentos: IDepoimento[] = [
+   {
+      foto: "/img/depoimentos/1.webp",
+      texto: "Tenho muita satisfação de ter adquirido este imóvel no Residencial Solar de Hamburgo. Me encantei com a geografia do local e o conceito da edificação. Além disso, a atenção, empenho e cordialidade da equipe AMC.",
+      autor: "Antônio e Sibeli",
+      empreendimento: "Solar de Cascais",
+   },
+   {
+      foto: "/img/depoimentos/2.webp",
+      texto: "Eu e minha família estamos realizados com nossa conquista. Toda a equipe da AMC Construções, nos atenderam com carinho e atenção durante todo o processo. Obrigado, amigos.",
+      autor: "Marcelo Gasperi",
+      empreendimento: "Solar de Cascais",
+   },
+   {
+      foto: "/img/depoimentos/3.webp",
+      texto: "Gostaria de deixar aqui nosso agradecimento, pois estamos muitos realizados e felizes pelo comprometimento e responsabilidade dos envolvidos na realização de um grande sonho.",
+      autor: "Marlon e Daiane",
+      empreendimento: "Solar de Cascais",
    },
 ];

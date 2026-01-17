@@ -36,3 +36,10 @@ export interface ICardArtigo {
    link: string;
    thumbnail: string;
 }
+
+export interface IDepoimento {
+   foto: string;
+   texto: string;
+   autor: string;
+   empreendimento: string;
+}
