@@ -28,3 +28,11 @@ export interface IEmpreendimento {
    destacado: boolean;
    id: string;
 }
+
+export interface IArtigo {
+   titulo: string;
+   descricao: string;
+   data: Date;
+   link: "";
+   thumbnail: string;
+}

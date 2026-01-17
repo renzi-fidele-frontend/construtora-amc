@@ -1,4 +1,4 @@
-import { IEmpreendimento } from "@/types/types";
+import { IArtigo, IEmpreendimento } from "@/types/types";
 
 export const fotosDestaques = [
    "/img/slides-home/0.png",
@@ -167,5 +167,40 @@ export const empreendimentos: IEmpreendimento[] = [
       thumbnail: "/img/empreendimentos/solar-de-hamburgo/solar-de-hamburgo.jpg",
       icones: ["churasqueira", "piso-laminado", "telefone", "sacada-com-churasqueira"],
       destacado: false,
+   },
+];
+
+export const artigos: IArtigo[] = [
+   {
+      titulo: "Crescimento exponencial: movimentação de carga aérea aumenta 25% em Santa Catarina",
+      descricao:
+         "A movimentação de cargas nos aeroportos de Santa Catarina teve um crescimento de 25,3% em 2023, em relação ao ano anterior. Os dados foram confirmados pela Agência Nacional de Aviação Civil (Anac), que divulgou o fechamento dos dados de todo o Brasil. O desempenho catarinense é significativo diante da queda de 1,17% registrada em todo o país.",
+      data: new Date(),
+      link: "",
+      thumbnail: "https://placehold.co/400x300",
+   },
+   {
+      titulo: "Crescimento exponencial: movimentação de carga aérea aumenta 25% em Santa Catarina",
+      descricao:
+         "A movimentação de cargas nos aeroportos de Santa Catarina teve um crescimento de 25,3% em 2023, em relação ao ano anterior. Os dados foram confirmados pela Agência Nacional de Aviação Civil (Anac), que divulgou o fechamento dos dados de todo o Brasil. O desempenho catarinense é significativo diante da queda de 1,17% registrada em todo o país.",
+      data: new Date(),
+      link: "",
+      thumbnail: "https://placehold.co/400x300",
+   },
+   {
+      titulo: "Crescimento exponencial: movimentação de carga aérea aumenta 25% em Santa Catarina",
+      descricao:
+         "A movimentação de cargas nos aeroportos de Santa Catarina teve um crescimento de 25,3% em 2023, em relação ao ano anterior. Os dados foram confirmados pela Agência Nacional de Aviação Civil (Anac), que divulgou o fechamento dos dados de todo o Brasil. O desempenho catarinense é significativo diante da queda de 1,17% registrada em todo o país.",
+      data: new Date(),
+      link: "",
+      thumbnail: "https://placehold.co/400x300",
+   },
+   {
+      titulo: "Crescimento exponencial: movimentação de carga aérea aumenta 25% em Santa Catarina",
+      descricao:
+         "A movimentação de cargas nos aeroportos de Santa Catarina teve um crescimento de 25,3% em 2023, em relação ao ano anterior. Os dados foram confirmados pela Agência Nacional de Aviação Civil (Anac), que divulgou o fechamento dos dados de todo o Brasil. O desempenho catarinense é significativo diante da queda de 1,17% registrada em todo o país.",
+      data: new Date(),
+      link: "",
+      thumbnail: "https://placehold.co/400x300",
    },
 ];
