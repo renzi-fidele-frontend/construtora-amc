@@ -5,6 +5,7 @@ import Btn from "@/components/shared/Btn";
 import CardDestaque from "@/components/shared/CardDestaque";
 import CardEmpreendimento from "@/components/shared/CardEmpreendimento";
 import CarouselDeFotos from "@/components/shared/CarouselDeFotos";
+import SectionIntro from "@/components/shared/SectionIntro";
 import { empreendimentos, fotosDestaques } from "@/data/data";
 import { Calendar, HardHat, Store, UserStar } from "lucide-react";
 
@@ -16,12 +17,7 @@ export default function Home() {
          {/* Empreendimentos */}
          <div className="pt-25 pb-32.5">
             <Container>
-               {/* Introdução */}
-               <div className="flex flex-col justify-center items-center gap-2.5 mb-18">
-                  <Barra />
-                  <Title>Empreendimentos</Title>
-                  <TitleDescription>Conheça os nossos imóveis e encontre seu novo lar.</TitleDescription>
-               </div>
+               <SectionIntro titulo="Empreendimentos" descricao="Conheça os nossos imóveis e encontre seu novo lar." />
                <div className="flex gap-14 *:basis-[fit-content] justify-center flex-wrap">
                   {empreendimentos
                      .filter((v) => v.destacado)
