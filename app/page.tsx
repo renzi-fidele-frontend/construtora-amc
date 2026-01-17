@@ -1,13 +1,13 @@
 import Container from "@/components/layout/Container";
 import Btn from "@/components/shared/Btn";
 import CardBlog from "@/components/shared/CardBlog";
+import CardDepoimento from "@/components/shared/CardDepoimento";
 import CardDestaque from "@/components/shared/CardDestaque";
 import CardEmpreendimento from "@/components/shared/CardEmpreendimento";
 import CarouselDeFotos from "@/components/shared/CarouselDeFotos";
 import SectionIntro from "@/components/shared/SectionIntro";
 import { artigos, depoimentos, empreendimentos, fotosDestaques } from "@/data/data";
-import { Building, Calendar, HardHat, Store, UserRound, UserStar } from "lucide-react";
-import Image from "next/image";
+import { Calendar, HardHat, Store, UserStar } from "lucide-react";
 
 export default function Home() {
    return (
@@ -97,27 +97,7 @@ export default function Home() {
                <SectionIntro titulo="DEPOIMENTOS" descricao="Leia os depoimentos de quem realizou seus sonhos com a AMC" />
                <div className="flex flex-wrap justify-between *:basis-[30%]">
                   {depoimentos.map((v, k) => (
-                     <div className="text-theme1" key={k}>
-                        {/* Foto */}
-                        <Image
-                           width={700}
-                           height={700}
-                           src={v.foto}
-                           alt={`Foto demonstrando o cliente ${v.autor} super satisfeito com o nosso serviço após comprar o ${v.empreendimento}`}
-                        />
-                        {/* Depoimento */}
-                        <p className="line-clamp-2 italic text-grey mt-3.5">{v.texto}</p>
-                        {/* Cliente */}
-                        <p className="font-bold text-xl mt-3 mb-1 flex items-center gap-2">
-                           <UserRound className="size-5" /> {v.autor}
-                        </p>
-                        {/* Empreendimento adquirido */}
-                        <p className="mb-5 flex items-center gap-2">
-                           <Building className="size-5" /> {v.empreendimento}
-                        </p>
-                        {/* CTA */}
-                        <Btn className="uppercase text-[16px]! py-2.5! ">Continue lendo</Btn>
-                     </div>
+                     <CardDepoimento depoimento={v} key={k} />
                   ))}
                </div>
             </Container>
