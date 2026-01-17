@@ -8,6 +8,7 @@ import CarouselDeFotos from "@/components/shared/CarouselDeFotos";
 import SectionIntro from "@/components/shared/SectionIntro";
 import { artigos, depoimentos, empreendimentos, fotosDestaques } from "@/data/data";
 import { Calendar, HardHat, Store, UserStar } from "lucide-react";
+import Image from "next/image";
 
 export default function Home() {
    return (
@@ -92,15 +93,27 @@ export default function Home() {
             </Container>
          </section>
          {/* Seção dos depoimentos */}
-         <section className="py-24 ">
+         <section className="py-24 relative">
             <Container>
-               <SectionIntro titulo="DEPOIMENTOS" descricao="Leia os depoimentos de quem realizou seus sonhos com a AMC" />
+               <SectionIntro
+                  className="*:text-white!"
+                  titulo="DEPOIMENTOS"
+                  descricao="Leia os depoimentos de quem realizou seus sonhos com a AMC"
+               />
                <div className="flex flex-wrap justify-between *:basis-[30%]">
                   {depoimentos.map((v, k) => (
                      <CardDepoimento depoimento={v} key={k} />
                   ))}
                </div>
             </Container>
+            {/* Imagem de fundo */}
+            <Image
+               className="-z-1 absolute top-0 inset-x-0"
+               width={1918}
+               height={520}
+               src="/img/fundoDepoimentos.jpg"
+               alt="Imagem de fundo demostrando uma família muito feliz após adquirir um empreendimento com a AMC Construções"
+            />
          </section>
       </main>
    );
