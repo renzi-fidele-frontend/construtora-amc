@@ -1,5 +1,6 @@
 import Container from "@/components/layout/Container";
 import Btn from "@/components/shared/Btn";
+import CardBlog from "@/components/shared/CardBlog";
 import CardDestaque from "@/components/shared/CardDestaque";
 import CardEmpreendimento from "@/components/shared/CardEmpreendimento";
 import CarouselDeFotos from "@/components/shared/CarouselDeFotos";
@@ -86,26 +87,7 @@ export default function Home() {
                <SectionIntro titulo="Blog" descricao="Fique por dentro dos últimos artigos da AMC" />
                <div className="grid grid-cols-2 gap-8">
                   {artigos.map((v, k) => (
-                     <div className="flex border border-b-7" key={k}>
-                        <Image
-                           className="w-60 h-full object-cover shrink-0"
-                           unoptimized
-                           width={224}
-                           height={250}
-                           src={v.thumbnail}
-                           alt={`Ilustração do artigo sobre ${v.titulo}`}
-                        />
-                        <div className="py-5 px-6 flex flex-col gap-2">
-                           <p className="text-theme1 font-medium flex items-center">
-                              <CalendarClock className="size-5 shrink-0 me-1" /> {v.data.toLocaleDateString()}
-                           </p>
-                           <h6 className="text-theme1 font-medium text-xl line-clamp-2">{v.titulo}</h6>
-                           <p className="line-clamp-4 text-grey my-1.5">{v.descricao}</p>
-                           <Link href={`/blog/${encodeURIComponent(v.titulo)}`}>
-                              <Btn className="text-sm uppercase py-2.5!">Ver mais</Btn>
-                           </Link>
-                        </div>
-                     </div>
+                     <CardBlog data={v.data} descricao={v.descricao} link={v.link} thumbnail={v.thumbnail} titulo={v.titulo} key={k} />
                   ))}
                </div>
             </Container>

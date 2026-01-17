@@ -29,10 +29,10 @@ export interface IEmpreendimento {
    id: string;
 }
 
-export interface IArtigo {
+export interface ICardArtigo {
    titulo: string;
    descricao: string;
    data: Date;
-   link: "";
+   link: string;
    thumbnail: string;
 }
