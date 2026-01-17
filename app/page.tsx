@@ -105,6 +105,10 @@ export default function Home() {
                      <CardDepoimento depoimento={v} key={k} />
                   ))}
                </div>
+               <hr className="mt-10 mb-7" />
+               <div className="flex justify-center">
+                  <Btn className="uppercase mx-auto">Ver mais depoimentos</Btn>
+               </div>
             </Container>
             {/* Imagem de fundo */}
             <Image
