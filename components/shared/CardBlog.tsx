@@ -16,10 +16,10 @@ const CardBlog = ({ thumbnail, titulo, data, descricao, link }: ICardArtigo) => 
             alt={`Ilustração do artigo sobre ${titulo}`}
          />
          <div className="py-5 px-6 flex flex-col gap-2">
-            <p className="text-theme1 font-medium flex items-center">
+            <p className="font-medium flex items-center">
                <CalendarClock className="size-5 shrink-0 me-1" /> {data.toLocaleDateString()}
             </p>
-            <h6 className="text-theme1 font-medium text-xl line-clamp-2">{titulo}</h6>
+            <h6 className="font-medium text-xl line-clamp-2">{titulo}</h6>
             <p className="line-clamp-4 text-grey my-1.5">{descricao}</p>
             <Link href={`/blog/${encodeURIComponent(titulo)}`}>
                <Btn className="text-sm uppercase py-2.5!">Ver mais</Btn>

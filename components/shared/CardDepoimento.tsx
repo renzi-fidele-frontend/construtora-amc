@@ -5,7 +5,7 @@ import { IDepoimento } from "@/types/types";
 
 const CardDepoimento = ({ depoimento }: { depoimento: IDepoimento }) => {
    return (
-      <div className="text-theme1">
+      <div>
          {/* Foto */}
          <Image
             width={700}
