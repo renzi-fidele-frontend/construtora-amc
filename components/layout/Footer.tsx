@@ -87,25 +87,25 @@ const Footer = () => {
          </div>
          {/* Última linha */}
          <Container>
-            <div>
-               Quadra 16 - Lote 41 Residencial Ivany Paiva Gatti CEP 86300-000 Tijucas/SC Loja de Vendas Tijucas (Av José Manoel Reis 05 Bairro
-               Areias) Plantão - Ilha di Capri (Rua 13 de Maio 2746 - Bairro Areias) Itapema/SC Plantão de vendas Rua 700, N° 812 Bairro Casa
-               Branca
-               <div>
+            <div className="flex flex-nowrap justify-between gap-12 py-10.5 text-[12px] font-light [&_h6]:text-base [&_h6]:font-bold [&_p]:mt-1.5 *:flex-1">
+               {/* Central de vendas e Assistência Técnica */}
+               <div className="[&_p]:text-xl">
                   <div>
                      <h6>Central de Vendas</h6>
                      <p>47 9 9152-0164</p>
                   </div>
-                  <div>
+                  <div className="mt-3.5">
                      <h6>Assistência Técnica e Administração</h6>
                      <p>48 9 9125-3213</p>
                   </div>
                </div>
+               {/* Matriz */}
                <div>
                   <h6>Matriz</h6>
                   <p>Av. Tiradentes, 501 Torre 1 (14º Andar - Sala 1401)</p>
                   <p>Jardim Shangri-Lá, Londrina/PR CEP 86070-545</p>
                </div>
+               {/* Filial */}
                <div>
                   <h6>Filial</h6>
                   <p>R. Monza, 226</p>
@@ -113,6 +113,7 @@ const Footer = () => {
                   <p>Passa Vinte, Palhoça/SC</p>
                   <p>CEP 88132-147</p>
                </div>
+               {/* Cornélio Procópio/PR */}
                <div>
                   <h6>Cornélio Procópio/PR</h6>
                   <p>Av. Ismael Reghin</p>
@@ -120,12 +121,14 @@ const Footer = () => {
                   <p>Residencial Ivany Paiva Gatti</p>
                   <p>CEP 86300-000</p>
                </div>
+               {/* Tijucas/SC */}
                <div>
                   <h6>Tijucas/SC</h6>
                   <p>Loja de Vendas Tijucas</p>
                   <p>(Av José Manoel Reis 05 Bairro Areias)</p>
                   <p>Plantão - Ilha di Capri (Rua 13 de Maio 2746 - Bairro Areias)</p>
                </div>
+               {/* Itapema/SC */}
                <div>
                   <h6>Itapema/SC</h6>
                   <p>Plantão de vendas</p>
