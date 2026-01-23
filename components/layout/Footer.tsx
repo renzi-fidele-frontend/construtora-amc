@@ -2,33 +2,43 @@ import Image from "next/image";
 import Container from "./Container";
 import Link from "next/link";
 import Btn from "../shared/Btn";
+import { ChevronsRight } from "lucide-react";
+
+const LinkComChevron = ({ texto, link }: { texto: string; link: string }) => {
+   return (
+      <Link className="flex items-center gap-1" href={link}>
+         <ChevronsRight className="size-4" /> {texto}
+      </Link>
+   );
+};
 
 const Footer = () => {
    return (
       <footer>
-         <Container>
+         <hr className="border-4 mb-8" />
+         <Container className="text-lg">
             {/* Primeira linha */}
-            <div className="grid grid-cols-3">
+            <div className="flex flex-nowrap justify-between *:grow *:flex *:flex-col *:gap-5">
                {/* Coluna 1 */}
-               <div>
+               <div className="basis-[28%]">
                   <Image width={170} height={64} src="/img/logo.png" alt="Logotipo do site" />
-                  <div className="flex flex-col gap-1 mt-5">
-                     <Link href="#">Quem somos</Link>
-                     <Link href="#">Missão e valores</Link>
+                  <div className="flex flex-col gap-2 text-lg font-medium mt-2">
+                     <LinkComChevron texto="Quem Somos" link="/quem_somos" />
+                     <LinkComChevron texto="Missão e valores" link="/missao_e_valores" />
                   </div>
                </div>
                {/* Coluna 2 */}
                <div>
-                  <p>Institucional</p>
-                  <nav>
-                     <Link href="#">Infraestrutura</Link>
-                     <Link href="#">Clientes</Link>
-                     <Link href="#">Contato</Link>
-                     <Link href="#">Política de Privacidade</Link>
+                  <p className="font-medium">Institucional</p>
+                  <nav className="flex flex-col gap-3 text-sm">
+                     <LinkComChevron texto="Infraestrutura" link="/infraestrutura" />
+                     <LinkComChevron texto="Clientes" link="/clientes" />
+                     <LinkComChevron texto="Contato" link="/contato" />
+                     <LinkComChevron texto="Política de Privacidade" link="/politica_de_privacidade" />
                   </nav>
                </div>
                {/* Coluna 3 */}
-               <div>
+               <div className="font-medium">
                   <Link href="#">Empreendimentos</Link>
                   <Link href="#">Depoimentos</Link>
                   <Link href="#">Missão e valores</Link>
