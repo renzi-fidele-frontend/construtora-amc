@@ -2,7 +2,7 @@ import Image from "next/image";
 import Container from "./Container";
 import Link from "next/link";
 import Btn from "../shared/Btn";
-import { ChevronsRight } from "lucide-react";
+import { Calendar, ChevronsRight, MessageSquareText, Phone } from "lucide-react";
 
 const LinkComChevron = ({ texto, link }: { texto: string; link: string }) => {
    return (
@@ -18,7 +18,7 @@ const Footer = () => {
          <hr className="border-4 mb-8" />
          <Container className="text-lg">
             {/* Primeira linha */}
-            <div className="flex flex-nowrap justify-between *:grow *:flex *:flex-col *:gap-5">
+            <div className="flex flex-nowrap justify-between *:grow *:flex *:flex-col *:gap-4">
                {/* Coluna 1 */}
                <div className="basis-[28%]">
                   <Image width={170} height={64} src="/img/logo.png" alt="Logotipo do site" />
@@ -30,7 +30,7 @@ const Footer = () => {
                {/* Coluna 2 */}
                <div>
                   <p className="font-medium">Institucional</p>
-                  <nav className="flex flex-col gap-3 text-sm">
+                  <nav className="flex flex-col gap-2.5 text-base">
                      <LinkComChevron texto="Infraestrutura" link="/infraestrutura" />
                      <LinkComChevron texto="Clientes" link="/clientes" />
                      <LinkComChevron texto="Contato" link="/contato" />
@@ -48,16 +48,20 @@ const Footer = () => {
                </div>
             </div>
             {/* Barra azul */}
-            <div className="grid grid-cols-3 *:h-44 *:pt-6">
-               <Link href="#">
+            <div className="grid grid-cols-3 *:flex *:flex-col *:gap-4 *:pt-6 *:pb-9 *:px-8 text-white font-black tracking-wider text-2xl mt-7">
+               <Link className="bg-[#0CA5AD]" href="#">
+                  <Calendar className="size-8" />
                   <p>BLOG</p>
                </Link>
-               <Link href="#">
+               <Link className="bg-theme2" href="#">
+                  <MessageSquareText className="size-8" />
                   <p>WHATSAPP</p>
                </Link>
-               <Link href="#">
+               <Link className="bg-[#0CA5AD]" href="#">
+                  <Phone className="size-8" />
                   <p>
-                     LIGAMOS <br />
+                     <span className="font-normal text-xl">LIGAMOS</span>
+                     <br />
                      <span>PARA VOCÊ</span>
                   </p>
                </Link>
