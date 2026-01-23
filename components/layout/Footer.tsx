@@ -48,7 +48,7 @@ const Footer = () => {
                </div>
             </div>
             {/* Barra azul */}
-            <div className="grid grid-cols-3 *:flex *:flex-col *:gap-4 *:pt-6 *:pb-9 *:px-8 text-white font-black tracking-wider text-2xl mt-7">
+            <div className="grid grid-cols-3 *:flex *:flex-col *:gap-4 *:pt-6 *:pb-9 *:px-8 text-white font-black tracking-wider text-2xl mt-7 *:hover:[&_svg]:animate-bounce *:hover:border">
                <Link className="bg-[#0CA5AD]" href="#">
                   <Calendar className="size-8" />
                   <p>BLOG</p>
@@ -66,16 +66,27 @@ const Footer = () => {
                   </p>
                </Link>
             </div>
-            {/* Redes sociais */}
-            <div>
-               <p>Redes Sociais:</p>
-               <div>
+         </Container>
+         {/* Redes sociais */}
+         <div className="flex py-5 bg-zinc-200 items-center justify-center gap-6">
+            <p className="font-medium text-xl">Redes Sociais:</p>
+            <div className="flex items-center gap-7 **:rounded-full">
+               {/* Facebook */}
+               <Link href="https://www.facebook.com/people/AMC-Constru%C3%A7%C3%B5es/100063671165105/">
                   <Image width={50} height={50} src="/icons/social/facebook.webp" alt={`Ícone da rede social: Facebook`} />
+               </Link>
+               {/* Instagram */}
+               <Link href="https://www.instagram.com/construcoesamc/">
                   <Image width={50} height={50} src="/icons/social/instagram.webp" alt={`Ícone da rede social: Instagram`} />
+               </Link>
+               {/* Youtube */}
+               <Link href="https://www.youtube.com/@AMCConstrucoes">
                   <Image width={50} height={50} src="/icons/social/youtube.webp" alt={`Ícone da rede social: Youtube`} />
-               </div>
+               </Link>
             </div>
-            {/* Última linha */}
+         </div>
+         {/* Última linha */}
+         <Container>
             <div>
                Quadra 16 - Lote 41 Residencial Ivany Paiva Gatti CEP 86300-000 Tijucas/SC Loja de Vendas Tijucas (Av José Manoel Reis 05 Bairro
                Areias) Plantão - Ilha di Capri (Rua 13 de Maio 2746 - Bairro Areias) Itapema/SC Plantão de vendas Rua 700, N° 812 Bairro Casa
