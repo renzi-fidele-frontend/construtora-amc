@@ -48,7 +48,7 @@ const Footer = () => {
                </div>
             </div>
             {/* Barra azul */}
-            <div className="grid grid-cols-3 *:flex *:flex-col *:gap-4 *:pt-6 *:pb-9 *:px-8 text-white font-black tracking-wider text-2xl mt-7 *:hover:[&_svg]:animate-bounce *:hover:border">
+            <div className="grid grid-cols-3 *:flex *:flex-col *:gap-4 *:pt-6 *:pb-9 *:px-8 text-white font-black tracking-wider text-2xl mt-7 *:hover:[&_svg]:animate-bounce *:hover:border-x">
                <Link className="bg-[#0CA5AD]" href="#">
                   <Calendar className="size-8" />
                   <p>BLOG</p>

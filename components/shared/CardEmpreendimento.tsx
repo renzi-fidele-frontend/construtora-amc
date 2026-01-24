@@ -1,5 +1,6 @@
 import { IEmpreendimento } from "@/types/types";
 import Image from "next/image";
+import Link from "next/link";
 
 const CardEmpreendimento = ({ empreendimento }: { empreendimento: IEmpreendimento }) => {
    function analisarCor(categoria: typeof empreendimento.categoria) {
@@ -9,7 +10,10 @@ const CardEmpreendimento = ({ empreendimento }: { empreendimento: IEmpreendiment
       if (categoria === "Urbanismo") return "bg-urbanismo";
    }
    return (
-      <div className="text-grey w-fit bg-zinc-50">
+      <Link
+         href={`/empreendimentos/${empreendimento.id}`}
+         className="text-grey w-fit bg-zinc-50 transition hover:-translate-y-1.5 hover:bg-theme1 hover:text-white group"
+      >
          {/* Status */}
          <div className={`uppercase font-semibold ${analisarCor(empreendimento.categoria)} text-white py-2 px-5 relative overflow-hidden`}>
             <p>{empreendimento.categoria}</p>
@@ -24,7 +28,13 @@ const CardEmpreendimento = ({ empreendimento }: { empreendimento: IEmpreendiment
                <h3 className="uppercase text-[17px] font-bold">{empreendimento.nome}</h3>
             </div>
             {/* Imagem */}
-            <Image width={352} height={198} src={empreendimento.thumbnail} alt={`Imagem demostrando o empreendimento`} />
+            <Image
+               className="group-hover:sepia-60"
+               width={352}
+               height={198}
+               src={empreendimento.thumbnail}
+               alt={`Imagem demostrando o empreendimento`}
+            />
             {/* Corpo */}
             <div className="w-full px-5 font-medium text-[17px] relative">
                {/* Endereço */}
@@ -43,7 +53,7 @@ const CardEmpreendimento = ({ empreendimento }: { empreendimento: IEmpreendiment
                <div className="py-4 flex items-center justify-between">
                   {empreendimento.icones.map((v, k) => (
                      <Image
-                        className="shrink-0"
+                        className="shrink-0 group-hover:invert-100"
                         width={40}
                         height={40}
                         src={`/icons/features/${v}.png`}
@@ -56,7 +66,7 @@ const CardEmpreendimento = ({ empreendimento }: { empreendimento: IEmpreendiment
                <div className={`absolute ${analisarCor(empreendimento.categoria)} start-0 top-7 h-11 w-1.5`}></div>
             </div>
          </div>
-      </div>
+      </Link>
    );
 };
 export default CardEmpreendimento;
