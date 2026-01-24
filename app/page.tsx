@@ -9,6 +9,7 @@ import SectionIntro from "@/components/shared/SectionIntro";
 import { artigos, depoimentos, empreendimentos, fotosDestaques } from "@/data/data";
 import { Calendar, HardHat, Store, UserStar } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
    return (
@@ -29,7 +30,9 @@ export default function Home() {
                {/* Separador */}
                <hr className="mt-16 mb-7" />
                <div className="flex justify-center">
-                  <Btn className="uppercase">Ver mais imóveis</Btn>
+                  <Link href="/empreendimentos">
+                     <Btn className="uppercase">Ver mais imóveis</Btn>
+                  </Link>
                </div>
             </Container>
          </section>

@@ -1,18 +1,22 @@
+import Container from "@/components/layout/Container";
 import { ChevronsRight } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 
 export default function Empreendimentos() {
    return (
       <div>
          {/* Banner do topo */}
-         <div></div>
+         <Image width={1914} height={431} src="/img/banners/empreendimentos.jpg" alt="Banner ilustrando a capa da página de empreendimento" />
          {/* Breadcrumb */}
-         <div className="flex items-center gap-2 bg-zinc-100 text-zinc-400 font-light">
-            <ChevronsRight /> Início <ChevronsRight />{" "}
-            <Link className="font-medium" href="/empreendimentos">
-               Empreendimentos
-            </Link>
-         </div>
+         <nav className="bg-zinc-100 text-zinc-600 font-light">
+            <Container className="flex items-center gap-2 py-4.5">
+               <ChevronsRight className="size-4" /> <Link href="/">Início</Link> <ChevronsRight className="size-4" />{" "}
+               <Link className="font-medium" href="/empreendimentos">
+                  Empreendimentos
+               </Link>
+            </Container>
+         </nav>
          <section></section>
       </div>
    );
