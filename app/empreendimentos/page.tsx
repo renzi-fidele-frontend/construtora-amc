@@ -1,8 +1,12 @@
 import Container from "@/components/layout/Container";
+import CardEmpreendimento from "@/components/shared/CardEmpreendimento";
+import SectionIntro from "@/components/shared/SectionIntro";
+import { empreendimentos } from "@/data/data";
 import { ChevronsRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
+// TODO: Implementar a funcionalidade de paginação a página dos empreendimentos
 export default function Empreendimentos() {
    return (
       <div>
@@ -17,7 +21,21 @@ export default function Empreendimentos() {
                </Link>
             </Container>
          </nav>
-         <section></section>
+         <section>
+            <Container className="py-25">
+               <SectionIntro
+                  className="items-start!"
+                  titulo="Empreendimentos"
+                  descricao="Descubra todos os empreendimentos feitos pela AMC Construções"
+               />
+               {/* Listagem dos empreendimentos */}
+               <div className="flex gap-12 *:basis-[calc(33.3%-48px)] justify-between flex-wrap">
+                  {empreendimentos.map((v, k) => (
+                     <CardEmpreendimento largura="w-full" empreendimento={v} key={k} />
+                  ))}
+               </div>
+            </Container>
+         </section>
       </div>
    );
 }

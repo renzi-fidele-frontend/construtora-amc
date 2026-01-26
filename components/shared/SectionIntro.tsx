@@ -2,7 +2,7 @@ import Barra from "../layout/Barra";
 import { Title, TitleDescription } from "../layout/Typography";
 interface ISectionIntro {
    titulo: string;
-   descricao: string;
+   descricao?: string;
    className?: string;
 }
 const SectionIntro = ({ titulo, descricao, className }: ISectionIntro) => {

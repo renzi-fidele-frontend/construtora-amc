@@ -2,7 +2,7 @@ import { IEmpreendimento } from "@/types/types";
 import Image from "next/image";
 import Link from "next/link";
 
-const CardEmpreendimento = ({ empreendimento }: { empreendimento: IEmpreendimento }) => {
+const CardEmpreendimento = ({ empreendimento, largura = "w-fit" }: { empreendimento: IEmpreendimento; largura?: "w-fit" | "w-full" }) => {
    function analisarCor(categoria: typeof empreendimento.categoria) {
       if (categoria === "Lançamento") return "bg-lancamento";
       if (categoria === "Pré-lançamento") return "bg-prelancamento";
@@ -12,7 +12,7 @@ const CardEmpreendimento = ({ empreendimento }: { empreendimento: IEmpreendiment
    return (
       <Link
          href={`/empreendimentos/${empreendimento.id}`}
-         className="text-grey w-fit bg-zinc-50 transition hover:-translate-y-1.5 hover:bg-theme1 hover:text-white group"
+         className={`text-grey bg-zinc-50 transition hover:-translate-y-1.5 hover:bg-theme1 hover:text-white group ${largura}`}
       >
          {/* Status */}
          <div className={`uppercase font-semibold ${analisarCor(empreendimento.categoria)} text-white py-2 px-5 relative overflow-hidden`}>
@@ -22,14 +22,14 @@ const CardEmpreendimento = ({ empreendimento }: { empreendimento: IEmpreendiment
                <path d="M0 0H63.5H96V55L46 54.5L0 0Z" fill="white" />
             </svg>
          </div>
-         <div className="w-fit border border-b-9 border-zinc-300">
+         <div className={`${largura} border border-b-9 border-zinc-300`}>
             {/* Titulo */}
             <div className="px-5 py-3">
                <h3 className="uppercase text-[17px] font-bold">{empreendimento.nome}</h3>
             </div>
             {/* Imagem */}
             <Image
-               className="group-hover:sepia-60"
+               className="group-hover:sepia-60 w-full"
                width={352}
                height={198}
                src={empreendimento.thumbnail}
