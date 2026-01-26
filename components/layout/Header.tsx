@@ -7,19 +7,19 @@ import Link from "next/link";
 const categorias = [
    {
       nome: "Empreendimentos",
-      url: "#",
+      url: "/empreendimentos",
    },
    {
       nome: "Pré-lançamentos",
-      url: "#",
+      url: "/empreendimentos?categoria=Pré-lançamento",
    },
    {
       nome: "Lançamentos",
-      url: "#",
+      url: "/empreendimentos?categoria=Lançamento",
    },
    {
       nome: "Pronto para morar",
-      url: "#",
+      url: "/empreendimentos?categoria=Entregue",
    },
 ];
 
@@ -28,13 +28,16 @@ const Header = () => {
       <header>
          {/* Superior */}
          <Container className="w-full flex items-center justify-between">
-            <Image
-               className="my-2 w-41 object-contain"
-               width={194}
-               height={73}
-               src="/img/logo.png"
-               alt="Ilustração do logotipo da marca Amc Contruções"
-            />
+            {/* Logo */}
+            <Link href="/">
+               <Image
+                  className="my-2 w-41 object-contain"
+                  width={194}
+                  height={73}
+                  src="/img/logo.png"
+                  alt="Ilustração do logotipo da marca Amc Contruções"
+               />
+            </Link>
             <div className="flex gap-8 items-stretch">
                {/* Menu de navegação */}
                <Nav />

@@ -31,7 +31,7 @@ const links: TypeLinks = [
       ],
    },
    { titulo: "Empreendimentos", url: "/empreendimentos" },
-   { titulo: "Urbanismo", url: "/empreendimentos?tipo=urbanismo" },
+   { titulo: "Urbanismo", url: "/empreendimentos?categoria=Urbanismo" },
    { titulo: "Blog", url: "/blog" },
    { titulo: "Fale conosco", url: "/fale_conosco", highlight: true },
 ];
@@ -43,7 +43,7 @@ const Nav = () => {
             {links?.map((v, k) => (
                <NavigationMenuItem key={k}>
                   {!v.megaLinks ? (
-                     <NavigationMenuLink className={`${v?.highlight && "bg-theme1 text-white cursor-pointer"}`} href={v?.url}>
+                     <NavigationMenuLink className={`${v?.highlight && "bg-theme1 text-white cursor-pointer border-theme1 border"}`} href={v?.url}>
                         {v?.titulo}
                      </NavigationMenuLink>
                   ) : (
