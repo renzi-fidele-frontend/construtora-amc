@@ -54,7 +54,7 @@ export default function Home() {
                   </p>
                }
                descricao="O compromisso da AMC com o cliente."
-               link="/quem_somos"
+               link="/institucional/quem_somos"
                className="bg-blue-800"
             />
             <CardDestaque

@@ -23,7 +23,7 @@ const Footer = () => {
                <div className="basis-[28%]">
                   <Image width={170} height={64} src="/img/logo.png" alt="Logotipo do site" />
                   <div className="flex flex-col gap-2 text-lg font-medium mt-2">
-                     <LinkComChevron texto="Quem Somos" link="/quem_somos" />
+                     <LinkComChevron texto="Quem Somos" link="/institucional/quem_somos" />
                      <LinkComChevron texto="Missão e valores" link="/missao_e_valores" />
                   </div>
                </div>
