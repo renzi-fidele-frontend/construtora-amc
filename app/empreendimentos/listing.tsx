@@ -21,14 +21,14 @@ const ListagemDeEmpreendimentos = () => {
          // eslint-disable-next-line react-hooks/set-state-in-effect
          handleChange(categoriaViaUrl);
       } else {
-         handleChange("Todos")
+         handleChange("Todos");
       }
    }, [categoriaViaUrl]);
 
    return (
       <>
          <Tabs defaultValue={categoriaViaUrl || "Todos"} value={tabAtivo} className="mb-16" onValueChange={handleChange}>
-            <TabsList className="*:cursor-pointer *:text-xl *:p-4 *:font-light *:aria-selected:font-medium **:rounded">
+            <TabsList className="*:cursor-pointer *:text-xl *:p-4 *:aria-selected:font-medium **:rounded">
                <TabsTrigger value="Todos">Todos</TabsTrigger>
                <TabsTrigger value="Lançamento">Lançamento</TabsTrigger>
                <TabsTrigger value="Pré-lançamento">Pré-lançamento</TabsTrigger>

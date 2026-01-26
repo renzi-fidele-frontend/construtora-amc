@@ -63,22 +63,25 @@ const Header = () => {
                   </Link>
                ))}
                {/* CTA para o minha casa minha vida */}
+
                <div className="flex gap-10 items-center">
                   <div className="border-s border-dashed h-6"></div>
-                  <div className="flex items-center gap-2 text-[11px] font-bold">
-                     <Image
-                        width={105}
-                        height={74}
-                        className="w-auto object-contain h-7"
-                        src="/img/minha-casa.webp"
-                        alt="Ilustração da logo marca do minha casa minha vida"
-                     />
-                     <div className="leading-2">
-                        <p>Minha Casa</p>
-                        <br />
-                        <p>Minha Vida</p>
+                  <Link href="https://www.caixa.gov.br/voce/habitacao/minha-casa-minha-vida/Paginas/default.aspx" target="_blank">
+                     <div className="flex items-center gap-2 text-[11px] font-bold">
+                        <Image
+                           width={105}
+                           height={74}
+                           className="w-auto object-contain h-7"
+                           src="/img/minha-casa.webp"
+                           alt="Ilustração da logo marca do minha casa minha vida"
+                        />
+                        <div className="leading-2">
+                           <p>Minha Casa</p>
+                           <br />
+                           <p>Minha Vida</p>
+                        </div>
                      </div>
-                  </div>
+                  </Link>
                </div>
             </Container>
          </div>

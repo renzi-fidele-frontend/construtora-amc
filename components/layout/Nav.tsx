@@ -43,7 +43,7 @@ const Nav = () => {
             {links?.map((v, k) => (
                <NavigationMenuItem key={k}>
                   {!v.megaLinks ? (
-                     <NavigationMenuLink className={`${v?.highlight && "bg-theme1 text-white cursor-pointer border-theme1 border"}`} href={v?.url}>
+                     <NavigationMenuLink  className={`data-[active=true]:underline ${v?.highlight && "bg-theme1 text-white cursor-pointer border-theme1 border"}`} href={v?.url}>
                         {v?.titulo}
                      </NavigationMenuLink>
                   ) : (
