@@ -1,3 +1,4 @@
+import Container from "@/components/layout/Container";
 import Breadcrumb from "@/components/shared/Breadcrumb";
 import Image from "next/image";
 
@@ -14,6 +15,35 @@ const QuemSomos = () => {
                { titulo: "AMC Construções", href: "/institucional/quem_somos", ativo: true },
             ]}
          />
+         <Container className="py-25.5">
+            {/* História da AMC */}
+            <div className="flex gap-15 *:basis-[calc(50% - 24px)] *:flex-1">
+               <div className="flex flex-col justify-center">
+                  <h3 className="text-4xl font-bold">Conheça a história da construtora AMC</h3>
+                  <div className="flex flex-col gap-8 my-6 text-lg font-light">
+                     <p>Há 29 anos atuando em todo o Brasil. Em cada obra você encontra um padrão de qualidade único.</p>
+                     <p>
+                        Quem tem visão sabe que o Brasil é um dos mercados com maior potencial de crescimento. O mundo já reconhece isso.
+                        Contribuir para o desenvolvimento de um país significa gerar empregos, investir em tecnologia, implementar programas
+                        sociais e ambientais e gerar valor para seus clientes.
+                     </p>
+                     <p>
+                        Sediada em Londrina-PR e com filial em Palhoça-SC, a AMC Construções reúne a tradição de um grupo com 29 anos de
+                        história. Estruturada por áreas de engenharia e atuando em sintonia com uma linha estratégica de mercado, a AMC
+                        Construções é uma empresa moderna e diferenciada.
+                     </p>
+                  </div>
+                  <hr className="border " />
+               </div>
+               <Image
+                  width={660}
+                  height={495}
+                  src="/img/quem_somos.webp"
+                  alt="Foto demonstrando um engenheiro professional da AMC Contruções planificando em uma obra"
+               />
+            </div>
+            {/* Certificações da AMC */}
+         </Container>
       </div>
    );
 };
