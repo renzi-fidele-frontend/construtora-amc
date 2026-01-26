@@ -225,3 +225,48 @@ export const depoimentos: IDepoimento[] = [
       empreendimento: "Solar de Cascais",
    },
 ];
+
+export const infraestruturas = [
+   {
+      titulo: "Saneamento",
+      foto: "/img/infraestruturas/1.jpg",
+      destaques: [
+         "Execução de uma lagoa de acumulação de água bruta com capacidade de 232.000 metros cúbicos de água;",
+         "Execução de estação de tratamento de água, ETA - Morretes, com capacidade nominal de 225,00 l/s;",
+         "Execução de estação de tratamento de esgoto, ETE - Morretes, com capacidade nominal de 200,00 l/s; Execução de 80.000 m de rede coletora de esgoto sanitário;",
+         "Execução de 3.000 m de emissários de esgoto em 400 mm;",
+         "Execução de 9 elevatórias de esgoto sanitário;",
+         "Reforma da Estações de Tratamento de Água e Elevatórias;",
+         "Montagem de Estação de Tratamento de Água de 40 l/s. 16.",
+      ],
+   },
+   {
+      titulo: "Terraplanagem",
+      foto: "/img/infraestruturas/2.jpg",
+      destaques: [
+         "Conservação rotineira PR-092, PR 090, PR 218 e PR 445, 6º Distrito Rodoviário e 7º distrito Rodoviário;",
+         "Implantação de Terraplenagem e Pavimentação PR-439 Estrada Taquaralzinho;",
+         "Trevo Bratislava - Cambé. Pavimentação e drenagem pluvial;",
+         "Pavimentação e obras de arte correntes e especiais, BR 323 divisa com estado de São Paulo, Porto Charles Nauffal.",
+      ],
+   },
+   {
+      titulo: "Manutenção e conservação de rodovias",
+      foto: "/img/infraestruturas/3.jpg",
+      destaques: [
+         "Conservação Rotineira da BR 376, no trecho que vai do km 234 (Apucarana) ao km 351 (Ortigueira);",
+         "Terraplenagem trecho duplicadoda BR-376 em Mauá da Serra;",
+         "Fresagem e Restauração da BR 376,trecho Apucarana/Mauá da Serra;",
+         "Fresagem e restauração da rodovia BR-376, no segmento entre o Km 248 e o Km 347.",
+      ],
+   },
+   {
+      titulo: "Iluminação pública",
+      foto: "/img/infraestruturas/4.jpg",
+      destaques: [
+         "Contratada pela Alegrete Energia, concessionária responsável pela operação do sistema de iluminação pública da cidade São João do Meriti, para realizar a troca de 23 mil luminárias por Luminárias Leda e instalação do sistema de gestão;",
+         "Conhecida como 'Formigueiro das Américas', São João de Meriti é uma das cidades de maior densidade populacional do Brasil e a primeira do país a investir em uma Parceria;",
+         "Público-Privada de Iluminação Pública. Previsto inicialmente para a eficientização de 4.000 pontos, o contrato foi estendido em 2016, a pedido da Prefeitura, para contemplar a substituição de 100% do parque pela tecnologia LED, além da manutenção das instalações elétricas e eficientização da iluminação interna e sistemas de climatização nos 131 imóveis do órgão municipal.",
+      ],
+   },
+];
