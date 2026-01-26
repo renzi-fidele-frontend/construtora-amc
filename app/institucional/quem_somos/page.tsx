@@ -6,7 +6,7 @@ const QuemSomos = () => {
    return (
       <div className="pb-25.5">
          {/* Banner do topo */}
-         <Image width={1914} height={431} src="/img/banners/quem_somos.jpg" alt="Banner ilustrando a capa da página de empreendimento" />
+         <Image width={1914} height={431} src="/img/banners/institucional.jpg" alt="Banner ilustrando a capa da página de empreendimento" />
          {/* Breadcrumb */}
          <Breadcrumb
             links={[
