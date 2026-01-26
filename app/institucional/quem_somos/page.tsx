@@ -43,6 +43,30 @@ const QuemSomos = () => {
                />
             </div>
             {/* Certificações da AMC */}
+            <div className="text-center pt-14 pb-22">
+               <h3 className="text-4xl font-bold mb-7">CERTIFICAÇÕES</h3>
+               <hr className="mb-2" />
+               <div className="flex items-center justify-center gap-5 *:w-[50%] *:max-w-full">
+                  <Image
+                     width={803}
+                     height={565}
+                     src="/img/certificados/1.jpg"
+                     alt="Ilustração demostrando o certificado de conformidade adquirido ao longo do tempo pela AMC Construções"
+                  />
+                  <Image
+                     width={803}
+                     height={565}
+                     src="/img/certificados/2.jpg"
+                     alt="Ilustração demostrando o certificado de conformidade adquirido ao longo do tempo pela AMC Construções"
+                  />
+               </div>
+               <hr className="my-4 border" />
+               <p className="*:font-bold text-lg">
+                  A AMC Construções busca excelência nos processos construtivos e plena satisfação de seus Clientes. A empresa possui
+                  certificação <span>PBQP-H NÍVEL A</span> e <span>ABNT NBR ISO 9001</span>, reafirmando a consistência da construtora na
+                  execução de empreendimentos imobiliários.
+               </p>
+            </div>
          </Container>
       </div>
    );
