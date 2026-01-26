@@ -4,7 +4,7 @@ import Image from "next/image";
 
 const QuemSomos = () => {
    return (
-      <div>
+      <div className="pb-25.5">
          {/* Banner do topo */}
          <Image width={1914} height={431} src="/img/banners/quem_somos.jpg" alt="Banner ilustrando a capa da página de empreendimento" />
          {/* Breadcrumb */}
@@ -15,7 +15,7 @@ const QuemSomos = () => {
                { titulo: "AMC Construções", href: "/institucional/quem_somos", ativo: true },
             ]}
          />
-         <Container className="py-25.5">
+         <Container className="pt-25.5">
             {/* História da AMC */}
             <div className="flex gap-15 *:basis-[calc(50% - 24px)] *:flex-1">
                <div className="flex flex-col justify-center">
@@ -68,6 +68,16 @@ const QuemSomos = () => {
                </p>
             </div>
          </Container>
+         {/* Política da empresa */}
+         <div className="bg-[url(/img/banners/politica_empresa.jpg)] py-28">
+            <Container className="text-center text-white">
+               <h3 className="font-semibold text-6xl">POLÍTICA DA EMPRESA</h3>
+               <p className="text-xl font-light mt-8">
+                  A AMC Construções está presente em obras comerciais, industriais, privadas e públicas. São obras contratadas por terceiros que
+                  exigem racionalização de custos, planejamento, tecnologia e mão-de-obra qualificada.
+               </p>
+            </Container>
+         </div>
       </div>
    );
 };
