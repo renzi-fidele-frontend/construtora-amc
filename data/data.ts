@@ -1,4 +1,4 @@
-import { ICardArtigo, IDepoimento, IEmpreendimento, IInfraestrutura } from "@/types/types";
+import { ICardArtigo, ICliente, IDepoimento, IEmpreendimento, IInfraestrutura } from "@/types/types";
 
 export const fotosDestaques = [
    "/img/slides-home/0.png",
@@ -267,6 +267,103 @@ export const infraestruturas: IInfraestrutura[] = [
          "Contratada pela Alegrete Energia, concessionária responsável pela operação do sistema de iluminação pública da cidade São João do Meriti, para realizar a troca de 23 mil luminárias por Luminárias Leda e instalação do sistema de gestão;",
          "Conhecida como 'Formigueiro das Américas', São João de Meriti é uma das cidades de maior densidade populacional do Brasil e a primeira do país a investir em uma Parceria;",
          "Público-Privada de Iluminação Pública. Previsto inicialmente para a eficientização de 4.000 pontos, o contrato foi estendido em 2016, a pedido da Prefeitura, para contemplar a substituição de 100% do parque pela tecnologia LED, além da manutenção das instalações elétricas e eficientização da iluminação interna e sistemas de climatização nos 131 imóveis do órgão municipal.",
+      ],
+   },
+];
+
+export const clientes: ICliente[] = [
+   {
+      titulo: "SPE | Alegrete RJ Participações S.A.",
+      descricao:
+         "Contratada pela Alegrete Energia, concessionária responsável pela operação do sistema de iluminação pública da cidade São João do Meriti, para realizar a troca de 23 mil luminárias por Luminárias Leda e instalação do sistema de gestão.",
+   },
+   {
+      titulo: "VIA BRASIL MT-100",
+      destaques: [
+         "Atuação ética e transparente;",
+         "Respeito e valorização das pessoas;",
+         "Gestão ágil e compartilhada;",
+         "Excelência no serviço do cliente;",
+         "Responsabilidade com o meio ambiente e a comunidade;",
+         "Valorização da saúde e segurança;",
+         "Compromisso com resultados.",
+      ],
+      descricao:
+         "Construção de duas praças de pedágio, do centro de controle operacional e atendimento ao usuário, construção da praça de pesagem. DER - PARANÁ",
+   },
+   {
+      titulo: "DNER / DNIT",
+      destaques: [
+         "Campo Mourão - Tapa buraco e conservação rotineira de manutenção rodoviária nas rodovias BR-272/487/PR; trechos BR-272 Div. SP/PR Acesso Av. Thomas Luiz Seballos (Guairá) BR-487: Div. MS/PR (P. do tigre) - Entr. BR-376 (B) / PR 151 (Ponta Grossa) Subtrechos BR-272 COHAPAR (fim da pista dupla) - Entr. BR-180 (Goioere) BR-487 Acesso oeste Campo Mourão - Rio Muquilão;",
+         "Angra dos Reis/Divisa Rio/São Paulo – BR 101 – Fresagem, Restauração e Lama Asfáltica.",
+      ],
+   },
+   {
+      titulo: "RODONORTE",
+      destaques: [
+         "Conservação Rotineira da BR 376, no trecho que vai do km 234 (Apucarana) ao km 351 (Ortigueira);",
+         "Terraplenagem trecho duplicado da BR-376 em Mauá da Serra;",
+         "Fresagem e Restauração da BR 376, trecho Apucarana/Mauá da Serra;",
+         "Fresagem e restauração da rodovia BR-376, no segmento entre o Km 248 e o Km 347.",
+      ],
+   },
+   {
+      titulo: "ECONORTE",
+      destaques: [
+         "Conservação Rotineira das PR 323, PR 445 E PR 090;",
+         "Trevo Bratislava - Cambe. Pavimentação e drenagem pluvial;",
+         "Pavimentação e obras de arte correntes e especiais, BR-323 divisa com estado de São Paulo, Porto Charles Nauffal.",
+      ],
+   },
+   {
+      titulo: "ECOSUL",
+      destaques: [
+         "Conservação e manutenção na BR 116 - Trecho Camaquã - Pelotas, entre o KM 400,508 (ponte sobre o Arroio Duro) e o KM 511,363 (início da ponte sobre o Arroio Pelotas).",
+      ],
+   },
+   { titulo: "RODOSOL", destaques: ["Conservação e manutenção na Rodovia ES 060 - Vitória-Guarapari - ES."] },
+   { titulo: "CONCER", destaques: ["Companhia Rodoviária JUIZ DE FORA (MG)."] },
+   { titulo: "CGE", destaques: ["Serviços de Pavimentação em obras de construção civil."] },
+   { titulo: "ITAP BEMIS", destaques: ["Unidades de Londrina e Cambé (PR) Serviços de desmatamento, limpeza, terraplenagem e pavimentação."] },
+   {
+      titulo: "PAVIBRÁS",
+      destaques: [
+         "Execução de pavimentação asfáltica e drenagem pluvial do conjunto Pedro Esplendor, Ibiporã-PR;",
+         "Execução de pavimentação asfáltica e drenagem pluvial do conjunto Neman Sahyun, Londrina-PR;",
+         "Execução de pavimentação asfáltica do pátio do Colégio Marcelino Champagnat, Londrina-PR.",
+      ],
+   },
+   { titulo: "M2 CONSTRUTORA", destaques: ["Conservação e manutenção na Rodovia ES 060 - Vitória-Guarapari - ES."] },
+   { titulo: "CITROËN", destaques: ["Revendedora Citroën em Londrina (PR)."] },
+   {
+      titulo: "PML",
+      destaques: [
+         "Execução de Roçada Manual e Mecanizada de Praças e Terrenos - CMTU, Londrina-PR;",
+         "Execução da pavimentação asfáltica do Trevo e acessos do Centro de Eventos, Londrina-pr;",
+         "Execução de pavimentação asfáltica e drenagem pluvial do Parque Rodocentro, Londrina-PR.",
+      ],
+   },
+   {
+      titulo: "ÁGUAS DE ITAPEMA",
+      destaques: [
+         "Execução de uma lagoa de acumulação de água bruta com capacidade de 232.000 metros cúbicos de água;",
+         "Execução de estação de tratamento de água, ETA/Morretes, com capacidade nominal de 225,00 l/s;",
+         "Execução de estação de tratamento de esgoto, ETE/Morretes, com capacidade nominal de 200,00 l/s;",
+         "Execução de 80.000 m de rede coletora de esgoto sanitário;",
+         "Execução de 3.000 m de emissários de esgoto em 400 mm;",
+         "Execução de 9 elevatórias de esgoto sanitário.",
+      ],
+   },
+   {
+      titulo: "ÁGUAS DE SANTO ANTÔNIO",
+      destaques: ["Reforma da Estação de Tratamento de Água e Elevatórias;", "Montagem de Estação de Tratamento de Água de 40 l/s."],
+   },
+   {
+      titulo: "OBRAS DIVERSAS",
+      destaques: [
+         "PR-092, PR 090, PR 218 e PR 445, 6º Distrito Rodoviário e 7º distrito Rodoviário - Conservação rotineira;",
+         "PR-439 Estrada Taquaralzinho - Implantação de Terraplenagem e Pavimentação;",
+         "Campo Mourão - Tapa buraco e conservação rotineira de manutenção rodoviária nas rodovias BR-272/487/PR.",
       ],
    },
 ];

@@ -49,3 +49,9 @@ export interface IInfraestrutura {
    foto: string;
    destaques: string[];
 }
+
+export interface ICliente {
+   titulo: string;
+   destaques?: string[];
+   descricao?: string;
+}
