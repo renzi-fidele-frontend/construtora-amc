@@ -43,3 +43,9 @@ export interface IDepoimento {
    autor: string;
    empreendimento: string;
 }
+
+export interface IInfraestrutura {
+   titulo: string;
+   foto: string;
+   destaques: string[];
+}

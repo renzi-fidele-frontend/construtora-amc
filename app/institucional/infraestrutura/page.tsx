@@ -1,6 +1,7 @@
 import Container from "@/components/layout/Container";
 import Breadcrumb from "@/components/shared/Breadcrumb";
 import SectionIntro from "@/components/shared/SectionIntro";
+import { infraestruturas } from "@/data/data";
 import Image from "next/image";
 
 const Infraestrutura = () => {
@@ -24,8 +25,29 @@ const Infraestrutura = () => {
                   descricao="Conheça um pouco mais sobre cada um dos nossos serviços."
                />
                {/* Listagem */}
-               <div className="flex flex-col py-18">
-                
+               <div className="flex flex-col gap-10 pt-18">
+                  {infraestruturas.map((v, k) => (
+                     <>
+                        <div className="flex *:basis-[50%] *:flex-1 gap-7 flex-nowrap">
+                           <Image
+                              width={430}
+                              height={285}
+                              src={v.foto}
+                              className="shadow-xl/40 rounded"
+                              alt={`Foto demonstrando a infraestrutura ${v.titulo} construída pela AMC`}
+                           />
+                           <div className="flex flex-col justify-center gap-3">
+                              <h6 className="text-3xl font-bold">{v.titulo}</h6>
+                              <ul className="list-disc ps-7 text-lg space-y-2">
+                                 {v.destaques.map((v, k) => (
+                                    <li key={k}>{v}</li>
+                                 ))}
+                              </ul>
+                           </div>
+                        </div>
+                        {k + 1 < infraestruturas.length && <hr className="border border-dashed border-theme1" />}
+                     </>
+                  ))}
                </div>
             </Container>
          </section>

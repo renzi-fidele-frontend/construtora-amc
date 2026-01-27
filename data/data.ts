@@ -1,4 +1,4 @@
-import { ICardArtigo, IDepoimento, IEmpreendimento } from "@/types/types";
+import { ICardArtigo, IDepoimento, IEmpreendimento, IInfraestrutura } from "@/types/types";
 
 export const fotosDestaques = [
    "/img/slides-home/0.png",
@@ -226,10 +226,10 @@ export const depoimentos: IDepoimento[] = [
    },
 ];
 
-export const infraestruturas = [
+export const infraestruturas: IInfraestrutura[] = [
    {
       titulo: "Saneamento",
-      foto: "/img/infraestruturas/1.jpg",
+      foto: "/img/infraestruturas/1.webp",
       destaques: [
          "Execução de uma lagoa de acumulação de água bruta com capacidade de 232.000 metros cúbicos de água;",
          "Execução de estação de tratamento de água, ETA - Morretes, com capacidade nominal de 225,00 l/s;",
@@ -242,7 +242,7 @@ export const infraestruturas = [
    },
    {
       titulo: "Terraplanagem",
-      foto: "/img/infraestruturas/2.jpg",
+      foto: "/img/infraestruturas/2.webp",
       destaques: [
          "Conservação rotineira PR-092, PR 090, PR 218 e PR 445, 6º Distrito Rodoviário e 7º distrito Rodoviário;",
          "Implantação de Terraplenagem e Pavimentação PR-439 Estrada Taquaralzinho;",
@@ -252,7 +252,7 @@ export const infraestruturas = [
    },
    {
       titulo: "Manutenção e conservação de rodovias",
-      foto: "/img/infraestruturas/3.jpg",
+      foto: "/img/infraestruturas/3.webp",
       destaques: [
          "Conservação Rotineira da BR 376, no trecho que vai do km 234 (Apucarana) ao km 351 (Ortigueira);",
          "Terraplenagem trecho duplicadoda BR-376 em Mauá da Serra;",
@@ -262,7 +262,7 @@ export const infraestruturas = [
    },
    {
       titulo: "Iluminação pública",
-      foto: "/img/infraestruturas/4.jpg",
+      foto: "/img/infraestruturas/4.webp",
       destaques: [
          "Contratada pela Alegrete Energia, concessionária responsável pela operação do sistema de iluminação pública da cidade São João do Meriti, para realizar a troca de 23 mil luminárias por Luminárias Leda e instalação do sistema de gestão;",
          "Conhecida como 'Formigueiro das Américas', São João de Meriti é uma das cidades de maior densidade populacional do Brasil e a primeira do país a investir em uma Parceria;",
