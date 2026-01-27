@@ -1,6 +1,7 @@
 import Container from "@/components/layout/Container";
 import Breadcrumb from "@/components/shared/Breadcrumb";
 import SectionIntro from "@/components/shared/SectionIntro";
+import { clientes } from "@/data/data";
 import Image from "next/image";
 
 const Clientes = () => {
@@ -20,7 +21,21 @@ const Clientes = () => {
             <Container className="py-25">
                <SectionIntro className="items-start! mb-2!" titulo="Clientes da AMC" descricao="Veja os clientes que atendemos" />
                {/* Listagem */}
-               <div className="flex flex-col"></div>
+               <div className="flex flex-col gap-12 mt-16">
+                  {clientes.map((cliente, k) => (
+                     <div key={k} className="flex flex-col gap-2.5 text-xl font-light">
+                        <h6 className="text-4xl font-bold">{cliente.titulo}</h6>
+                        {!!cliente.descricao && <p>{cliente.descricao}</p>}
+                        {!!cliente.destaques && (
+                           <ul className="list-disc ps-6">
+                              {cliente.destaques.map((destaque, k) => (
+                                 <li key={k}>{destaque}</li>
+                              ))}
+                           </ul>
+                        )}
+                     </div>
+                  ))}
+               </div>
             </Container>
          </section>
       </div>
