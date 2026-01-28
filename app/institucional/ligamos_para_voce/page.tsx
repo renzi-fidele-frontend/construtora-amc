@@ -2,6 +2,7 @@ import Container from "@/components/layout/Container";
 import Breadcrumb from "@/components/shared/Breadcrumb";
 import SectionIntro from "@/components/shared/SectionIntro";
 import Image from "next/image";
+import FormularioDeParceria from "../parceria/components/formulario";
 
 const LigamosParaVoce = () => {
    return (
@@ -23,7 +24,7 @@ const LigamosParaVoce = () => {
                   titulo="Ligamos para você"
                   descricao="Para saber mais sobre nossos empreendimentos, preencha o formulário que entraremos em contato com você."
                />
-               {/* TODO: Adicionar o formulário da página do ligamos para você */}
+               <FormularioDeParceria />
             </Container>
          </section>
       </div>
