@@ -8,7 +8,7 @@ import { useState } from "react";
 const FormularioDeParceria = () => {
    const [cidadesDisponiveis, setCidadesDisponiveis] = useState([""]);
    return (
-      <form className="grid grid-cols-3 gap-4 [&_input]:border-theme1 mt-10 text-sm">
+      <form className="grid grid-cols-3 gap-4 [&_input]:border-theme1 [&_button]:cursor-pointer **:data-placeholder:text-theme1! mt-10 text-sm">
          {/* Nome */}
          <fieldset>
             <label htmlFor="nome">Nome</label>
@@ -51,7 +51,7 @@ const FormularioDeParceria = () => {
          {/* Cidade */}
          <fieldset>
             <label htmlFor="cidade">Cidade</label>
-            <Select>
+            <Select disabled={cidadesDisponiveis[0] === ""}>
                <SelectTrigger className="border-theme1 w-full">
                   <SelectValue placeholder="Selecione o estado" />
                   <SelectContent className="">
