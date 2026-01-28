@@ -6,9 +6,11 @@ import { cidadesPorEstado } from "@/data/data";
 import { useMask } from "@react-input/mask";
 import { useState } from "react";
 
+// TODO: Implementar a funcionalidade de envio de email para a construtora
+
 const FormularioDeParceria = () => {
    const [cidadesDisponiveis, setCidadesDisponiveis] = useState([""]);
-   const inputRef = useMask({
+   const telefoneRef = useMask({
       mask: "+55 (__) _____-____",
       replacement: { _: /\d/ },
    });
@@ -28,7 +30,7 @@ const FormularioDeParceria = () => {
          {/* Telefone */}
          <fieldset>
             <label htmlFor="tel">Telefone</label>
-            <Input type="tel" name="tel" ref={inputRef} placeholder="+55 (XX) XXXXX-XXXX" required pattern="^\(\d{2}\) \d{5}-\d{4}$" />
+            <Input type="tel" name="tel" ref={telefoneRef} placeholder="+55 (XX) XXXXX-XXXX" required />
          </fieldset>
          {/* Estado */}
          <fieldset>
@@ -59,7 +61,7 @@ const FormularioDeParceria = () => {
             <label htmlFor="cidade">Cidade</label>
             <Select disabled={cidadesDisponiveis[0] === ""}>
                <SelectTrigger className="border-theme1 w-full">
-                  <SelectValue placeholder="Selecione o estado" />
+                  <SelectValue placeholder="Selecione a cidade" />
                   <SelectContent className="">
                      {cidadesDisponiveis[0] !== "" &&
                         cidadesDisponiveis.map((cidade, k) => (
