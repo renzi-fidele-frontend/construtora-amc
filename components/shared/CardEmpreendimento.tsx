@@ -1,14 +1,10 @@
+import { analisarCor } from "@/lib/utils";
 import { IEmpreendimento } from "@/types/types";
 import Image from "next/image";
 import Link from "next/link";
 
 const CardEmpreendimento = ({ empreendimento, largura = "w-fit" }: { empreendimento: IEmpreendimento; largura?: "w-fit" | "w-full" }) => {
-   function analisarCor(categoria: typeof empreendimento.categoria) {
-      if (categoria === "Lançamento") return "bg-lancamento";
-      if (categoria === "Pré-lançamento") return "bg-prelancamento";
-      if (categoria === "Entregue") return "bg-entregue";
-      if (categoria === "Urbanismo") return "bg-urbanismo";
-   }
+   
    return (
       <Link
          href={`/empreendimentos/${empreendimento.id}`}
