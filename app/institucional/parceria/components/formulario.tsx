@@ -55,11 +55,12 @@ const FormularioDeParceria = () => {
                <SelectTrigger className="border-theme1 w-full">
                   <SelectValue placeholder="Selecione o estado" />
                   <SelectContent className="">
-                     {cidadesDisponiveis.map((cidade, k) => (
-                        <SelectItem value={cidade} key={k}>
-                           {cidade}
-                        </SelectItem>
-                     ))}
+                     {cidadesDisponiveis[0] !== "" &&
+                        cidadesDisponiveis.map((cidade, k) => (
+                           <SelectItem value={cidade} key={k}>
+                              {cidade}
+                           </SelectItem>
+                        ))}
                   </SelectContent>
                </SelectTrigger>
             </Select>
