@@ -3,10 +3,16 @@ import Btn from "@/components/shared/Btn";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { cidadesPorEstado } from "@/data/data";
+import { useMask } from "@react-input/mask";
 import { useState } from "react";
 
 const FormularioDeParceria = () => {
    const [cidadesDisponiveis, setCidadesDisponiveis] = useState([""]);
+   const inputRef = useMask({
+      mask: "+55 (__) _____-____",
+      replacement: { _: /\d/ },
+   });
+
    return (
       <form className="grid grid-cols-3 gap-4 [&_input]:border-theme1 [&_button]:cursor-pointer **:data-placeholder:text-theme1! mt-10 text-sm">
          {/* Nome */}
@@ -22,7 +28,7 @@ const FormularioDeParceria = () => {
          {/* Telefone */}
          <fieldset>
             <label htmlFor="tel">Telefone</label>
-            <Input type="tel" name="tel" required />
+            <Input type="tel" name="tel" ref={inputRef} placeholder="+55 (XX) XXXXX-XXXX" required pattern="^\(\d{2}\) \d{5}-\d{4}$" />
          </fieldset>
          {/* Estado */}
          <fieldset>
