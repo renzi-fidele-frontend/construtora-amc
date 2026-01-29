@@ -5,6 +5,9 @@ import { analisarCor } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
 import IconesCollapsivel from "./components/IconesCollapsivel";
+import SectionIntro from "@/components/shared/SectionIntro";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import LightBoxCarousel from "@/components/shared/LightboxCarousel";
 
 const Empreendimento = async ({ params }: { params: Promise<{ empreendimento: string }> }) => {
    const { empreendimento: id } = await params;
@@ -24,8 +27,8 @@ const Empreendimento = async ({ params }: { params: Promise<{ empreendimento: st
                   { titulo: String(empreendimento?.nome), href: `/empreendimentos/${id}`, ativo: true },
                ]}
             />
-            {/* Vitrine */}
-            <section className="py-10 text-zinc-500">
+            {/* Seção da Vitrine */}
+            <section className="pt-10 pb-8 text-zinc-500">
                <Container>
                   {/* Status */}
                   <div
@@ -95,10 +98,10 @@ const Empreendimento = async ({ params }: { params: Promise<{ empreendimento: st
                   </div>
                </Container>
             </section>
-            {/* Bio do empreendimento */}
-            <section className="mb-10">
+            {/* Seção da Bio do empreendimento */}
+            <section className="mb-19">
                <Container className="flex items-start gap-25 relative">
-                  <div className="text-xl flex flex-col gap-3">
+                  <div className="text-xl flex flex-col gap-4.5">
                      {empreendimento.detalhes.bio.map((v, k) => (
                         <p key={k}>{v}</p>
                      ))}
@@ -115,6 +118,36 @@ const Empreendimento = async ({ params }: { params: Promise<{ empreendimento: st
                   )}
                </Container>
             </section>
+            {/* TODO: Implelemntar a seção da Galeria */}
+            <section className="relative py-17.5">
+               <Container className="flex flex-col items-center">
+                  <SectionIntro className="[&_h2]:text-8xl [&_h2]:mt-4 text-white! mb-6!" titulo="IMAGENS" />
+                  {/* Categorias */}
+                  <Tabs defaultValue="fotos" className="w-fit items-center">
+                     <TabsList className="*:hover:cursor-pointer *:text-2xl **:px-8!">
+                        <TabsTrigger value="fotos">Fotos</TabsTrigger>
+                        <TabsTrigger value="plantas">Plantas</TabsTrigger>
+                        <TabsTrigger value="implantacao">Implantação</TabsTrigger>
+                     </TabsList>
+                     <TabsContent value="fotos">
+                        <div className="mt-10">
+                           <LightBoxCarousel fotos={empreendimento.detalhes.ilustracoes} />
+                        </div>
+                     </TabsContent>
+                     <TabsContent value="plantas">
+                        <div>Plantas</div>
+                     </TabsContent>
+                     <TabsContent value="implantacao">
+                        <div>Implatacao</div>
+                     </TabsContent>
+                  </Tabs>
+               </Container>
+               {/* Rectângulo verde claro */}
+               <div className="absolute w-full inset-y-0 top-0 h-128 bg-theme1 -z-1"></div>
+            </section>
+            {/* TODO: Implementar a seção de Localiização */}
+            <section></section>
+            {/*  */}
          </div>
       )
    );

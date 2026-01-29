@@ -35,6 +35,8 @@ export interface IEmpreendimento {
       logomarca: string;
       bio: string[];
       minhaCasa: boolean;
+      endereco_em_texto: string;
+      endereco_real: string;
    };
 }
 

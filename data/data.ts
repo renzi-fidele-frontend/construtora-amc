@@ -63,12 +63,14 @@ export const empreendimentos: IEmpreendimento[] = [
          implantacao: [],
          logomarca: "/img/empreendimentos/ilha-di-capri/icoIlhaDiCapri.webp",
          bio: [
-            "Inspirado nas águas cristalinas e na beleza de Capri, uma pequena ilha italiana, localizada no Golfo de Nápoles o Residencial Ilha di Capri é uma homenagem a colonização italiana do município de Tijucas - SC",
+            "Inspirado nas águas cristalinas e na beleza de Capri, uma pequena ilha italiana, localizada no Golfo de Nápoles o Residencial Ilha di Capri é uma homenagem a colonização italiana do município de Tijucas - SC.",
             "Conta a história que em 1530, Sebastião Caboto, navegador italiano a serviço dos espanhóis, chegou na enseada da costa catarinense. Dando voltas pelo litoral de Santa Catarina avistou o caudaloso Rio Tijucas. Sebastião Caboto foi, sem dúvida, um dos primeiros a avistar Tijucas e por isso lhe deu o simpático nome de São Sebastião.",
             "Tijucas é um lugar tranquilo para todos que a procuram para morar, estudar, trabalhar, passear ou conhecer os encantos da região.",
             "Venha conhecer o Residencial Ilha di Capri. Uma ilha de Beleza e Tranquilidade para sua família.",
          ],
          minhaCasa: true,
+         endereco_em_texto: "Areias - Tijucas - SC",
+         endereco_real: "Rua Treze de Maio, 2746 - Areias - Tijucas - SC",
       },
    },
 
