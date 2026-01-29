@@ -1,6 +1,6 @@
 import Container from "@/components/layout/Container";
 import Breadcrumb from "@/components/shared/Breadcrumb";
-import { empreendimentos} from "@/data/data";
+import { empreendimentos } from "@/data/data";
 import { analisarCor } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
@@ -25,7 +25,7 @@ const Empreendimento = async ({ params }: { params: Promise<{ empreendimento: st
                ]}
             />
             {/* Vitrine */}
-            <section className="py-13.5 text-zinc-500">
+            <section className="py-10 text-zinc-500">
                <Container>
                   {/* Status */}
                   <div
@@ -88,7 +88,9 @@ const Empreendimento = async ({ params }: { params: Promise<{ empreendimento: st
                            alt="Ilustração demonstrando o empreendimento ${empreedimento.} "
                         />
                      </div>
-                     {/* Ícones de destaques */}
+                  </div>
+                  {/* Ícones de destaques */}
+                  <div className="mt-5">
                      <IconesCollapsivel />
                   </div>
                </Container>
