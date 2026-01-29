@@ -135,10 +135,14 @@ const Empreendimento = async ({ params }: { params: Promise<{ empreendimento: st
                         </div>
                      </TabsContent>
                      <TabsContent value="plantas">
-                        <div>Plantas</div>
+                        <div className="mt-10">
+                           <LightBoxCarousel fotos={empreendimento.detalhes.plantas} />
+                        </div>
                      </TabsContent>
                      <TabsContent value="implantacao">
-                        <div>Implatacao</div>
+                        <div className="mt-10">
+                           <LightBoxCarousel fotos={empreendimento.detalhes.implantacao} />
+                        </div>
                      </TabsContent>
                   </Tabs>
                </Container>
