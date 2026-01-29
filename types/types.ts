@@ -27,6 +27,13 @@ export interface IEmpreendimento {
    )[];
    destacado: boolean;
    id: string;
+   detalhes: {
+      fundoDestaque: string;
+      ilustracoes: string[];
+      plantas: string[];
+      implantacao: string[];
+      logomarca: string;
+   };
 }
 
 export interface ICardArtigo {
@@ -54,4 +61,9 @@ export interface ICliente {
    titulo: string;
    destaques?: string[];
    descricao?: string;
+}
+
+export interface IIconeComDescricao {
+   nome: string;
+   descricao: string;
 }
