@@ -4,7 +4,6 @@ import Image from "next/image";
 import Link from "next/link";
 
 const CardEmpreendimento = ({ empreendimento, largura = "w-fit" }: { empreendimento: IEmpreendimento; largura?: "w-fit" | "w-full" }) => {
-   
    return (
       <Link
          href={`/empreendimentos/${empreendimento.id}`}
@@ -41,8 +40,8 @@ const CardEmpreendimento = ({ empreendimento, largura = "w-fit" }: { empreendime
                <hr />
                {/* Descrição */}
                <div className="py-6">
-                  <p>{empreendimento.destaque}</p>
-                  <p>{empreendimento.descricao_area}</p>
+                  <p dangerouslySetInnerHTML={{ __html: empreendimento.destaque }}></p>
+                  <p dangerouslySetInnerHTML={{ __html: empreendimento.descricao_area }}></p>
                </div>
                <hr />
                {/* Destaques */}

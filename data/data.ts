@@ -1,4 +1,4 @@
-import { ICardArtigo, ICliente, IDepoimento, IEmpreendimento, IInfraestrutura } from "@/types/types";
+import { ICardArtigo, ICliente, IDepoimento, IEmpreendimento, IIconeComDescricao, IInfraestrutura } from "@/types/types";
 
 export const fotosDestaques = [
    "/img/slides-home/0.png",
@@ -11,8 +11,9 @@ export const fotosDestaques = [
    "/img/slides-home/7.jpg",
 ];
 
+// TODO: Mais tarde remover os comentários, após implementar a estrutura dos detalhes do empreendimento
 export const empreendimentos: IEmpreendimento[] = [
-   {
+   /* {
       id: "1",
       nome: "Casa Blanca Residence",
       categoria: "Lançamento",
@@ -23,19 +24,48 @@ export const empreendimentos: IEmpreendimento[] = [
       thumbnail: "/img/empreendimentos/casa-blanca/casa-blanca.jpg",
       icones: ["spa", "academia", "game", "gourmet"],
       destacado: true,
-   },
+   },*/
+
    {
       id: "2",
       nome: "Ilha de Capri",
       categoria: "Lançamento",
-      destaque: "2 dorm c/ suíte",
-      descricao_area: "52m² de área privativa",
+      destaque: "<span>2</span> dorm c/ suíte",
+      descricao_area: "<span>52m²</span> de área privativa",
       endereco_curto: "Ilha de Capri",
       estado: "Tijucas - SC",
       thumbnail: "/img/empreendimentos/ilha-di-capri/ilha-di-capri.jpg",
       icones: ["piscina", "sala-de-festas", "pet-place", "playground"],
       destacado: true,
+      detalhes: {
+         fundoDestaque: "/img/empreendimentos/ilha-di-capri/ilustracoes/8.webp",
+         ilustracoes: [
+            "/img/empreendimentos/ilha-di-capri/ilustracoes/1.webp",
+            "/img/empreendimentos/ilha-di-capri/ilustracoes/2.webp",
+            "/img/empreendimentos/ilha-di-capri/ilustracoes/3.webp",
+            "/img/empreendimentos/ilha-di-capri/ilustracoes/4.webp",
+            "/img/empreendimentos/ilha-di-capri/ilustracoes/5.webp",
+            "/img/empreendimentos/ilha-di-capri/ilustracoes/6.webp",
+            "/img/empreendimentos/ilha-di-capri/ilustracoes/7.webp",
+            "/img/empreendimentos/ilha-di-capri/ilustracoes/8.webp",
+            "/img/empreendimentos/ilha-di-capri/ilustracoes/9.webp",
+            "/img/empreendimentos/ilha-di-capri/ilustracoes/10.webp",
+            "/img/empreendimentos/ilha-di-capri/ilustracoes/11.webp",
+            "/img/empreendimentos/ilha-di-capri/ilustracoes/12.webp",
+            "/img/empreendimentos/ilha-di-capri/ilustracoes/13.webp",
+            "/img/empreendimentos/ilha-di-capri/ilustracoes/14.webp",
+            "/img/empreendimentos/ilha-di-capri/ilustracoes/15.webp",
+            "/img/empreendimentos/ilha-di-capri/ilustracoes/16.webp",
+            "/img/empreendimentos/ilha-di-capri/ilustracoes/17.webp",
+            "/img/empreendimentos/ilha-di-capri/ilustracoes/18.webp",
+         ],
+         plantas: [],
+         implantacao: [],
+         logomarca: "/img/empreendimentos/ilha-di-capri/icoIlhaDiCapri.webp",
+      },
    },
+
+   /*
    {
       id: "3",
       nome: "Portal do Lago",
@@ -168,6 +198,7 @@ export const empreendimentos: IEmpreendimento[] = [
       icones: ["churasqueira", "piso-laminado", "telefone", "sacada-com-churasqueira"],
       destacado: false,
    },
+   */
 ];
 
 export const artigos: ICardArtigo[] = [
@@ -396,4 +427,22 @@ export const cidadesPorEstado: { nome: string; cidades: string[] }[] = [
    { nome: "São Paulo", cidades: ["São Paulo", "Campinas", "São Bernardo do Campo"] },
    { nome: "Sergipe", cidades: ["Aracaju", "Nossa Senhora do Socorro", "Lagarto"] },
    { nome: "Tocantins", cidades: ["Palmas", "Araguaína", "Gurupi"] },
+];
+
+export const iconesComDescricao: IIconeComDescricao[] = [
+   { nome: "academia", descricao: "Academia" },
+   { nome: "campo-futebool", descricao: "Campo de Futebol" },
+   { nome: "churasqueira", descricao: "Churasqueira" },
+   { nome: "game", descricao: "Sala de jogos" },
+   { nome: "gourmet", descricao: "Espaço Gourmet" },
+   { nome: "pet-place", descricao: "Pet Place" },
+   { nome: "pets", descricao: "Pets no local" },
+   { nome: "piscina", descricao: "Piscina" },
+   { nome: "piso-laminado", descricao: "Pisa lâminado" },
+   { nome: "playground", descricao: "Playground" },
+   { nome: "portao-automatico", descricao: "Portão automático" },
+   { nome: "sala-de-festas", descricao: "Salão de festas" },
+   { nome: "spa", descricao: "Spa" },
+   { nome: "sacada-com-churasqueira", descricao: "Sacada com churasqueira" },
+   { nome: "telefone", descricao: "Interfones" },
 ];
