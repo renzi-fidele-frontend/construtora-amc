@@ -33,6 +33,8 @@ export interface IEmpreendimento {
       plantas: string[];
       implantacao: string[];
       logomarca: string;
+      bio: string[];
+      minhaCasa: boolean;
    };
 }
 

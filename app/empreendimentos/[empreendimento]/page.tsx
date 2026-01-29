@@ -95,6 +95,26 @@ const Empreendimento = async ({ params }: { params: Promise<{ empreendimento: st
                   </div>
                </Container>
             </section>
+            {/* Bio do empreendimento */}
+            <section className="mb-10">
+               <Container className="flex items-start gap-25 relative">
+                  <div className="text-xl flex flex-col gap-3">
+                     {empreendimento.detalhes.bio.map((v, k) => (
+                        <p key={k}>{v}</p>
+                     ))}
+                  </div>
+
+                  {empreendimento.detalhes.minhaCasa && (
+                     <Image
+                        width={380}
+                        height={112}
+                        src="/img/minha-casa-full.webp"
+                        alt="Ilustração da logomarca da empresa Minha casa Minha vida"
+                        className="sticky top-3"
+                     />
+                  )}
+               </Container>
+            </section>
          </div>
       )
    );
