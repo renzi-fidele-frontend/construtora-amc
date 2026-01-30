@@ -119,7 +119,7 @@ const Empreendimento = async ({ params }: { params: Promise<{ empreendimento: st
                </Container>
             </section>
             {/* TODO: Implelemntar a seção da Galeria */}
-            <section className="relative py-17.5">
+            <section className="relative py-17.5 text-center">
                <Container className="flex flex-col items-center">
                   <SectionIntro className="[&_h2]:text-8xl [&_h2]:mt-4 text-white! mb-6!" titulo="IMAGENS" />
                   {/* Categorias */}
@@ -145,6 +145,12 @@ const Empreendimento = async ({ params }: { params: Promise<{ empreendimento: st
                         </div>
                      </TabsContent>
                   </Tabs>
+                  {/* Aviso de uso de imagens ilustrativas */}
+                  <p className="text-[12px] mt-6">
+                     As imagens aqui constantes são ilustrativas. As perspectivas dos ambientes apresentam sugestões de decoração, não fazendo
+                     parte do projeto em execução ou que será executado. Os acabamentos serão conforme memorial descritivo. Registro de
+                     Incorporação no Cartório de Registro de Imóveis competente. Para mais informações Fale conosco com a construtora.
+                  </p>
                </Container>
                {/* Rectângulo verde claro */}
                <div className="absolute w-full inset-y-0 top-0 h-128 bg-theme1 -z-1"></div>

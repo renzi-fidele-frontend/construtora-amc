@@ -27,7 +27,7 @@ export const empreendimentos: IEmpreendimento[] = [
    },*/
 
    {
-      id: "2",
+      id: "ilha-de-capri",
       nome: "Ilha de Capri",
       categoria: "Lançamento",
       destaque: "<span>2</span> dorm c/ suíte",
