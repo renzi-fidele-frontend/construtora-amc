@@ -88,6 +88,7 @@ export const empreendimentos: IEmpreendimento[] = [
          minhaCasa: true,
          endereco_em_texto: "Areias - Tijucas - SC",
          endereco_real: "Rua Treze de Maio, 2746 - Areias - Tijucas - SC",
+         coordenadas: { lat: -27.2234646, lng: -48.6334496 },
       },
    },
 

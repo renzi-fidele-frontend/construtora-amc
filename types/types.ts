@@ -37,6 +37,10 @@ export interface IEmpreendimento {
       minhaCasa: boolean;
       endereco_em_texto: string;
       endereco_real: string;
+      coordenadas: {
+         lat: number;
+         lng: number;
+      };
    };
 }
 
