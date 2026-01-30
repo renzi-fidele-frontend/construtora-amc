@@ -8,6 +8,9 @@ import IconesCollapsivel from "./components/IconesCollapsivel";
 import SectionIntro from "@/components/shared/SectionIntro";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import LightBoxCarousel from "@/components/shared/LightboxCarousel";
+import { MapPin } from "lucide-react";
+import Mapa from "./components/Mapa";
+import MapProvider from "./components/MapProvider";
 
 const Empreendimento = async ({ params }: { params: Promise<{ empreendimento: string }> }) => {
    const { empreendimento: id } = await params;
@@ -118,7 +121,6 @@ const Empreendimento = async ({ params }: { params: Promise<{ empreendimento: st
                   )}
                </Container>
             </section>
-            {/* TODO: Implelemntar a seção da Galeria */}
             <section className="relative py-17.5 text-center">
                <Container className="flex flex-col items-center">
                   <SectionIntro className="[&_h2]:text-8xl [&_h2]:mt-4 text-white! mb-6!" titulo="IMAGENS" />
@@ -156,7 +158,23 @@ const Empreendimento = async ({ params }: { params: Promise<{ empreendimento: st
                <div className="absolute w-full inset-y-0 top-0 h-128 bg-theme1 -z-1"></div>
             </section>
             {/* TODO: Implementar a seção de Localiização */}
-            <section></section>
+            <section className="relative py-17.5 text-center">
+               <Container className="flex flex-col items-center">
+                  <SectionIntro className="[&_h2]:text-8xl [&_h2]:mt-4 text-white! mb-6!" titulo="LOCALIZAÇÃO" />
+                  {/* Endereço */}
+                  <div className="border border-white text-white p-6.5 text-xl w-fit px-40 mb-15">
+                     <p className="flex items-center gap-3">
+                        <MapPin /> {empreendimento.detalhes.endereco_em_texto}
+                     </p>
+                  </div>
+                  {/* Mapa */}
+                  <MapProvider>
+                     <Mapa localizacaoDoEmpreendimento={empreendimento.detalhes.coordenadas} />
+                  </MapProvider>
+               </Container>
+               {/* Rectângulo verde claro */}
+               <div className="absolute w-full inset-y-0 top-0 h-128 bg-theme1 -z-1"></div>
+            </section>
             {/*  */}
          </div>
       )
