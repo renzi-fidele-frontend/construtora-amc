@@ -5,7 +5,7 @@ import { ILugar } from "@/types/types";
 
 const MarkerWithInfoWindow = ({ position, titulo, endereco }: { position: ILugar; titulo: string; endereco: string }) => {
    const [markerRef, marker] = useAdvancedMarkerRef();
-   const [infoWindowShown, setInfoWindowShown] = useState(false);
+   const [infoWindowShown, setInfoWindowShown] = useState(true);
 
    return (
       <AdvancedMarker onClick={() => setInfoWindowShown((prevState) => !prevState)} position={position} ref={markerRef}>

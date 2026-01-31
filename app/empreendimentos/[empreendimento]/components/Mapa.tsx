@@ -1,73 +1,108 @@
 "use client";
 import useRoutesService from "@/hooks/useRoutesService";
 import { IEmpreendimento, ILugar } from "@/types/types";
-import { Map, useMap } from "@vis.gl/react-google-maps";
+import { AdvancedMarker, Map, Pin, useMap } from "@vis.gl/react-google-maps";
 import { useState } from "react";
 import MarkerWithInfoWindow from "./MarkerWithInfoWindow";
+import Btn from "@/components/shared/Btn";
+import { MapPinPen } from "lucide-react";
 
 const Mapa = ({ empreendimento }: { empreendimento: IEmpreendimento }) => {
-   const [localizacaoDoUsuario, setLocalizacao] = useState<ILugar>();
    const { directionsService, directionsRenderer } = useRoutesService();
    // TODO: Mais tarde renderizar os detalhes do caminho até o empreendimento
    const [caminho, setCaminho] = useState<google.maps.DirectionsResult>();
+   const [localizacaoDoUser, setLocalizacaoDoUser] = useState<ILugar>();
+   const [loadingCaminho, setLoadingCaminho] = useState(false);
+   const [mostrarErro, setMostrarErro] = useState(false);
    const map = useMap();
 
-   // TODO: Encontrar a localizacao do usuario apos se iniciar a busca pelo destino do empreendimento
    function encontrarLocalizacaoDoUsuario() {
-      // Apanhando as cooordenadas do usuário
-      navigator.geolocation.getCurrentPosition(
-         async (position) => {
-            const lat = position.coords.latitude;
-            const lng = position.coords.longitude;
-            setLocalizacao({ lat, lng });
-         },
-         (error) => {
-            console.log("Erro ao obter a localização do usuário");
-         },
-      );
+      return new Promise<ILugar>((resolve, reject) => {
+         navigator.geolocation.getCurrentPosition(
+            (position) => {
+               const lat = position.coords.latitude;
+               const lng = position.coords.longitude;
+               if (!lat && !lng) {
+                  reject(new Error("Localização do usuário é indisponível"));
+               } else {
+                  resolve({ lat, lng });
+               }
+            },
+            (error) => {
+               console.log("Erro ao obter a localização do usuário");
+               reject(error);
+            },
+         );
+      });
    }
 
-   // TODO: Adicionar a funcionalidade de encontrar o caminho até o empreendimento
-   async function encontrarDirecao(destino: ILugar) {
-      if (localizacaoDoUsuario) {
+   // TODO: Mostrar efeito de loading do cálculo da distância até o empreendimento
+   // TODO: Mostrar o erro caso a distância até o empreendimento seja muito grande
+   async function encontrarDirecao() {
+      setLoadingCaminho(true);
+      const userLocation = await encontrarLocalizacaoDoUsuario();
+      if (userLocation) {
+         setLocalizacaoDoUser(userLocation);
          await directionsService.route(
             {
-               origin: localizacaoDoUsuario,
-               destination: destino,
+               origin: userLocation,
+               destination: empreendimento.detalhes.coordenadas,
                travelMode: google.maps.TravelMode.DRIVING,
             },
             (result, status) => {
-               directionsRenderer.setMap(map);
-               directionsRenderer.setDirections(result);
-               directionsRenderer.setOptions({
-                  markerOptions: {
-                     visible: false,
-                  },
-                  polylineOptions: {
-                     strokeColor: "red",
-                  },
-               });
-               if (result) setCaminho(result);
+               if (status === "OK") {
+                  directionsRenderer.setMap(map);
+                  directionsRenderer.setDirections(result);
+                  directionsRenderer.setOptions({
+                     markerOptions: {
+                        visible: false,
+                     },
+                     polylineOptions: {
+                        strokeColor: "red",
+                     },
+                  });
+                  if (result) setCaminho(result);
+                  setLoadingCaminho(false);
+               } else if (status === "ZERO_RESULTS") {
+                  setMostrarErro(true);
+                  setTimeout(() => {
+                     setMostrarErro(false);
+                  }, 5000);
+               }
             },
          );
       }
    }
 
    return (
-      <Map
-         mapId="d95c984c2c99e484fcaaf9b5"
-         className="w-[70%] h-140!"
-         defaultZoom={15}
-         defaultCenter={empreendimento.detalhes.coordenadas}
-         mapTypeId="hybrid"
-      >
-         {/* Ponteiro do empreedimento */}
-         <MarkerWithInfoWindow
-            titulo={empreendimento.nome}
-            position={empreendimento.detalhes.coordenadas}
-            endereco={empreendimento.detalhes.endereco_real}
-         />
-      </Map>
+      <>
+         <Map
+            mapId="d95c984c2c99e484fcaaf9b5"
+            className="w-[70%] h-140!"
+            defaultZoom={15}
+            defaultCenter={empreendimento.detalhes.coordenadas}
+            mapTypeId="hybrid"
+         >
+            {/* Ponteiro do empreedimento */}
+            <MarkerWithInfoWindow
+               titulo={empreendimento.nome}
+               position={empreendimento.detalhes.coordenadas}
+               endereco={empreendimento.detalhes.endereco_real}
+            />
+
+            {/* TODO: Renderizar o ponteiro da localização do usuário caso se rastreie o caminho */}
+            {caminho && (
+               <AdvancedMarker position={localizacaoDoUser}>
+                  <Pin background={"#0f9d58"} borderColor={"#04959c"} glyphColor={"black"} />
+               </AdvancedMarker>
+            )}
+         </Map>
+         <div className="mt-7 w-fit" onClick={() => encontrarDirecao()}>
+            <Btn className="flex items-center gap-3">
+               <MapPinPen /> Traçar rota
+            </Btn>
+         </div>
+      </>
    );
 };
 export default Mapa;
