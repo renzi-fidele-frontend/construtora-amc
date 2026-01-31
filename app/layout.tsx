@@ -3,6 +3,7 @@ import { Rubik } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import { Toaster } from "@/components/ui/sonner";
 
 const fontRubik = Rubik({
    variable: "--font-rubik",
@@ -28,6 +29,7 @@ export default function RootLayout({
             <Header />
             {children}
             <Footer />
+            <Toaster />
          </body>
       </html>
    );

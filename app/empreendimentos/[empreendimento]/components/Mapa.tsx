@@ -6,6 +6,7 @@ import { useState } from "react";
 import MarkerWithInfoWindow from "./MarkerWithInfoWindow";
 import Btn from "@/components/shared/Btn";
 import { MapPinPen } from "lucide-react";
+import { toast } from "sonner";
 
 const Mapa = ({ empreendimento }: { empreendimento: IEmpreendimento }) => {
    const { directionsService, directionsRenderer } = useRoutesService();
@@ -13,7 +14,7 @@ const Mapa = ({ empreendimento }: { empreendimento: IEmpreendimento }) => {
    const [caminho, setCaminho] = useState<google.maps.DirectionsResult>();
    const [localizacaoDoUser, setLocalizacaoDoUser] = useState<ILugar>();
    const [loadingCaminho, setLoadingCaminho] = useState(false);
-   const [mostrarErro, setMostrarErro] = useState(false);
+
    const map = useMap();
 
    function encontrarLocalizacaoDoUsuario() {
@@ -50,7 +51,7 @@ const Mapa = ({ empreendimento }: { empreendimento: IEmpreendimento }) => {
                travelMode: google.maps.TravelMode.DRIVING,
             },
             (result, status) => {
-               if (status === "OK") {
+               if (status === google.maps.DirectionsStatus.OK) {
                   directionsRenderer.setMap(map);
                   directionsRenderer.setDirections(result);
                   directionsRenderer.setOptions({
@@ -63,11 +64,9 @@ const Mapa = ({ empreendimento }: { empreendimento: IEmpreendimento }) => {
                   });
                   if (result) setCaminho(result);
                   setLoadingCaminho(false);
-               } else if (status === "ZERO_RESULTS") {
-                  setMostrarErro(true);
-                  setTimeout(() => {
-                     setMostrarErro(false);
-                  }, 5000);
+               } else if (status === google.maps.DirectionsStatus.ZERO_RESULTS) {
+                  toast.error("Você está muito distante do empreendimento, a localização está indisponível!");
+                  setLoadingCaminho(false);
                }
             },
          );
@@ -90,7 +89,7 @@ const Mapa = ({ empreendimento }: { empreendimento: IEmpreendimento }) => {
                endereco={empreendimento.detalhes.endereco_real}
             />
 
-            {/* TODO: Renderizar o ponteiro da localização do usuário caso se rastreie o caminho */}
+            {/* Ponteiro da localização do usuário */}
             {caminho && (
                <AdvancedMarker position={localizacaoDoUser}>
                   <Pin background={"#0f9d58"} borderColor={"#04959c"} glyphColor={"black"} />

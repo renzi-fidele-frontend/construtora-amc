@@ -31,7 +31,7 @@ const Empreendimento = async ({ params }: { params: Promise<{ empreendimento: st
                ]}
             />
             {/* Seção da Vitrine */}
-            <section className="pt-10 pb-8 text-zinc-500">
+            <section className="py-8 text-zinc-500">
                <Container>
                   {/* Status */}
                   <div
@@ -65,7 +65,7 @@ const Empreendimento = async ({ params }: { params: Promise<{ empreendimento: st
                         </nav>
                      </div>
                      {/* Demonstração do empreendimento */}
-                     <div className="h-100 relative flex flex-col justify-center items-end">
+                     <div className="h-105 relative flex flex-col justify-center items-end">
                         {/* Detalhes de área */}
                         <div className="bg-zinc-50 relative flex w-fit end-25 shadow-xl/50">
                            <div className="flex items-center gap-6 p-8 border [&_span]:text-5xl [&_span]:font-medium font-light text-center">
