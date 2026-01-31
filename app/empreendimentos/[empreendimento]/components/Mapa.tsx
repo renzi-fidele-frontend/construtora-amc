@@ -1,13 +1,11 @@
 "use client";
 import useRoutesService from "@/hooks/useRoutesService";
+import { IEmpreendimento, ILugar } from "@/types/types";
 import { Map, useMap } from "@vis.gl/react-google-maps";
 import { useState } from "react";
+import MarkerWithInfoWindow from "./MarkerWithInfoWindow";
 
-interface ILugar {
-   lat: number;
-   lng: number;
-}
-const Mapa = ({ localizacaoDoEmpreendimento }: { localizacaoDoEmpreendimento: ILugar }) => {
+const Mapa = ({ empreendimento }: { empreendimento: IEmpreendimento }) => {
    const [localizacaoDoUsuario, setLocalizacao] = useState<ILugar>();
    const { directionsService, directionsRenderer } = useRoutesService();
    // TODO: Mais tarde renderizar os detalhes do caminho até o empreendimento
@@ -55,15 +53,21 @@ const Mapa = ({ localizacaoDoEmpreendimento }: { localizacaoDoEmpreendimento: IL
       }
    }
 
-   // TODO: Adicionar o marker contendo as informações básica sobre o empreendimento
    return (
       <Map
          mapId="d95c984c2c99e484fcaaf9b5"
          className="w-[70%] h-140!"
          defaultZoom={15}
-         defaultCenter={localizacaoDoEmpreendimento}
+         defaultCenter={empreendimento.detalhes.coordenadas}
          mapTypeId="hybrid"
-      ></Map>
+      >
+         {/* Ponteiro do empreedimento */}
+         <MarkerWithInfoWindow
+            titulo={empreendimento.nome}
+            position={empreendimento.detalhes.coordenadas}
+            endereco={empreendimento.detalhes.endereco_real}
+         />
+      </Map>
    );
 };
 export default Mapa;

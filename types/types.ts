@@ -75,3 +75,8 @@ export interface IIconeComDescricao {
    nome: string;
    descricao: string;
 }
+
+export interface ILugar {
+   lat: number;
+   lng: number;
+}

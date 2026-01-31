@@ -121,6 +121,7 @@ const Empreendimento = async ({ params }: { params: Promise<{ empreendimento: st
                   )}
                </Container>
             </section>
+            {/* Seção da Galeria */}
             <section className="relative py-17.5 text-center">
                <Container className="flex flex-col items-center">
                   <SectionIntro className="[&_h2]:text-8xl [&_h2]:mt-4 text-white! mb-6!" titulo="IMAGENS" />
@@ -162,14 +163,14 @@ const Empreendimento = async ({ params }: { params: Promise<{ empreendimento: st
                <Container className="flex flex-col items-center">
                   <SectionIntro className="[&_h2]:text-8xl [&_h2]:mt-4 text-white! mb-6!" titulo="LOCALIZAÇÃO" />
                   {/* Endereço */}
-                  <div className="border border-white text-white p-6.5 text-xl w-fit px-40 mb-15">
+                  <div className="border border-white text-white p-6.5 text-xl w-fit px-40 mb-13">
                      <p className="flex items-center gap-3">
                         <MapPin /> {empreendimento.detalhes.endereco_em_texto}
                      </p>
                   </div>
                   {/* Mapa */}
                   <MapProvider>
-                     <Mapa localizacaoDoEmpreendimento={empreendimento.detalhes.coordenadas} />
+                     <Mapa empreendimento={empreendimento} />
                   </MapProvider>
                </Container>
                {/* Rectângulo verde claro */}
