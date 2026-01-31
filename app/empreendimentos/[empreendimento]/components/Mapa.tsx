@@ -37,8 +37,6 @@ const Mapa = ({ empreendimento }: { empreendimento: IEmpreendimento }) => {
       });
    }
 
-   // TODO: Mostrar efeito de loading do cálculo da distância até o empreendimento
-   // TODO: Mostrar o erro caso a distância até o empreendimento seja muito grande
    async function encontrarDirecao() {
       setLoadingCaminho(true);
       const userLocation = await encontrarLocalizacaoDoUsuario();
@@ -96,9 +94,18 @@ const Mapa = ({ empreendimento }: { empreendimento: IEmpreendimento }) => {
                </AdvancedMarker>
             )}
          </Map>
-         <div className="mt-7 w-fit" onClick={() => encontrarDirecao()}>
-            <Btn className="flex items-center gap-3">
-               <MapPinPen /> Traçar rota
+         <div
+            className={`mt-7 w-fit ${loadingCaminho ? "animate-pulse" : ""} `}
+            onClick={!loadingCaminho ? () => encontrarDirecao() : undefined}
+         >
+            <Btn>
+               {!loadingCaminho ? (
+                  <p className="flex items-center gap-3">
+                     <MapPinPen /> Traçar rota
+                  </p>
+               ) : (
+                  <p>Carregando o caminho...</p>
+               )}
             </Btn>
          </div>
       </>
