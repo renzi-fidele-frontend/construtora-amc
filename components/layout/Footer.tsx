@@ -24,40 +24,40 @@ const Footer = () => {
                   <Image width={170} height={64} src="/img/logo.png" alt="Logotipo do site" />
                   <div className="flex flex-col gap-2 text-lg font-medium mt-2">
                      <LinkComChevron texto="Quem Somos" link="/institucional/quem_somos" />
-                     <LinkComChevron texto="Missão e valores" link="/missao_e_valores" />
+                     <LinkComChevron texto="Missão e valores" link="/institucional/missao_visao_valores" />
                   </div>
                </div>
                {/* Coluna 2 */}
                <div>
                   <p className="font-medium">Institucional</p>
                   <nav className="flex flex-col gap-2.5 text-base">
-                     <LinkComChevron texto="Infraestrutura" link="/infraestrutura" />
-                     <LinkComChevron texto="Clientes" link="/clientes" />
-                     <LinkComChevron texto="Contato" link="/contato" />
+                     <LinkComChevron texto="Infraestrutura" link="/institucional/infraestrutura" />
+                     <LinkComChevron texto="Clientes" link="/institucional/clientes" />
+                     <LinkComChevron texto="Contato" link="/institucional/ligamos_para_voce" />
                      <LinkComChevron texto="Política de Privacidade" link="/politica_de_privacidade" />
                   </nav>
                </div>
                {/* Coluna 3 */}
                <div className="font-medium">
-                  <Link href="#">Empreendimentos</Link>
-                  <Link href="#">Depoimentos</Link>
-                  <Link href="#">Missão e valores</Link>
-                  <Link href="#">
+                  <Link href="/empreendimentos">Empreendimentos</Link>
+                  <Link href="/depoimentos">Depoimentos</Link>
+                  <Link href="/institucional/missao_visao_valores">Missão e valores</Link>
+                  <Link href="/institucional/ligamos_para_voce">
                      <Btn className="px-2! py-2!">Fale conosco</Btn>
                   </Link>
                </div>
             </div>
             {/* Barra azul */}
             <div className="grid grid-cols-3 *:flex *:flex-col *:gap-4 *:pt-6 *:pb-9 *:px-8 text-white font-black tracking-wider text-2xl mt-7 *:hover:[&_svg]:animate-bounce *:hover:border-x">
-               <Link className="bg-[#0CA5AD]" href="#">
+               <Link className="bg-[#0CA5AD]" href="/blog">
                   <Calendar className="size-8" />
                   <p>BLOG</p>
                </Link>
-               <Link className="bg-theme2" href="#">
+               <Link className="bg-theme2" href="https://api.whatsapp.com/send?phone=5547991520164" target="_blank">
                   <MessageSquareText className="size-8" />
                   <p>WHATSAPP</p>
                </Link>
-               <Link className="bg-[#0CA5AD]" href="#">
+               <Link className="bg-[#0CA5AD]" href="/institucional/ligamos_para_voce">
                   <Phone className="size-8" />
                   <p>
                      <span className="font-normal text-xl">LIGAMOS</span>
