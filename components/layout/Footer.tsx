@@ -40,7 +40,7 @@ const Footer = () => {
                {/* Coluna 3 */}
                <div className="font-medium">
                   <Link href="/empreendimentos">Empreendimentos</Link>
-                  <Link href="/depoimentos">Depoimentos</Link>
+                  <Link href="/institucional/depoimentos">Depoimentos</Link>
                   <Link href="/institucional/missao_visao_valores">Missão e valores</Link>
                   <Link href="/institucional/ligamos_para_voce">
                      <Btn className="px-2! py-2!">Fale conosco</Btn>
