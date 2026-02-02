@@ -32,11 +32,8 @@ const SubHeader = () => {
       const observer = new IntersectionObserver(
          (entries) => {
             const entry = entries[0];
-
             if (entry.isIntersecting && entry.intersectionRatio === 1) {
                setIsAtTop(true);
-               // Trigger your event
-               console.log("Element reached top (native API)!");
             } else {
                setIsAtTop(false);
             }
@@ -64,7 +61,7 @@ const SubHeader = () => {
          {/* Sentinela */}
          <div ref={sentinelaRef}></div>
          {/* Parte inferior do cabeçalho */}
-         <div className={`py-3 bg-theme1 text-white text-lg font-medium uppercase ${!isAtTop ? "fixed inset-x-0 top-0" : ""} `}>
+         <div className={`py-3 bg-theme1 text-white text-lg font-medium uppercase ${!isAtTop ? "fixed inset-x-0 top-0 z-5" : ""} `}>
             <Container className="flex items-center justify-center gap-20">
                {categorias.map((v, k) => (
                   <Link href={v.url} key={k}>

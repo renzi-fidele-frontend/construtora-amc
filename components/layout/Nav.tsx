@@ -24,6 +24,7 @@ const links: TypeLinks = [
          { titulo: "Quem somos", url: "/institucional/quem_somos" },
          { titulo: "Infraestrutura", url: "/institucional/infraestrutura" },
          { titulo: "Clientes", url: "/institucional/clientes" },
+         { titulo: "Depoimentos", url: "/institucional/depoimentos" },
          { titulo: "Parceria", url: "/institucional/parceria" },
          { titulo: "Ligamos para você", url: "/institucional/ligamos_para_voce" },
          { titulo: "Política de privacidade", url: "/politica_de_privacidade" },
@@ -53,10 +54,14 @@ const Nav = () => {
                   ) : (
                      <>
                         <NavigationMenuTrigger className="px-1">{v.titulo}</NavigationMenuTrigger>
-                        <NavigationMenuContent className="pe-10! **:w-full! ">
-                           {v.megaLinks.map((v, k) => (
-                              <NavigationMenuLink href={v?.url} key={k}>
-                                 {v?.titulo}
+                        <NavigationMenuContent className=" **:w-full!">
+                           {v.megaLinks.map((link, k) => (
+                              <NavigationMenuLink
+                                 className={`font-medium text-theme1 ${k + 1 < v.megaLinks.length ? "border-b" : ""}`}
+                                 href={link?.url}
+                                 key={k}
+                              >
+                                 {link?.titulo}
                               </NavigationMenuLink>
                            ))}
                         </NavigationMenuContent>
