@@ -6,7 +6,6 @@ import Link from "next/link";
 import SubHeader from "./SubHeader";
 
 // TODO: Destacar o link selecionando no cabeçalho
-// TODO: Tornar a parte inferior do cabeçalho em fixa ao topo ao se fazer scroll para baixo
 const Header = () => {
    return (
       <header>
