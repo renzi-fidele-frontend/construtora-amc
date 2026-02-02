@@ -25,7 +25,7 @@ const categorias = [
 
 const SubHeader = () => {
    const sentinelaRef = useRef(null);
-   const [isAtTop, setIsAtTop] = useState(false);
+   const [isAtTop, setIsAtTop] = useState(true);
 
    useEffect(() => {
       const elemento = sentinelaRef.current;

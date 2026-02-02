@@ -5,7 +5,6 @@ import Nav from "./Nav";
 import Link from "next/link";
 import SubHeader from "./SubHeader";
 
-// TODO: Destacar o link selecionando no cabeçalho
 const Header = () => {
    return (
       <header>

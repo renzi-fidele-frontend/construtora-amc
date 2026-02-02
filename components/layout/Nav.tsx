@@ -1,3 +1,5 @@
+"use client";
+
 import {
    NavigationMenu,
    NavigationMenuContent,
@@ -6,6 +8,8 @@ import {
    NavigationMenuList,
    NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
+import { usePathname } from "next/navigation";
+import { useEffect } from "react";
 
 type TypeLinks = {
    titulo: string;
@@ -38,6 +42,8 @@ const links: TypeLinks = [
 ];
 
 const Nav = () => {
+   const pathname = usePathname();
+
    return (
       <NavigationMenu>
          <NavigationMenuList className="**:cursor-pointer gap-6 text-theme1 **:text-[18px] font-medium">
@@ -45,9 +51,8 @@ const Nav = () => {
                <NavigationMenuItem key={k}>
                   {!v.megaLinks ? (
                      <NavigationMenuLink
-                        className={`data-[active=true]:underline ${v?.highlight && "bg-theme1 text-white cursor-pointer border-theme1 border"}`}
+                        className={`hover:underline underline-offset-7 ${v?.highlight && "bg-theme1 text-white cursor-pointer border-theme1 border"} ${pathname === v.url ? "underline  " : ""}`}
                         href={v?.url}
-                        active={true}
                      >
                         {v?.titulo}
                      </NavigationMenuLink>
@@ -57,7 +62,7 @@ const Nav = () => {
                         <NavigationMenuContent className=" **:w-full!">
                            {v.megaLinks.map((link, k) => (
                               <NavigationMenuLink
-                                 className={`font-medium text-theme1 ${k + 1 < v.megaLinks.length ? "border-b" : ""}`}
+                                 className={`font-medium text-theme1 ${k + 1 < v.megaLinks.length ? "border-b" : ""} ${pathname === link.url ? "bg-theme1 text-white" : ""}`}
                                  href={link?.url}
                                  key={k}
                               >
