@@ -10,7 +10,6 @@ import { toast } from "sonner";
 
 const Mapa = ({ empreendimento }: { empreendimento: IEmpreendimento }) => {
    const { directionsService, directionsRenderer } = useRoutesService();
-   // TODO: Mais tarde renderizar os detalhes do caminho até o empreendimento
    const [caminho, setCaminho] = useState<google.maps.DirectionsResult>();
    const [localizacaoDoUser, setLocalizacaoDoUser] = useState<ILugar>();
    const [loadingCaminho, setLoadingCaminho] = useState(false);

@@ -158,7 +158,7 @@ const Empreendimento = async ({ params }: { params: Promise<{ empreendimento: st
                {/* Rectângulo verde claro */}
                <div className="absolute w-full inset-y-0 top-0 h-128 bg-theme1 -z-1"></div>
             </section>
-            {/* TODO: Implementar a seção de Localiização */}
+            {/* Seção de Localização */}
             <section className="relative py-17.5 text-center">
                <Container className="flex flex-col items-center">
                   <SectionIntro className="[&_h2]:text-8xl [&_h2]:mt-4 text-white! mb-6!" titulo="LOCALIZAÇÃO" />
