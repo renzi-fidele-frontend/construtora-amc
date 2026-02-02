@@ -46,6 +46,7 @@ const Nav = () => {
                      <NavigationMenuLink
                         className={`data-[active=true]:underline ${v?.highlight && "bg-theme1 text-white cursor-pointer border-theme1 border"}`}
                         href={v?.url}
+                        active={true}
                      >
                         {v?.titulo}
                      </NavigationMenuLink>
