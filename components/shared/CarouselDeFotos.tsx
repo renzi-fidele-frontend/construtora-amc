@@ -4,12 +4,14 @@ import { Carousel, CarouselContent, CarouselItem, type CarouselApi } from "../ui
 import Autoplay from "embla-carousel-autoplay";
 import { useEffect, useRef, useState } from "react";
 import Container from "../layout/Container";
+import Link from "next/link";
 
 interface CarouselDeFotosProps {
-   fotos: string[];
+   foto: string;
+   url: string;
 }
 
-const CarouselDeFotos = ({ fotos }: CarouselDeFotosProps) => {
+const CarouselDeFotos = ({ fotos }: { fotos: CarouselDeFotosProps[] }) => {
    const AutoplayPlugin = useRef(Autoplay({ delay: 6000, stopOnInteraction: false }));
    const [api, setApi] = useState<CarouselApi>();
    const [dotAtual, setDotAtual] = useState(0);
@@ -32,7 +34,9 @@ const CarouselDeFotos = ({ fotos }: CarouselDeFotosProps) => {
             <CarouselContent>
                {fotos?.map((v, k) => (
                   <CarouselItem key={k}>
-                     <Image width={1920} height={620} src={v} alt="Foto demostrando um empreendimento" />
+                     <Link href={v.url}>
+                        <Image width={1920} height={620} src={v.foto} alt="Foto demostrando um empreendimento" />
+                     </Link>
                   </CarouselItem>
                ))}
             </CarouselContent>

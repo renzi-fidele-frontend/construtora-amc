@@ -9,7 +9,6 @@ import {
    NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
 import { usePathname } from "next/navigation";
-import { useEffect } from "react";
 
 type TypeLinks = {
    titulo: string;

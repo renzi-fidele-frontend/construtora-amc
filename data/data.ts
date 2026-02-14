@@ -1,38 +1,85 @@
 import { ICardArtigo, ICliente, IDepoimento, IEmpreendimento, IIconeComDescricao, IInfraestrutura } from "@/types/types";
 
 export const fotosDestaques = [
-   "/img/slides-home/0.png",
-   "/img/slides-home/1.jpg",
-   "/img/slides-home/2.jpg",
-   "/img/slides-home/3.jpg",
-   "/img/slides-home/4.jpg",
-   "/img/slides-home/5.jpg",
-   "/img/slides-home/6.jpg",
-   "/img/slides-home/7.jpg",
+   { foto: "/img/slides-home/0.png", url: "/empreendimentos/villa-di-napoli" },
+   { foto: "/img/slides-home/1.jpg", url: "/empreendimentos/casa-blanca-residence" },
+   { foto: "/img/slides-home/2.jpg", url: "/empreendimentos/casa-blanca-residence" },
+   { foto: "/img/slides-home/3.jpg", url: "/empreendimentos/casa-blanca-residence" },
+   { foto: "/img/slides-home/4.jpg", url: "/empreendimentos/ilha-de-capri" },
+   { foto: "/img/slides-home/5.jpg", url: "/empreendimentos/portal-do-lago" },
+   { foto: "/img/slides-home/6.jpg", url: "/empreendimentos/solar-de-cascais" },
+   { foto: "/img/slides-home/7.jpg", url: "/empreendimentos/vila-di-trento" },
 ];
 
 // TODO: Mais tarde remover os comentários, após implementar a estrutura dos detalhes do empreendimento
 export const empreendimentos: IEmpreendimento[] = [
-   /* {
-      id: "1",
+   // TODO: Adicionar as informações acerca do empreendimento Casa Blanca Residence
+   {
+      id: "casa-blanca-residence",
       nome: "Casa Blanca Residence",
       categoria: "Lançamento",
-      destaque: "2 suítes",
-      descricao_area: "70m² de área privativa",
+      destaque: "<span>2</span> dormitórios",
+      descricao_area: "<span>70m²</span> de área privativa",
       endereco_curto: "Casa Blanca",
       estado: "Itapema - SC",
       thumbnail: "/img/empreendimentos/casa-blanca/casa-blanca.jpg",
       icones: ["spa", "academia", "game", "gourmet"],
       destacado: true,
-   },*/
+      detalhes: {
+         bio: [
+            "O Casa Blanca é um empreendimento surpreendente em todos os sentidos. A começar por sua arquitetura contemporânea, equipamentos de lazer diferenciados e sua localização privilegiada, que só quem mora próximo ao centro da cidade sabe o quanto é bom estar perto de tudo.",
+            "Para quem espera muito mais de um empreendimento residencial surpreendente em Itapema, o Casa Blanca Residence Club é tudo de bom. Muito mais que um residence, um clube perfeito para aproveitar todos os dias.",
+            "Quando você menos espera encontra o projeto perfeito para o seu estilo de viver bem.",
+            "Viver já é bom. Imagine com qualidade de vida.",
+         ],
+         minhaCasa: false,
+         logomarca: "/img/empreendimentos/casa-blanca/icoCasaBlanca.webp",
+         coordenadas: {
+            lat: -27.094037,
+            lng: -48.627885,
+         },
+         endereco_em_texto: "Casa Branca, Itapema - SC",
+         endereco_real: "R. 700 - Casa Branca, Itapema - SC",
+         fundoDestaque: "/img/empreendimentos/casa-blanca/ilustracoes/15.webp",
+         ilustracoes: [
+            "/img/empreendimentos/casa-blanca/ilustracoes/1.webp",
+            "/img/empreendimentos/casa-blanca/ilustracoes/2.webp",
+            "/img/empreendimentos/casa-blanca/ilustracoes/3.webp",
+            "/img/empreendimentos/casa-blanca/ilustracoes/4.webp",
+            "/img/empreendimentos/casa-blanca/ilustracoes/5.webp",
+            "/img/empreendimentos/casa-blanca/ilustracoes/6.webp",
+            "/img/empreendimentos/casa-blanca/ilustracoes/7.webp",
+            "/img/empreendimentos/casa-blanca/ilustracoes/8.webp",
+            "/img/empreendimentos/casa-blanca/ilustracoes/9.webp",
+            "/img/empreendimentos/casa-blanca/ilustracoes/10.webp",
+            "/img/empreendimentos/casa-blanca/ilustracoes/11.webp",
+            "/img/empreendimentos/casa-blanca/ilustracoes/12.webp",
+            "/img/empreendimentos/casa-blanca/ilustracoes/13.webp",
+            "/img/empreendimentos/casa-blanca/ilustracoes/14.webp",
+            "/img/empreendimentos/casa-blanca/ilustracoes/15.webp",
+            "/img/empreendimentos/casa-blanca/ilustracoes/16.webp",
+            "/img/empreendimentos/casa-blanca/ilustracoes/17.webp",
+            "/img/empreendimentos/casa-blanca/ilustracoes/18.webp",
+         ],
+         plantas: [
+            "/img/empreendimentos/casa-blanca/plantas/1.webp",
+            "/img/empreendimentos/casa-blanca/plantas/2.webp",
+            "/img/empreendimentos/casa-blanca/plantas/3.webp",
+            "/img/empreendimentos/casa-blanca/plantas/4.webp",
+            "/img/empreendimentos/casa-blanca/plantas/5.webp",
+            "/img/empreendimentos/casa-blanca/plantas/6.webp",
+         ],
+         implantacao: ["/img/empreendimentos/casa-blanca/implatacao/6.webp"],
+      },
+   },
 
    {
       id: "ilha-de-capri",
-      nome: "Ilha de Capri",
+      nome: "Ilha di Capri",
       categoria: "Lançamento",
       destaque: "<span>2</span> dorm c/ suíte",
       descricao_area: "<span>52m²</span> de área privativa",
-      endereco_curto: "Ilha de Capri",
+      endereco_curto: "Ilha di Capri",
       estado: "Tijucas - SC",
       thumbnail: "/img/empreendimentos/ilha-di-capri/ilha-di-capri.jpg",
       icones: ["piscina", "sala-de-festas", "pet-place", "playground"],
@@ -90,6 +137,7 @@ export const empreendimentos: IEmpreendimento[] = [
          endereco_real: "Rua Treze de Maio, 2746 - Areias - Tijucas - SC",
          coordenadas: { lat: -27.2234646, lng: -48.6334496 },
       },
+      
    },
 
    /*
