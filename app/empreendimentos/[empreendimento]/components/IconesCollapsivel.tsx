@@ -1,10 +1,12 @@
 "use client";
 import { iconesComDescricao } from "@/data/data";
+import { IIcone } from "@/types/types";
 import { Minus, Plus } from "lucide-react";
 import Image from "next/image";
 import { useState } from "react";
 
-const IconesCollapsivel = () => {
+// TODO: Finish this implementation
+const IconesCollapsivel = ({ icones }: { icones: IIcone[] }) => {
    const [aberto, setAberto] = useState(false);
 
    return (
@@ -12,20 +14,22 @@ const IconesCollapsivel = () => {
          {/* Collapsível */}
          <div
             style={{ transition: "all .3s ease-in" }}
-            className={`grid grid-cols-5 gap-6 text-white overflow-y-hidden h-20 ${aberto ? "h-fit" : ""}`}
+            className={`w-full grid grid-cols-5 gap-6 text-white overflow-y-hidden h-20 ${aberto ? "h-fit" : ""}`}
          >
-            {iconesComDescricao.map((v, k) => (
-               <div className="flex flex-col items-center justify-center gap-2" key={k}>
-                  <Image
-                     className="invert-100 size-12"
-                     width={40}
-                     height={40}
-                     src={`/icons/features/${v.nome}.png`}
-                     alt={`Ilustração demostrando o destaque ${v.descricao} do empreendimento`}
-                  />
-                  <p className={!aberto ? "line-clamp-1" : ""}>{v.descricao}</p>
-               </div>
-            ))}
+            {iconesComDescricao
+               .filter((v) => icones.includes(v.nome))
+               .map((v, k) => (
+                  <div className="flex flex-col items-center justify-center gap-2" key={k}>
+                     <Image
+                        className="invert-100 size-12"
+                        width={40}
+                        height={40}
+                        src={`/icons/features/${v.nome}.png`}
+                        alt={`Ilustração demostrando o destaque ${v.descricao} do empreendimento`}
+                     />
+                     <p className={!aberto ? "line-clamp-1" : ""}>{v.descricao}</p>
+                  </div>
+               ))}
          </div>
          {/* Gatilho */}
          <div

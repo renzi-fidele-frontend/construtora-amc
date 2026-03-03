@@ -97,7 +97,7 @@ const Empreendimento = async ({ params }: { params: Promise<{ empreendimento: st
                   </div>
                   {/* Ícones de destaques */}
                   <div className="mt-5">
-                     <IconesCollapsivel />
+                     <IconesCollapsivel icones={empreendimento.icones} />
                   </div>
                </Container>
             </section>
