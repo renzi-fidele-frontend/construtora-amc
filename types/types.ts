@@ -20,7 +20,6 @@ export type IIcone =
    | "pergolados"
    | "coworking"
    | "car-wash" | "portaria" | "tenis-de-praia";
-   // TODO: Add the following icones to the source folder
 
 
 export interface IEmpreendimento {
@@ -35,6 +34,7 @@ export interface IEmpreendimento {
    descricao_area: string;
    /** Tamanho das imagens 40 x 40 */
    icones: IIcone[];
+   /** Define se o empreendimento aparecerá na home ou não. */
    destacado: boolean;
    id: string;
    detalhes: {

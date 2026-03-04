@@ -5,7 +5,6 @@ import { Minus, Plus } from "lucide-react";
 import Image from "next/image";
 import { useState } from "react";
 
-// TODO: Finish this implementation
 const IconesCollapsivel = ({ icones }: { icones: IIcone[] }) => {
    const [aberto, setAberto] = useState(false);
 

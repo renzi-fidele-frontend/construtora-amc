@@ -13,8 +13,6 @@ export const fotosDestaques = [
 
 // TODO: Mais tarde remover os comentários, após implementar a estrutura dos detalhes do empreendimento
 export const empreendimentos: IEmpreendimento[] = [
-   // TODO: Adicionar as informações acerca do empreendimento Casa Blanca Residence
-   // TODO: Extender os ícones para os demais empreendimentos
    // Ilha di Capri
    {
       id: "ilha-de-capri",
@@ -93,7 +91,7 @@ export const empreendimentos: IEmpreendimento[] = [
       estado: "Itapema - SC",
       thumbnail: "/img/empreendimentos/casa-blanca/casa-blanca.jpg",
       thumbIcons: ["spa", "academia", "game", "gourmet"],
-      icones: ["spa", "academia", "game", "gourmet"],
+      icones: ["spa", "lounge-bar", "gourmet", "academia", "game", "brinquedoteca", "pergolados", "coworking", "car-wash"],
       destacado: true,
       detalhes: {
          bio: [
@@ -139,7 +137,7 @@ export const empreendimentos: IEmpreendimento[] = [
             "/img/empreendimentos/casa-blanca/plantas/5.webp",
             "/img/empreendimentos/casa-blanca/plantas/6.webp",
          ],
-         implantacao: ["/img/empreendimentos/casa-blanca/implatacao/6.webp"],
+         implantacao: ["/img/empreendimentos/casa-blanca/implatacao/1.webp"],
       },
    },
 ];
@@ -394,7 +392,7 @@ export const iconesComDescricao: IIconeComDescricao[] = [
    { nome: "brinquedoteca", descricao: "Brinquedoteca" },
    { nome: "pergolados", descricao: "Pergolados" },
    { nome: "portaria", descricao: "Portaria 24h" },
-   {nome: "tenis-de-praia", descricao: "Tennis de Praia"},
+   { nome: "tenis-de-praia", descricao: "Tennis de Praia" },
 ];
 
 // ------------------- Backup contendo empreendimento a adicionar -------------------

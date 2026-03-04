@@ -46,7 +46,7 @@ const CardEmpreendimento = ({ empreendimento, largura = "w-fit" }: { empreendime
                <hr />
                {/* Destaques */}
                <div className="py-4 flex items-center justify-between">
-                  {empreendimento.icones.map((v, k) => (
+                  {empreendimento.thumbIcons.map((v, k) => (
                      <Image
                         className="shrink-0 group-hover:invert-100"
                         width={40}
