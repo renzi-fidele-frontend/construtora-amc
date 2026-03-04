@@ -19,8 +19,9 @@ export type IIcone =
    | "brinquedoteca"
    | "pergolados"
    | "coworking"
-   | "car-wash" | "portaria" | "tenis-de-praia";
-
+   | "car-wash"
+   | "portaria"
+   | "tenis-de-praia";
 
 export interface IEmpreendimento {
    categoria: "Lançamento" | "Pré-lançamento" | "Entregue" | "Urbanismo";
@@ -41,6 +42,10 @@ export interface IEmpreendimento {
       fundoDestaque: string;
       ilustracoes: string[];
       plantas: string[];
+      // Imagens opcionais de outros empreendimentos
+      apartamento1?: string[];
+      apartamento2?: string[];
+      // ----------
       implantacao: string[];
       logomarca: string;
       bio: string[];

@@ -13,7 +13,7 @@ const IconesCollapsivel = ({ icones }: { icones: IIcone[] }) => {
          {/* Collapsível */}
          <div
             style={{ transition: "all .3s ease-in" }}
-            className={`w-full grid grid-cols-5 gap-6 text-white overflow-y-hidden h-20 ${aberto ? "h-fit" : ""}`}
+            className={`w-full grid grid-cols-6 gap-6 text-white overflow-y-hidden h-20 ${aberto ? "h-fit" : ""}`}
          >
             {iconesComDescricao
                .filter((v) => icones.includes(v.nome))
@@ -31,15 +31,15 @@ const IconesCollapsivel = ({ icones }: { icones: IIcone[] }) => {
                ))}
          </div>
          {/* Gatilho */}
-         <div
-            className="flex flex-col items-center text-white hover:cursor-pointer hover:underline h-fit group"
-            onClick={() => {
-               setAberto(!aberto);
-            }}
-         >
-            {!aberto ? <Plus className="size-11 transition group-hover:rotate-90" /> : <Minus className="size-11 transition" />}
-            <p className="font-medium text-nowrap">{!aberto ? "Ver mais" : "Ver menos"}</p>
-         </div>
+            <div
+               className="flex flex-col items-center text-white hover:cursor-pointer hover:underline h-fit group"
+               onClick={() => {
+                  setAberto(!aberto);
+               }}
+            >
+               {!aberto ? <Plus className="size-11 transition group-hover:rotate-90" /> : <Minus className="size-11 transition" />}
+               <p className="font-medium text-nowrap">{!aberto ? "Ver mais" : "Ver menos"}</p>
+            </div>
       </div>
    );
 };
