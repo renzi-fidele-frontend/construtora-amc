@@ -241,6 +241,59 @@ export const empreendimentos: IEmpreendimento[] = [
 
       destacado: true,
    },
+   // Vila di Trento
+   {
+      id: "vila-di-trento",
+      nome: "Vila di Trento",
+      categoria: "Lançamento",
+      destaque: "<span>2</span> dormitórios",
+      descricao_area: "<span>51m²</span> de área privativa",
+      endereco_curto: "Vila di Trento",
+      estado: "Tijucas - SC",
+      thumbnail: "/img/empreendimentos/vila-di-trento/vila-di-trento.jpg",
+      thumbIcons: ["campo-futebool", "piscina", "pet-place", "playground"],
+      icones: ["piscina", "campo-futebool", "sala-de-festas", "pet-place", "playground", "portaria", "portao-automatico", "piso-laminado"],
+      destacado: false,
+      detalhes: {
+         bio: [
+            "Em breve lançaremos um empreendimento com 192 unidades na cidade de Tijucas/SC em homenagem a colonização italiana na região.",
+            "O Residencial Vila De Trento contará com uma ampla área de lazer, apartamentos com 2 dormitórios, sacada e churrasqueira.",
+            "E o melhor: parcelas que cabem no seu bolso, com entrada parcelada em 72x.",
+         ],
+         minhaCasa: true,
+         ilustracoes: [
+            "/img/empreendimentos/vila-di-trento/ilustracoes/1.jpg",
+            "/img/empreendimentos/vila-di-trento/ilustracoes/2.jpg",
+            "/img/empreendimentos/vila-di-trento/ilustracoes/3.jpg",
+            "/img/empreendimentos/vila-di-trento/ilustracoes/4.jpg",
+            "/img/empreendimentos/vila-di-trento/ilustracoes/5.jpg",
+            "/img/empreendimentos/vila-di-trento/ilustracoes/6.jpg",
+            "/img/empreendimentos/vila-di-trento/ilustracoes/7.jpg",
+            "/img/empreendimentos/vila-di-trento/ilustracoes/8.jpg",
+            "/img/empreendimentos/vila-di-trento/ilustracoes/9.jpg",
+            "/img/empreendimentos/vila-di-trento/ilustracoes/10.jpg",
+         ],
+         plantas: [
+            "/img/empreendimentos/vila-di-trento/plantas/1.jpg",
+            "/img/empreendimentos/vila-di-trento/plantas/2.jpg",
+            "/img/empreendimentos/vila-di-trento/plantas/3.jpg",
+            "/img/empreendimentos/vila-di-trento/plantas/4.jpg",
+            "/img/empreendimentos/vila-di-trento/plantas/5.jpg",
+            "/img/empreendimentos/vila-di-trento/plantas/6.jpg",
+            "/img/empreendimentos/vila-di-trento/plantas/7.jpg",
+            "/img/empreendimentos/vila-di-trento/plantas/8.jpg",
+         ],
+         implantacao: ["/img/empreendimentos/vila-di-trento/implatacao/1.jpg"],
+         logomarca: "/img/empreendimentos/vila-di-trento/icoVilaDiTrento.webp",
+         coordenadas: {
+            lat: -27.213376,
+            lng: -48.631813,
+         },
+         endereco_em_texto: "Areias, Tijucas - SC",
+         endereco_real: "Rua Venceslau Fernandes, 417 - Bairro Areias - Tijucas - SC, 88200-000",
+         fundoDestaque: "/img/empreendimentos/vila-di-trento/ilustracoes/1.webp",
+      },
+   },
 ];
 
 export const artigos: ICardArtigo[] = [
@@ -498,18 +551,6 @@ export const iconesComDescricao: IIconeComDescricao[] = [
 
 // ------------------- Backup contendo empreendimento a adicionar -------------------
 const backup = [
-   {
-      id: "4",
-      nome: "Vila di Trento",
-      categoria: "Lançamento",
-      destaque: "2 dormitórios",
-      descricao_area: "51m² de área privativa",
-      endereco_curto: "Vila di Trento",
-      estado: "Tijucas - SC",
-      thumbnail: "/img/empreendimentos/vila-di-trento/vila-di-trento.jpg",
-      icones: ["campo-futebool", "piscina", "pet-place", "playground"],
-      destacado: false,
-   },
    {
       id: "5",
       nome: "Ocean Green",
