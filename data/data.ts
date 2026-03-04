@@ -371,7 +371,6 @@ export const empreendimentos: IEmpreendimento[] = [
       thumbnail: "/img/empreendimentos/villa-di-napoli/villa-di-napoli.jpg",
       thumbIcons: ["campo-futebool", "spa", "pets", "piscina"],
       icones: ["piscina", "sala-de-festas", "pet-place", "playground", "guarita", "campo-futebool"],
-
       destacado: true,
       detalhes: {
          bio: [
@@ -444,6 +443,70 @@ export const empreendimentos: IEmpreendimento[] = [
             "/img/empreendimentos/villa-di-napoli/plantas/18.webp",
          ],
          implantacao: ["/img/empreendimentos/villa-di-napoli/implantacao/1.webp", "/img/empreendimentos/villa-di-napoli/implantacao/2.webp"],
+      },
+   },
+   // Solar di Bergamo
+   {
+      id: "solar-di-bergamo",
+      nome: "Solar di Bergamo",
+      categoria: "Pré-lançamento",
+      destaque: "<span>2</span> dormitórios",
+      descricao_area: "Todos com suíte",
+      endereco_curto: "Casa Blanca",
+      estado: "Tijucas - SC",
+      thumbnail: "/img/empreendimentos/solar-di-bergamo/solar-di-bergamo.jpg",
+      thumbIcons: ["campo-futebool", "sala-de-festas", "pets", "playground"],
+      icones: ["piscina", "sala-de-festas", "pet-place", "playground", "guarita", "academia", "campo-futebool", "convivio", "wc"],
+      destacado: false,
+      detalhes: {
+         bio: [
+            "Bem-vindo ao Solar di Bergamo: Conforto e Lazer em Harmonia com a Natureza Descubra o Solar di Bergamo, um empreendimento único que combina modernidade, conforto e um toque de natureza, projetado para quem busca um estilo de vida equilibrado e sofisticado.",
+            "Situado em uma localização privilegiada, cada detalhe foi pensado para oferecer uma experiência residencial incomparável.",
+         ],
+         minhaCasa: false,
+         logomarca: "/img/empreendimentos/solar-di-bergamo/logo.png",
+         endereco_em_texto: "Bairro Universitário, Tijucas - SC",
+         endereco_real: "Rua José Marchi, bairro universitário, Tijucas - SC",
+         coordenadas: {
+            lat: -27.238195,
+            lng: -48.648694,
+         },
+         fundoDestaque: "/img/empreendimentos/solar-di-bergamo/ilustracoes/8.jpg",
+         ilustracoes: [
+            "/img/empreendimentos/solar-di-bergamo/ilustracoes/1.jpg",
+            "/img/empreendimentos/solar-di-bergamo/ilustracoes/2.jpg",
+            "/img/empreendimentos/solar-di-bergamo/ilustracoes/3.jpg",
+            "/img/empreendimentos/solar-di-bergamo/ilustracoes/4.jpg",
+            "/img/empreendimentos/solar-di-bergamo/ilustracoes/5.jpg",
+            "/img/empreendimentos/solar-di-bergamo/ilustracoes/6.jpg",
+            "/img/empreendimentos/solar-di-bergamo/ilustracoes/7.jpg",
+            "/img/empreendimentos/solar-di-bergamo/ilustracoes/8.jpg",
+            "/img/empreendimentos/solar-di-bergamo/ilustracoes/9.jpg",
+            "/img/empreendimentos/solar-di-bergamo/ilustracoes/10.jpg",
+            "/img/empreendimentos/solar-di-bergamo/ilustracoes/11.jpg",
+            "/img/empreendimentos/solar-di-bergamo/ilustracoes/12.jpg",
+            "/img/empreendimentos/solar-di-bergamo/ilustracoes/13.jpg",
+            "/img/empreendimentos/solar-di-bergamo/ilustracoes/14.jpg",
+         ],
+         plantas: [
+            "/img/empreendimentos/solar-di-bergamo/plantas/1.jpg",
+            "/img/empreendimentos/solar-di-bergamo/plantas/2.jpg",
+            "/img/empreendimentos/solar-di-bergamo/plantas/3.jpg",
+            "/img/empreendimentos/solar-di-bergamo/plantas/4.jpg",
+            "/img/empreendimentos/solar-di-bergamo/plantas/5.jpg",
+            "/img/empreendimentos/solar-di-bergamo/plantas/6.jpg",
+            "/img/empreendimentos/solar-di-bergamo/plantas/7.jpg",
+            "/img/empreendimentos/solar-di-bergamo/plantas/8.jpg",
+            "/img/empreendimentos/solar-di-bergamo/plantas/9.jpg",
+            "/img/empreendimentos/solar-di-bergamo/plantas/10.jpg",
+            "/img/empreendimentos/solar-di-bergamo/plantas/11.jpg",
+            "/img/empreendimentos/solar-di-bergamo/plantas/12.jpg",
+            "/img/empreendimentos/solar-di-bergamo/plantas/13.jpg",
+            "/img/empreendimentos/solar-di-bergamo/plantas/14.jpg",
+            "/img/empreendimentos/solar-di-bergamo/plantas/15.jpg",
+            "/img/empreendimentos/solar-di-bergamo/plantas/16.jpg",
+         ],
+         implantacao: ["/img/empreendimentos/solar-di-bergamo/implatacao/1.jpg"],
       },
    },
 ];
@@ -700,22 +763,12 @@ export const iconesComDescricao: IIconeComDescricao[] = [
    { nome: "portaria", descricao: "Portaria 24h" },
    { nome: "tenis-de-praia", descricao: "Tennis de Praia" },
    { nome: "guarita", descricao: "Proteção de Guarita" },
+   { nome: "wc", descricao: "Vestiários e WC" },
+   { nome: "convivio", descricao: "Praça de convívio" },
 ];
 
 // ------------------- Backup contendo empreendimento a adicionar -------------------
 const backup = [
-   {
-      id: "7",
-      nome: "Solar di Begamo",
-      categoria: "Pré-lançamento",
-      destaque: "2 dormitórios",
-      descricao_area: "Todos com suíte",
-      endereco_curto: "Casa Blanca",
-      estado: "Tijucas - SC",
-      thumbnail: "/img/empreendimentos/solar-di-bergamo/solar-di-bergamo.jpg",
-      icones: ["campo-futebool", "sala-de-festas", "pets", "playground"],
-      destacado: false,
-   },
    {
       id: "8",
       nome: "Reserva Park Atlantida",

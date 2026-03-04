@@ -22,7 +22,9 @@ export type IIcone =
    | "car-wash"
    | "portaria"
    | "tenis-de-praia"
-   | "guarita";
+   | "guarita"
+   | "wc"
+   | "convivio";
 
 export interface IEmpreendimento {
    categoria: "Lançamento" | "Pré-lançamento" | "Entregue" | "Urbanismo";
