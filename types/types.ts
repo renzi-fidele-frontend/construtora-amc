@@ -21,7 +21,8 @@ export type IIcone =
    | "coworking"
    | "car-wash"
    | "portaria"
-   | "tenis-de-praia";
+   | "tenis-de-praia"
+   | "guarita";
 
 export interface IEmpreendimento {
    categoria: "Lançamento" | "Pré-lançamento" | "Entregue" | "Urbanismo";
