@@ -20,6 +20,8 @@ const Empreendimento = async ({ params }: { params: Promise<{ empreendimento: st
       return empreendimentos.find((v) => v.id === idEmpreendimento);
    }
 
+   // TODO: Implementar a seção opcional da informação do andamento da obra do empreendimento
+
    return (
       empreendimento && (
          <div>
