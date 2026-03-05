@@ -132,9 +132,9 @@ const Empreendimento = async ({ params }: { params: Promise<{ empreendimento: st
                      <TabsList className="*:hover:cursor-pointer *:text-2xl **:px-8!">
                         {empreendimento.detalhes.apartamento1 && <TabsTrigger value="apto1">Apto 1</TabsTrigger>}
                         {empreendimento.detalhes.apartamento2 && <TabsTrigger value="apto2">Apto 2</TabsTrigger>}
-                        <TabsTrigger value="fotos">Fotos</TabsTrigger>
+                        {empreendimento.detalhes.ilustracoes && <TabsTrigger value="fotos">Fotos</TabsTrigger>}
                         {empreendimento.detalhes.plantas && <TabsTrigger value="plantas">Plantas</TabsTrigger>}
-                        <TabsTrigger value="implantacao">Implantação</TabsTrigger>
+                        {empreendimento.detalhes.implantacao && <TabsTrigger value="implantacao">Implantação</TabsTrigger>}
                      </TabsList>
                      {/* Apartamento 1 */}
                      {empreendimento.detalhes.apartamento1 && (
@@ -153,11 +153,13 @@ const Empreendimento = async ({ params }: { params: Promise<{ empreendimento: st
                         </TabsContent>
                      )}
                      {/* Ilustrações */}
-                     <TabsContent value="fotos">
-                        <div className="mt-10">
-                           <LightBoxCarousel fotos={empreendimento.detalhes.ilustracoes} />
-                        </div>
-                     </TabsContent>
+                     {empreendimento.detalhes.ilustracoes && (
+                        <TabsContent value="fotos">
+                           <div className="mt-10">
+                              <LightBoxCarousel fotos={empreendimento.detalhes.ilustracoes} />
+                           </div>
+                        </TabsContent>
+                     )}
                      {/* Plantas */}
                      {empreendimento.detalhes.plantas && (
                         <TabsContent value="plantas">
@@ -167,11 +169,13 @@ const Empreendimento = async ({ params }: { params: Promise<{ empreendimento: st
                         </TabsContent>
                      )}
                      {/* Implantação */}
-                     <TabsContent value="implantacao">
-                        <div className="mt-10">
-                           <LightBoxCarousel fotos={empreendimento.detalhes.implantacao} />
-                        </div>
-                     </TabsContent>
+                     {empreendimento.detalhes.implantacao && (
+                        <TabsContent value="implantacao">
+                           <div className="mt-10">
+                              <LightBoxCarousel fotos={empreendimento.detalhes.implantacao} />
+                           </div>
+                        </TabsContent>
+                     )}
                   </Tabs>
                   {/* Aviso de uso de imagens ilustrativas */}
                   <p className="text-[12px] mt-6">
