@@ -29,7 +29,8 @@ export type IIcone =
    | "banheiros-e-vestiarios"
    | "mini-market"
    | "pista-bike"
-   | "bosque";
+   | "bosque"
+   | "garagem";
 
 export interface IEmpreendimento {
    categoria: "Lançamento" | "Pré-lançamento" | "Entregue" | "Urbanismo";

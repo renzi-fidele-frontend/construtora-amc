@@ -653,6 +653,44 @@ export const empreendimentos: IEmpreendimento[] = [
          ],
       },
    },
+   // Solar dos Álamos
+   {
+      id: "solar-dos-alamos",
+      nome: "Solar dos Álamos",
+      categoria: "Entregue",
+      destaque: "<span>2</span> dormitórios",
+      descricao_area: "<span>50m²</span> de área privativa",
+      endereco_curto: "Solar dos Álamos",
+      estado: "Palhoça - SC",
+      thumbnail: "/img/empreendimentos/solar-dos-alamos/solar-dos-alamos.jpg",
+      thumbIcons: ["churasqueira", "piso-laminado", "sacada-com-churasqueira", "telefone"],
+      icones: ["sacada-com-churasqueira", "garagem", "telefone", "portao-automatico", "piso-laminado","churasqueira"],
+      destacado: false,
+      detalhes: {
+         bio: [
+            "O Residencial Solar dos Álamos é mais um empreendimento com o conceito de residências sobrepostas.",
+            "Os proprietários das unidades térreas contam com um espaçoso garden privativo com churrasqueira.",
+            "As unidades do primeiro pavimento possuem sacada com churrasqueira, também.",
+            "O empreendimento situado na cidade de Palhoça e está 100% entregue.",
+         ],
+         logomarca: "/img/empreendimentos/solar-dos-alamos/logo.webp",
+         minhaCasa: true,
+         endereco_em_texto: "Guarda do Cubatão, Palhoça - SC",
+         endereco_real: "Rua Engenheiro Sérgio José Novello, Palhoça - SC",
+         coordenadas: { lat: -27.693731, lng: -48.66992 },
+         fundoDestaque: "/img/empreendimentos/solar-dos-alamos/ilustracoes/5.webp",
+         ilustracoes: [
+            "/img/empreendimentos/solar-dos-alamos/ilustracoes/1.webp",
+            "/img/empreendimentos/solar-dos-alamos/ilustracoes/2.webp",
+            "/img/empreendimentos/solar-dos-alamos/ilustracoes/3.webp",
+            "/img/empreendimentos/solar-dos-alamos/ilustracoes/4.webp",
+            "/img/empreendimentos/solar-dos-alamos/ilustracoes/5.webp",
+            "/img/empreendimentos/solar-dos-alamos/ilustracoes/6.webp",
+         ],
+         plantas: ["/img/empreendimentos/solar-dos-alamos/plantas/1.jpg", "/img/empreendimentos/solar-dos-alamos/plantas/2.jpg"],
+         implantacao: ["/img/empreendimentos/solar-dos-alamos/implatacao/1.jpg"],
+      },
+   },
 ];
 
 export const artigos: ICardArtigo[] = [
@@ -914,9 +952,10 @@ export const iconesComDescricao: IIconeComDescricao[] = [
    { nome: "mini-market", descricao: "Sala para mini-market" },
    { nome: "pista-bike", descricao: "Pista de bike" },
    { nome: "bosque", descricao: "Bosque, pomar e hortas" },
+   { nome: "garagem", descricao: "Vaga privativa de garagem" },
 ];
 
-// ------------------- Backup contendo empreendimento a adicionar -------------------
+// ------------------- Backup contendo empreendimentos a adicionar -------------------
 const backup = [
    {
       id: "10",
