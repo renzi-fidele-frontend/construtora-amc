@@ -24,7 +24,12 @@ export type IIcone =
    | "tenis-de-praia"
    | "guarita"
    | "wc"
-   | "convivio";
+   | "convivio"
+   | "lagoa-artificial"
+   | "banheiros-e-vestiarios"
+   | "mini-market"
+   | "pista-bike"
+   | "bosque";
 
 export interface IEmpreendimento {
    categoria: "Lançamento" | "Pré-lançamento" | "Entregue" | "Urbanismo";
@@ -44,7 +49,7 @@ export interface IEmpreendimento {
    detalhes: {
       fundoDestaque: string;
       ilustracoes: string[];
-      plantas: string[];
+      plantas?: string[];
       // Imagens opcionais de outros empreendimentos
       apartamento1?: string[];
       apartamento2?: string[];
