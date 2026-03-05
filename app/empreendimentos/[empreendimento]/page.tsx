@@ -130,20 +130,43 @@ const Empreendimento = async ({ params }: { params: Promise<{ empreendimento: st
                   {/* Categorias */}
                   <Tabs defaultValue="fotos" className="w-fit items-center">
                      <TabsList className="*:hover:cursor-pointer *:text-2xl **:px-8!">
+                        {empreendimento.detalhes.apartamento1 && <TabsTrigger value="apto1">Apto 1</TabsTrigger>}
+                        {empreendimento.detalhes.apartamento2 && <TabsTrigger value="apto2">Apto 2</TabsTrigger>}
                         <TabsTrigger value="fotos">Fotos</TabsTrigger>
-                        <TabsTrigger value="plantas">Plantas</TabsTrigger>
+                        {empreendimento.detalhes.plantas && <TabsTrigger value="plantas">Plantas</TabsTrigger>}
                         <TabsTrigger value="implantacao">Implantação</TabsTrigger>
                      </TabsList>
+                     {/* Apartamento 1 */}
+                     {empreendimento.detalhes.apartamento1 && (
+                        <TabsContent value="apto1">
+                           <div className="mt-10">
+                              <LightBoxCarousel fotos={empreendimento.detalhes.apartamento1} />
+                           </div>
+                        </TabsContent>
+                     )}
+                     {/* Apartamento 2 */}
+                     {empreendimento.detalhes.apartamento2 && (
+                        <TabsContent value="apto2">
+                           <div className="mt-10">
+                              <LightBoxCarousel fotos={empreendimento.detalhes.apartamento2} />
+                           </div>
+                        </TabsContent>
+                     )}
+                     {/* Ilustrações */}
                      <TabsContent value="fotos">
                         <div className="mt-10">
                            <LightBoxCarousel fotos={empreendimento.detalhes.ilustracoes} />
                         </div>
                      </TabsContent>
-                     <TabsContent value="plantas">
-                        <div className="mt-10">
-                           <LightBoxCarousel fotos={empreendimento.detalhes.plantas} />
-                        </div>
-                     </TabsContent>
+                     {/* Plantas */}
+                     {empreendimento.detalhes.plantas && (
+                        <TabsContent value="plantas">
+                           <div className="mt-10">
+                              <LightBoxCarousel fotos={empreendimento.detalhes.plantas} />
+                           </div>
+                        </TabsContent>
+                     )}
+                     {/* Implantação */}
                      <TabsContent value="implantacao">
                         <div className="mt-10">
                            <LightBoxCarousel fotos={empreendimento.detalhes.implantacao} />
