@@ -20,6 +20,15 @@ const Empreendimento = async ({ params }: { params: Promise<{ empreendimento: st
       return empreendimentos.find((v) => v.id === idEmpreendimento);
    }
 
+   function preverValue() {
+      if (empreendimento?.detalhes.apartamento1) return "apto1";
+      if (empreendimento?.detalhes.apartamento2) return "apto2";
+      if (empreendimento?.detalhes.ilustracoes) return "fotos";
+      if (empreendimento?.detalhes.plantas) return "plantas";
+      if (empreendimento?.detalhes.implantacao) return "implantacao";
+      return "";
+   }
+
    // TODO: Implementar a seção opcional da informação do andamento da obra do empreendimento
 
    return (
@@ -128,7 +137,7 @@ const Empreendimento = async ({ params }: { params: Promise<{ empreendimento: st
                <Container className="flex flex-col items-center">
                   <SectionIntro className="[&_h2]:text-8xl [&_h2]:mt-4 text-white! mb-6!" titulo="IMAGENS" />
                   {/* Categorias */}
-                  <Tabs defaultValue="fotos" className="w-fit items-center">
+                  <Tabs defaultValue={preverValue()} className="w-fit items-center">
                      <TabsList className="*:hover:cursor-pointer *:text-2xl **:px-8!">
                         {empreendimento.detalhes.apartamento1 && <TabsTrigger value="apto1">Apto 1</TabsTrigger>}
                         {empreendimento.detalhes.apartamento2 && <TabsTrigger value="apto2">Apto 2</TabsTrigger>}
@@ -169,13 +178,12 @@ const Empreendimento = async ({ params }: { params: Promise<{ empreendimento: st
                         </TabsContent>
                      )}
                      {/* Implantação */}
-                     {empreendimento.detalhes.implantacao && (
-                        <TabsContent value="implantacao">
-                           <div className="mt-10">
-                              <LightBoxCarousel fotos={empreendimento.detalhes.implantacao} />
-                           </div>
-                        </TabsContent>
-                     )}
+
+                     <TabsContent value="implantacao">
+                        <div className="mt-10">
+                           <LightBoxCarousel fotos={empreendimento.detalhes.implantacao} />
+                        </div>
+                     </TabsContent>
                   </Tabs>
                   {/* Aviso de uso de imagens ilustrativas */}
                   <p className="text-[12px] mt-6">

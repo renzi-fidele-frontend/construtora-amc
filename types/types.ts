@@ -48,13 +48,13 @@ export interface IEmpreendimento {
    id: string;
    detalhes: {
       fundoDestaque: string;
-      ilustracoes: string[];
+      // Imagens da galeria
+      ilustracoes?: string[];
       plantas?: string[];
-      // Imagens opcionais de outros empreendimentos
       apartamento1?: string[];
       apartamento2?: string[];
-      // ----------
-      implantacao: string[];
+      implantacao?: string[];
+      // ------------
       logomarca: string;
       bio: string[];
       minhaCasa: boolean;
