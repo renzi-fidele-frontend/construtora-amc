@@ -62,7 +62,7 @@ const Empreendimento = async ({ params }: { params: Promise<{ empreendimento: st
                      </svg>
                   </div>
                   {/* Detalhes */}
-                  <div className="border">
+                  <div id="detalhes" className="border">
                      {/* Heading */}
                      <div className="bg-zinc-50 py-3 px-8 flex items-center justify-between">
                         <div className="border-e grow">
@@ -107,7 +107,7 @@ const Empreendimento = async ({ params }: { params: Promise<{ empreendimento: st
                      </div>
                   </div>
                   {/* Ícones de destaques */}
-                  <div className="mt-5">
+                  <div id="diferenciais" className="mt-5">
                      <IconesCollapsivel icones={empreendimento.icones} />
                   </div>
                </Container>
@@ -133,7 +133,7 @@ const Empreendimento = async ({ params }: { params: Promise<{ empreendimento: st
                </Container>
             </section>
             {/* Seção da Galeria */}
-            <section className="relative py-17.5 text-center">
+            <section id="imagens" className="relative py-17.5 text-center">
                <Container className="flex flex-col items-center">
                   <SectionIntro className="[&_h2]:text-8xl [&_h2]:mt-4 text-white! mb-6!" titulo="IMAGENS" />
                   {/* Categorias */}
@@ -196,7 +196,7 @@ const Empreendimento = async ({ params }: { params: Promise<{ empreendimento: st
                <div className="absolute w-full inset-y-0 top-0 h-128 bg-theme1 -z-1"></div>
             </section>
             {/* Seção de Localização */}
-            <section className="relative py-17.5 text-center">
+            <section id="localizacao" className="relative py-17.5 text-center">
                <Container className="flex flex-col items-center">
                   <SectionIntro className="[&_h2]:text-8xl [&_h2]:mt-4 text-white! mb-6!" titulo="LOCALIZAÇÃO" />
                   {/* Endereço */}
