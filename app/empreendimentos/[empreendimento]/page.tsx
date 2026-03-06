@@ -29,8 +29,6 @@ const Empreendimento = async ({ params }: { params: Promise<{ empreendimento: st
       return "";
    }
 
-   // TODO: Implementar a seção opcional da informação do andamento da obra do empreendimento
-
    return (
       empreendimento && (
          <div>
@@ -195,6 +193,51 @@ const Empreendimento = async ({ params }: { params: Promise<{ empreendimento: st
                {/* Rectângulo verde claro */}
                <div className="absolute w-full inset-y-0 top-0 h-128 bg-theme1 -z-1"></div>
             </section>
+            {/* Seção da evolução da obra */}
+            {empreendimento?.detalhes?.evolucao_da_obra && (
+               <section className="py-17.5 bg-zinc-200">
+                  <Container>
+                     <SectionIntro titulo="EVOLUÇÃO DA OBRA" descricao="Acompanhe o progresso atual da obra" />
+                     <div className="px-20 text-center text-xl flex justify-center gap-y-13 *:basis-[33.3%] *:flex *:flex-col *:items-center *:gap-3 flex-wrap w-full [&_h6]:font-bold">
+                        {/* Fundação */}
+                        <div>
+                           <Image src="/icons/evolucao-da-obra/fundacao.png" width={140} height={140} alt="Ícone ilustrando a fundação" />
+                           <h6>Fundação</h6>
+                           <p>{empreendimento.detalhes.evolucao_da_obra.fundacao}%</p>
+                        </div>
+                        {/* Estrutura */}
+                        <div>
+                           <Image src="/icons/evolucao-da-obra/estrutura.png" width={140} height={140} alt="Ícone ilustrando a estrutura" />
+                           <h6>Estrutura</h6>
+                           <p>{empreendimento.detalhes.evolucao_da_obra.estrutura}%</p>
+                        </div>
+                        {/* Acabamento */}
+                        <div>
+                           <Image src="/icons/evolucao-da-obra/acabamento.png" width={140} height={140} alt="Ícone ilustrando o acababamento" />
+                           <h6>Acabamento</h6>
+                           <p>{empreendimento.detalhes.evolucao_da_obra.acabamento}%</p>
+                        </div>
+                        {/* Área Comum */}
+                        <div>
+                           <Image src="/icons/evolucao-da-obra/area-comum.png" width={140} height={140} alt="Ícone ilustrando a área comum" />
+                           <h6>Área Comum</h6>
+                           <p>{empreendimento.detalhes.evolucao_da_obra.areaComum}%</p>
+                        </div>
+                        {/* Percentual Concluído */}
+                        <div>
+                           <Image
+                              src="/icons/evolucao-da-obra/percentual.png"
+                              width={140}
+                              height={140}
+                              alt="Ícone ilustrando a percentual concluído"
+                           />
+                           <h6>Percentual Concluído</h6>
+                           <p>{empreendimento.detalhes.evolucao_da_obra.percentualConcluido}%</p>
+                        </div>
+                     </div>
+                  </Container>
+               </section>
+            )}
             {/* Seção de Localização */}
             <section id="localizacao" className="relative py-17.5 text-center">
                <Container className="flex flex-col items-center">

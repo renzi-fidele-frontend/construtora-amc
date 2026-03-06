@@ -11,7 +11,6 @@ export const fotosDestaques = [
    { foto: "/img/slides-home/7.jpg", url: "/empreendimentos/vila-di-trento" },
 ];
 
-// TODO: Mais tarde remover os comentários, após implementar a estrutura dos detalhes do empreendimento
 export const empreendimentos: IEmpreendimento[] = [
    // Ilha di Capri
    {
@@ -255,6 +254,8 @@ export const empreendimentos: IEmpreendimento[] = [
       icones: ["piscina", "campo-futebool", "sala-de-festas", "pet-place", "playground", "portaria", "portao-automatico", "piso-laminado"],
       destacado: false,
       detalhes: {
+         fundoDestaque: "/img/empreendimentos/vila-di-trento/ilustracoes/1.jpg",
+         logomarca: "/img/empreendimentos/vila-di-trento/icoVilaDiTrento.webp",
          bio: [
             "Em breve lançaremos um empreendimento com 192 unidades na cidade de Tijucas/SC em homenagem a colonização italiana na região.",
             "O Residencial Vila De Trento contará com uma ampla área de lazer, apartamentos com 2 dormitórios, sacada e churrasqueira.",
@@ -284,14 +285,20 @@ export const empreendimentos: IEmpreendimento[] = [
             "/img/empreendimentos/vila-di-trento/plantas/8.jpg",
          ],
          implantacao: ["/img/empreendimentos/vila-di-trento/implatacao/1.jpg"],
-         logomarca: "/img/empreendimentos/vila-di-trento/icoVilaDiTrento.webp",
+
          coordenadas: {
             lat: -27.213376,
             lng: -48.631813,
          },
          endereco_em_texto: "Areias, Tijucas - SC",
          endereco_real: "Rua Venceslau Fernandes, 417 - Bairro Areias - Tijucas - SC, 88200-000",
-         fundoDestaque: "/img/empreendimentos/vila-di-trento/ilustracoes/1.jpg",
+         evolucao_da_obra: {
+            fundacao: 100,
+            estrutura: 20,
+            acabamento: 0,
+            areaComum: 15,
+            percentualConcluido: 25,
+         },
       },
    },
    // Ocean Green
@@ -760,6 +767,13 @@ export const empreendimentos: IEmpreendimento[] = [
          ],
          plantas: ["/img/empreendimentos/solar-de-cascais/plantas/1.webp", "/img/empreendimentos/solar-de-cascais/plantas/2.webp"],
          implantacao: ["/img/empreendimentos/solar-de-cascais/implatacao/1.webp"],
+         evolucao_da_obra: {
+            fundacao: 100,
+            estrutura: 100,
+            acabamento: 60,
+            areaComum: 60,
+            percentualConcluido: 70,
+         },
       },
    },
    // Villa Borghesi

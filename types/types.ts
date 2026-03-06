@@ -66,6 +66,13 @@ export interface IEmpreendimento {
          lat: number;
          lng: number;
       };
+      evolucao_da_obra?: {
+         fundacao: number;
+         estrutura: number;
+         acabamento: number;
+         areaComum: number;
+         percentualConcluido: number;
+      };
    };
 }
 
