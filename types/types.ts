@@ -30,7 +30,8 @@ export type IIcone =
    | "mini-market"
    | "pista-bike"
    | "bosque"
-   | "garagem";
+   | "garagem"
+   | "quiosque";
 
 export interface IEmpreendimento {
    categoria: "Lançamento" | "Pré-lançamento" | "Entregue" | "Urbanismo";
