@@ -801,6 +801,62 @@ export const empreendimentos: IEmpreendimento[] = [
          implantacao: ["/img/empreendimentos/villa-borghesi/implatacao/1.webp"],
       },
    },
+   // Solar de Hamburgo
+   {
+      id: "solar-de-hamburgo",
+      nome: "Solar de Hamburgo",
+      categoria: "Entregue",
+      destaque: "<span>2</span> dormitórios",
+      descricao_area: "<span>50m²</span> de área privativa",
+      endereco_curto: "Solar de Hamburgo",
+      estado: "Guaramirim - SC",
+      thumbnail: "/img/empreendimentos/solar-de-hamburgo/solar-de-hamburgo.jpg",
+      thumbIcons: ["churasqueira", "piso-laminado", "telefone", "sacada-com-churasqueira"],
+      destacado: false,
+      icones: ["quiosque", "garagem", "telefone", "portao-automatico", "piso-laminado", "sacada-com-churasqueira"],
+      detalhes: {
+         fundoDestaque: "/img/empreendimentos/solar-de-hamburgo/ilustracoes/19.webp",
+         logomarca: "/img/empreendimentos/solar-de-hamburgo/logo.webp",
+         bio: [
+            "O Residencial Solar de Hamburgo é mais um empreendimento com o conceito de residências sobrepostas.",
+            "Os proprietários das unidades térreas contam com um espaçoso garden privativo com churrasqueira.",
+            "As unidades do primeiro pavimento possuem sacada com churrasqueira, também.",
+            "O empreendimento situado na cidade de Guaramirim está 100% entregue.",
+         ],
+         minhaCasa: true,
+         endereco_em_texto: "Corticeira, Guaramirim - SC",
+         endereco_real: "Ver. Valeriano Devigili, Guamiranga - Santa Catarina, 89270-000",
+         coordenadas: { lat: -26.466153, lng: -48.921616 },
+         ilustracoes: [
+            "/img/empreendimentos/solar-de-hamburgo/ilustracoes/1.jpg",
+            "/img/empreendimentos/solar-de-hamburgo/ilustracoes/2.jpg",
+            "/img/empreendimentos/solar-de-hamburgo/ilustracoes/3.jpg",
+            "/img/empreendimentos/solar-de-hamburgo/ilustracoes/4.jpg",
+            "/img/empreendimentos/solar-de-hamburgo/ilustracoes/5.jpg",
+            "/img/empreendimentos/solar-de-hamburgo/ilustracoes/6.jpg",
+            "/img/empreendimentos/solar-de-hamburgo/ilustracoes/7.jpg",
+            "/img/empreendimentos/solar-de-hamburgo/ilustracoes/8.jpg",
+            "/img/empreendimentos/solar-de-hamburgo/ilustracoes/9.jpg",
+            "/img/empreendimentos/solar-de-hamburgo/ilustracoes/10.jpg",
+            "/img/empreendimentos/solar-de-hamburgo/ilustracoes/11.jpg",
+            "/img/empreendimentos/solar-de-hamburgo/ilustracoes/12.jpg",
+            "/img/empreendimentos/solar-de-hamburgo/ilustracoes/13.jpg",
+            "/img/empreendimentos/solar-de-hamburgo/ilustracoes/14.jpg",
+            "/img/empreendimentos/solar-de-hamburgo/ilustracoes/15.jpg",
+            "/img/empreendimentos/solar-de-hamburgo/ilustracoes/16.jpg",
+            "/img/empreendimentos/solar-de-hamburgo/ilustracoes/17.jpg",
+            "/img/empreendimentos/solar-de-hamburgo/ilustracoes/18.webp",
+            "/img/empreendimentos/solar-de-hamburgo/ilustracoes/19.webp",
+            "/img/empreendimentos/solar-de-hamburgo/ilustracoes/20.webp",
+            "/img/empreendimentos/solar-de-hamburgo/ilustracoes/21.webp",
+            "/img/empreendimentos/solar-de-hamburgo/ilustracoes/22.webp",
+            "/img/empreendimentos/solar-de-hamburgo/ilustracoes/23.webp",
+            "/img/empreendimentos/solar-de-hamburgo/ilustracoes/24.webp",
+         ],
+         plantas: ["/img/empreendimentos/solar-de-hamburgo/plantas/1.webp", "/img/empreendimentos/solar-de-hamburgo/plantas/2.webp"],
+         implantacao: ["/img/empreendimentos/solar-de-hamburgo/implatacao/1.webp"],
+      },
+   },
 ];
 
 export const artigos: ICardArtigo[] = [
@@ -1064,20 +1120,4 @@ export const iconesComDescricao: IIconeComDescricao[] = [
    { nome: "bosque", descricao: "Bosque, pomar e hortas" },
    { nome: "garagem", descricao: "Vaga privativa de garagem" },
    { nome: "quiosque", descricao: "Quiosque com Churrasqueira" },
-];
-
-// ------------------- Backup contendo empreendimentos a adicionar -------------------
-const backup = [
-   {
-      id: "13",
-      nome: "Solar de Hamburgo",
-      categoria: "Entregue",
-      destaque: "2 dormitórios",
-      descricao_area: "50m² de área privativa",
-      endereco_curto: "Solar de Hamburgo",
-      estado: "Guaramirim - SC",
-      thumbnail: "/img/empreendimentos/solar-de-hamburgo/solar-de-hamburgo.jpg",
-      icones: ["churasqueira", "piso-laminado", "telefone", "sacada-com-churasqueira"],
-      destacado: false,
-   },
 ];
