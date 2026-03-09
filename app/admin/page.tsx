@@ -4,8 +4,16 @@ import Btn from "@/components/shared/Btn";
 import SectionIntro from "@/components/shared/SectionIntro";
 import { Input } from "@/components/ui/input";
 import { login } from "@/lib/auth";
+import { useRouter } from "next/navigation";
 
 export default function Admin() {
+   const router = useRouter();
+
+   async function handleLogin(formData: FormData) {
+      await login(formData);
+      router.push("/");
+   }
+
    return (
       <Container className="py-22">
          <SectionIntro
@@ -13,7 +21,10 @@ export default function Admin() {
             descricao="Faça login para poder gerenciar o conteúdo do site"
             className="text-center"
          />
-         <form action={login} className="max-w-xl mx-auto flex flex-col gap-4 [&_fieldset]:flex [&_fieldset]:flex-col [&_fieldset]:gap-1.5 ">
+         <form
+            action={handleLogin}
+            className="max-w-xl mx-auto flex flex-col gap-4 [&_fieldset]:flex [&_fieldset]:flex-col [&_fieldset]:gap-1.5 "
+         >
             {/* Email */}
             <fieldset>
                <label htmlFor="email">Seu E-mail</label>

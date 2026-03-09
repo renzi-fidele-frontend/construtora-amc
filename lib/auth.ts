@@ -9,9 +9,15 @@ export async function login(formData: FormData) {
          headers: { "Content-Type": "application/json" },
       });
       const user = await res.json();
-   }
 
-   console.log(email, password);
+      console.log(user);
+
+      if (!user) {
+         throw new Error("Erro de credenciais!");
+      }
+
+      return user;
+   }
 }
 
 export function logout() {}
