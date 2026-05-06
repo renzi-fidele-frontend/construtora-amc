@@ -3,7 +3,7 @@ import Container from "@/components/layout/Container";
 import Btn from "@/components/shared/Btn";
 import SectionIntro from "@/components/shared/SectionIntro";
 import { Input } from "@/components/ui/input";
-import { login } from "@/lib/auth";
+import { login } from "@/lib/admin";
 import { useRouter } from "next/navigation";
 
 export default function Admin() {

@@ -1,11 +1,16 @@
+"use server";
 import Image from "next/image";
 import Container from "./Container";
 import { UserStar } from "lucide-react";
 import Nav from "./Nav";
 import Link from "next/link";
 import SubHeader from "./SubHeader";
+import { getLogedUser } from "@/lib/admin";
 
-const Header = () => {
+const Header = async () => {
+   const user = await getLogedUser();
+   console.log(user);
+
    return (
       <header>
          {/* Superior */}
