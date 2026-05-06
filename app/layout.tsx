@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import { Toaster } from "@/components/ui/sonner";
+import { AdminPanel } from "@/components/shared/AdminPanel";
 
 const fontRubik = Rubik({
    variable: "--font-rubik",
@@ -29,6 +30,8 @@ export default function RootLayout({
             <Header />
             {children}
             <Footer />
+            {/* Painel do administrador */}
+            <AdminPanel />
             <Toaster />
          </body>
       </html>
