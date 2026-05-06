@@ -1,13 +1,14 @@
 "use server";
 import { cookies } from "next/headers";
 import jwt from "jsonwebtoken";
+import { redirect } from "next/navigation";
 
 export async function login(formData: FormData) {
    const email = formData.get("email");
    const password = formData.get("password");
 
    if (email && password) {
-      const res = await fetch("/api/login", {
+      const res = await fetch(`${process.env.DOMAIN}/api/login`, {
          method: "POST",
          body: JSON.stringify({ email, password }),
          headers: { "Content-Type": "application/json" },
@@ -26,28 +27,17 @@ export async function login(formData: FormData) {
 
 export async function logout() {
    await fetch("/api/logout", { method: "POST" });
-   window.location.href = "/admin";
+   redirect("/admin");
 }
 
 export async function getLogedUser() {
-   const res = await fetch("/api/me", {
-      method: "GET",
-      credentials: "include",
-   });
-
-   const user = await res.json();
-
-   return user;
-}
-
-export async function getUserFromServer() {
    try {
       const token = (await cookies()).get("token")?.value;
       if (!token) return null;
-      const user = jwt.verify(token, process.env.JWT_SECRET!);
-      return user;
+
+      return jwt.verify(String(token), String(process.env.JWT_SECRET));
    } catch (error) {
-      console.error("Token inválido ou expirado!", error);
+      console.log(error);
       return null;
    }
 }

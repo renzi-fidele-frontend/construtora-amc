@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 
-export default function GET(req: NextRequest) {
-   return NextResponse.json({ user: req.cookies.get("token")?.value });
+export async function GET(req: NextRequest) {
+   const token = req.cookies.get("token");
+   return NextResponse.json({ token });
 }

@@ -8,21 +8,23 @@ import jwt from "jsonwebtoken";
 export function proxy(req: NextRequest) {
    const token = req.cookies.get("token");
    console.log(token);
-   console.log("A url é: ", req.url);
 
-   if (!token) {
-      return NextResponse.redirect(new URL("/login", req.url));
+   function explulsar() {
+      return NextResponse.redirect(new URL("/admin", req.url));
    }
+
+   if (!token) return explulsar();
 
    try {
       jwt.verify(String(token), String(process.env.JWT_SECRET));
       return NextResponse.next();
-   } catch (error) {
-      return NextResponse.redirect(new URL("/login", req.url));
+   } catch {
+      explulsar();
    }
 }
 
 export const config = {
    // Rotas que serão protegidas
-   matcher: ["/admin/criar_post", "/admin/editar_post/:path*"],
+   // TODO: Mais tarde bloquear as devidas rotas
+   matcher: ["/admin/criar_post", "/admin/editar_post", "/admin/gerir_posts"],
 };
