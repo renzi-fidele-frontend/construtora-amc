@@ -1,5 +1,5 @@
 import { useEditorState, type Editor } from "@tiptap/react";
-import { Bold, Italic, LucideProps, Underline } from "lucide-react";
+import { Bold, Italic, LucideProps, TextQuote, Underline } from "lucide-react";
 import { ForwardRefExoticComponent, RefAttributes } from "react";
 
 interface Props {
@@ -35,7 +35,18 @@ const Toolbar = ({ editor }: Props) => {
    const buttons: IButton[] = [
       { name: "italic", icon: Italic, action: () => editor.chain().focus().toggleItalic().run(), isActive: () => editor.isActive("italic") },
       { name: "bold", icon: Bold, action: () => editor.chain().focus().toggleBold().run(), isActive: () => editor.isActive("bold") },
-      { name: "underline", icon: Underline, action: () => editor.chain().focus().toggleUnderline().run(), isActive: () => editor.isActive("underline") },
+      {
+         name: "underline",
+         icon: Underline,
+         action: () => editor.chain().focus().toggleUnderline().run(),
+         isActive: () => editor.isActive("underline"),
+      },
+      {
+         name: "blockquote",
+         icon: TextQuote,
+         action: () => editor.chain().focus().toggleBlockquote().run(),
+         isActive: () => editor.isActive("blockquote"),
+      },
    ];
 
    return (
