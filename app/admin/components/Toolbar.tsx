@@ -1,5 +1,5 @@
 import { useEditorState, type Editor } from "@tiptap/react";
-import { Bold, Italic, LucideProps, TextQuote, Underline } from "lucide-react";
+import { Bold, Italic, List, LucideProps, TextQuote, Underline } from "lucide-react";
 import { ForwardRefExoticComponent, RefAttributes } from "react";
 
 interface Props {
@@ -33,19 +33,25 @@ const Toolbar = ({ editor }: Props) => {
    ];
 
    const buttons: IButton[] = [
-      { name: "italic", icon: Italic, action: () => editor.chain().focus().toggleItalic().run(), isActive: () => editor.isActive("italic") },
-      { name: "bold", icon: Bold, action: () => editor.chain().focus().toggleBold().run(), isActive: () => editor.isActive("bold") },
+      { name: "Italic", icon: Italic, action: () => editor.chain().focus().toggleItalic().run(), isActive: () => editor.isActive("italic") },
+      { name: "Bold", icon: Bold, action: () => editor.chain().focus().toggleBold().run(), isActive: () => editor.isActive("bold") },
       {
-         name: "underline",
+         name: "Underline",
          icon: Underline,
          action: () => editor.chain().focus().toggleUnderline().run(),
          isActive: () => editor.isActive("underline"),
       },
       {
-         name: "blockquote",
+         name: "Blockquote",
          icon: TextQuote,
          action: () => editor.chain().focus().toggleBlockquote().run(),
          isActive: () => editor.isActive("blockquote"),
+      },
+      {
+         name: "Bullet list",
+         icon: List,
+         action: () => editor.chain().focus().toggleBulletList().run(),
+         isActive: () => editor.isActive("bulletList"),
       },
    ];
 
@@ -63,6 +69,7 @@ const Toolbar = ({ editor }: Props) => {
             </button>
          ))}
          {/* Rest of buttons */}
+         {/* TODO: Adicionar o tooltip de cada botão */}
          {buttons.map(({ name, icon: Icon, action, isActive }) => (
             <button
                className="p-3 border rounded cursor-pointer hover:bg-theme1 hover:text-white transition-all data-[active=true]:bg-theme1! data-[active=true]:text-white!"
