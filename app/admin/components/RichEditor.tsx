@@ -34,9 +34,9 @@ export default function RichEditor({ content, onChange }: Props) {
    }
 
    return (
-      <div>
+      <div className={styles.ct}>
          <Toolbar editor={editor} />
-         <EditorContent className="*:border *:h-52 *:p-2" editor={editor} />
+         <EditorContent className="*:border *:min-h-60 *:p-2" editor={editor} />
       </div>
    );
 }

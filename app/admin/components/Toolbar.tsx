@@ -35,7 +35,7 @@ const Toolbar = ({ editor }: Props) => {
    // Botões de formatação de texto
    const buttons: IButton[] = [
       { name: "Italico", icon: Italic, action: () => editor.chain().focus().toggleItalic().run(), isActive: () => editor.isActive("italic") },
-      { name: "Bold", icon: Bold, action: () => editor.chain().focus().toggleBold().run(), isActive: () => editor.isActive("bold") },
+      { name: "Negrito", icon: Bold, action: () => editor.chain().focus().toggleBold().run(), isActive: () => editor.isActive("bold") },
       {
          name: "Sublinhar",
          icon: Underline,
