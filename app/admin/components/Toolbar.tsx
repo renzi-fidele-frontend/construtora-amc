@@ -1,5 +1,5 @@
 import { useEditorState, type Editor } from "@tiptap/react";
-import { Bold, Italic, List, LucideProps, TextQuote, Underline } from "lucide-react";
+import { ArrowUpToLine, Bold, Italic, List, ListOrdered, LucideProps, TextQuote, Underline } from "lucide-react";
 import { ForwardRefExoticComponent, RefAttributes } from "react";
 
 interface Props {
@@ -9,7 +9,7 @@ interface IButton {
    name: string;
    action: () => boolean;
    icon: ForwardRefExoticComponent<Omit<LucideProps, "ref"> & RefAttributes<SVGSVGElement>>;
-   isActive: () => boolean;
+   isActive?: () => boolean;
 }
 interface IHeading {
    label: string;
@@ -32,11 +32,12 @@ const Toolbar = ({ editor }: Props) => {
       { label: "H6", level: 6 },
    ];
 
+   // Botões de formatação de texto
    const buttons: IButton[] = [
-      { name: "Italic", icon: Italic, action: () => editor.chain().focus().toggleItalic().run(), isActive: () => editor.isActive("italic") },
+      { name: "Italico", icon: Italic, action: () => editor.chain().focus().toggleItalic().run(), isActive: () => editor.isActive("italic") },
       { name: "Bold", icon: Bold, action: () => editor.chain().focus().toggleBold().run(), isActive: () => editor.isActive("bold") },
       {
-         name: "Underline",
+         name: "Sublinhar",
          icon: Underline,
          action: () => editor.chain().focus().toggleUnderline().run(),
          isActive: () => editor.isActive("underline"),
@@ -48,10 +49,16 @@ const Toolbar = ({ editor }: Props) => {
          isActive: () => editor.isActive("blockquote"),
       },
       {
-         name: "Bullet list",
+         name: "Lista de bullets",
          icon: List,
          action: () => editor.chain().focus().toggleBulletList().run(),
          isActive: () => editor.isActive("bulletList"),
+      },
+      {
+         name: "Lista numérica",
+         icon: ListOrdered,
+         action: () => editor.chain().focus().toggleOrderedList().run(),
+         isActive: () => editor.isActive("orderedList"),
       },
    ];
 
@@ -73,7 +80,7 @@ const Toolbar = ({ editor }: Props) => {
          {buttons.map(({ name, icon: Icon, action, isActive }) => (
             <button
                className="p-3 border rounded cursor-pointer hover:bg-theme1 hover:text-white transition-all data-[active=true]:bg-theme1! data-[active=true]:text-white!"
-               data-active={isActive()}
+               data-active={isActive && isActive()}
                onClick={action}
                key={name}
             >

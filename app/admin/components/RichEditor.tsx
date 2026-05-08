@@ -3,6 +3,7 @@ import { useEditor, EditorContent } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
 import { useEffect } from "react";
 import Toolbar from "./Toolbar";
+import styles from "./RichEditor.module.css";
 
 interface Props {
    content: string;
@@ -35,7 +36,7 @@ export default function RichEditor({ content, onChange }: Props) {
    return (
       <div>
          <Toolbar editor={editor} />
-         <EditorContent className="*:border *:h-52" editor={editor} />
+         <EditorContent className="*:border *:h-52 *:p-2" editor={editor} />
       </div>
    );
 }
