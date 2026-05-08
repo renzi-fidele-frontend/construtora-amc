@@ -61,7 +61,11 @@ const Toolbar = ({ editor }: Props) => {
          action: () => editor.chain().focus().toggleOrderedList().run(),
          isActive: () => editor.isActive("orderedList"),
       },
+      { name: "Separador", icon: SeparatorHorizontal, action: () => editor.chain().focus().setHorizontalRule().run() },
    ];
+
+   const buttonStyle =
+      "p-3 border rounded cursor-pointer hover:bg-theme1 hover:text-white transition-all data-[active=true]:bg-theme1! data-[active=true]:text-white!";
 
    return (
       <div className="flex gap-2 mb-2.5 ">
@@ -70,7 +74,7 @@ const Toolbar = ({ editor }: Props) => {
             <Tooltip key={level}>
                <TooltipTrigger asChild>
                   <button
-                     className="p-2.5 border rounded cursor-pointer hover:bg-theme1 hover:text-white transition-all data-[active=true]:bg-theme1! data-[active=true]:text-white!"
+                     className={buttonStyle}
                      data-active={editor.isActive("heading", { level })}
                      onClick={() => editor.chain().focus().toggleHeading({ level }).run()}
                      key={level}
@@ -82,16 +86,12 @@ const Toolbar = ({ editor }: Props) => {
                <TooltipContent>Título {level}</TooltipContent>
             </Tooltip>
          ))}
-         {/* Rest of buttons */}
-         {/* TODO: Adicionar o tooltip de cada botão */}
+
+         {/* Outras formatações de texto */}
          {buttons.map(({ name, icon: Icon, action, isActive }) => (
             <Tooltip key={name}>
                <TooltipTrigger asChild>
-                  <button
-                     className="p-3 border rounded cursor-pointer hover:bg-theme1 hover:text-white transition-all data-[active=true]:bg-theme1! data-[active=true]:text-white!"
-                     data-active={isActive && isActive()}
-                     onClick={action}
-                  >
+                  <button className={buttonStyle} data-active={isActive && isActive()} onClick={action}>
                      <Icon />
                   </button>
                </TooltipTrigger>
