@@ -5,6 +5,7 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import { Toaster } from "@/components/ui/sonner";
 import { AdminPanel } from "@/components/shared/AdminPanel";
+import { TooltipProvider } from "@/components/ui/tooltip";
 
 const fontRubik = Rubik({
    variable: "--font-rubik",
@@ -28,7 +29,7 @@ export default function RootLayout({
       <html lang="pt-BR">
          <body className={`${fontRubik.variable} font-rubik antialiased text-theme1 min-h-dvh`}>
             <Header />
-            {children}
+            <TooltipProvider>{children}</TooltipProvider>
             <Footer />
             {/* Painel do administrador */}
             <AdminPanel />

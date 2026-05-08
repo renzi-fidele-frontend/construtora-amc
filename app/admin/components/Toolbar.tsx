@@ -1,5 +1,6 @@
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import { useEditorState, type Editor } from "@tiptap/react";
-import { ArrowUpToLine, Bold, Italic, List, ListOrdered, LucideProps, TextQuote, Underline } from "lucide-react";
+import { Bold, Italic, List, ListOrdered, LucideProps, TextQuote, Underline } from "lucide-react";
 import { ForwardRefExoticComponent, RefAttributes } from "react";
 
 interface Props {
@@ -63,29 +64,39 @@ const Toolbar = ({ editor }: Props) => {
    ];
 
    return (
-      <div className="flex gap-2 mb-3 ">
+      <div className="flex gap-2 mb-2.5 ">
          {/* Headings */}
          {headings.map(({ label, level }) => (
-            <button
-               className="p-3 border rounded cursor-pointer hover:bg-theme1 hover:text-white transition-all data-[active=true]:bg-theme1! data-[active=true]:text-white!"
-               data-active={editor.isActive("heading", { level })}
-               onClick={() => editor.chain().focus().toggleHeading({ level }).run()}
-               key={level}
-            >
-               {label}
-            </button>
+            <Tooltip key={level}>
+               <TooltipTrigger asChild>
+                  <button
+                     className="p-2.5 border rounded cursor-pointer hover:bg-theme1 hover:text-white transition-all data-[active=true]:bg-theme1! data-[active=true]:text-white!"
+                     data-active={editor.isActive("heading", { level })}
+                     onClick={() => editor.chain().focus().toggleHeading({ level }).run()}
+                     key={level}
+                  >
+                     {label}
+                  </button>
+               </TooltipTrigger>
+
+               <TooltipContent>Título {level}</TooltipContent>
+            </Tooltip>
          ))}
          {/* Rest of buttons */}
          {/* TODO: Adicionar o tooltip de cada botão */}
          {buttons.map(({ name, icon: Icon, action, isActive }) => (
-            <button
-               className="p-3 border rounded cursor-pointer hover:bg-theme1 hover:text-white transition-all data-[active=true]:bg-theme1! data-[active=true]:text-white!"
-               data-active={isActive && isActive()}
-               onClick={action}
-               key={name}
-            >
-               <Icon />
-            </button>
+            <Tooltip key={name}>
+               <TooltipTrigger asChild>
+                  <button
+                     className="p-3 border rounded cursor-pointer hover:bg-theme1 hover:text-white transition-all data-[active=true]:bg-theme1! data-[active=true]:text-white!"
+                     data-active={isActive && isActive()}
+                     onClick={action}
+                  >
+                     <Icon />
+                  </button>
+               </TooltipTrigger>
+               <TooltipContent>{name}</TooltipContent>
+            </Tooltip>
          ))}
       </div>
    );
