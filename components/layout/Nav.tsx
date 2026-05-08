@@ -59,15 +59,16 @@ const Nav = () => {
                      <>
                         <NavigationMenuTrigger className="px-1">{v.titulo}</NavigationMenuTrigger>
                         <NavigationMenuContent className=" **:w-full!">
-                           {v.megaLinks.map((link, k) => (
-                              <NavigationMenuLink
-                                 className={`font-medium text-theme1 ${k + 1 < v.megaLinks.length ? "border-b" : ""} ${pathname === link.url ? "bg-theme1 text-white" : ""}`}
-                                 href={link?.url}
-                                 key={k}
-                              >
-                                 {link?.titulo}
-                              </NavigationMenuLink>
-                           ))}
+                           {v?.megaLinks &&
+                              v.megaLinks.map((link, k) => (
+                                 <NavigationMenuLink
+                                    className={`font-medium text-theme1 ${k + 1 < v?.megaLinks?.length ? "border-b" : ""} ${pathname === link?.url ? "bg-theme1 text-white" : ""}`}
+                                    href={link?.url}
+                                    key={k}
+                                 >
+                                    {link?.titulo}
+                                 </NavigationMenuLink>
+                              ))}
                         </NavigationMenuContent>
                      </>
                   )}
