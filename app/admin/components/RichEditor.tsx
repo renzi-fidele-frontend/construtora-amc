@@ -4,6 +4,7 @@ import StarterKit from "@tiptap/starter-kit";
 import { useEffect } from "react";
 import Toolbar from "./Toolbar";
 import styles from "./RichEditor.module.css";
+import TextAlign from "@tiptap/extension-text-align";
 
 interface Props {
    content: string;
@@ -16,6 +17,7 @@ export default function RichEditor({ content, onChange }: Props) {
          StarterKit.configure({
             link: { openOnClick: false },
          }),
+         TextAlign.configure({ types: ["heading", "paragraph"] }),
       ],
       content,
       onUpdate: ({ editor }) => {

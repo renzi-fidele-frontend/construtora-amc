@@ -3,7 +3,21 @@ import { Input } from "@/components/ui/input";
 import { Popover, PopoverContent, PopoverTitle, PopoverTrigger } from "@/components/ui/popover";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 import { useEditorState, type Editor } from "@tiptap/react";
-import { Bold, Italic, Link, List, ListOrdered, LucideProps, SeparatorHorizontal, TextQuote, Underline } from "lucide-react";
+import {
+   Bold,
+   Italic,
+   Link,
+   List,
+   ListOrdered,
+   LucideProps,
+   SeparatorHorizontal,
+   TextAlignCenter,
+   TextAlignEnd,
+   TextAlignJustify,
+   TextAlignStart,
+   TextQuote,
+   Underline,
+} from "lucide-react";
 import { ForwardRefExoticComponent, RefAttributes, useRef } from "react";
 
 interface Props {
@@ -67,13 +81,37 @@ const Toolbar = ({ editor }: Props) => {
          isActive: () => editor.isActive("orderedList"),
       },
       { name: "Separador", icon: SeparatorHorizontal, action: () => editor.chain().focus().setHorizontalRule().run() },
+      {
+         name: "Alinhar à esquerda",
+         icon: TextAlignStart,
+         action: () => editor.chain().focus().toggleTextAlign("left").run(),
+         isActive: () => editor.isActive({ textAlign: "left" }),
+      },
+      {
+         name: "Alinhar ao centro",
+         icon: TextAlignCenter,
+         action: () => editor.chain().focus().toggleTextAlign("center").run(),
+         isActive: () => editor.isActive({ textAlign: "center" }),
+      },
+      {
+         name: "Alinhar à direita",
+         icon: TextAlignEnd,
+         action: () => editor.chain().focus().toggleTextAlign("right").run(),
+         isActive: () => editor.isActive({ textAlign: "right" }),
+      },
+      {
+         name: "Justificado",
+         icon: TextAlignJustify,
+         action: () => editor.chain().focus().toggleTextAlign("justify").run(),
+         isActive: () => editor.isActive({ textAlign: "justify" }),
+      },
    ];
 
    // Estilo padrão
    const buttonStyle =
       "leading-0 p-2.5 border rounded cursor-pointer hover:bg-theme1 hover:text-white transition-all data-[active=true]:bg-theme1! data-[active=true]:text-white!";
 
-   // TODO: Resolver o problema do link amanhã
+   // Adiciona ou remove hiperlink
    function handleLink() {
       if (editor.isActive("link")) {
          editor.chain().focus().unsetLink().run();
@@ -115,11 +153,16 @@ const Toolbar = ({ editor }: Props) => {
          {/* Hiperlink */}
          {!editor.isActive("link") ? (
             <Popover>
-               <PopoverTrigger asChild>
-                  <button className={buttonStyle} data-active={editor.isActive("link")}>
-                     <Link />
-                  </button>
-               </PopoverTrigger>
+               <Tooltip>
+                  <TooltipTrigger asChild>
+                     <PopoverTrigger asChild>
+                        <button className={buttonStyle} data-active={editor.isActive("link")}>
+                           <Link />
+                        </button>
+                     </PopoverTrigger>
+                  </TooltipTrigger>
+                  <TooltipContent>Adicionar link</TooltipContent>
+               </Tooltip>
                <PopoverContent>
                   <PopoverTitle>Adicionar link:</PopoverTitle>
                   <form
@@ -151,4 +194,4 @@ const Toolbar = ({ editor }: Props) => {
 };
 export default Toolbar;
 
-// Headings, Text aligniment, Bold, Italic, Linethrough, Underline, Superscript, Subscript, Colors, Image, Links, Separator
+// Text aligniment, Colors, Image,
