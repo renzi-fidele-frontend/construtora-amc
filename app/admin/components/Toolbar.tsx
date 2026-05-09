@@ -1,7 +1,10 @@
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
+import Btn from "@/components/shared/Btn";
+import { Input } from "@/components/ui/input";
+import { Popover, PopoverContent, PopoverTitle, PopoverTrigger } from "@/components/ui/popover";
+import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 import { useEditorState, type Editor } from "@tiptap/react";
-import { Bold, Italic, List, ListOrdered, LucideProps, TextQuote, Underline } from "lucide-react";
-import { ForwardRefExoticComponent, RefAttributes } from "react";
+import { Bold, Italic, Link, List, ListOrdered, LucideProps, SeparatorHorizontal, TextQuote, Underline } from "lucide-react";
+import { ForwardRefExoticComponent, RefAttributes, useRef } from "react";
 
 interface Props {
    editor: Editor;
@@ -18,6 +21,8 @@ interface IHeading {
 }
 
 const Toolbar = ({ editor }: Props) => {
+   const linkRef = useRef<HTMLInputElement | null>(null);
+
    useEditorState({
       editor,
       selector: (ctx) => ctx.editor.state,
@@ -64,11 +69,21 @@ const Toolbar = ({ editor }: Props) => {
       { name: "Separador", icon: SeparatorHorizontal, action: () => editor.chain().focus().setHorizontalRule().run() },
    ];
 
+   // Estilo padrão
    const buttonStyle =
-      "p-3 border rounded cursor-pointer hover:bg-theme1 hover:text-white transition-all data-[active=true]:bg-theme1! data-[active=true]:text-white!";
+      "leading-0 p-2.5 border rounded cursor-pointer hover:bg-theme1 hover:text-white transition-all data-[active=true]:bg-theme1! data-[active=true]:text-white!";
+
+   // TODO: Resolver o problema do link amanhã
+   function handleLink() {
+      if (editor.isActive("link")) {
+         editor.chain().focus().unsetLink().run();
+      } else {
+         if (linkRef.current) editor.chain().focus().toggleLink({ href: linkRef.current.value }).run();
+      }
+   }
 
    return (
-      <div className="flex gap-2 mb-2.5 ">
+      <div className="flex gap-2 mb-2.5">
          {/* Headings */}
          {headings.map(({ label, level }) => (
             <Tooltip key={level}>
@@ -77,12 +92,10 @@ const Toolbar = ({ editor }: Props) => {
                      className={buttonStyle}
                      data-active={editor.isActive("heading", { level })}
                      onClick={() => editor.chain().focus().toggleHeading({ level }).run()}
-                     key={level}
                   >
                      {label}
                   </button>
                </TooltipTrigger>
-
                <TooltipContent>Título {level}</TooltipContent>
             </Tooltip>
          ))}
@@ -98,6 +111,41 @@ const Toolbar = ({ editor }: Props) => {
                <TooltipContent>{name}</TooltipContent>
             </Tooltip>
          ))}
+
+         {/* Hiperlink */}
+         {!editor.isActive("link") ? (
+            <Popover>
+               <PopoverTrigger asChild>
+                  <button className={buttonStyle} data-active={editor.isActive("link")}>
+                     <Link />
+                  </button>
+               </PopoverTrigger>
+               <PopoverContent>
+                  <PopoverTitle>Adicionar link:</PopoverTitle>
+                  <form
+                     onSubmit={(e) => {
+                        e.preventDefault();
+                        handleLink();
+                     }}
+                     className="mt-1.5"
+                  >
+                     <Input ref={linkRef} placeholder="Insira o link" type="url" />
+                     <div onClick={handleLink}>
+                        <Btn className="px-4! py-1.5! mt-2.5">Adicionar</Btn>
+                     </div>
+                  </form>
+               </PopoverContent>
+            </Popover>
+         ) : (
+            <Tooltip>
+               <TooltipTrigger asChild>
+                  <button onClick={() => editor.chain().focus().unsetLink().run()} className={buttonStyle} data-active={editor.isActive("link")}>
+                     <Link />
+                  </button>
+               </TooltipTrigger>
+               <TooltipContent>Remover link</TooltipContent>
+            </Tooltip>
+         )}
       </div>
    );
 };

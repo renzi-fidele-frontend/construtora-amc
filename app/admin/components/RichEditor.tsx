@@ -12,7 +12,11 @@ interface Props {
 export default function RichEditor({ content, onChange }: Props) {
    // Inicializando o text editor
    const editor = useEditor({
-      extensions: [StarterKit],
+      extensions: [
+         StarterKit.configure({
+            link: { openOnClick: false },
+         }),
+      ],
       content,
       onUpdate: ({ editor }) => {
          if (!onChange) return;
