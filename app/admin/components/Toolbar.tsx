@@ -139,7 +139,7 @@ const Toolbar = ({ editor }: Props) => {
          ) : (
             <Tooltip>
                <TooltipTrigger asChild>
-                  <button onClick={() => editor.chain().focus().unsetLink().run()} className={buttonStyle} data-active={editor.isActive("link")}>
+                  <button onClick={handleLink} className={buttonStyle} data-active={editor.isActive("link")}>
                      <Link />
                   </button>
                </TooltipTrigger>

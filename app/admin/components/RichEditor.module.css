@@ -60,4 +60,14 @@
       cursor: pointer;
       font-weight: 600;
    }
+
+   /* Blockquote */
+   blockquote {
+      padding-left: 1rem;
+      padding-block: .6rem;
+      border-left: 4px solid var(--color-theme2);
+      margin-block: 1rem;
+      background-color: rgb(243, 243, 243);
+
+   }
 }
