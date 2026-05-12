@@ -2,6 +2,7 @@
 import { cookies } from "next/headers";
 import jwt from "jsonwebtoken";
 import { redirect } from "next/navigation";
+import { UploadApiResponse } from "cloudinary";
 
 export async function login(formData: FormData) {
    const email = formData.get("email");
@@ -14,8 +15,6 @@ export async function login(formData: FormData) {
          headers: { "Content-Type": "application/json" },
       });
       const user = await res.json();
-
-      console.log(user);
 
       if (!user) {
          throw new Error("Erro de credenciais!");
@@ -42,11 +41,15 @@ export async function getLogedUser() {
    }
 }
 
+interface IImageResponse {
+   message: string;
+   foto: UploadApiResponse;
+}
 export async function carregarImagemNoCloudinary(body: FormData) {
    const res = await fetch(`${process.env.DOMAIN}/api/adicionar_imagem`, {
       method: "POST",
       body,
    });
-   const data = await res.json();
+   const data = (await res.json()) as IImageResponse;
    return data;
 }

@@ -24,7 +24,5 @@ export async function POST(req: NextRequest) {
          .end(buffer);
    });
 
-   console.log(carregarImagem);
-
    return NextResponse.json({ message: "Imagem recebida com sucesso no backend!", foto: carregarImagem });
 }

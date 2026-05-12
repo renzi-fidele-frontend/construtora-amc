@@ -129,6 +129,18 @@ const Toolbar = ({ editor }: Props) => {
          const formData = new FormData();
          formData.append("foto", file);
          const enviar = await carregarImagemNoCloudinary(formData);
+         if (enviar.foto)
+            editor
+               .chain()
+               .focus()
+               .setImage({
+                  src: enviar.foto.url,
+                  width: enviar.foto.width,
+                  height: enviar.foto.height,
+                  alt: enviar.foto.alt,
+                  title: enviar.foto.title,
+               })
+               .run();
          console.log(enviar);
       }
    }
@@ -206,14 +218,12 @@ const Toolbar = ({ editor }: Props) => {
          {/* Imagem */}
          <Tooltip>
             <TooltipTrigger>
-               <>
-                  <label className="relative inset-0" htmlFor="image">
-                     <div className={buttonStyle}>
-                        <ImageIcon />
-                        <input onChange={adicionarImagem} className="hidden" type="file" accept="image/*" name="image" id="image" />
-                     </div>
-                  </label>
-               </>
+               <label className="relative inset-0" htmlFor="image">
+                  <div className={buttonStyle}>
+                     <ImageIcon />
+                     <input onChange={adicionarImagem} className="hidden" type="file" accept="image/*" name="image" id="image" />
+                  </div>
+               </label>
             </TooltipTrigger>
             <TooltipContent>Adicionar imagem (max: 1MB)</TooltipContent>
          </Tooltip>
