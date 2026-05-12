@@ -11,6 +11,7 @@ import {
    Link,
    List,
    ListOrdered,
+   Loader,
    LucideProps,
    SeparatorHorizontal,
    TextAlignCenter,
@@ -20,7 +21,7 @@ import {
    TextQuote,
    Underline,
 } from "lucide-react";
-import { ChangeEvent, ForwardRefExoticComponent, RefAttributes, useRef } from "react";
+import { ChangeEvent, ForwardRefExoticComponent, RefAttributes, useRef, useState } from "react";
 
 interface Props {
    editor: Editor;
@@ -38,6 +39,7 @@ interface IHeading {
 
 const Toolbar = ({ editor }: Props) => {
    const linkRef = useRef<HTMLInputElement | null>(null);
+   const [loadingImgUpload, setLoadingImgUpload] = useState(false);
 
    useEditorState({
       editor,
@@ -124,6 +126,7 @@ const Toolbar = ({ editor }: Props) => {
 
    // Adiciona imagem ao cloudinary e renderia no editor
    async function adicionarImagem(e: ChangeEvent<HTMLInputElement>) {
+      setLoadingImgUpload(true);
       const file = e.target.files?.[0];
       if (file) {
          const formData = new FormData();
@@ -143,6 +146,7 @@ const Toolbar = ({ editor }: Props) => {
                .run();
          console.log(enviar);
       }
+      setLoadingImgUpload(false);
    }
 
    return (
@@ -218,12 +222,18 @@ const Toolbar = ({ editor }: Props) => {
          {/* Imagem */}
          <Tooltip>
             <TooltipTrigger>
-               <label className="relative inset-0" htmlFor="image">
-                  <div className={buttonStyle}>
-                     <ImageIcon />
-                     <input onChange={adicionarImagem} className="hidden" type="file" accept="image/*" name="image" id="image" />
-                  </div>
-               </label>
+               {!loadingImgUpload ? (
+                  <label htmlFor="image">
+                     <div className={buttonStyle}>
+                        <ImageIcon />
+                        <input onChange={adicionarImagem} className="hidden" type="file" accept="image/*" name="image" id="image" />
+                     </div>
+                  </label>
+               ) : (
+                  <button className={buttonStyle} data-active={true}>
+                     <Loader className=" animate-spin" />
+                  </button>
+               )}
             </TooltipTrigger>
             <TooltipContent>Adicionar imagem (max: 1MB)</TooltipContent>
          </Tooltip>
