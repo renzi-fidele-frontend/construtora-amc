@@ -2,9 +2,11 @@ import Btn from "@/components/shared/Btn";
 import { Input } from "@/components/ui/input";
 import { Popover, PopoverContent, PopoverTitle, PopoverTrigger } from "@/components/ui/popover";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
+import { carregarImagemNoCloudinary } from "@/lib/admin";
 import { useEditorState, type Editor } from "@tiptap/react";
 import {
    Bold,
+   Image as ImageIcon,
    Italic,
    Link,
    List,
@@ -18,7 +20,7 @@ import {
    TextQuote,
    Underline,
 } from "lucide-react";
-import { ForwardRefExoticComponent, RefAttributes, useRef } from "react";
+import { ChangeEvent, ForwardRefExoticComponent, RefAttributes, useRef } from "react";
 
 interface Props {
    editor: Editor;
@@ -120,6 +122,17 @@ const Toolbar = ({ editor }: Props) => {
       }
    }
 
+   // Adiciona imagem ao cloudinary e renderia no editor
+   async function adicionarImagem(e: ChangeEvent<HTMLInputElement>) {
+      const file = e.target.files?.[0];
+      if (file) {
+         const formData = new FormData();
+         formData.append("foto", file);
+         const enviar = await carregarImagemNoCloudinary(formData);
+         console.log(enviar);
+      }
+   }
+
    return (
       <div className="flex gap-2 mb-2.5">
          {/* Headings */}
@@ -189,6 +202,21 @@ const Toolbar = ({ editor }: Props) => {
                <TooltipContent>Remover link</TooltipContent>
             </Tooltip>
          )}
+
+         {/* Imagem */}
+         <Tooltip>
+            <TooltipTrigger>
+               <>
+                  <label className="relative inset-0" htmlFor="image">
+                     <div className={buttonStyle}>
+                        <ImageIcon />
+                        <input onChange={adicionarImagem} className="hidden" type="file" accept="image/*" name="image" id="image" />
+                     </div>
+                  </label>
+               </>
+            </TooltipTrigger>
+            <TooltipContent>Adicionar imagem (max: 1MB)</TooltipContent>
+         </Tooltip>
       </div>
    );
 };

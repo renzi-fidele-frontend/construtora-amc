@@ -41,3 +41,12 @@ export async function getLogedUser() {
       return null;
    }
 }
+
+export async function carregarImagemNoCloudinary(body: FormData) {
+   const res = await fetch(`${process.env.DOMAIN}/api/adicionar_imagem`, {
+      method: "POST",
+      body,
+   });
+   const data = await res.json();
+   return data;
+}
