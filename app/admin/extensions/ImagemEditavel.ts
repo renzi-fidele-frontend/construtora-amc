@@ -12,6 +12,9 @@ export const ImagemEditavel = Image.extend({
          alignment: {
             default: "left",
          },
+         publicId: {
+            default: null,
+         },
       };
    },
    addNodeView() {

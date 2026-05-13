@@ -1,13 +1,20 @@
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
+import { removerImagemNoCloudinary } from "@/lib/admin";
 import { NodeViewProps, NodeViewWrapper } from "@tiptap/react";
 import { TextAlignCenter, TextAlignEnd, TextAlignStart, Trash2 } from "lucide-react";
 import Image from "next/image";
 
 export default function ImagemEditavelView({ node, editor, getPos }: NodeViewProps) {
-   const { src, alt, width, height, alignment } = node.attrs;
+   const { src, alt, width, height, alignment, publicId } = node.attrs;
 
    // TODO: Adicionar a funcionalidade de remover a imagem no cloudinary e no editor
-   function removerDoEditor() {
+   async function removerDoEditor() {
+      // Remover do cloudinary
+      if (publicId) {
+         const remover = await removerImagemNoCloudinary(publicId);
+         console.log(remover);
+      }
+
       // Remover do editor
       const posicao = getPos();
       if (posicao === undefined) return;

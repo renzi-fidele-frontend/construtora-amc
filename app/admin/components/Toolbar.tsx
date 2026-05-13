@@ -3,6 +3,7 @@ import { Input } from "@/components/ui/input";
 import { Popover, PopoverContent, PopoverTitle, PopoverTrigger } from "@/components/ui/popover";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 import { carregarImagemNoCloudinary } from "@/lib/admin";
+import { SetImageOptions } from "@tiptap/extension-image";
 import { useEditorState, type Editor } from "@tiptap/react";
 import {
    Bold,
@@ -142,7 +143,8 @@ const Toolbar = ({ editor }: Props) => {
                   height: enviar.foto.height,
                   alt: enviar.foto.alt,
                   title: enviar.foto.title,
-               })
+                  publicId: enviar.foto.public_id,
+               } as SetImageOptions)
                .run();
          console.log(enviar);
       }

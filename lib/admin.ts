@@ -53,3 +53,13 @@ export async function carregarImagemNoCloudinary(body: FormData) {
    const data = (await res.json()) as IImageResponse;
    return data;
 }
+
+export async function removerImagemNoCloudinary(publicId: string) {
+   const res = await fetch(`${process.env.DOMAIN}/api/remover_imagem`, {
+      method: "DELETE",
+      body: JSON.stringify({ publicId }),
+      headers: { "Content-Type": "application/json" },
+   });
+   const data = await res.json();
+   return data;
+}
