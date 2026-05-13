@@ -146,7 +146,7 @@ const Toolbar = ({ editor }: Props) => {
                   publicId: enviar.foto.public_id,
                } as SetImageOptions)
                .run();
-         console.log(enviar);
+         e.target.files = null;
       }
       setLoadingImgUpload(false);
    }
