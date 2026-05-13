@@ -1,18 +1,19 @@
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 import { removerImagemNoCloudinary } from "@/lib/admin";
 import { NodeViewProps, NodeViewWrapper } from "@tiptap/react";
-import { TextAlignCenter, TextAlignEnd, TextAlignStart, Trash2 } from "lucide-react";
+import { Loader, TextAlignCenter, TextAlignEnd, TextAlignStart, Trash2 } from "lucide-react";
 import Image from "next/image";
+import { useState } from "react";
 
 export default function ImagemEditavelView({ node, editor, getPos }: NodeViewProps) {
    const { src, alt, width, height, alignment, publicId } = node.attrs;
+   const [loading, setLoading] = useState(false);
 
-   // TODO: Adicionar a funcionalidade de remover a imagem no cloudinary e no editor
    async function removerDoEditor() {
+      setLoading(true);
       // Remover do cloudinary
       if (publicId) {
-         const remover = await removerImagemNoCloudinary(publicId);
-         console.log(remover);
+         await removerImagemNoCloudinary(publicId);
       }
 
       // Remover do editor
@@ -23,6 +24,7 @@ export default function ImagemEditavelView({ node, editor, getPos }: NodeViewPro
          .focus()
          .deleteRange({ from: posicao, to: posicao + node.nodeSize })
          .run();
+      setLoading(false);
    }
 
    function alinharImagem(direcao: "left" | "right" | "center") {
@@ -44,10 +46,10 @@ export default function ImagemEditavelView({ node, editor, getPos }: NodeViewPro
          <figure id="blog-image">
             <div>
                <figure className="flex" style={{ justifyContent: alignment }}>
-                  <div className="w-fit relative transition hover:outline-2 hover:outline-theme1">
+                  <div className="group w-fit relative transition hover:outline-2 hover:outline-theme1">
                      <Image width={width} height={height} src={src} alt={alt} />
                      {/* Ações */}
-                     <div className="border border-zinc-400 absolute bottom-1 end-1 bg-zinc-50 flex items-center p-1 rounded gap-1">
+                     <div className="hidden group-hover:flex fade-in border border-zinc-400 absolute bottom-1 end-1 bg-zinc-50  items-center p-1 rounded gap-1">
                         {botoes.map(({ icon: Icon, action, name }, k) => (
                            <Tooltip key={k}>
                               <TooltipTrigger>
@@ -62,6 +64,13 @@ export default function ImagemEditavelView({ node, editor, getPos }: NodeViewPro
                            </Tooltip>
                         ))}
                      </div>
+                     {/* Overlay de loading */}
+                     {loading && (
+                        <div className="absolute inset-0 bg-white flex flex-col gap-2 items-center justify-center opacity-60">
+                           <Loader className="animate-spin" />
+                           <p>Removendo a imagem...</p>
+                        </div>
+                     )}
                   </div>
                </figure>
             </div>
