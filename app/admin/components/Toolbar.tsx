@@ -113,7 +113,7 @@ const Toolbar = ({ editor }: Props) => {
 
    // Estilo padrão
    const buttonStyle =
-      "leading-0 p-2.5 border rounded cursor-pointer hover:bg-theme1 hover:text-white transition-all data-[active=true]:bg-theme1! data-[active=true]:text-white!";
+      "flex items-center justify-center leading-0 p-2.5 border rounded cursor-pointer hover:bg-theme1 hover:text-white transition-all data-[active=true]:bg-theme1! data-[active=true]:text-white!";
 
    // Adiciona ou remove hiperlink
    function handleLink() {
@@ -155,13 +155,13 @@ const Toolbar = ({ editor }: Props) => {
          {headings.map(({ label, level }) => (
             <Tooltip key={level}>
                <TooltipTrigger asChild>
-                  <button
+                  <div
                      className={buttonStyle}
                      data-active={editor.isActive("heading", { level })}
                      onClick={() => editor.chain().focus().toggleHeading({ level }).run()}
                   >
                      {label}
-                  </button>
+                  </div>
                </TooltipTrigger>
                <TooltipContent>Título {level}</TooltipContent>
             </Tooltip>
@@ -171,9 +171,9 @@ const Toolbar = ({ editor }: Props) => {
          {buttons.map(({ name, icon: Icon, action, isActive }) => (
             <Tooltip key={name}>
                <TooltipTrigger asChild>
-                  <button className={buttonStyle} data-active={isActive && isActive()} onClick={action}>
+                  <div className={buttonStyle} data-active={isActive && isActive()} onClick={action}>
                      <Icon />
-                  </button>
+                  </div>
                </TooltipTrigger>
                <TooltipContent>{name}</TooltipContent>
             </Tooltip>
@@ -185,9 +185,9 @@ const Toolbar = ({ editor }: Props) => {
                <Tooltip>
                   <TooltipTrigger asChild>
                      <PopoverTrigger asChild>
-                        <button className={buttonStyle} data-active={editor.isActive("link")}>
+                        <div className={buttonStyle} data-active={editor.isActive("link")}>
                            <Link />
-                        </button>
+                        </div>
                      </PopoverTrigger>
                   </TooltipTrigger>
                   <TooltipContent>Adicionar link</TooltipContent>
@@ -211,9 +211,9 @@ const Toolbar = ({ editor }: Props) => {
          ) : (
             <Tooltip>
                <TooltipTrigger asChild>
-                  <button onClick={handleLink} className={buttonStyle} data-active={editor.isActive("link")}>
+                  <div onClick={handleLink} className={buttonStyle} data-active={editor.isActive("link")}>
                      <Link />
-                  </button>
+                  </div>
                </TooltipTrigger>
                <TooltipContent>Remover link</TooltipContent>
             </Tooltip>
@@ -230,9 +230,9 @@ const Toolbar = ({ editor }: Props) => {
                      </div>
                   </label>
                ) : (
-                  <button className={buttonStyle} data-active={true}>
-                     <Loader className=" animate-spin" />
-                  </button>
+                  <div className={buttonStyle} data-active={true}>
+                     <Loader className="animate-spin" />
+                  </div>
                )}
             </TooltipTrigger>
             <TooltipContent>Adicionar imagem (max: 1MB)</TooltipContent>
