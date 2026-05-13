@@ -5,7 +5,7 @@ import { useEffect } from "react";
 import Toolbar from "./Toolbar";
 import styles from "./RichEditor.module.css";
 import TextAlign from "@tiptap/extension-text-align";
-import Image from "@tiptap/extension-image";
+import { ImagemEditavel } from "../extensions/ImagemEditavel";
 
 interface Props {
    content: string;
@@ -20,7 +20,7 @@ export default function RichEditor({ content, onChange }: Props) {
             link: { openOnClick: false },
          }),
          TextAlign.configure({ types: ["heading", "paragraph"] }),
-         Image,
+         ImagemEditavel,
       ],
       content,
       onUpdate: ({ editor }) => {
