@@ -8,8 +8,9 @@ export default function ImagemEditavelView({ node, editor, getPos }: NodeViewPro
 
    // TODO: Adicionar a funcionalidade de remover a imagem no cloudinary e no editor
    function removerDoEditor() {
+      // Remover do editor
       const posicao = getPos();
-      if (!posicao) return;
+      if (posicao === undefined) return;
       editor
          .chain()
          .focus()
@@ -54,7 +55,6 @@ export default function ImagemEditavelView({ node, editor, getPos }: NodeViewPro
                            </Tooltip>
                         ))}
                      </div>
-                     
                   </div>
                </figure>
             </div>
