@@ -8,7 +8,7 @@ import TextAlign from "@tiptap/extension-text-align";
 import { ImagemEditavel } from "../extensions/ImagemEditavel";
 
 interface Props {
-   content: string;
+   content?: string;
    onChange?: (html: string) => void;
 }
 
@@ -32,7 +32,7 @@ export default function RichEditor({ content, onChange }: Props) {
 
    // Atualizando o conteúdo do editor
    useEffect(() => {
-      if (!editor) return;
+      if (!editor || !content) return;
       if (content !== editor.getHTML()) {
          editor.commands.setContent(content);
       }
@@ -43,9 +43,9 @@ export default function RichEditor({ content, onChange }: Props) {
    }
 
    return (
-      <div className={styles.ct}>
+      <div className={styles.ct + " border border-theme1 p-2"}>
          <Toolbar editor={editor} />
-         <EditorContent className="*:border *:min-h-60 *:p-2" editor={editor} />
+         <EditorContent className="*:min-h-60" editor={editor} />
       </div>
    );
 }
