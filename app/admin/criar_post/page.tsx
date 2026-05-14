@@ -4,13 +4,20 @@ import RichEditor from "@/app/admin/components/RichEditor";
 import SectionIntro from "@/components/shared/SectionIntro";
 import { Input } from "@/components/ui/input";
 import { Plus } from "lucide-react";
-import { ChangeEvent, ChangeEventHandler, useState } from "react";
+import { ChangeEvent, FormEvent, useRef, useState } from "react";
 import Image from "next/image";
+import Btn from "@/components/shared/Btn";
 
 // TODO: Adicionar a funcionalidade de publicar um artigo
 export default function CriarPost() {
    const [previaThumbanil, setPreviaThumbnail] = useState<ArrayBuffer | string | null>(null);
    const [previaDestaque, setPreviaDestaque] = useState<ArrayBuffer | string | null>(null);
+   // Inputs do formulário
+   const tituloRef = useRef<HTMLInputElement>(null);
+   const descricaoRef = useRef<HTMLTextAreaElement>(null);
+   const thumbnailRef = useRef<HTMLInputElement>(null);
+   const destaqueRef = useRef<HTMLInputElement>(null);
+   const conteudoRef = useRef<string>(null);
 
    function renderizarPreviaThumbnail(e: ChangeEvent<HTMLInputElement>) {
       if (!e.target.files) return;
@@ -30,21 +37,50 @@ export default function CriarPost() {
       reader.readAsDataURL(e.target.files[0]);
    }
 
+   function publicarArtigo(e: FormEvent<HTMLFormElement>) {
+      e.preventDefault();
+
+      // Verificando se todos os inputs foram preenchidos
+      if (!tituloRef.current || !descricaoRef.current || !thumbnailRef?.current?.files || !destaqueRef?.current?.files || !conteudoRef.current)
+         return;
+
+      // Pegando os dados do formulário
+      const titulo = tituloRef.current?.value;
+      const descricao = descricaoRef.current?.value;
+      const thumbnail = thumbnailRef.current?.files?.[0];
+      const destaque = destaqueRef.current.files[0];
+      const conteudo = conteudoRef.current;
+
+      // Enviando os dados para o backend
+      const data = new FormData();
+      data.append("titulo", titulo);
+      data.append("descricao", descricao);
+      data.append("thumbnail", thumbnail);
+      data.append("destaque", destaque);
+      data.append("conteudo", conteudo);
+
+      
+   }
+
    return (
       <Container className="py-25">
          <SectionIntro titulo="Adicione um artigo" descricao="Adicione um artigo para o blog da construtora AMC" className="items-start!" />
-         <form className="flex flex-col gap-5 [&_input]:border-theme1 [&_fieldset]:flex [&_fieldset]:flex-col [&_fieldset]:gap-1.5 **:data-placeholder:text-theme1!">
+         <form
+            onSubmit={publicarArtigo}
+            className="flex flex-col gap-5 [&_input]:border-theme1 [&_fieldset]:flex [&_fieldset]:flex-col [&_fieldset]:gap-1.5 **:data-placeholder:text-theme1!"
+         >
             {/* Título */}
             <fieldset>
                <label htmlFor="titulo">Titulo do artigo</label>
-               <Input name="titulo" id="titulo" />
+               <Input ref={tituloRef} required name="titulo" id="titulo" />
             </fieldset>
+
             {/* Descrição */}
-            <fieldset className="">
+            <fieldset>
                <label htmlFor="descricao">Descrição do artigo</label>
-               <textarea className="w-full border border-theme1 h-23 p-3" name="descricao" id="descricao"></textarea>
+               <textarea ref={descricaoRef} required className="w-full border border-theme1 h-23 p-3" name="descricao" id="descricao"></textarea>
             </fieldset>
-            {/* TODO: Amanhã adicionar os campos de thumbnail e foto de destaque */}
+
             {/* Thumbnail */}
             <fieldset>
                <label>
@@ -69,8 +105,18 @@ export default function CriarPost() {
                   )}
                </label>
                {/* Input invisível */}
-               <input className="hidden" type="file" name="thumbnail" accept="image/*" id="thumbnail" onChange={renderizarPreviaThumbnail} />
+               <input
+                  ref={thumbnailRef}
+                  required
+                  className="hidden"
+                  type="file"
+                  name="thumbnail"
+                  accept="image/*"
+                  id="thumbnail"
+                  onChange={renderizarPreviaThumbnail}
+               />
             </fieldset>
+
             {/* Foto de destaque */}
             <fieldset>
                <label>
@@ -95,14 +141,29 @@ export default function CriarPost() {
                   )}
                </label>
                {/* Input invisível */}
-               <input className="hidden" type="file" name="destaque" accept="image/*" id="destaque" onChange={renderizarPreviaDestaque} />
+               <input
+                  ref={destaqueRef}
+                  required
+                  className="hidden"
+                  type="file"
+                  name="destaque"
+                  accept="image/*"
+                  id="destaque"
+                  onChange={renderizarPreviaDestaque}
+               />
             </fieldset>
 
+            {/* Conteúdo */}
             <fieldset>
                <label>Conteúdo do artigo</label>
-               {/* Conteúdo */}
-               <RichEditor onChange={() => {}} />
+               <RichEditor
+                  onChange={(html) => {
+                     conteudoRef.current = html;
+                  }}
+               />
             </fieldset>
+
+            <Btn>Publicar artigo</Btn>
          </form>
       </Container>
    );
