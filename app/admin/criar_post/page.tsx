@@ -3,6 +3,9 @@ import Container from "@/components/layout/Container";
 import RichEditor from "@/app/admin/components/RichEditor";
 import SectionIntro from "@/components/shared/SectionIntro";
 import { Input } from "@/components/ui/input";
+import { Plus } from "lucide-react";
+import { ChangeEvent, ChangeEventHandler, useState } from "react";
+import Image from "next/image";
 
 // TODO: Adicionar a funcionalidade de publicar um artigo
 export default function CriarPost() {
@@ -37,11 +40,11 @@ export default function CriarPost() {
                <Input name="titulo" id="titulo" />
             </fieldset>
             {/* Descrição */}
-            <fieldset className="mt-5 mb-5">
+            <fieldset className="">
                <label htmlFor="descricao">Descrição do artigo</label>
                <textarea className="w-full border border-theme1 h-23 p-3" name="descricao" id="descricao"></textarea>
             </fieldset>
-
+            {/* TODO: Amanhã adicionar os campos de thumbnail e foto de destaque */}
             {/* Thumbnail */}
             <fieldset>
                <label>
@@ -69,6 +72,31 @@ export default function CriarPost() {
                <input className="hidden" type="file" name="thumbnail" accept="image/*" id="thumbnail" onChange={renderizarPreviaThumbnail} />
             </fieldset>
             {/* Foto de destaque */}
+            <fieldset>
+               <label>
+                  Foto de destaque <small>(1200x900)</small>
+               </label>
+               <label htmlFor="destaque" className="cursor-pointer hover:opacity-80 hover:text-theme2 transition group relative text-center">
+                  <div className="p-70 bg-zinc-300">
+                     <div className="rounded border-3 border-theme1 group-hover:border-theme2 transition border-dashed p-8 w-fit mx-auto">
+                        <Plus className="size-14" />
+                     </div>
+                     <p className="mt-4">Clique para carregar uma imagem</p>
+                  </div>
+                  {/* Prévia */}
+                  {previaDestaque && (
+                     <Image
+                        className="absolute inset-0 w-full h-full object-cover"
+                        src={String(previaDestaque)}
+                        alt="Foto de destaque do artigo"
+                        width={1200}
+                        height={900}
+                     />
+                  )}
+               </label>
+               {/* Input invisível */}
+               <input className="hidden" type="file" name="destaque" accept="image/*" id="destaque" onChange={renderizarPreviaDestaque} />
+            </fieldset>
 
             <fieldset>
                <label>Conteúdo do artigo</label>
