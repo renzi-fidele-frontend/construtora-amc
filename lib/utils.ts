@@ -13,3 +13,18 @@ export function analisarCor(categoria: IEmpreendimento["categoria"]) {
    if (categoria === "Urbanismo") return "bg-urbanismo";
    return "";
 }
+
+/** Gera um slug com base em qualquer texto entregue */
+export function slugify(text: string) {
+   return text
+      ? text
+           .toString()
+           .normalize("NFD")
+           .replace(/[\u0300-\u036f]/g, "")
+           .toLowerCase()
+           .trim()
+           .replace(/\s+/g, "-")
+           .replace(/[^\w-]+/g, "")
+           .replace(/--+/g, "-")
+      : "";
+}
