@@ -1,7 +1,16 @@
 import { NextRequest, NextResponse } from "next/server";
 import { v2 as cloudinary } from "cloudinary";
+import Artigo from "@/models/Artigo";
+import { dbConnect } from "@/lib/dbConnect";
+
+cloudinary.config({
+   cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+   api_key: process.env.CLOUDINARY_API_KEY,
+   api_secret: process.env.CLOUDINARY_API_SECRET,
+});
 
 export async function POST(req: NextRequest) {
+   await dbConnect();
    const data = await req.formData();
    const titulo = data.get("titulo") as string;
    const descricao = data.get("descricao") as string;
@@ -32,14 +41,13 @@ export async function POST(req: NextRequest) {
             .end(buffer_destaque);
       });
 
-      
-      
-      
-
-      // Enviar o destaque para o cloudinary
       // Salvar o artigo no banco de dados
+      const artigo = await Artigo.create({ titulo, descricao, thumbnail: carregarThumbnail, destaque: carregarDestaque, conteudo });
+
       // Retornar a resposta
+      return NextResponse.json({ message: "Artigo publicado com sucesso!", artigo });
    } catch (error) {
+      console.log(error);
       return NextResponse.json({ error });
    }
 }
