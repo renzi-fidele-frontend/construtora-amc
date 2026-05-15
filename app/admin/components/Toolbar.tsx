@@ -223,7 +223,7 @@ const Toolbar = ({ editor }: Props) => {
 
          {/* Imagem */}
          <Tooltip>
-            <TooltipTrigger>
+            <TooltipTrigger asChild>
                {!loadingImgUpload ? (
                   <label htmlFor="image">
                      <div className={buttonStyle}>
