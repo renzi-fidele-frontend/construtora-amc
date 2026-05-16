@@ -63,6 +63,7 @@ export default function CriarPost() {
       const res = await publicarArtigo(data);
 
       // Navegar para a pagina do artigo
+      console.log(res);
    }
 
    return (
