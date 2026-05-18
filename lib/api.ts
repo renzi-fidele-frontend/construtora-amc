@@ -5,8 +5,8 @@ interface IResponse {
    artigos: IArtigo[];
    totalPaginas: number;
 }
-export async function apanhar_artigos() {
-   const res = await fetch(`${process.env.DOMAIN}/api/blog/apanhar_artigos`);
+export async function apanhar_artigos(limite: number, pagina: number) {
+   const res = await fetch(`${process.env.DOMAIN}/api/blog/apanhar_artigos?limit=${limite}&page=${pagina}`);
    const data = await res.json();
    return data as IResponse;
 }

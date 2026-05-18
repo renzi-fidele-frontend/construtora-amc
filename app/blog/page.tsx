@@ -4,17 +4,15 @@ import Image from "next/image";
 import Link from "next/link";
 
 export default async function Blog({ searchParams }: { searchParams: Promise<{ [key: string]: string | string[] | undefined }> }) {
-   const { artigos, totalPaginas } = await apanhar_artigos();
    const search = await searchParams;
    const page = Number(search.page) || 1;
    const itemsPorPagina = page === 1 ? 5 : 6;
+   const { artigos, totalPaginas } = await apanhar_artigos(itemsPorPagina, page);
 
-   console.log(page);
    return (
       <Container className="flex flex-nowrap gap-25 py-7.5">
          <section className="basis-[62%]">
             {/* Seção do hero do blog */}
-            {/* TODO: Somente renderizar o hero quando */}
             {Number(page) === 1 && (
                <div className="relative">
                   {/* Foto do artigo */}
