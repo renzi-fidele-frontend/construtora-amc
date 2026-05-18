@@ -1,13 +1,14 @@
 import { UploadApiResponse } from "cloudinary";
 import { Schema, model, models } from "mongoose";
 
-interface IArtigo {
+export interface IArtigo {
    titulo: string;
    descricao: string;
    thumbnail: UploadApiResponse;
    destaque: UploadApiResponse;
    conteudo: string;
    publicadoEm: Date;
+   _id: string;
 }
 
 const ArtigoSchema = new Schema<IArtigo>(
