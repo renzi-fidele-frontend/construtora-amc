@@ -1,4 +1,5 @@
 import { apanhar_artigos } from "@/lib/api";
+import { IArtigo } from "@/models/Artigo";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -8,11 +9,19 @@ export default async function Blog({ searchParams }: { searchParams: Promise<{ [
    const itemsPorPagina = page === 1 ? 5 : 6;
    const { artigos, totalPaginas } = await apanhar_artigos(itemsPorPagina, page);
 
+   function analisarArray(artigos: IArtigo[]) {
+      if (page === 1) {
+         return artigos.slice(1);
+      } else {
+         return artigos;
+      }
+   }
+
    return (
       <>
          {/* Seção do hero do blog */}
          {Number(page) === 1 && (
-            <div className="relative">
+            <div className="relative border">
                {/* Foto do artigo */}
                <Image
                   src={artigos[0].thumbnail.secure_url}
@@ -25,7 +34,9 @@ export default async function Blog({ searchParams }: { searchParams: Promise<{ [
                   {/* Data de publicação */}
                   <p className="uppercase">{new Date(artigos[0].publicadoEm).toLocaleDateString()}</p>
                   {/* Titulo */}
-                  <h3 className="font-bold text-2xl mb-2">{artigos[0].titulo}</h3>
+                  <Link className="hover:underline" href={`/blog/${artigos[0].slug}`}>
+                     <h3 className="font-bold text-2xl mb-2">{artigos[0].titulo}</h3>
+                  </Link>
                   {/* Descrição */}
                   <p className="line-clamp-2">{artigos[0].descricao}</p>
                </div>
@@ -33,8 +44,8 @@ export default async function Blog({ searchParams }: { searchParams: Promise<{ [
          )}
          {/* Seção da listagem dos artigos */}
          <div className="grid grid-cols-2 gap-5 pt-7.5">
-            {artigos.slice(1).map((artigo, k) => (
-               <Link href="/blog/" className="border" key={k}>
+            {analisarArray(artigos).map((artigo, k) => (
+               <Link href={`/blog/${artigo.slug}`} className="border" key={k}>
                   <Image
                      src={artigo.thumbnail.secure_url}
                      width={artigo.thumbnail.width}

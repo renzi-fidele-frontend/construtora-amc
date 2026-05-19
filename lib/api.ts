@@ -16,3 +16,9 @@ export async function apanhar_artigos_mais_lidos() {
    const data = await res.json();
    return data as { artigos: IArtigo[] };
 }
+
+export async function apanhar_artigo(slug: string) {
+   const res = await fetch(`${process.env.DOMAIN}/api/blog/apanhar_artigo?slug=${slug}`);
+   const data = await res.json();
+   return data as IArtigo;
+}
