@@ -1,4 +1,7 @@
 import Container from "@/components/layout/Container";
+import CarouselDeBannersDoBlog from "@/components/shared/CarouselDeBannersDoBlog";
+import CarouselDeFotos from "@/components/shared/CarouselDeFotos";
+import { fotosDestaquesBlog } from "@/data/data";
 import { apanhar_artigos } from "@/lib/api";
 import Image from "next/image";
 import Link from "next/link";
@@ -11,7 +14,7 @@ export default async function Blog({ searchParams }: { searchParams: Promise<{ [
 
    return (
       <Container className="flex flex-nowrap gap-25 py-7.5">
-         <section className="basis-[62%]">
+         <section className="basis-[70%]">
             {/* Seção do hero do blog */}
             {Number(page) === 1 && (
                <div className="relative">
@@ -44,22 +47,32 @@ export default async function Blog({ searchParams }: { searchParams: Promise<{ [
                         alt="Ilustração do artigo"
                         className="h-80 object-cover"
                      />
-                     <div className="py-9 px-6.5">
+                     <div className="py-7 px-5">
                         {/* Data de publicação */}
                         <p className="uppercase">{new Date(artigo.publicadoEm).toLocaleDateString()}</p>
                         {/* Titulo */}
                         <h3 className="font-bold text-xl">{artigo.titulo}</h3>
                         {/* Descrição */}
-                        <p className="line-clamp-5">{artigo.descricao}</p>
+                        <p className="line-clamp-4 mt-2">{artigo.descricao}</p>
                      </div>
                   </Link>
                ))}
             </div>
             {/* TODO: Adicionar a seção da paginação */}
          </section>
-         <aside>
-            {/* TODO: Adicionar a seção dos destaques do blog */}
+         <aside className="basis-[30%]">
+            {/* Seção dos destaques do blog */}
+            <div>
+               <h5 className="font-medium text-2xl mb-3">Nossos destaques</h5>
+               <CarouselDeBannersDoBlog fotos={fotosDestaquesBlog} />
+            </div>
             {/* TODO: Adicionar a seção dos artigos mais lidos */}
+            <div>
+               <h5 className="font-medium text-xl mb-3">
+                  Os mais <br />
+                  <span className="font-bold">Lidos</span>
+               </h5>
+            </div>
          </aside>
       </Container>
    );

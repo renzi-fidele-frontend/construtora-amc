@@ -11,6 +11,12 @@ export const fotosDestaques = [
    { foto: "/img/slides-home/7.jpg", url: "/empreendimentos/vila-di-trento" },
 ];
 
+export const fotosDestaquesBlog = [
+   { foto: "/img/blog/banners/1.jpg", url: "#" },
+   { foto: "/img/blog/banners/2.jpg", url: "#" },
+   { foto: "/img/blog/banners/3.jpg", url: "#" },
+];
+
 export const empreendimentos: IEmpreendimento[] = [
    // Ilha di Capri
    {
