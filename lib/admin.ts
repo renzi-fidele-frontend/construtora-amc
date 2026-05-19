@@ -4,6 +4,8 @@ import jwt from "jsonwebtoken";
 import { redirect } from "next/navigation";
 import { UploadApiResponse } from "cloudinary";
 
+// Aqui estão todas as funcionalidades que fazm as requisições privadas ao back-end
+
 export async function login(formData: FormData) {
    const email = formData.get("email");
    const password = formData.get("password");

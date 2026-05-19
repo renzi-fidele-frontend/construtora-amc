@@ -17,6 +17,7 @@ export async function POST(req: NextRequest) {
    const conteudo = data.get("conteudo") as string;
    const thumbnail = data.get("thumbnail") as File;
    const destaque = data.get("destaque") as File;
+   const slug = data.get("slug") as string;
 
    try {
       // Enviar o thumbnail para o cloudinary
@@ -42,7 +43,7 @@ export async function POST(req: NextRequest) {
       });
 
       // Salvar o artigo no banco de dados
-      const artigo = await Artigo.create({ titulo, descricao, thumbnail: carregarThumbnail, destaque: carregarDestaque, conteudo });
+      const artigo = await Artigo.create({ titulo, descricao, thumbnail: carregarThumbnail, destaque: carregarDestaque, conteudo, slug });
 
       // Retornar a resposta
       return NextResponse.json({ message: "Artigo publicado com sucesso!", artigo });

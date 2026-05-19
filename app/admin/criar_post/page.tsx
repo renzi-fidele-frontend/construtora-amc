@@ -8,6 +8,7 @@ import { ChangeEvent, FormEvent, useRef, useState } from "react";
 import Image from "next/image";
 import Btn from "@/components/shared/Btn";
 import { publicarArtigo } from "@/lib/admin";
+import { slugify } from "@/lib/utils";
 
 // TODO: Adicionar a funcionalidade de publicar um artigo
 export default function CriarPost() {
@@ -59,6 +60,7 @@ export default function CriarPost() {
       data.append("thumbnail", thumbnail);
       data.append("destaque", destaque);
       data.append("conteudo", conteudo);
+      data.append("slug", slugify(titulo));
 
       const res = await publicarArtigo(data);
 

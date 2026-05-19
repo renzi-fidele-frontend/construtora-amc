@@ -15,7 +15,6 @@ export function analisarCor(categoria: IEmpreendimento["categoria"]) {
 }
 
 /** Gera um slug com base em qualquer texto entregue */
-// TODO: Usar esta funcionalidade para gerar slugs para os empreendimentos
 export function slugify(text: string) {
    return text
       ? text
