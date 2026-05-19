@@ -49,7 +49,6 @@ const Toolbar = ({ editor }: Props) => {
 
    // Headings
    const headings: IHeading[] = [
-      { label: "H1", level: 1 },
       { label: "H2", level: 2 },
       { label: "H3", level: 3 },
       { label: "H4", level: 4 },

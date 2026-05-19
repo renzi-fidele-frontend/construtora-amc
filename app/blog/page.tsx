@@ -28,7 +28,7 @@ export default async function Blog({ searchParams }: { searchParams: Promise<{ [
                   width={artigos[0].thumbnail.width}
                   height={artigos[0].thumbnail.height}
                   alt="Último artigo do blog da construtora"
-                  className="object-cover h-120"
+                  className="object-cover h-140"
                />
                <div className="bg-zinc-900/50 absolute bottom-0 text-white py-8 px-5.5 text-lg">
                   {/* Data de publicação */}

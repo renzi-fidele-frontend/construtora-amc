@@ -1,6 +1,5 @@
 .ct {
    /* Headings */
-   h1,
    h2,
    h3,
    h4,
@@ -8,10 +7,6 @@
    h6 {
       font-weight: bold;
       margin-bottom: 0.9rem;
-   }
-
-   h1 {
-      font-size: 3em;
    }
 
    h2 {
@@ -68,5 +63,11 @@
       border-left: 4px solid var(--color-theme2);
       margin-block: 1rem;
       background-color: rgb(243, 243, 243);
+   }
+
+   /* Parágrafos */
+   p {
+      margin-block: 1.5rem;
+      font-size: 19px;
    }
 }

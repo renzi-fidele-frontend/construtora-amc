@@ -10,7 +10,7 @@ export default async function BlogLayout({ children }: { children: ReactNode }) 
    const { artigos: artigosMaisLidos } = await apanhar_artigos_mais_lidos();
 
    return (
-      <Container className="flex flex-nowrap gap-25 py-7.5">
+      <Container className="flex flex-nowrap gap-25 pt-7.5 pb-12">
          <section className="basis-[70%]">{children}</section>
          <aside className="basis-[30%]">
             {/* Seção dos destaques do blog */}
@@ -27,9 +27,9 @@ export default async function BlogLayout({ children }: { children: ReactNode }) 
                <div className="flex flex-col gap-6">
                   {artigosMaisLidos.map((artigo, k) => (
                      <div key={k}>
-                        <p className="mb-3 text-lg">{artigo.titulo}</p>
+                        <p className="mb-3 ">{artigo.titulo}</p>
                         <Link
-                           className="bg-theme2 flex items-center justify-between text-white font-medium py-2 px-4"
+                           className="bg-theme2 flex items-center justify-between text-white font-medium py-2 px-4 uppercase"
                            href={`/blog/${artigo._id}`}
                         >
                            <Plus className="stroke-3 size-5" />
