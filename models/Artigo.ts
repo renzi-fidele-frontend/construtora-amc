@@ -8,6 +8,7 @@ export interface IArtigo {
    destaque: UploadApiResponse;
    conteudo: string;
    publicadoEm: Date;
+   vezesLido: number;
    _id: string;
 }
 
@@ -19,6 +20,7 @@ const ArtigoSchema = new Schema<IArtigo>(
       destaque: { type: Object, required: true },
       conteudo: { type: String, required: true },
       publicadoEm: { type: Date, default: Date.now },
+      vezesLido: { type: Number, default: 0 },
    },
    { collection: "artigos" },
 );

@@ -10,3 +10,9 @@ export async function apanhar_artigos(limite: number, pagina: number) {
    const data = await res.json();
    return data as IResponse;
 }
+
+export async function apanhar_artigos_mais_ligos() {
+   const res = await fetch(`${process.env.DOMAIN}/api/blog/apanhar_artigos_mais_ligos`);
+   const data = await res.json();
+   return data as { artigos: IArtigo[] };
+}
