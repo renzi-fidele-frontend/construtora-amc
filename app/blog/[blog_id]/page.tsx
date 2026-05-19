@@ -1,3 +1,5 @@
+import Container from "@/components/layout/Container";
+
 export default function PaginaArtigo({ params }: { params: { blog_id: string } }) {
    // TODO: Adicionar a estrutura básica da página do artigo
    // TODO: Apanhar o artigo pela ID
@@ -6,9 +8,9 @@ export default function PaginaArtigo({ params }: { params: { blog_id: string } }
    // TODO: Investigar a possibilidade de adicionar categorias
 
    return (
-      <div>
+      <Container>
          <h1>Página do artigo</h1>
          <p>{params.blog_id}</p>
-      </div>
+      </Container>
    );
 }

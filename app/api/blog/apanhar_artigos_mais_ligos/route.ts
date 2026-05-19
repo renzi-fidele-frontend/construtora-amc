@@ -7,7 +7,6 @@ export async function GET() {
    try {
       // Buscando os artigos do banco de dados
       const artigos = await Artigo.find().limit(5).sort({ vezesLido: -1 });
-      console.log(artigos);
       return NextResponse.json({ artigos });
    } catch (error) {
       console.log(error);
