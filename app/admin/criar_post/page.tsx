@@ -10,7 +10,6 @@ import Btn from "@/components/shared/Btn";
 import { publicarArtigo } from "@/lib/admin";
 import { slugify } from "@/lib/utils";
 
-// TODO: Adicionar a funcionalidade de publicar um artigo
 export default function CriarPost() {
    const [previaThumbanil, setPreviaThumbnail] = useState<ArrayBuffer | string | null>(null);
    const [previaDestaque, setPreviaDestaque] = useState<ArrayBuffer | string | null>(null);

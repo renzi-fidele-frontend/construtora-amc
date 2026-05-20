@@ -14,7 +14,7 @@ const LinkComChevron = ({ texto, link }: { texto: string; link: string }) => {
 
 const Footer = () => {
    return (
-      <footer>
+      <footer className="[&_a]:hover:underline">
          <hr className="border-4 mb-8" />
          <Container className="text-lg">
             {/* Primeira linha */}
