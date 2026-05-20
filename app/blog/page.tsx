@@ -1,3 +1,4 @@
+import Paginacao from "@/components/shared/Paginacao";
 import { apanhar_artigos } from "@/lib/api";
 import { IArtigo } from "@/models/Artigo";
 import Image from "next/image";
@@ -68,7 +69,11 @@ export default async function Blog({ searchParams }: { searchParams: Promise<{ [
                </Link>
             ))}
          </div>
-         {/* TODO: Adicionar a seção da paginação */}
+
+         {/* Paginação */}
+         <div className="mt-8">
+            <Paginacao paginaAtual={page} totalPaginas={totalPaginas} />
+         </div>
       </>
    );
 }
