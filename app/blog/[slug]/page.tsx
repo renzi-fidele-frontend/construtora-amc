@@ -1,5 +1,5 @@
 import { apanhar_artigo } from "@/lib/api";
-import { Calendar1, CalendarClock, CalendarDays, ClockFading, ClockFadingIcon } from "lucide-react";
+import { CalendarDays, ClockFading } from "lucide-react";
 import Image from "next/image";
 import styles from "@/app/admin/components/RichEditor.module.css";
 import dayjs from "dayjs";
@@ -13,7 +13,6 @@ export default async function PaginaArtigo({ params }: { params: Promise<{ slug:
    const slug = (await params).slug;
    const { artigo } = await apanhar_artigo(slug);
 
-   // TODO: Adicionar todos os artigos que estão no blog antigo da construtora para este blog
    // TODO: Ao escalar, um usuário anônimo deverá ser capaz de adicionar comentários no blog (Investigar se é boa prática ou não)
    // TODO: Investigar a possibilidade de adicionar categorias
 

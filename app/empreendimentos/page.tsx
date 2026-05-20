@@ -4,7 +4,6 @@ import Image from "next/image";
 import ListagemDeEmpreendimentos from "./listing";
 import Breadcrumb from "@/components/shared/Breadcrumb";
 
-// TODO: Implementar a funcionalidade de paginação a página dos empreendimentos
 export default function Empreendimentos() {
    return (
       <div>

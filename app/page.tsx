@@ -6,12 +6,15 @@ import CardDestaque from "@/components/shared/CardDestaque";
 import CardEmpreendimento from "@/components/shared/CardEmpreendimento";
 import CarouselDeFotos from "@/components/shared/CarouselDeFotos";
 import SectionIntro from "@/components/shared/SectionIntro";
-import { artigos, depoimentos, empreendimentos, fotosDestaques } from "@/data/data";
+import { depoimentos, empreendimentos, fotosDestaques } from "@/data/data";
+import { apanhar_artigos } from "@/lib/api";
 import { Calendar, HardHat, Store, UserStar } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
-export default function Home() {
+export default async function Home() {
+   const ultimosArtigos = await apanhar_artigos(4, 1);
+
    return (
       <main className="overflow-x-hidden">
          {/* Seção do carousel de apresentação dos banners dos empreendimentos */}
@@ -89,8 +92,8 @@ export default function Home() {
             <Container>
                <SectionIntro titulo="Blog" descricao="Fique por dentro dos últimos artigos da AMC" />
                <div className="grid grid-cols-2 gap-8">
-                  {artigos.map((v, k) => (
-                     <CardBlog data={v.data} descricao={v.descricao} link={v.link} thumbnail={v.thumbnail} titulo={v.titulo} key={k} />
+                  {ultimosArtigos.artigos.map((v, k) => (
+                     <CardBlog key={k} artigo={v} />
                   ))}
                </div>
             </Container>
