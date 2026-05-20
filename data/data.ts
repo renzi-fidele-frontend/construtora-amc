@@ -12,15 +12,15 @@ export const fotosDestaques = [
 ];
 
 export const fotosDestaquesBlog = [
-   { foto: "/img/blog/banners/1.jpg", url: "#" },
-   { foto: "/img/blog/banners/2.jpg", url: "#" },
-   { foto: "/img/blog/banners/3.jpg", url: "#" },
+   { foto: "/img/blog/banners/1.jpg", url: "/empreendimentos/solar-de-hamburgo" },
+   { foto: "/img/blog/banners/2.jpg", url: "/empreendimentos/ilha-di-capri" },
+   { foto: "/img/blog/banners/3.jpg", url: "/empreendimentos/solar-dos-alamos" },
 ];
 
 export const empreendimentos: IEmpreendimento[] = [
    // Ilha di Capri
    {
-      id: "ilha-de-capri",
+      id: "ilha-di-capri",
       nome: "Ilha di Capri",
       categoria: "Lançamento",
       destaque: "<span>2</span> dorm c/ suíte",

@@ -3,7 +3,6 @@ import Image from "next/image";
 import { Carousel, CarouselContent, CarouselItem, type CarouselApi } from "../ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
 import { useEffect, useRef, useState } from "react";
-import Container from "../layout/Container";
 import Link from "next/link";
 
 interface CarouselDeFotosProps {
