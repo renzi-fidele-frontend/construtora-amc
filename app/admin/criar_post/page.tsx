@@ -92,7 +92,7 @@ export default function CriarPost() {
                   Foto do thumbnail <small>(370x290)</small>
                </label>
                <label htmlFor="thumbnail" className="w-fit cursor-pointer hover:opacity-80 hover:text-theme2 transition group relative">
-                  <div className="p-15 bg-zinc-300 w-fit">
+                  <div className="p-18 bg-zinc-300 w-fit">
                      <div className="rounded border-3 border-theme1 group-hover:border-theme2 transition border-dashed p-8 w-fit mx-auto">
                         <Plus className="size-14" />
                      </div>
@@ -101,7 +101,7 @@ export default function CriarPost() {
                   {/* Prévia */}
                   {previaThumbanil && (
                      <Image
-                        className="absolute inset-0 w-full h-full object-cover"
+                        className="absolute inset-0 w-full h-full object-left object-cover"
                         src={String(previaThumbanil)}
                         alt="Thumbnail do artigo"
                         width={300}
@@ -137,7 +137,7 @@ export default function CriarPost() {
                   {/* Prévia */}
                   {previaDestaque && (
                      <Image
-                        className="absolute inset-0 w-full h-full object-cover"
+                        className="absolute inset-0 w-full h-full object-cover object-left"
                         src={String(previaDestaque)}
                         alt="Foto de destaque do artigo"
                         width={1200}
