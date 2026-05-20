@@ -37,7 +37,7 @@ const links: TypeLinks = [
    { titulo: "Empreendimentos", url: "/empreendimentos" },
    { titulo: "Urbanismo", url: "/empreendimentos?categoria=Urbanismo" },
    { titulo: "Blog", url: "/blog" },
-   { titulo: "Fale conosco", url: "/fale_conosco", highlight: true },
+   { titulo: "Fale conosco", url: "/institucional/ligamos_para_voce", highlight: true },
 ];
 
 const Nav = () => {

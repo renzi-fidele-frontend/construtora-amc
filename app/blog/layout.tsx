@@ -30,7 +30,7 @@ export default async function BlogLayout({ children }: { children: ReactNode }) 
                         <p className="mb-3 ">{artigo.titulo}</p>
                         <Link
                            className="bg-theme2 flex items-center justify-between text-white font-medium py-2 px-4 uppercase"
-                           href={`/blog/${artigo._id}`}
+                           href={`/blog/${artigo.slug}`}
                         >
                            <Plus className="stroke-3 size-5" />
                            <span className="tracking-wide">Ir para artigo</span>
