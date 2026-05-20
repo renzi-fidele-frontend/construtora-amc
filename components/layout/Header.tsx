@@ -29,7 +29,7 @@ const Header = async () => {
                {/* Menu de navegação */}
                <Nav />
                {/* CTA da Área do cliente */}
-               <Link href="#">
+               <Link href="https://portal.totalbank.com.br/boleto/?ca=SOLAR" target="_blank">
                   <div className="text-white bg-theme2 px-[26] py-[22] flex gap-3.5 items-center font-medium">
                      <UserStar className="size-11" />
                      <div className="h-13.75 border-s border-white"></div>

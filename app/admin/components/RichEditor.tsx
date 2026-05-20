@@ -14,6 +14,8 @@ interface Props {
 
 export default function RichEditor({ content, onChange }: Props) {
    // Inicializando o text editor
+   // TODO: Instalar a extenção de tabelas e de emojis para resolver o bug que quebra ao colar um emoji
+   // FIXME: Descobrir porque o editor quebra ao colar uma imagem, NB: Mostra o erro width=null
    const editor = useEditor({
       extensions: [
          StarterKit.configure({
