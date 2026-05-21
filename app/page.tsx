@@ -17,14 +17,7 @@ const descricao =
    "Sediada em Londrina-PR e com filial em Palhoça-SC, a AMC Construções reúne a tradição de um grupo com 29 anos de história, atuando com excelência em construção civil e desenvolvimento imobiliário.";
 
 export const metadata: Metadata = {
-   applicationName: "AMC Construções",
-   creator: "Renzi Fidele",
-   publisher: "Renzi Fidele",
-   metadataBase: new URL("https://amc.eng.br"),
-   title: {
-      default: "AMC Construções",
-      template: "%s | AMC Construções",
-   },
+   title: "AMC Construções",
    description: descricao,
    keywords: [
       "AMC Construções",
@@ -34,12 +27,6 @@ export const metadata: Metadata = {
       "Construtora em Londrina",
       "Construtora em Palhoça",
       "Empreendimentos imobiliários",
-   ],
-   authors: [
-      {
-         name: "Renzi Fidele",
-         url: "https://github.com/renzi-fidele-frontend/",
-      },
    ],
    alternates: {
       canonical: "https://amc.eng.br/",
@@ -56,17 +43,6 @@ export const metadata: Metadata = {
       card: "summary_large_image",
       title: "AMC Construções",
       description: descricao,
-   },
-   robots: {
-      index: true,
-      follow: true,
-      googleBot: {
-         index: true,
-         follow: true,
-         "max-video-preview": -1,
-         "max-image-preview": "large",
-         "max-snippet": -1,
-      },
    },
    category: "Real Estate",
 };

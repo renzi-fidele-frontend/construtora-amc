@@ -12,12 +12,48 @@ const fontRubik = Rubik({
    subsets: ["latin"],
 });
 
+// Meta dados globais
 export const metadata: Metadata = {
-   title: "AMC Contruções",
+   metadataBase: new URL("https://amc.eng.br"),
+   applicationName: "AMC Construções",
+   title: { default: "AMC Construções", template: "%s | AMC Construções" },
    description:
-      "Sediada em Londrina-PR e com filial em Palhoça-SC, a AMC Construções reúne a tradição de um grupo com 29 anos de história. Estruturada por áreas de engenharia e atuando em sintonia com uma linha estratégica de mercado, a AMC Construções é uma empresa moderna e diferenciada.",
-   authors: [{ name: "Renzi Fidele", url: "https://github.com/renzi-fidele-frontend/" }],
-   keywords: ["amc", "amc construções", "construtora amc", "venda de imóveis"],
+      "AMC Construções é uma empresa especializada em construção civil, empreendimentos imobiliários e desenvolvimento urbano em Londrina e Palhoça.",
+   creator: "Renzi Fidele",
+   publisher: "Renzi Fidele",
+   authors: [
+      {
+         name: "Renzi Fidele",
+         url: "https://github.com/renzi-fidele-frontend/",
+      },
+   ],
+   robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+         index: true,
+         follow: true,
+         "max-video-preview": -1,
+         "max-image-preview": "large",
+         "max-snippet": -1,
+      },
+   },
+   openGraph: {
+      type: "website",
+      locale: "pt_BR",
+      siteName: "AMC Construções",
+      title: "AMC Construções",
+      description: "Construção civil e empreendimentos imobiliários.",
+      url: "https://amc.eng.br",
+   },
+   twitter: {
+      card: "summary_large_image",
+      title: "AMC Construções",
+      description: "Construção civil e empreendimentos imobiliários.",
+   },
+   icons: {
+      icon: "/icon.png",
+   },
 };
 
 export default function RootLayout({
