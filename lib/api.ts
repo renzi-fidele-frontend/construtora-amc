@@ -1,4 +1,5 @@
 import { IArtigo } from "@/models/Artigo";
+import { cache } from "react";
 
 // Aqui estão todas as funcionalidades que fazer as requisições públicas ao back-end
 interface IResponse {
@@ -17,8 +18,8 @@ export async function apanhar_artigos_mais_lidos() {
    return data as { artigos: IArtigo[] };
 }
 
-export async function apanhar_artigo(slug: string) {
+export const apanhar_artigo = cache(async (slug: string) => {
    const res = await fetch(`${process.env.DOMAIN}/api/blog/apanhar_artigo?slug=${slug}`);
    const data = await res.json();
    return data as { artigo: IArtigo };
-}
+});
