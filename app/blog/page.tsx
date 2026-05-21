@@ -1,10 +1,37 @@
 import Paginacao from "@/components/shared/Paginacao";
 import { apanhar_artigos } from "@/lib/api";
 import { IArtigo } from "@/models/Artigo";
+import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import dayjs from "dayjs";
 
-export default async function Blog({ searchParams }: { searchParams: Promise<{ [key: string]: string | string[] | undefined }> }) {
+dayjs.locale("pt-br");
+
+type Props = { searchParams: Promise<{ [key: string]: string | string[] | undefined }> };
+
+export async function generateMetadata({ searchParams }: Props): Promise<Metadata> {
+   const search = await searchParams;
+   const page = Number(search.page) || 1;
+   const titulo = page === 1 ? "Blog" : `Blog - Página ${page}`;
+   const canonical = page === 1 ? "https://amc.eng.br/blog" : `https://amc.eng.br/blog?page=${page}`;
+
+   return {
+      title: titulo,
+      description: "Acompanhe artigos sobre construção civil, engenharia e mercado imobiliário.",
+      alternates: {
+         canonical,
+      },
+      openGraph: {
+         title: `${titulo} | AMC Construções`,
+         description: "Conteúdos sobre construção civil, imóveis e engenharia.",
+         url: canonical,
+         type: "website",
+      },
+   };
+}
+
+export default async function Blog({ searchParams }: Props) {
    const search = await searchParams;
    const page = Number(search.page) || 1;
    const itemsPorPagina = page === 1 ? 5 : 6;
@@ -28,12 +55,12 @@ export default async function Blog({ searchParams }: { searchParams: Promise<{ [
                   src={artigos[0].thumbnail.secure_url}
                   width={artigos[0].thumbnail.width}
                   height={artigos[0].thumbnail.height}
-                  alt="Último artigo do blog da construtora"
+                  alt={artigos[0].titulo}
                   className="object-cover object-left h-130"
                />
                <div className="bg-zinc-900/50 absolute bottom-0 text-white py-8 px-5.5 text-lg">
                   {/* Data de publicação */}
-                  <p className="uppercase">{new Date(artigos[0].publicadoEm).toLocaleDateString()}</p>
+                  <p className="uppercase">{dayjs(artigos[0].publicadoEm).format("DD/MMMM/YYYY")}</p>
                   {/* Titulo */}
                   <Link className="hover:underline" href={`/blog/${artigos[0].slug}`}>
                      <h3 className="font-bold text-2xl mb-2">{artigos[0].titulo}</h3>
@@ -60,7 +87,7 @@ export default async function Blog({ searchParams }: { searchParams: Promise<{ [
                   />
                   <div className="py-7 px-5">
                      {/* Data de publicação */}
-                     <p className="uppercase">{new Date(artigo.publicadoEm).toLocaleDateString()}</p>
+                     <p className="uppercase">{dayjs(artigo.publicadoEm).format("DD/MMMM/YYYY")}</p>
                      {/* Titulo */}
                      <h3 className="font-bold text-xl line-clamp-2">{artigo.titulo}</h3>
                      {/* Descrição */}

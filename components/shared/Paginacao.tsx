@@ -52,7 +52,7 @@ const Paginacao = ({ paginaAtual, totalPaginas }: IPagination) => {
          )}
 
          {/* Proxima página */}
-         {paginaAtual < totalPaginas && <Link href={`?page=${paginaAtual + 1}`}>Proxima</Link>}
+         {paginaAtual < totalPaginas && <Link href={`?page=${paginaAtual + 1}`}>Próxima</Link>}
       </nav>
    );
 };

@@ -13,9 +13,6 @@ import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 
-// TODO: Adicionar o favicon
-// TODO: Gerar o og-image.jpg em 1200x630
-
 const descricao =
    "Sediada em Londrina-PR e com filial em Palhoça-SC, a AMC Construções reúne a tradição de um grupo com 29 anos de história, atuando com excelência em construção civil e desenvolvimento imobiliário.";
 
