@@ -9,8 +9,78 @@ import SectionIntro from "@/components/shared/SectionIntro";
 import { depoimentos, empreendimentos, fotosDestaques } from "@/data/data";
 import { apanhar_artigos } from "@/lib/api";
 import { Calendar, HardHat, Store, UserStar } from "lucide-react";
+import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+
+// TODO: Adicionar o favicon
+// TODO: Gerar o og-image.jpg em 1200x630
+
+const descricao =
+   "Sediada em Londrina-PR e com filial em Palhoça-SC, a AMC Construções reúne a tradição de um grupo com 29 anos de história, atuando com excelência em construção civil e desenvolvimento imobiliário.";
+
+export const metadata: Metadata = {
+   metadataBase: new URL("https://amc.eng.br"),
+   title: {
+      default: "AMC Construções",
+      template: "%s | AMC Construções",
+   },
+   description: descricao,
+   keywords: [
+      "AMC Construções",
+      "Construtora AMC",
+      "Construção civil",
+      "Venda de imóveis",
+      "Construtora em Londrina",
+      "Construtora em Palhoça",
+      "Empreendimentos imobiliários",
+   ],
+   authors: [
+      {
+         name: "Renzi Fidele",
+         url: "https://github.com/renzi-fidele-frontend/",
+      },
+   ],
+   alternates: {
+      canonical: "https://amc.eng.br/",
+   },
+   openGraph: {
+      title: "AMC Construções",
+      description: descricao,
+      url: "https://amc.eng.br/",
+      siteName: "AMC Construções",
+      locale: "pt_BR",
+      type: "website",
+      images: [
+         {
+            url: "/og-image.jpg",
+            width: 1200,
+            height: 630,
+            alt: "AMC Construções",
+         },
+      ],
+   },
+   twitter: {
+      card: "summary_large_image",
+      title: "AMC Construções",
+      description: descricao,
+      images: ["/og-image.jpg"],
+   },
+   robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+         index: true,
+         follow: true,
+         "max-video-preview": -1,
+         "max-image-preview": "large",
+         "max-snippet": -1,
+      },
+   },
+   category: "construction",
+};
+
+// TODO: Adicionar a tag do facebook pixel
 
 export default async function Home() {
    const ultimosArtigos = await apanhar_artigos(4, 1);
