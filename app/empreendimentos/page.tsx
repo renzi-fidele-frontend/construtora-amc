@@ -3,12 +3,33 @@ import SectionIntro from "@/components/shared/SectionIntro";
 import Image from "next/image";
 import ListagemDeEmpreendimentos from "./listing";
 import Breadcrumb from "@/components/shared/Breadcrumb";
+import { Metadata } from "next";
 
+export const metadata: Metadata = {
+   title: "Empreendimentos",
+   description:
+      "Conheça os empreendimentos da AMC Construções. Projetos modernos, bem localizados e pensados para qualidade de vida e valorização imobiliária.",
+   alternates: {
+      canonical: "https://amc.eng.br/empreendimentos",
+   },
+   openGraph: {
+      title: "Empreendimentos | AMC Construções",
+      description: "Conheça os empreendimentos da AMC Construções.",
+      url: "https://amc.eng.br/empreendimentos",
+      type: "website",
+   },
+};
 export default function Empreendimentos() {
    return (
       <div>
          {/* Banner do topo */}
-         <Image width={1914} height={431} src="/img/banners/empreendimentos.jpg" alt="Banner ilustrando a capa da página de empreendimento" />
+         <Image
+            width={1914}
+            height={431}
+            src="/img/banners/empreendimentos.jpg"
+            alt="Banner ilustrando a capa da página de empreendimento"
+            priority
+         />
          {/* Breadcrumb */}
          <Breadcrumb
             links={[
