@@ -11,14 +11,59 @@ import LightBoxCarousel from "@/components/shared/LightboxCarousel";
 import { MapPin } from "lucide-react";
 import Mapa from "./components/Mapa";
 import MapProvider from "./components/MapProvider";
+import { Metadata } from "next";
 
-const Empreendimento = async ({ params }: { params: Promise<{ empreendimento: string }> }) => {
+function encontrarEmpreendimento(idEmpreendimento: string) {
+   return empreendimentos.find((v) => v.id === idEmpreendimento);
+}
+
+type Props = { params: Promise<{ empreendimento: string }> };
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
    const { empreendimento: id } = await params;
    const empreendimento = encontrarEmpreendimento(id);
 
-   function encontrarEmpreendimento(idEmpreendimento: string) {
-      return empreendimentos.find((v) => v.id === idEmpreendimento);
-   }
+   if (!empreendimento)
+      return {
+         title: "Empreendimento não encontrado",
+         description: "Nenhum empreendimento encontrado",
+      };
+
+   const url = `https://amc.eng.br/empreendimentos/${empreendimento.id}`;
+   const description = `${empreendimento.nome} em ${empreendimento.estado}. Conheça este empreendimento da AMC Construções com excelente localização e infraestrutura moderna.`;
+
+   return {
+      title: empreendimento.nome,
+      description,
+      alternates: {
+         canonical: url,
+      },
+      openGraph: {
+         title: empreendimento.nome,
+         description,
+         url,
+         type: "website",
+         images: [
+            {
+               url: empreendimento.ogImage,
+               width: 1200,
+               height: 630,
+               alt: empreendimento.nome,
+            },
+         ],
+      },
+      twitter: {
+         card: "summary_large_image",
+         title: empreendimento.nome,
+         description,
+         images: [{ url: empreendimento.ogImage, alt: empreendimento.nome, width: 1200, height: 630 }],
+      },
+   };
+}
+
+const Empreendimento = async ({ params }: Props) => {
+   const { empreendimento: id } = await params;
+   const empreendimento = encontrarEmpreendimento(id);
 
    function preverValue() {
       if (empreendimento?.detalhes.apartamento1) return "apto1";
@@ -31,7 +76,7 @@ const Empreendimento = async ({ params }: { params: Promise<{ empreendimento: st
 
    return (
       empreendimento && (
-         <div>
+         <main>
             <Breadcrumb
                links={[
                   { titulo: "Início", href: "/" },
@@ -99,8 +144,9 @@ const Empreendimento = async ({ params }: { params: Promise<{ empreendimento: st
                            src={String(empreendimento.detalhes?.fundoDestaque)}
                            width={1920}
                            height={1080}
+                           priority
                            className="inset-0 absolute object-cover h-full -z-1"
-                           alt="Ilustração demonstrando o empreendimento ${empreedimento.} "
+                           alt={`Image do empreendimento ${empreendimento.nome}`}
                         />
                      </div>
                   </div>
@@ -257,8 +303,7 @@ const Empreendimento = async ({ params }: { params: Promise<{ empreendimento: st
                {/* Rectângulo verde claro */}
                <div className="absolute w-full inset-y-0 top-0 h-128 bg-theme1 -z-1"></div>
             </section>
-            {/*  */}
-         </div>
+         </main>
       )
    );
 };

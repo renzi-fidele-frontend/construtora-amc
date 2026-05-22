@@ -17,7 +17,6 @@ export const fotosDestaquesBlog = [
    { foto: "/img/blog/banners/3.jpg", url: "/empreendimentos/solar-dos-alamos" },
 ];
 
-// TODO: Adicionar as fotos opengraph em JPG de cada emprendimento para melhoria do SEO
 export const empreendimentos: IEmpreendimento[] = [
    // Ilha di Capri
    {
