@@ -17,6 +17,7 @@ export const fotosDestaquesBlog = [
    { foto: "/img/blog/banners/3.jpg", url: "/empreendimentos/solar-dos-alamos" },
 ];
 
+// TODO: Adicionar as fotos opengraph em JPG de cada emprendimento para melhoria do SEO
 export const empreendimentos: IEmpreendimento[] = [
    // Ilha di Capri
    {
@@ -84,6 +85,7 @@ export const empreendimentos: IEmpreendimento[] = [
          endereco_real: "Rua Treze de Maio, 2746 - Areias - Tijucas - SC",
          coordenadas: { lat: -27.2234646, lng: -48.6334496 },
       },
+      ogImage: "/img/empreendimentos/ilha-di-capri/og.jpg",
    },
    // Casa Blanca Resindence
    {
@@ -144,6 +146,7 @@ export const empreendimentos: IEmpreendimento[] = [
          ],
          implantacao: ["/img/empreendimentos/casa-blanca/implatacao/1.webp"],
       },
+      ogImage: "/img/empreendimentos/casa-blanca/og.jpg",
    },
    // Portal do Lago
    {
@@ -243,8 +246,8 @@ export const empreendimentos: IEmpreendimento[] = [
          ],
          implantacao: ["/img/empreendimentos/portal-do-lago/implatacao/1.webp"],
       },
-
       destacado: true,
+      ogImage: "/img/empreendimentos/portal-do-lago/og.jpg",
    },
    // Vila di Trento
    {
@@ -306,6 +309,7 @@ export const empreendimentos: IEmpreendimento[] = [
             percentualConcluido: 25,
          },
       },
+      ogImage: "/img/empreendimentos/vila-di-trento/og.jpg",
    },
    // Ocean Green
    {
@@ -371,6 +375,7 @@ export const empreendimentos: IEmpreendimento[] = [
          ],
          implantacao: ["/img/empreendimentos/ocean-green/implatacao/1.jpg"],
       },
+      ogImage: "/img/empreendimentos/ocean-green/og.jpg",
    },
    // Villa di Napoli
    {
@@ -457,6 +462,7 @@ export const empreendimentos: IEmpreendimento[] = [
          ],
          implantacao: ["/img/empreendimentos/villa-di-napoli/implatacao/1.webp", "/img/empreendimentos/villa-di-napoli/implatacao/2.webp"],
       },
+      ogImage: "/img/empreendimentos/villa-di-napoli/og.jpg",
    },
    // Solar di Bergamo
    {
@@ -521,6 +527,7 @@ export const empreendimentos: IEmpreendimento[] = [
          ],
          implantacao: ["/img/empreendimentos/solar-di-bergamo/implatacao/1.jpg"],
       },
+      ogImage: "/img/empreendimentos/solar-di-bergamo/og.jpg",
    },
    // Reserva Park Atlantida
    {
@@ -602,6 +609,7 @@ export const empreendimentos: IEmpreendimento[] = [
             "/img/empreendimentos/reserva-park-atlantida/implatacao/10.jpg",
          ],
       },
+      ogImage: "/img/empreendimentos/reserva-park-atlantida/og.jpg",
    },
    // Reserva Park dos Pampas
    {
@@ -665,6 +673,7 @@ export const empreendimentos: IEmpreendimento[] = [
             "/img/empreendimentos/reserva-park-dos-pampas/implatacao/11.jpg",
          ],
       },
+      ogImage: "/img/empreendimentos/reserva-park-dos-pampas/og.jpg",
    },
    // Solar dos Álamos
    {
@@ -703,6 +712,7 @@ export const empreendimentos: IEmpreendimento[] = [
          plantas: ["/img/empreendimentos/solar-dos-alamos/plantas/1.jpg", "/img/empreendimentos/solar-dos-alamos/plantas/2.jpg"],
          implantacao: ["/img/empreendimentos/solar-dos-alamos/implatacao/1.jpg"],
       },
+      ogImage: "/img/empreendimentos/solar-dos-alamos/og.jpg",
    },
    // Solar de Cascais
    {
@@ -781,6 +791,7 @@ export const empreendimentos: IEmpreendimento[] = [
             percentualConcluido: 70,
          },
       },
+      ogImage: "/img/empreendimentos/solar-de-cascais/og.jpg",
    },
    // Villa Borghesi
    {
@@ -820,6 +831,7 @@ export const empreendimentos: IEmpreendimento[] = [
          plantas: ["/img/empreendimentos/villa-borghesi/plantas/1.webp"],
          implantacao: ["/img/empreendimentos/villa-borghesi/implatacao/1.webp"],
       },
+      ogImage: "/img/empreendimentos/villa-borghesi/og.jpg",
    },
    // Solar de Hamburgo
    {
@@ -876,6 +888,7 @@ export const empreendimentos: IEmpreendimento[] = [
          plantas: ["/img/empreendimentos/solar-de-hamburgo/plantas/1.webp", "/img/empreendimentos/solar-de-hamburgo/plantas/2.webp"],
          implantacao: ["/img/empreendimentos/solar-de-hamburgo/implatacao/1.webp"],
       },
+      ogImage: "/img/empreendimentos/solar-de-hamburgo/og.jpg",
    },
 ];
 

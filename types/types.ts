@@ -38,6 +38,8 @@ export interface IEmpreendimento {
    nome: string;
    /** Tamanho da imagem 352 x 198 */
    thumbnail: string;
+   /* Tamanho das imagens 1600 x 630 */
+   ogImage: string;
    thumbIcons: IIcone[];
    estado: string;
    endereco_curto: string;
