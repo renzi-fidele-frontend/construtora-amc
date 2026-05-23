@@ -10,7 +10,9 @@ const CardEmpreendimento = ({ empreendimento, largura = "w-fit" }: { empreendime
          className={`text-grey bg-zinc-50 transition hover:-translate-y-1.5 hover:bg-theme1 hover:text-white group ${largura}`}
       >
          {/* Status */}
-         <div className={`uppercase font-semibold ${analisarCor(empreendimento.categoria)} text-white py-2 px-5 relative overflow-hidden`}>
+         <div
+            className={`uppercase font-semibold ${analisarCor(empreendimento.categoria)} text-white py-1.5 sm:py-2 px-5 relative overflow-hidden`}
+         >
             <p>{empreendimento.categoria}</p>
             {/* Rectângulo overlay */}
             <svg className="absolute end-0 inset-y-0" width="96" height="55" viewBox="0 0 96 55" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -19,7 +21,7 @@ const CardEmpreendimento = ({ empreendimento, largura = "w-fit" }: { empreendime
          </div>
          <div className={`${largura} border border-b-9 border-zinc-300`}>
             {/* Titulo */}
-            <div className="px-5 py-3">
+            <div className="px-5 py-2 sm:py-3">
                <h3 className="uppercase text-[17px] font-bold">{empreendimento.nome}</h3>
             </div>
             {/* Imagem */}
@@ -33,13 +35,13 @@ const CardEmpreendimento = ({ empreendimento, largura = "w-fit" }: { empreendime
             {/* Corpo */}
             <div className="w-full px-5 font-medium text-[17px] relative">
                {/* Endereço */}
-               <div className="py-6">
+               <div className="py-4 sm:py-6">
                   <p>{empreendimento.estado}</p>
                   <p>{empreendimento.endereco_curto}</p>
                </div>
                <hr />
                {/* Descrição */}
-               <div className="py-6">
+               <div className="py-4 sm:py-6">
                   <p dangerouslySetInnerHTML={{ __html: empreendimento.destaque }}></p>
                   <p dangerouslySetInnerHTML={{ __html: empreendimento.descricao_area }}></p>
                </div>
@@ -58,7 +60,7 @@ const CardEmpreendimento = ({ empreendimento, largura = "w-fit" }: { empreendime
                   ))}
                </div>
                {/* Retângulo */}
-               <div className={`absolute ${analisarCor(empreendimento.categoria)} start-0 top-7 h-11 w-1.5`}></div>
+               <div className={`absolute ${analisarCor(empreendimento.categoria)} start-0 top-5 sm:top-7 h-11 w-1.5`}></div>
             </div>
          </div>
       </Link>
