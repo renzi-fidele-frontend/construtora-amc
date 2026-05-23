@@ -58,10 +58,10 @@ export default async function Home() {
          {/* Seção do carousel de apresentação dos banners dos empreendimentos */}
          <CarouselDeFotos fotos={fotosDestaques} />
          {/* Seção dos empreendimentos */}
-         <section className="pt-17 pb-28.5 xl:pt-25 xl:pb-32.5">
+         <section className="pt-8 sm:pt-17 xl:pt-25 pb-28.5 xl:pb-32.5">
             <Container>
                <SectionIntro className="text-center" titulo="Empreendimentos" descricao="Conheça os nossos imóveis e encontre seu novo lar." />
-               {/* Listagem */}
+               {/* Listagem desktop */}
                <div className="hidden lg:flex gap-14 *:basis-[fit-content] justify-center flex-wrap">
                   {empreendimentos
                      .filter((v) => v.destacado)
@@ -70,7 +70,7 @@ export default async function Home() {
                      ))}
                </div>
                {/* Slider Mobile */}
-               <Carousel>
+               <Carousel className="lg:hidden">
                   <CarouselContent>
                      {empreendimentos
                         .filter((v) => v.destacado)
@@ -82,7 +82,7 @@ export default async function Home() {
                   </CarouselContent>
                </Carousel>
                {/* Separador */}
-               <hr className="mt-16 mb-7" />
+               <hr className="mt-6 sm:mt-10 md:mt-16 mb-7" />
                <div className="flex justify-center">
                   <Link href="/empreendimentos">
                      <Btn className="uppercase">Ver mais imóveis</Btn>
