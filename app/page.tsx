@@ -6,6 +6,7 @@ import CardDestaque from "@/components/shared/CardDestaque";
 import CardEmpreendimento from "@/components/shared/CardEmpreendimento";
 import CarouselDeFotos from "@/components/shared/CarouselDeFotos";
 import SectionIntro from "@/components/shared/SectionIntro";
+import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
 import { depoimentos, empreendimentos, fotosDestaques } from "@/data/data";
 import { apanhar_artigos } from "@/lib/api";
 import { Calendar, HardHat, Store, UserStar } from "lucide-react";
@@ -57,16 +58,29 @@ export default async function Home() {
          {/* Seção do carousel de apresentação dos banners dos empreendimentos */}
          <CarouselDeFotos fotos={fotosDestaques} />
          {/* Seção dos empreendimentos */}
-         <section className="pt-25 pb-32.5">
+         <section className="pt-17 pb-28.5 xl:pt-25 xl:pb-32.5">
             <Container>
-               <SectionIntro titulo="Empreendimentos" descricao="Conheça os nossos imóveis e encontre seu novo lar." />
-               <div className="flex gap-14 *:basis-[fit-content] justify-center flex-wrap">
+               <SectionIntro className="text-center" titulo="Empreendimentos" descricao="Conheça os nossos imóveis e encontre seu novo lar." />
+               {/* Listagem */}
+               <div className="hidden lg:flex gap-14 *:basis-[fit-content] justify-center flex-wrap">
                   {empreendimentos
                      .filter((v) => v.destacado)
                      .map((v, k) => (
                         <CardEmpreendimento empreendimento={v} key={k} />
                      ))}
                </div>
+               {/* Slider Mobile */}
+               <Carousel>
+                  <CarouselContent>
+                     {empreendimentos
+                        .filter((v) => v.destacado)
+                        .map((v, k) => (
+                           <CarouselItem className="basis-[fit-content]!" key={k}>
+                              <CardEmpreendimento empreendimento={v} />
+                           </CarouselItem>
+                        ))}
+                  </CarouselContent>
+               </Carousel>
                {/* Separador */}
                <hr className="mt-16 mb-7" />
                <div className="flex justify-center">

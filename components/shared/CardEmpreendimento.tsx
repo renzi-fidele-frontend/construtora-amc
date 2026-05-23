@@ -7,7 +7,7 @@ const CardEmpreendimento = ({ empreendimento, largura = "w-fit" }: { empreendime
    return (
       <Link
          href={`/empreendimentos/${empreendimento.id}`}
-         className={`text-grey bg-zinc-50 transition hover:-translate-y-1.5 hover:bg-theme1 hover:text-white group ${largura}`}
+         className={`text-grey bg-zinc-50 transition hover:-translate-y-1.5 group hover:bg-theme1 hover:text-white group ${largura}`}
       >
          {/* Status */}
          <div
@@ -19,7 +19,7 @@ const CardEmpreendimento = ({ empreendimento, largura = "w-fit" }: { empreendime
                <path d="M0 0H63.5H96V55L46 54.5L0 0Z" fill="white" />
             </svg>
          </div>
-         <div className={`${largura} border border-b-9 border-zinc-300`}>
+         <div className={`${largura} border border-b-9 border-zinc-300 group-hover:bg-theme1 transition`}>
             {/* Titulo */}
             <div className="px-5 py-2 sm:py-3">
                <h3 className="uppercase text-[17px] font-bold">{empreendimento.nome}</h3>
