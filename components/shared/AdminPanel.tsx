@@ -15,7 +15,7 @@ import Link from "next/link";
 
 export function AdminPanel() {
    return (
-      <div className="fixed top-7 end-0 pe-5 z-5">
+      <div className="fixed top-7 end-0 pe-5 z-5 hidden lg:block">
          <ButtonGroup>
             <Button variant="outline">
                <User /> Gerenciar

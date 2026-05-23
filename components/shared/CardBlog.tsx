@@ -11,7 +11,7 @@ const CardBlog = ({ artigo }: { artigo: IArtigo }) => {
    return (
       <div className="flex border border-b-7">
          <Image
-            className="w-70 h-full object-cover object-left shrink-0"
+            className="w-75 h-full object-cover object-left shrink-0"
             unoptimized
             width={224}
             height={250}

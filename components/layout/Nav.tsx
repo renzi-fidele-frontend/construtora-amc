@@ -1,5 +1,4 @@
 "use client";
-
 import {
    NavigationMenu,
    NavigationMenuContent,
@@ -44,8 +43,8 @@ const Nav = () => {
    const pathname = usePathname();
 
    return (
-      <NavigationMenu>
-         <NavigationMenuList className="**:cursor-pointer gap-6 text-theme1 **:text-[18px] font-medium">
+      <NavigationMenu className="hidden lg:block">
+         <NavigationMenuList className="**:cursor-pointer gap-2 xl:gap-6 text-theme1 **:text-[16px] xl:**:text-[18px] font-medium">
             {links?.map((v, k) => (
                <NavigationMenuItem key={k}>
                   {!v.megaLinks ? (
@@ -58,11 +57,11 @@ const Nav = () => {
                   ) : (
                      <>
                         <NavigationMenuTrigger className="px-1">{v.titulo}</NavigationMenuTrigger>
-                        <NavigationMenuContent className=" **:w-full!">
+                        <NavigationMenuContent className="**:w-full!">
                            {v?.megaLinks &&
                               v.megaLinks.map((link, k) => (
                                  <NavigationMenuLink
-                                    className={`font-medium text-theme1 ${k + 1 < v?.megaLinks?.length ? "border-b" : ""} ${pathname === link?.url ? "bg-theme1 text-white" : ""}`}
+                                    className={`font-medium text-theme1 ${k + 1 < (v?.megaLinks?.length || 0) ? "border-b" : ""} ${pathname === link?.url ? "bg-theme1 text-white" : ""}`}
                                     href={link?.url}
                                     key={k}
                                  >

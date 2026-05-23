@@ -57,12 +57,14 @@ const SubHeader = () => {
    }, []);
 
    return (
-      <>
+      <div className="hidden lg:block">
          {/* Sentinela */}
          <div ref={sentinelaRef}></div>
          {/* Parte inferior do cabeçalho */}
-         <div className={`py-3 bg-theme1 text-white text-lg font-medium uppercase ${!isAtTop ? "fixed inset-x-0 top-0 z-5" : ""} `}>
-            <Container className="flex items-center justify-center gap-20">
+         <div
+            className={`py-2 xl:py-3 bg-theme1 text-white text-[15px] xl:text-lg font-medium uppercase ${!isAtTop ? "fixed inset-x-0 top-0 z-5" : ""} `}
+         >
+            <Container className="flex items-center flex-wrap justify-center gap-12 gap-y-4 xl:gap-20">
                {categorias.map((v, k) => (
                   <Link href={v.url} key={k}>
                      {v.nome}
@@ -72,11 +74,11 @@ const SubHeader = () => {
                <div className="flex gap-10 items-center">
                   <div className="border-s border-dashed h-6"></div>
                   <Link href="https://www.caixa.gov.br/voce/habitacao/minha-casa-minha-vida/Paginas/default.aspx" target="_blank">
-                     <div className="flex items-center gap-2 text-[11px] font-bold">
+                     <div className="flex items-center gap-2 text-[9px] xl:text-[11px] font-bold">
                         <Image
                            width={105}
                            height={74}
-                           className="w-auto object-contain h-7"
+                           className="w-auto object-contain h-6.5 xl:h-7"
                            src="/img/minha-casa.webp"
                            alt="Ilustração da logo marca do minha casa minha vida"
                         />
@@ -90,7 +92,7 @@ const SubHeader = () => {
                </div>
             </Container>
          </div>
-      </>
+      </div>
    );
 };
 export default SubHeader;

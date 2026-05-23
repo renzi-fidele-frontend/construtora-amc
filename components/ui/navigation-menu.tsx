@@ -9,9 +9,11 @@ function NavigationMenu({
    className,
    children,
    viewport = true,
+   contentTopDistance = "top-full",
    ...props
 }: React.ComponentProps<typeof NavigationMenuPrimitive.Root> & {
    viewport?: boolean;
+   contentTopDistance?: string;
 }) {
    return (
       <NavigationMenuPrimitive.Root
@@ -21,7 +23,7 @@ function NavigationMenu({
          {...props}
       >
          {children}
-         {viewport && <NavigationMenuViewport />}
+         {viewport && <NavigationMenuViewport contentTopDistance={contentTopDistance} />}
       </NavigationMenuPrimitive.Root>
    );
 }
@@ -74,9 +76,15 @@ function NavigationMenuContent({ className, ...props }: React.ComponentProps<typ
    );
 }
 
-function NavigationMenuViewport({ className, ...props }: React.ComponentProps<typeof NavigationMenuPrimitive.Viewport>) {
+function NavigationMenuViewport({
+   className,
+   contentTopDistance,
+   ...props
+}: React.ComponentProps<typeof NavigationMenuPrimitive.Viewport> & {
+   contentTopDistance: string;
+}) {
    return (
-      <div className={cn("absolute top-full left-0 isolate z-50 flex justify-center")}>
+      <div className={cn(`absolute ${contentTopDistance} left-0 isolate z-50 flex justify-center`)}>
          <NavigationMenuPrimitive.Viewport
             data-slot="navigation-menu-viewport"
             className={cn(
