@@ -43,11 +43,11 @@ const CarouselDeFotos = ({ fotos }: { fotos: CarouselDeFotosProps[] }) => {
          </Carousel>
          {/* Navigation Dots */}
          <Container>
-            <div className="flex justify-center gap-3 py-2 absolute bottom-5">
+            <div className="flex justify-center gap-3 py-2 absolute bottom-0 sm:bottom-3 lg:bottom-5">
                {Array.from({ length: largura }).map((_, index) => (
                   <button
                      key={index}
-                     className={`size-4.5 rounded-full border-3 border-white transition cursor-pointer shadow-md/100 ${index + 1 === dotAtual ? "bg-white scale-120" : ""}`}
+                     className={`size-2.5 lg:size-4.5 rounded-full border-2 lg:border-3 border-white transition cursor-pointer shadow-md/100 ${index + 1 === dotAtual ? "bg-white scale-120" : ""}`}
                      onClick={() => api?.scrollTo(index)}
                   />
                ))}
