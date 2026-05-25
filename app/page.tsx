@@ -187,6 +187,13 @@ export default async function Home() {
                      ))}
                   </CarouselContent>
                </Carousel>
+               {/* Separador */}
+               <hr className="mt-6 sm:mt-10 md:mt-16 mb-7" />
+               <div className="flex justify-center">
+                  <Link href="/blog">
+                     <Btn className="uppercase">Ver mais Depoimentos</Btn>
+                  </Link>
+               </div>
             </Container>
             {/* Imagem de fundo */}
             <Image
