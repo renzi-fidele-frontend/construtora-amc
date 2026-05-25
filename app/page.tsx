@@ -7,7 +7,7 @@ import CardEmpreendimento from "@/components/shared/CardEmpreendimento";
 import CarouselDeCTAsHome from "@/components/shared/CarouselDeCTAsHome";
 import CarouselDeFotos from "@/components/shared/CarouselDeFotos";
 import SectionIntro from "@/components/shared/SectionIntro";
-import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { depoimentos, empreendimentos, fotosDestaques } from "@/data/data";
 import { apanhar_artigos } from "@/lib/api";
 import { Calendar, HardHat, Store, UserStar } from "lucide-react";
@@ -59,7 +59,7 @@ export default async function Home() {
          {/* Seção do carousel de apresentação dos banners dos empreendimentos */}
          <CarouselDeFotos fotos={fotosDestaques} />
          {/* Seção dos empreendimentos */}
-         <section className="pt-8 sm:pt-17 xl:pt-25 pb-28.5 xl:pb-32.5">
+         <section className="pt-8 sm:pt-17 xl:pt-25 pb-16 xl:pb-32.5">
             <Container>
                <SectionIntro className="text-center" titulo="Empreendimentos" descricao="Conheça os nossos imóveis e encontre seu novo lar." />
                {/* Listagem desktop */}
@@ -145,7 +145,7 @@ export default async function Home() {
             <CarouselDeCTAsHome />
          </section>
          {/* Seção do blog */}
-         <section className="pt-24 pb-24.5">
+         <section className="pt-18 sm:pt-24  pb-18 sm:pb-24.5">
             <Container>
                <SectionIntro className="text-center" titulo="Blog" descricao="Fique por dentro dos últimos artigos da AMC" />
                {/* Listagem desktop */}
@@ -164,22 +164,33 @@ export default async function Home() {
             </Container>
          </section>
          {/* Seção dos depoimentos */}
-         <section className="py-24 relative">
+         <section className="py-14 sm:py-24 relative">
             <Container>
                <SectionIntro
-                  className="*:text-white!"
+                  className="*:text-white! text-center"
                   titulo="DEPOIMENTOS"
                   descricao="Leia os depoimentos de quem realizou seus sonhos com a AMC"
                />
-               <div className="flex flex-wrap justify-between *:basis-[30%]">
+               {/* Listagem desktop */}
+               <div className="hidden xl:flex flex-wrap justify-between *:basis-[30%]">
                   {depoimentos.map((v, k) => (
                      <CardDepoimento depoimento={v} key={k} />
                   ))}
                </div>
+               {/* Slider mobile */}
+               <Carousel className="xl:hidden">
+                  <CarouselContent>
+                     {depoimentos.map((v, k) => (
+                        <CarouselItem className="basis-[85%] md:basis-[65%] lg:basis-1/3" key={k}>
+                           <CardDepoimento depoimento={v} />
+                        </CarouselItem>
+                     ))}
+                  </CarouselContent>
+               </Carousel>
             </Container>
             {/* Imagem de fundo */}
             <Image
-               className="-z-1 absolute top-0 inset-x-0"
+               className="-z-1 absolute top-0 inset-x-0 h-110 xl:h-130 object-cover"
                width={1918}
                height={520}
                src="/img/fundoDepoimentos.jpg"
