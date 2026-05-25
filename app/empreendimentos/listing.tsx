@@ -27,8 +27,8 @@ const ListagemDeEmpreendimentos = () => {
 
    return (
       <>
-         <Tabs defaultValue={categoriaViaUrl || "Todos"} value={tabAtivo} className="mb-16" onValueChange={handleChange}>
-            <TabsList className="*:cursor-pointer *:text-xl *:p-4 *:aria-selected:font-medium **:rounded">
+         <Tabs defaultValue={categoriaViaUrl || "Todos"} value={tabAtivo} className="mb-12" onValueChange={handleChange}>
+            <TabsList className="flex-wrap *:cursor-pointer text-sm sm:*:text-lg lg:*:text-xl *:px-2 md:*:p-4 *:aria-selected:font-medium *:bg-zinc-50 *:border *:border-zinc-300 **:rounded">
                <TabsTrigger value="Todos">Todos</TabsTrigger>
                <TabsTrigger value="Lançamento">Lançamento</TabsTrigger>
                <TabsTrigger value="Pré-lançamento">Pré-lançamento</TabsTrigger>
@@ -36,7 +36,7 @@ const ListagemDeEmpreendimentos = () => {
                <TabsTrigger value="Urbanismo">Urbanismo</TabsTrigger>
             </TabsList>
          </Tabs>
-         <div className="flex gap-12 *:basis-[calc(33.3%-48px)] justify-start flex-wrap">
+         <div className="pt-3 sm:pt-0 xl:pt-8 flex gap-8 lg:gap-12 md:*:basis-[calc(50%-32px)] lg:*:basis-[calc(33.3%-48px)] justify-start flex-wrap">
             {listaDeEmpreendimentos.map((v, k) => (
                <CardEmpreendimento largura="w-full" empreendimento={v} key={k} />
             ))}

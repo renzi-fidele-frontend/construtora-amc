@@ -38,7 +38,7 @@ export default function Empreendimentos() {
             ]}
          />
          <section>
-            <Container className="py-25">
+            <Container className="py-10 md:py-16 xl:py-25">
                <SectionIntro className="items-start! mb-2!" titulo="Empreendimentos" />
                <ListagemDeEmpreendimentos />
             </Container>
