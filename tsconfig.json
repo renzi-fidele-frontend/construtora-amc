@@ -20,7 +20,11 @@
     ],
     "paths": {
       "@/*": ["./*"]
-    }
+    },
+    // Reconhece o google.maps types
+    "types": [
+      "google.maps"
+    ]
   },
   "include": [
     "next-env.d.ts",
