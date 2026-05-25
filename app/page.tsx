@@ -147,11 +147,19 @@ export default async function Home() {
          {/* Seção do blog */}
          <section className="pt-24 pb-24.5">
             <Container>
-               <SectionIntro titulo="Blog" descricao="Fique por dentro dos últimos artigos da AMC" />
-               <div className="grid grid-cols-2 gap-8">
+               <SectionIntro className="text-center" titulo="Blog" descricao="Fique por dentro dos últimos artigos da AMC" />
+               {/* Listagem desktop */}
+               <div className="grid lg:grid-cols-2 gap-8">
                   {ultimosArtigos.artigos.map((v, k) => (
                      <CardBlog key={k} artigo={v} />
                   ))}
+               </div>
+               {/* Separador */}
+               <hr className="mt-6 sm:mt-10 md:mt-16 mb-7" />
+               <div className="flex justify-center">
+                  <Link href="/blog">
+                     <Btn className="uppercase">Ver mais artigos</Btn>
+                  </Link>
                </div>
             </Container>
          </section>

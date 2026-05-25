@@ -2,8 +2,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Carousel, CarouselApi, CarouselContent, CarouselItem } from "../ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
-import Link from "next/link";
-import Image from "next/image";
 import CardDestaque from "./CardDestaque";
 import { Calendar, HardHat, Store, UserStar } from "lucide-react";
 

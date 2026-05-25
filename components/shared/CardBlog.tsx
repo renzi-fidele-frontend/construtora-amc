@@ -9,22 +9,22 @@ dayjs.locale("pt-br");
 
 const CardBlog = ({ artigo }: { artigo: IArtigo }) => {
    return (
-      <div className="flex border border-b-7">
+      <div className="flex flex-col sm:flex-row border border-b-7 py-2 px-3 sm:py-0 sm:px-0">
          <Image
-            className="w-75 h-full object-cover object-left shrink-0"
+            className="w-full sm:w-[50%] lg:w-60 xl:w-75 sm:h-full object-cover sm:object-left shrink-0 sm:mx-0"
             unoptimized
             width={224}
             height={250}
             src={artigo.thumbnail.secure_url}
             alt={`Ilustração do artigo sobre ${artigo.titulo}`}
          />
-         <div className="py-5 px-6 flex flex-col gap-2">
+         <div className="py-3 sm:py-5 sm:px-6 flex flex-col gap-2">
             <p className="font-medium flex items-center">
                <CalendarClock className="size-5 shrink-0 me-1" /> {dayjs(artigo.publicadoEm).format("DD/MMMM/YYYY")}
             </p>
-            <h6 className="font-medium text-xl line-clamp-2">{artigo.titulo}</h6>
-            <p className="line-clamp-4 text-grey my-1.5">{artigo.descricao}</p>
-            <Link href={`/blog/${artigo.slug}`}>
+            <h6 className="font-medium text-lg sm:text-xl line-clamp-2">{artigo.titulo}</h6>
+            <p className="line-clamp-4 text-grey my-1.5 text-sm sm:text-base">{artigo.descricao}</p>
+            <Link className="w-fit mt-2 sm:mt-0" href={`/blog/${artigo.slug}`}>
                <Btn className="text-sm uppercase py-2.5!">Ver mais</Btn>
             </Link>
          </div>
