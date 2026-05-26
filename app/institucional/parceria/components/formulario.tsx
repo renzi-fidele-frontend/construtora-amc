@@ -16,7 +16,7 @@ const FormularioDeParceria = () => {
    });
 
    return (
-      <form className="grid grid-cols-3 gap-4 [&_input]:border-theme1 [&_button]:cursor-pointer **:data-placeholder:text-theme1! mt-10 text-sm">
+      <form className="grid md:grid-cols-3 gap-4 [&_input]:border-theme1 [&_button]:cursor-pointer **:data-placeholder:text-theme1! mt-7 md:mt-10 text-sm">
          {/* Nome */}
          <fieldset>
             <label htmlFor="nome">Nome</label>
@@ -74,7 +74,7 @@ const FormularioDeParceria = () => {
             </Select>
          </fieldset>
          {/* Mensagem */}
-         <fieldset className="col-span-2">
+         <fieldset className="md:col-span-2">
             <label htmlFor="msg">Mensagem</label>
             <textarea className="w-full border border-theme1 h-23 p-3" name="" id=""></textarea>
          </fieldset>
