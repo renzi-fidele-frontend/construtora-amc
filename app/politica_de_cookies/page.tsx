@@ -7,15 +7,15 @@ const PoliticaDeCookies = () => {
       <div>
          {/* Banner do topo */}
          <Image width={1920} height={352} src="/img/banners/politica-privacidade.webp" alt="Foto do banner da página de política de privadade" />
-         <Container className="py-25">
+         <Container className="py-8 sm:py-12 md:py-14 lg:py-18 xl:py-25">
             <SectionIntro
                className="items-start! mb-2!"
                titulo="Política de Cookies"
                descricao="Utilizamos cookies para melhorar o desempenho e a sua experiência como usuário do nosso site."
             />
             {/* Conteúdo */}
-            <div className="mt-12">
-               <div className="space-y-8 [&_h2]:text-3xl [&_h2]:font-bold [&_h2]:mb-4 text-xl">
+            <div className="mt-8 sm:mt-12">
+               <div className="space-y-6 sm:space-y-8 [&_h2]:text-xl sm:[&_h2]:text-2xl lg:[&_h2]:text-3xl [&_h2]:font-bold [&_h2]:mb-2 lg:[&_h2]:mb-4 sm:text-lg lg:text-xl">
                   {/* O que são cookies? */}
                   <section>
                      <h2>O que são cookies?</h2>
