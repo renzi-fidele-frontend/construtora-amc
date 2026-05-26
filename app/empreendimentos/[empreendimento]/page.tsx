@@ -89,7 +89,7 @@ const Empreendimento = async ({ params }: Props) => {
                <Container>
                   {/* Status */}
                   <div
-                     className={`text-2xl uppercase font-medium ${analisarCor(empreendimento.categoria)} text-white py-2 px-8 relative overflow-hidden w-115`}
+                     className={`sm:text-lg md:text-xl xl:text-2xl uppercase font-medium ${analisarCor(empreendimento.categoria)} text-white py-2 px-4 sm:px-6 xl:px-8 relative overflow-hidden sm:w-115`}
                   >
                      <p>{empreendimento.categoria}</p>
                      {/* Rectângulo overlay */}
@@ -107,11 +107,13 @@ const Empreendimento = async ({ params }: Props) => {
                   {/* Detalhes */}
                   <div id="detalhes" className="border">
                      {/* Heading */}
-                     <div className="bg-zinc-50 py-3 px-8 flex items-center justify-between">
-                        <div className="border-e grow">
-                           <h1 className="font-semibold text-4xl text-theme1">{empreendimento?.nome}</h1>
+                     <div className="bg-zinc-50 py-3 px-4 sm:px-6 xl:px-8 flex md:items-center justify-between flex-col md:flex-row">
+                        {/* Título */}
+                        <div className="md:border-e grow mb-3 md:mb-0">
+                           <h1 className="font-semibold text-xl sm:text-2xl md:text-3xl xl:text-4xl text-theme1">{empreendimento?.nome}</h1>
                         </div>
-                        <nav className="flex gap-15 justify-between text-lg px-14 *:hover:underline basis-[50%]">
+                        {/* Navegação */}
+                        <nav className="grid grid-cols-2 sm:flex gap-2 sm:gap-5 lg:gap-10 xl:gap-15 justify-between text-sm lg:text-base xl:text-lg md:ps-8 xl:px-14 *:hover:underline basis-[50%] *:text-center *:border *:border-theme1 *:flex-1 *:py-0.5 sm:*:py-1.5 md:*:border-0 md:*:flex-0 md:*:border-zinc-200 mb-2 sm:mb-0">
                            <Link href="#detalhes">Detalhes</Link>
                            <Link href="#imagens">Imagens</Link>
                            <Link href="#diferenciais">Diferenciais</Link>
@@ -119,10 +121,10 @@ const Empreendimento = async ({ params }: Props) => {
                         </nav>
                      </div>
                      {/* Demonstração do empreendimento */}
-                     <div className="h-105 relative flex flex-col justify-center items-end">
+                     <div className="sm:h-105 relative flex flex-col justify-end md:justify-center items-end">
                         {/* Detalhes de área */}
-                        <div className="bg-zinc-50 relative flex w-fit end-25 shadow-xl/50">
-                           <div className="flex items-center gap-6 p-8 border [&_span]:text-5xl [&_span]:font-medium font-light text-center">
+                        <div className="bg-zinc-50 sm:relative flex w-fit bottom-5 md:bottom-0 sm:end-8 md:end-20 lg:end-25 shadow-xl/50">
+                           <div className="text-sm sm:text-base flex items-center gap-4 md:gap-6 p-3 md:p-5 lg:p-8 border [&_span]:text-2xl sm:[&_span]:text-3xl md:[&_span]:text-4xl lg:[&_span]:text-5xl [&_span]:font-medium font-light text-center">
                               <p className="flex flex-col justify-center" dangerouslySetInnerHTML={{ __html: empreendimento?.destaque }}></p>
                               <div className="border h-18 border-dashed"></div>
                               <p
@@ -134,7 +136,7 @@ const Empreendimento = async ({ params }: Props) => {
                            <Image
                               width={1080}
                               height={1080}
-                              className="size-46"
+                              className="size-25 md:size-35 lg:size-46"
                               src={empreendimento.detalhes.logomarca}
                               alt={`Logomarca do empreendimento ${empreendimento?.nome}`}
                            />
@@ -145,13 +147,13 @@ const Empreendimento = async ({ params }: Props) => {
                            width={1920}
                            height={1080}
                            priority
-                           className="inset-0 absolute object-cover h-full -z-1"
+                           className="inset-0 sm:absolute object-cover h-full -z-1"
                            alt={`Image do empreendimento ${empreendimento.nome}`}
                         />
                      </div>
                   </div>
                   {/* Ícones de destaques */}
-                  <div id="diferenciais" className="mt-5">
+                  <div id="diferenciais" className="mt-0 sm:mt-3 lg:mt-5">
                      <IconesCollapsivel icones={empreendimento.icones} />
                   </div>
                </Container>
