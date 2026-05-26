@@ -19,14 +19,14 @@ const Infraestrutura = () => {
             ]}
          />
          <section>
-            <Container className="py-25">
+            <Container className="py-8 sm:py-12 md:py-14 lg:py-18 xl:py-25">
                <SectionIntro
                   className="items-start! mb-2!"
                   titulo="Infraestrutura"
                   descricao="Conheça um pouco mais sobre cada um dos nossos serviços."
                />
                {/* Listagem */}
-               <div className="flex flex-col gap-10 pt-18">
+               <div className="flex flex-col gap-10 pt-5 sm:pt-10 md:pt-13 xl:pt-18">
                   {infraestruturas.map((v, k) => (
                      <>
                         <CardInfraestrutura infraestrutura={v} />
