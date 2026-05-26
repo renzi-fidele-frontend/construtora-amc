@@ -18,7 +18,7 @@ const LigamosParaVoce = () => {
             ]}
          />
          <section>
-            <Container className="py-25">
+            <Container className="py-8 sm:py-12 md:py-14 lg:py-18 xl:py-25">
                <SectionIntro
                   className="items-start! mb-2!"
                   titulo="Ligamos para você"
