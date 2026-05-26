@@ -18,7 +18,6 @@ const useRoutesService = () => {
       setDirectionsService(new routesLibrary.DirectionsService());
       setDirectionsRenderer(new routesLibrary.DirectionsRenderer());
    }, [map, routesLibrary]);
- 
 
    return {
       directionsService: directionsService as google.maps.DirectionsService,
