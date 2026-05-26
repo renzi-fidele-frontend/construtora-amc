@@ -85,7 +85,7 @@ const Empreendimento = async ({ params }: Props) => {
                ]}
             />
             {/* Seção da Vitrine */}
-            <section className="py-8 text-zinc-500">
+            <section className="pt-8 pb-5 md:py-8 text-zinc-500">
                <Container>
                   {/* Status */}
                   <div
@@ -160,20 +160,19 @@ const Empreendimento = async ({ params }: Props) => {
             </section>
             {/* Seção da Bio do empreendimento */}
             <section className="mb-19">
-               <Container className="flex items-start gap-25 relative">
-                  <div className="text-xl flex flex-col gap-4.5">
+               <Container className="flex flex-col lg:flex-row items-start gap-8 lg:gap-15 xl:gap-25 relative">
+                  <div className="sm:text-lg xl:text-xl flex flex-col gap-3 xl:gap-4.5">
                      {empreendimento.detalhes.bio.map((v, k) => (
                         <p key={k}>{v}</p>
                      ))}
                   </div>
-
                   {empreendimento.detalhes.minhaCasa && (
                      <Image
                         width={380}
                         height={112}
                         src="/img/minha-casa-full.webp"
                         alt="Ilustração da logomarca da empresa Minha casa Minha vida"
-                        className="sticky top-3"
+                        className="lg:sticky top-5"
                      />
                   )}
                </Container>
