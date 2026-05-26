@@ -19,7 +19,7 @@ const CardDepoimento = ({ depoimento }: { depoimento: IDepoimento }) => {
             <UserRound className="size-5" /> {depoimento.autor}
          </p>
          {/* Empreendimento adquirido */}
-         <p className="mb-5 flex items-center gap-2">
+         <p className="flex items-center gap-2">
             <Building className="size-5" /> {depoimento.empreendimento}
          </p>
       </div>

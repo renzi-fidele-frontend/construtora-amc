@@ -24,14 +24,14 @@ const Depoimentos = () => {
             ]}
          />
          <section>
-            <Container className="py-25">
+            <Container className="py-8 sm:py-12 md:py-14 lg:py-18 xl:py-25">
                <SectionIntro
                   className="items-start! mb-2!"
                   titulo="Depoimentos"
                   descricao="Leia os depoimentos de quem realizou seus sonhos com a AMC"
                />
                {/* Conteúdo */}
-               <div className="flex flex-wrap justify-between *:basis-[30%] pt-10">
+               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-15 pt-10">
                   {depoimentos.map((v, k) => (
                      <CardDepoimento depoimento={v} key={k} />
                   ))}
