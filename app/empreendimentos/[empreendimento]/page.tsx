@@ -159,7 +159,7 @@ const Empreendimento = async ({ params }: Props) => {
                </Container>
             </section>
             {/* Seção da Bio do empreendimento */}
-            <section className="mb-19">
+            <section className="mb-13 sm:mb-19">
                <Container className="flex flex-col lg:flex-row items-start gap-8 lg:gap-15 xl:gap-25 relative">
                   <div className="sm:text-lg xl:text-xl flex flex-col gap-3 xl:gap-4.5">
                      {empreendimento.detalhes.bio.map((v, k) => (
@@ -178,12 +178,12 @@ const Empreendimento = async ({ params }: Props) => {
                </Container>
             </section>
             {/* Seção da Galeria */}
-            <section id="imagens" className="relative py-17.5 text-center">
+            <section id="imagens" className="relative py-14 sm:py-17.5 text-center">
                <Container className="flex flex-col items-center">
-                  <SectionIntro className="[&_h2]:text-8xl [&_h2]:mt-4 text-white! mb-6!" titulo="IMAGENS" />
+                  <SectionIntro className="xl:[&_h2]:text-8xl md:[&_h2]:mt-4 text-white! mb-3! md:mb-6!" titulo="IMAGENS" />
                   {/* Categorias */}
-                  <Tabs defaultValue={preverValue()} className="w-fit items-center">
-                     <TabsList className="*:hover:cursor-pointer *:text-2xl **:px-8!">
+                  <Tabs defaultValue={preverValue()} className="w-fit items-center not-first:mx-10">
+                     <TabsList className="*:hover:cursor-pointer sm:*:text-xl **:px-4! sm:**:px-5! md:*:text-2xl md:**:px-8!">
                         {empreendimento.detalhes.apartamento1 && <TabsTrigger value="apto1">Apto 1</TabsTrigger>}
                         {empreendimento.detalhes.apartamento2 && <TabsTrigger value="apto2">Apto 2</TabsTrigger>}
                         {empreendimento.detalhes.ilustracoes && <TabsTrigger value="fotos">Fotos</TabsTrigger>}

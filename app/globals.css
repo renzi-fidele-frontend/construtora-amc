@@ -144,3 +144,43 @@
 img {
    -webkit-user-drag: none;
 }
+
+.yarl__root {
+   width: 900px;
+   height: 650px;
+   max-width: 100%;
+   margin: 0 auto;
+   aspect-ratio: 4 / 3;
+}
+
+@media screen and (max-width: 1024px) {
+   .yarl__root {
+      width: 700px;
+      height: auto;
+   }
+}
+
+@media screen and (max-width: 760px) {
+   .yarl__root {
+      width: 500px;
+      aspect-ratio: 1 / 1;
+   }
+}
+
+@media screen and (max-width: 540px) {
+   .yarl__root {
+      width: 450px;
+   }
+}
+
+@media screen and (max-width: 480px) {
+  .yarl__root {
+      width: 360px;
+   }
+}
+
+@media screen and (max-width: 390px) {
+  .yarl__root {
+      width: 330px;
+   }
+}

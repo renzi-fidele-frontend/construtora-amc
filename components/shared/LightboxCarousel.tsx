@@ -15,15 +15,7 @@ const LightBoxCarousel = ({ fotos }: { fotos: string[] }) => {
          slides={fotos?.map((foto) => {
             return { src: foto };
          })}
-         inline={{
-            style: {
-               width: "900px",
-               maxWidth: "100%",
-               aspectRatio: "4 / 3",
-               margin: "0 auto",
-               height: "650px",
-            },
-         }}
+         inline={{}}
          plugins={[Inline, Fullscreen, Slideshow, Thumbnails, Zoom]}
       />
    );
