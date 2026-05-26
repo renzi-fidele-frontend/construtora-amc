@@ -18,13 +18,13 @@ const Clientes = () => {
             ]}
          />
          <section>
-            <Container className="py-25">
+            <Container className="py-8 sm:py-12 md:py-14 lg:py-18 xl:py-25">
                <SectionIntro className="items-start! mb-2!" titulo="Clientes da AMC" descricao="Veja os clientes que atendemos" />
                {/* Listagem */}
-               <div className="flex flex-col gap-12 mt-16">
+               <div className="flex flex-col  gap-6 sm:gap-8 md:gap-12 mt-7 sm:mt-10 md:mt-16">
                   {clientes.map((cliente, k) => (
-                     <div key={k} className="flex flex-col gap-2.5 text-xl font-light">
-                        <h6 className="text-4xl font-bold">{cliente.titulo}</h6>
+                     <div key={k} className="flex flex-col gap-2.5 text-sm sm:text-lg lg:text-xl font-light">
+                        <h6 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold">{cliente.titulo}</h6>
                         {!!cliente.descricao && <p>{cliente.descricao}</p>}
                         {!!cliente.destaques && (
                            <ul className="list-disc ps-6">
