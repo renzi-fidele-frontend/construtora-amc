@@ -6,6 +6,7 @@ import Footer from "@/components/layout/Footer";
 import { Toaster } from "@/components/ui/sonner";
 import { AdminPanel } from "@/components/shared/AdminPanel";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import { getLogedUser } from "@/lib/admin";
 
 const fontRubik = Rubik({
    variable: "--font-rubik",
@@ -56,11 +57,14 @@ export const metadata: Metadata = {
    },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
    children,
 }: Readonly<{
    children: React.ReactNode;
 }>) {
+   const user = await getLogedUser();
+   console.log(`O admin é: ${user}`);
+
    return (
       <html lang="pt-BR">
          <body className={`${fontRubik.variable} font-rubik antialiased text-theme1 min-h-dvh select-none`}>
@@ -68,7 +72,7 @@ export default function RootLayout({
             <TooltipProvider>{children}</TooltipProvider>
             <Footer />
             {/* Painel do administrador */}
-            <AdminPanel />
+            {user && <AdminPanel />}
             <Toaster />
          </body>
       </html>
