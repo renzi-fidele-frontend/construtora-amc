@@ -28,7 +28,7 @@ const ListagemDeEmpreendimentos = () => {
    return (
       <>
          <Tabs defaultValue={categoriaViaUrl || "Todos"} value={tabAtivo} className="mb-12" onValueChange={handleChange}>
-            <TabsList className="flex-wrap *:cursor-pointer text-sm sm:*:text-lg lg:*:text-xl *:px-2 md:*:p-4 *:aria-selected:font-medium *:bg-zinc-50 *:border *:border-zinc-300 **:rounded">
+            <TabsList className="flex-wrap *:cursor-pointer text-sm sm:*:text-lg lg:*:text-xl *:px-2 md:*:px-4  md:*:py-2 *:aria-selected:font-medium *:bg-zinc-50 *:border *:border-zinc-300 **:rounded">
                <TabsTrigger value="Todos">Todos</TabsTrigger>
                <TabsTrigger value="Lançamento">Lançamento</TabsTrigger>
                <TabsTrigger value="Pré-lançamento">Pré-lançamento</TabsTrigger>

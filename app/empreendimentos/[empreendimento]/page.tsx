@@ -183,7 +183,7 @@ const Empreendimento = async ({ params }: Props) => {
                   <SectionIntro className="xl:[&_h2]:text-8xl md:[&_h2]:mt-4 text-white! mb-3! md:mb-6!" titulo="IMAGENS" />
                   {/* Categorias */}
                   <Tabs defaultValue={preverValue()} className="w-fit items-center not-first:mx-10">
-                     <TabsList className="*:hover:cursor-pointer sm:*:text-xl **:px-4! sm:**:px-5! md:*:text-2xl md:**:px-8!">
+                     <TabsList className="flex-wrap *:bg-zinc-50 *:hover:cursor-pointer sm:*:text-xl **:px-4! sm:**:px-5! md:*:text-2xl md:**:px-8!">
                         {empreendimento.detalhes.apartamento1 && <TabsTrigger value="apto1">Apto 1</TabsTrigger>}
                         {empreendimento.detalhes.apartamento2 && <TabsTrigger value="apto2">Apto 2</TabsTrigger>}
                         {empreendimento.detalhes.ilustracoes && <TabsTrigger value="fotos">Fotos</TabsTrigger>}

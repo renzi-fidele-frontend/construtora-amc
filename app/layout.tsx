@@ -63,7 +63,6 @@ export default async function RootLayout({
    children: React.ReactNode;
 }>) {
    const user = await getLogedUser();
-   console.log(`O admin é: ${user}`);
 
    return (
       <html lang="pt-BR">

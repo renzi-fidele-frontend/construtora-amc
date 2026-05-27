@@ -3,7 +3,7 @@ import { IEmpreendimento } from "@/types/types";
 import Image from "next/image";
 import Link from "next/link";
 
-const CardEmpreendimento = ({ empreendimento, largura = "w-fit" }: { empreendimento: IEmpreendimento; largura?: "w-fit" | "w-full" }) => {
+const CardEmpreendimento = ({ empreendimento, largura = "sm:w-fit" }: { empreendimento: IEmpreendimento; largura?: "sm:w-fit" | "w-full" }) => {
    return (
       <Link
          href={`/empreendimentos/${empreendimento.id}`}
@@ -13,7 +13,7 @@ const CardEmpreendimento = ({ empreendimento, largura = "w-fit" }: { empreendime
          <div
             className={`uppercase font-semibold ${analisarCor(empreendimento.categoria)} text-white py-1.5 sm:py-2 px-5 relative overflow-hidden`}
          >
-            <p>{empreendimento.categoria}</p>
+            <p className="w-full">{empreendimento.categoria}</p>
             {/* Rectângulo overlay */}
             <svg className="absolute end-0 inset-y-0" width="96" height="55" viewBox="0 0 96 55" fill="none" xmlns="http://www.w3.org/2000/svg">
                <path d="M0 0H63.5H96V55L46 54.5L0 0Z" fill="white" />
