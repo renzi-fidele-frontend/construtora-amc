@@ -1,5 +1,5 @@
 "use client";
-import { Menu } from "lucide-react";
+import { ArrowUpRightSquareIcon, CircleArrowOutUpRight, Menu, SquareArrowOutUpRight } from "lucide-react";
 import { Drawer, DrawerContent, DrawerTrigger } from "../ui/drawer";
 import Image from "next/image";
 import {
@@ -75,7 +75,9 @@ const MobileMenu = () => {
             <DrawerContent className="flex flex-col items-start justify-center **:text-xl">
                {/* TOPO */}
                <div className="p-4">
-                  <Image src="/img/logo.png" width={194} height={73} alt="Logo da AMC Construções" />
+                  <Link href="/">
+                     <Image className="w-auto h-15 sm:h-20" src="/img/logo.png" width={194} height={73} alt="Logo da AMC Construções" />
+                  </Link>
                   <div className="mt-5">
                      <NavigationMenu contentTopDistance="top-12" className="**:w-full!">
                         <NavigationMenuList className="flex flex-col items-start">
@@ -109,16 +111,32 @@ const MobileMenu = () => {
                </div>
                {/* BAIXO */}
                <div className="flex flex-col mt-3 bg-theme1 text-white w-full px-4 py-6 uppercase">
-                  <h5 className="text-4xl!">Imóveis</h5>
+                  <h5 className="text-3xl! sm:text-4xl!">Imóveis</h5>
                   <nav className="flex flex-col gap-3 mt-2 border-t border-white pt-3.5">
                      {categorias.map((categoria, k) => (
-                        <Link className="sm:text-lg!" href={categoria.url} key={k}>
+                        <Link className="text-base! sm:text-lg!" href={categoria.url} key={k}>
                            {categoria.nome}
                         </Link>
                      ))}
                   </nav>
-                  {/* MINHA CASA - CTA */}
                </div>
+               {/* MINHA CASA - CTA */}
+               <Link
+                  className="flex gap-3 items-center bg-[#0C2D35] text-white px-4 py-3 w-full"
+                  href="https://www.caixa.gov.br/voce/habitacao/minha-casa-minha-vida/Paginas/default.aspx"
+                  target="_blank"
+               >
+                  <Image
+                     width={105}
+                     height={74}
+                     className="w-auto object-contain h-6.5 xl:h-7"
+                     src="/img/minha-casa.webp"
+                     alt="Ilustração da logo marca do minha casa minha vida"
+                  />
+                  <div className="leading-0">
+                     <p className="text-[14px]!">Minha Casa Minha Vida</p>
+                  </div>
+               </Link>
             </DrawerContent>
          </Drawer>
       </div>

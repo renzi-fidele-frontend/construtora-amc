@@ -47,7 +47,7 @@ const CarouselDeFotos = ({ fotos }: { fotos: CarouselDeFotosProps[] }) => {
                {Array.from({ length: largura }).map((_, index) => (
                   <button
                      key={index}
-                     className={`size-2 sm:size-2.5 lg:size-4 rounded-full border-2 lg:border-3 border-white transition cursor-pointer ${index + 1 === dotAtual ? "scale-150  sm:scale-130" : ""}`}
+                     className={`size-2 sm:size-2.5 lg:size-4 rounded-full border-2 lg:border-3 border-white transition cursor-pointer ${index + 1 === dotAtual ? "scale-160 sm:scale-130" : ""}`}
                      onClick={() => api?.scrollTo(index)}
                   />
                ))}
