@@ -9,7 +9,6 @@ interface IResponse {
 }
 export async function apanhar_artigos(limite: number, pagina: number) {
    await dbConnect();
-
    // Definindo o offset e o limite da query para paginação
    const offset = (pagina - 1) * limite;
 
@@ -26,12 +25,11 @@ export async function apanhar_artigos(limite: number, pagina: number) {
 export async function apanhar_artigos_mais_lidos() {
    await dbConnect();
    const artigos = await Artigo.find().limit(5).sort({ vezesLido: -1 });
-
    return { artigos } as { artigos: IArtigo[] };
 }
 
 export const apanhar_artigo = cache(async (slug: string) => {
-   const res = await fetch(`${process.env.DOMAIN}/api/blog/apanhar_artigo?slug=${slug}`);
-   const data = await res.json();
-   return data as { artigo: IArtigo };
+   await dbConnect();
+   const artigo = await Artigo.findOne({ slug });
+   return { artigo } as { artigo: IArtigo };
 });
