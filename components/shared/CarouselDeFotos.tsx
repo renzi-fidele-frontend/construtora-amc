@@ -35,7 +35,7 @@ const CarouselDeFotos = ({ fotos }: { fotos: CarouselDeFotosProps[] }) => {
                {fotos?.map((v, k) => (
                   <CarouselItem key={k}>
                      <Link href={v.url}>
-                        <Image width={1920} height={620} src={v.foto} alt="Foto demostrando um empreendimento" />
+                        <Image className="object-cover" width={1920} height={620} src={v.foto} alt="Foto demostrando um empreendimento" />
                      </Link>
                   </CarouselItem>
                ))}
@@ -43,11 +43,11 @@ const CarouselDeFotos = ({ fotos }: { fotos: CarouselDeFotosProps[] }) => {
          </Carousel>
          {/* Navigation Dots */}
          <Container>
-            <div className="flex justify-center gap-3 py-2 absolute bottom-0 sm:bottom-3 lg:bottom-5">
+            <div className="flex justify-center gap-2.5 sm:gap-3 py-2 absolute bottom-0 sm:bottom-3 lg:bottom-5">
                {Array.from({ length: largura }).map((_, index) => (
                   <button
                      key={index}
-                     className={`size-2.5 lg:size-4.5 rounded-full border-2 lg:border-3 border-white transition cursor-pointer shadow-md/100 ${index + 1 === dotAtual ? "bg-white scale-120" : ""}`}
+                     className={`size-2 sm:size-2.5 lg:size-4 rounded-full border-2 lg:border-3 border-white transition cursor-pointer ${index + 1 === dotAtual ? "scale-150  sm:scale-130" : ""}`}
                      onClick={() => api?.scrollTo(index)}
                   />
                ))}
