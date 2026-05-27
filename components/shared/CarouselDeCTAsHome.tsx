@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import { Carousel, CarouselApi, CarouselContent, CarouselItem } from "../ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
 import CardDestaque from "./CardDestaque";
-import { Calendar, HardHat, Store, UserStar } from "lucide-react";
+import { Calendar, HardHat, SquareArrowOutUpRightIcon, Store, UserStar } from "lucide-react";
 
 const CarouselDeCTAsHome = () => {
    const AutoplayPlugin = useRef(Autoplay({ delay: 6000, stopOnInteraction: false }));
@@ -23,7 +23,7 @@ const CarouselDeCTAsHome = () => {
    }, [api]);
 
    return (
-      <div className="relative sm:hidden px-5">
+      <div className="relative sm:hidden">
          <Carousel className="border-2" setApi={setApi} opts={{ loop: true }} plugins={[AutoplayPlugin.current]}>
             <CarouselContent>
                {/* Blog */}
@@ -88,13 +88,15 @@ const CarouselDeCTAsHome = () => {
             {Array.from({ length: largura }).map((_, index) => (
                <button
                   key={index}
-                  className={`size-4 rounded-full border-2 border-theme1 transition cursor-pointer  ${index + 1 === dotAtual ? "bg-theme1 scale-120" : ""}`}
+                  className={`h-2 w-4  border-2 border-theme1 transition cursor-pointer ${index + 1 === dotAtual ? "bg-theme1 scale-120" : ""}`}
                   onClick={() => api?.scrollTo(index)}
                />
             ))}
          </div>
          {/* Barra de opacidade */}
          <div className="absolute inset-x-0 top-0 bg-white opacity-30 h-5"></div>
+         {/* CTA para click no mobile */}
+         <p className="flex items-center flex-nowrap gap-2 absolute text-sm text-white end-3 bottom-10 sm:hidden">Clique para navegar <SquareArrowOutUpRightIcon className="size-5" /></p>
       </div>
    );
 };

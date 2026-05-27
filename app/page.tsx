@@ -145,7 +145,7 @@ export default async function Home() {
             <CarouselDeCTAsHome />
          </section>
          {/* Seção do blog */}
-         <section className="pt-18 sm:pt-24  pb-18 sm:pb-24.5">
+         <section className="pt-18 sm:pt-24 pb-18 sm:pb-24.5">
             <Container>
                <SectionIntro className="text-center" titulo="Blog" descricao="Fique por dentro dos últimos artigos da AMC" />
                {/* Listagem desktop */}
