@@ -71,7 +71,7 @@ export default async function Blog({ searchParams }: Props) {
             </div>
          )}
          {/* Seção da listagem dos artigos */}
-         <div className="grid sm:grid-cols-2 gap-5 pt-7.5">
+         <div className={`grid sm:grid-cols-2 gap-5 ${page === 1 && "pt-7.5"}`}>
             {analisarArray(artigos).map((artigo, k) => (
                <Link
                   href={`/blog/${artigo.slug}`}

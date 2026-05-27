@@ -10,7 +10,7 @@ export default async function BlogLayout({ children }: { children: ReactNode }) 
    const { artigos: artigosMaisLidos } = await apanhar_artigos_mais_lidos();
 
    return (
-      <Container className="flex flex-col lg:flex-row flex-nowrap  gap-10 md:gap-16 xl:gap-25 border-t-2 lg:border-t-0 pt-4 lg:pt-7.5 pb-12">
+      <Container className="flex flex-col lg:flex-row flex-nowrap gap-10 md:gap-16 xl:gap-25 border-t-2 lg:border-t-0 pt-4 lg:pt-7.5 pb-12">
          <section className="basis-[70%]">{children}</section>
          <aside className="basis-[30%] text-center lg:text-start">
             {/* Seção dos destaques do blog */}

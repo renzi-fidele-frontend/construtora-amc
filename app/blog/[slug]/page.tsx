@@ -66,24 +66,24 @@ export default async function PaginaArtigo({ params }: Props) {
             priority
          />
 
-         <div className="flex gap-4">
+         <div className="flex gap-2 sm:gap-4 flex-wrap mt-2 sm:mt-3 mb-3 sm:mb-5 text-sm sm:text-base">
             {/* Data de publicação */}
             <time
                dateTime={String(artigo.publicadoEm)}
-               className="flex gap-2 items-center text-white bg-theme2 py-1.5 px-4 w-fit mt-4 mb-5 border-b-4 border-theme1 rounded"
+               className="flex gap-2 items-center text-white bg-theme2 py-1 px-2 sm:px-4 w-fit border-b-4 border-theme1 rounded"
             >
-               <CalendarDays />
+               <CalendarDays className="size-4 sm:size-5" />
                <p>{dayjs(artigo.publicadoEm).format("DD [de] MMMM [de] YYYY")}</p>
             </time>
             {/* Data de atualização */}
             <time dateTime={String(artigo.ultimaAtualizacao)} className="flex items-center gap-2">
-               <ClockFading className="size-5" />
+               <ClockFading className="size-4 sm:size-5" />
                <span>Última atualização: {dayjs(artigo.ultimaAtualizacao).fromNow()}</span>
             </time>
          </div>
 
          {/* Título do artigo */}
-         <h1 className="text-4xl font-medium mb-7">{artigo.titulo}</h1>
+         <h1 className="text-2xl sm:text-3xl md:text-4xl font-medium mb-4 sm:mb-7">{artigo.titulo}</h1>
 
          {/* Conteúdo */}
          <div className={styles.ct + " text-zinc-800"} dangerouslySetInnerHTML={{ __html: artigo.conteudo }}></div>
