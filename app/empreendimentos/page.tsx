@@ -4,6 +4,7 @@ import Image from "next/image";
 import ListagemDeEmpreendimentos from "./listing";
 import Breadcrumb from "@/components/shared/Breadcrumb";
 import { Metadata } from "next";
+import { Suspense } from "react";
 
 export const metadata: Metadata = {
    title: "Empreendimentos",
@@ -40,7 +41,9 @@ export default function Empreendimentos() {
          <section>
             <Container className="py-10 md:py-16 xl:py-25">
                <SectionIntro className="items-start! mb-2!" titulo="Empreendimentos" />
-               <ListagemDeEmpreendimentos />
+               <Suspense>
+                  <ListagemDeEmpreendimentos />
+               </Suspense>
             </Container>
          </section>
       </div>
