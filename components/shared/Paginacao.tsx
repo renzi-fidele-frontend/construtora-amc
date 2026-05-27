@@ -18,7 +18,7 @@ const Paginacao = ({ paginaAtual, totalPaginas }: IPagination) => {
    }
 
    return (
-      <nav className="flex items-stretch justify-center gap-2 text-xl *:border *:border-theme1 *:py-2 *:px-4 *:href-[?page=1]:bg-theme1">
+      <nav className="flex flex-wrap items-stretch justify-center gap-2 sm:text-lg md:text-xl *:border *:border-theme1 *:py-1 md:*:py-2 *:px-3 md:*:px-4 *:href-[?page=1]:bg-theme1">
          {/* Pagina anterior */}
          {paginaAtual > 1 && <Link href={`?page=${paginaAtual - 1}`}>Anterior</Link>}
 

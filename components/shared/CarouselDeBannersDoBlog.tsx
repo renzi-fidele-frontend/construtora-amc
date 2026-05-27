@@ -29,12 +29,12 @@ const CarouselDeBannersDoBlog = ({ fotos }: { fotos: CarouselDeFotosProps[] }) =
 
    return (
       <div>
-         <Carousel className="border-2" setApi={setApi} opts={{ loop: true }} plugins={[AutoplayPlugin.current]}>
+         <Carousel className="lg:border-2" setApi={setApi} opts={{ loop: true }} plugins={[AutoplayPlugin.current]}>
             <CarouselContent>
                {fotos?.map((v, k) => (
                   <CarouselItem key={k}>
-                     <Link href={v.url}>
-                        <Image className="w-full" width={288} height={419} src={v.foto} alt="Foto demostrando um empreendimento" />
+                     <Link className="" href={v.url}>
+                        <Image className="lg:w-full mx-auto" width={288} height={419} src={v.foto} alt="Foto demostrando um empreendimento" />
                      </Link>
                   </CarouselItem>
                ))}

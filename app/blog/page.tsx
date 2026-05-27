@@ -56,14 +56,14 @@ export default async function Blog({ searchParams }: Props) {
                   width={artigos[0].thumbnail.width}
                   height={artigos[0].thumbnail.height}
                   alt={artigos[0].titulo}
-                  className="object-cover object-left h-130"
+                  className="object-cover object-left h-80 sm:h-105 md:h-130"
                />
-               <div className="bg-zinc-900/50 absolute bottom-0 text-white py-8 px-5.5 text-lg">
+               <div className="bg-zinc-900/50 absolute bottom-0 text-white py-3.5 sm:py-5 lg:py-8 px-3 sm:px-5.5 text-sm sm:text-base md:text-lg">
                   {/* Data de publicação */}
                   <p className="uppercase">{dayjs(artigos[0].publicadoEm).format("DD/MMMM/YYYY")}</p>
                   {/* Titulo */}
                   <Link className="hover:underline" href={`/blog/${artigos[0].slug}`}>
-                     <h3 className="font-bold text-2xl mb-2">{artigos[0].titulo}</h3>
+                     <h3 className="font-bold text-lg sm:text-xl md:text-2xl mb-2 line-clamp-2">{artigos[0].titulo}</h3>
                   </Link>
                   {/* Descrição */}
                   <p className="line-clamp-2">{artigos[0].descricao}</p>
@@ -71,7 +71,7 @@ export default async function Blog({ searchParams }: Props) {
             </div>
          )}
          {/* Seção da listagem dos artigos */}
-         <div className="grid grid-cols-2 gap-5 pt-7.5">
+         <div className="grid sm:grid-cols-2 gap-5 pt-7.5">
             {analisarArray(artigos).map((artigo, k) => (
                <Link
                   href={`/blog/${artigo.slug}`}
@@ -85,11 +85,11 @@ export default async function Blog({ searchParams }: Props) {
                      alt="Ilustração do artigo"
                      className="h-60 object-left object-cover"
                   />
-                  <div className="py-7 px-5">
+                  <div className="py-5 xl:py-7 px-5 text-sm sm:text-base">
                      {/* Data de publicação */}
                      <p className="uppercase">{dayjs(artigo.publicadoEm).format("DD/MMMM/YYYY")}</p>
                      {/* Titulo */}
-                     <h3 className="font-bold text-xl line-clamp-2">{artigo.titulo}</h3>
+                     <h3 className="font-bold text-lg md:text-xl line-clamp-2">{artigo.titulo}</h3>
                      {/* Descrição */}
                      <p className="line-clamp-4 mt-2">{artigo.descricao}</p>
                   </div>
