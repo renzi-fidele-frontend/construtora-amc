@@ -1,15 +1,14 @@
 import Container from "@/components/layout/Container";
+import BlogHome from "@/components/shared/BlogHome";
 import Btn from "@/components/shared/Btn";
-import CardBlog from "@/components/shared/CardBlog";
 import CardDepoimento from "@/components/shared/CardDepoimento";
 import CardDestaque from "@/components/shared/CardDestaque";
 import CardEmpreendimento from "@/components/shared/CardEmpreendimento";
 import CarouselDeCTAsHome from "@/components/shared/CarouselDeCTAsHome";
 import CarouselDeFotos from "@/components/shared/CarouselDeFotos";
 import SectionIntro from "@/components/shared/SectionIntro";
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
+import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
 import { depoimentos, empreendimentos, fotosDestaques } from "@/data/data";
-import { apanhar_artigos } from "@/lib/api";
 import { Calendar, HardHat, Store, UserStar } from "lucide-react";
 import { Metadata } from "next";
 import Image from "next/image";
@@ -51,9 +50,7 @@ export const metadata: Metadata = {
 
 // TODO: Adicionar a tag do facebook pixel
 
-export default async function Home() {
-   const ultimosArtigos = await apanhar_artigos(4, 1);
-
+export default function Home() {
    return (
       <main className="overflow-x-hidden">
          {/* Seção do carousel de apresentação dos banners dos empreendimentos */}
@@ -145,24 +142,7 @@ export default async function Home() {
             <CarouselDeCTAsHome />
          </section>
          {/* Seção do blog */}
-         <section className="pt-18 sm:pt-24 pb-18 sm:pb-24.5">
-            <Container>
-               <SectionIntro className="text-center" titulo="Blog" descricao="Fique por dentro dos últimos artigos da AMC" />
-               {/* Listagem desktop */}
-               <div className="grid lg:grid-cols-2 gap-8">
-                  {ultimosArtigos.artigos.map((v, k) => (
-                     <CardBlog key={k} artigo={v} />
-                  ))}
-               </div>
-               {/* Separador */}
-               <hr className="mt-6 sm:mt-10 md:mt-16 mb-7" />
-               <div className="flex justify-center">
-                  <Link href="/blog">
-                     <Btn className="uppercase">Ver mais artigos</Btn>
-                  </Link>
-               </div>
-            </Container>
-         </section>
+         <BlogHome />
          {/* Seção dos depoimentos */}
          <section className="py-14 sm:py-24 relative">
             <Container>
