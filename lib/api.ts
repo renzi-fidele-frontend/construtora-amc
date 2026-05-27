@@ -24,9 +24,10 @@ export async function apanhar_artigos(limite: number, pagina: number) {
 }
 
 export async function apanhar_artigos_mais_lidos() {
-   const res = await fetch(`${process.env.DOMAIN}/api/blog/apanhar_artigos_mais_lidos`);
-   const data = await res.json();
-   return data as { artigos: IArtigo[] };
+   await dbConnect();
+   const artigos = await Artigo.find().limit(5).sort({ vezesLido: -1 });
+
+   return { artigos } as { artigos: IArtigo[] };
 }
 
 export const apanhar_artigo = cache(async (slug: string) => {
