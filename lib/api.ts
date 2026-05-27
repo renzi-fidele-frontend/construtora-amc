@@ -1,5 +1,6 @@
-import { IArtigo } from "@/models/Artigo";
+import Artigo, { IArtigo } from "@/models/Artigo";
 import { cache } from "react";
+import { dbConnect } from "./dbConnect";
 
 // Aqui estão todas as funcionalidades que fazer as requisições públicas ao back-end
 interface IResponse {
@@ -7,9 +8,19 @@ interface IResponse {
    totalPaginas: number;
 }
 export async function apanhar_artigos(limite: number, pagina: number) {
-   const res = await fetch(`${process.env.DOMAIN}/api/blog/apanhar_artigos?limit=${limite}&page=${pagina}`);
-   const data = await res.json();
-   return data as IResponse;
+   await dbConnect();
+
+   // Definindo o offset e o limite da query para paginação
+   const offset = (pagina - 1) * limite;
+
+   // Buscando os artigos do banco de dados
+   const artigos = await Artigo.find().skip(offset).limit(limite).sort({ publicadoEm: -1 });
+
+   // Calculando o total de documentos e o total de páginas
+   const totalDocs = await Artigo.countDocuments();
+   const totalPaginas = Math.ceil(totalDocs / limite);
+
+   return { artigos, totalPaginas } as IResponse;
 }
 
 export async function apanhar_artigos_mais_lidos() {
