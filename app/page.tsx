@@ -76,7 +76,7 @@ export default async function Home() {
                      {empreendimentos
                         .filter((v) => v.destacado)
                         .map((v, k) => (
-                           <CarouselItem className="basis-[85%] sm:basis-auto" key={k}>
+                           <CarouselItem className="basis-[90%] sm:basis-auto" key={k}>
                               <CardEmpreendimento empreendimento={v} />
                            </CarouselItem>
                         ))}
