@@ -74,7 +74,7 @@ const Mapa = ({ empreendimento }: { empreendimento: IEmpreendimento }) => {
       <>
          <Map
             mapId="d95c984c2c99e484fcaaf9b5"
-            className="w-[90%] lg:w-[70%] h-110! md:h-140!"
+            className="w-[90%] lg:w-[70%] h-80! sm:h-110! md:h-140!"
             defaultZoom={15}
             defaultCenter={empreendimento.detalhes.coordenadas}
             mapTypeId="hybrid"

@@ -302,7 +302,7 @@ const Empreendimento = async ({ params }: Props) => {
                   </MapProvider>
                </Container>
                {/* Rectângulo verde claro */}
-               <div className="absolute w-full inset-y-0 top-0 h-128 bg-theme1 -z-1"></div>
+               <div className="absolute w-full inset-y-0 top-0 h-100 sm:h-128 bg-theme1 -z-1"></div>
             </section>
          </main>
       )
