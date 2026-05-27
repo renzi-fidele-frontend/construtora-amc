@@ -287,13 +287,13 @@ const Empreendimento = async ({ params }: Props) => {
                </section>
             )}
             {/* Seção de Localização */}
-            <section id="localizacao" className="relative py-17.5 text-center">
+            <section id="localizacao" className="relative py-12 sm:py-17.5 text-center">
                <Container className="flex flex-col items-center">
-                  <SectionIntro className="[&_h2]:text-8xl [&_h2]:mt-4 text-white! mb-6!" titulo="LOCALIZAÇÃO" />
+                  <SectionIntro className="xl:[&_h2]:text-8xl md:[&_h2]:mt-4 text-white! mb-3! md:mb-6!" titulo="LOCALIZAÇÃO" />
                   {/* Endereço */}
-                  <div className="border border-white text-white p-6.5 text-xl w-fit px-40 mb-13">
-                     <p className="flex items-center gap-3">
-                        <MapPin /> {empreendimento.detalhes.endereco_em_texto}
+                  <div className="border border-white text-white py-2 sm:py-3 lg:py-4.5 xl:py-6.5 sm:text-lg md:text-xl w-full sm:w-fit px-5 sm:px-20 md:px-40 mb-9 md:mb-13">
+                     <p className="flex items-center justify-center gap-2 sm:gap-3">
+                        <MapPin className="size-4.5 sm:size-6" /> {empreendimento.detalhes.endereco_em_texto}
                      </p>
                   </div>
                   {/* Mapa */}
