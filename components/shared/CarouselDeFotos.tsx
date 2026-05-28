@@ -35,7 +35,15 @@ const CarouselDeFotos = ({ fotos }: { fotos: CarouselDeFotosProps[] }) => {
                {fotos?.map((v, k) => (
                   <CarouselItem key={k}>
                      <Link href={v.url}>
-                        <Image className="object-cover" width={1920} height={620} src={v.foto} alt="Foto demostrando um empreendimento" />
+                        <Image
+                           className="object-cover"
+                           width={1920}
+                           height={620}
+                           src={v.foto}
+                           loading={k + 1 === 1 ? "eager" : "lazy"}
+                           priority={k + 1 === 1}
+                           alt="Foto demostrando um empreendimento"
+                        />
                      </Link>
                   </CarouselItem>
                ))}
