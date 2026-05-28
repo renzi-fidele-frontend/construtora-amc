@@ -62,7 +62,7 @@ const CarouselDeCTAsHome = () => {
                         </p>
                      }
                      descricao="Saiba onde encontrar um plantão de vendas perto de você."
-                     link="/contato"
+                     link="/institucional/ligamos_para_voce"
                      className="bg-emerald-600"
                   />
                </CarouselItem>
