@@ -74,6 +74,14 @@ const Empreendimento = async ({ params }: Props) => {
       return "";
    }
 
+   const evolucaoDaObra = [
+      { titulo: "Fundação", foto: "fundacao.png", percentagem: empreendimento?.detalhes.evolucao_da_obra?.fundacao },
+      { titulo: "Estrutura", foto: "estrutura.png", percentagem: empreendimento?.detalhes.evolucao_da_obra?.estrutura },
+      { titulo: "Acabamento", foto: "acabamento.png", percentagem: empreendimento?.detalhes.evolucao_da_obra?.acabamento },
+      { titulo: "Área Comum", foto: "area-comum.png", percentagem: empreendimento?.detalhes.evolucao_da_obra?.areaComum },
+      { titulo: "Concluido", foto: "percentual.png", percentagem: empreendimento?.detalhes.evolucao_da_obra?.percentualConcluido },
+   ];
+
    return (
       empreendimento && (
          <main>
@@ -243,45 +251,24 @@ const Empreendimento = async ({ params }: Props) => {
             </section>
             {/* Seção da evolução da obra */}
             {empreendimento?.detalhes?.evolucao_da_obra && (
-               <section className="py-17.5 bg-zinc-200">
+               <section className="py-12 sm:py-17.5 bg-zinc-200">
                   <Container>
                      <SectionIntro titulo="EVOLUÇÃO DA OBRA" descricao="Acompanhe o progresso atual da obra" />
-                     <div className="px-20 text-center text-xl flex justify-center gap-y-13 *:basis-[33.3%] *:flex *:flex-col *:items-center *:gap-3 flex-wrap w-full [&_h6]:font-bold">
+                     <div className="lg:px-20 text-center text-xl flex justify-center gap-y-8 sm:gap-y-13 flex-wrap w-full [&_h6]:font-bold">
                         {/* Fundação */}
-                        <div>
-                           <Image src="/icons/evolucao-da-obra/fundacao.png" width={140} height={140} alt="Ícone ilustrando a fundação" />
-                           <h6>Fundação</h6>
-                           <p>{empreendimento.detalhes.evolucao_da_obra.fundacao}%</p>
-                        </div>
-                        {/* Estrutura */}
-                        <div>
-                           <Image src="/icons/evolucao-da-obra/estrutura.png" width={140} height={140} alt="Ícone ilustrando a estrutura" />
-                           <h6>Estrutura</h6>
-                           <p>{empreendimento.detalhes.evolucao_da_obra.estrutura}%</p>
-                        </div>
-                        {/* Acabamento */}
-                        <div>
-                           <Image src="/icons/evolucao-da-obra/acabamento.png" width={140} height={140} alt="Ícone ilustrando o acababamento" />
-                           <h6>Acabamento</h6>
-                           <p>{empreendimento.detalhes.evolucao_da_obra.acabamento}%</p>
-                        </div>
-                        {/* Área Comum */}
-                        <div>
-                           <Image src="/icons/evolucao-da-obra/area-comum.png" width={140} height={140} alt="Ícone ilustrando a área comum" />
-                           <h6>Área Comum</h6>
-                           <p>{empreendimento.detalhes.evolucao_da_obra.areaComum}%</p>
-                        </div>
-                        {/* Percentual Concluído */}
-                        <div>
-                           <Image
-                              src="/icons/evolucao-da-obra/percentual.png"
-                              width={140}
-                              height={140}
-                              alt="Ícone ilustrando a percentual concluído"
-                           />
-                           <h6>Percentual Concluído</h6>
-                           <p>{empreendimento.detalhes.evolucao_da_obra.percentualConcluido}%</p>
-                        </div>
+                        {evolucaoDaObra.map((v, k) => (
+                           <div className="basis-1/2 sm:basis-[33.3%] flex flex-col items-center gap-2 sm:gap-3" key={k}>
+                              <Image
+                                 className="size-12 sm:size-15 md:size-20 lg:size-35"
+                                 src={`/icons/evolucao-da-obra/${v.foto}`}
+                                 width={140}
+                                 height={140}
+                                 alt={`Ícone ilustrando a ${v.titulo}`}
+                              />
+                              <h6>{v.titulo}</h6>
+                              <p>{v.percentagem}%</p>
+                           </div>
+                        ))}
                      </div>
                   </Container>
                </section>
