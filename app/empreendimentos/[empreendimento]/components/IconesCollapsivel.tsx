@@ -13,7 +13,7 @@ const IconesCollapsivel = ({ icones }: { icones: IIcone[] }) => {
          {/* Collapsível */}
          <div
             style={{ transition: "all .3s ease-in" }}
-            className={`w-full grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-6 gap-6 text-white overflow-y-hidden sm:h-20 ${aberto ? "h-fit" : ""}`}
+            className={`w-full grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-6 gap-6 text-white sm:h-20 ${aberto ? "sm:h-fit " : "overflow-y-hidden"}`}
          >
             {iconesComDescricao
                .filter((v) => icones.includes(v.nome))
