@@ -4,6 +4,8 @@ Website institucional moderno desenvolvido para a AMC Construções utilizando N
 
 ---
 
+<img width="1201" height="840" alt="novo_amc optimizado" src="https://github.com/user-attachments/assets/9dc4c435-6770-4ba4-ac5e-f93fae8ffaa9" />
+
 ## ✨ Sobre o projeto
 
 Este projeto foi desenvolvido para modernizar completamente a presença digital da AMC Construções, substituindo o website anterior por uma plataforma mais rápida, escalável e otimizada para motores de busca.
