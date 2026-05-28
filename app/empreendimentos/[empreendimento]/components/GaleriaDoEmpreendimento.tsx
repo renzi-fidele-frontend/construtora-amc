@@ -1,10 +1,8 @@
 import Container from "@/components/layout/Container";
+import LightBoxCarousel from "@/components/shared/LightboxCarousel";
 import SectionIntro from "@/components/shared/SectionIntro";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { IEmpreendimento } from "@/types/types";
-import dynamic from "next/dynamic";
-
-const LightBoxCarousel = dynamic(() => import("@/components/shared/LightboxCarousel"), { ssr: false });
 
 const GaleriaDoEmpreendimento = ({ empreendimento }: { empreendimento: IEmpreendimento }) => {
    function preverValue() {
