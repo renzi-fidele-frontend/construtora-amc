@@ -1,5 +1,6 @@
 import Container from "@/components/layout/Container";
 import BlogHome from "@/components/shared/BlogHome";
+import BlogHomeSkeleton from "@/components/shared/BlogHomeSkeleton";
 import Btn from "@/components/shared/Btn";
 import CardDepoimento from "@/components/shared/CardDepoimento";
 import CardDestaque from "@/components/shared/CardDestaque";
@@ -13,6 +14,7 @@ import { Calendar, HardHat, Store, UserStar } from "lucide-react";
 import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { Suspense } from "react";
 
 const descricao =
    "Sediada em Londrina-PR e com filial em Palhoça-SC, a AMC Construções reúne a tradição de um grupo com 29 anos de história, atuando com excelência em construção civil e desenvolvimento imobiliário.";
@@ -142,7 +144,9 @@ export default function Home() {
             <CarouselDeCTAsHome />
          </section>
          {/* Seção do blog */}
-         <BlogHome />
+         <Suspense fallback={<BlogHomeSkeleton />}>
+            <BlogHome />
+         </Suspense>
          {/* Seção dos depoimentos */}
          <section className="py-14 sm:py-24 relative">
             <Container>
