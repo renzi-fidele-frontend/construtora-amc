@@ -26,7 +26,7 @@ const CardEmpreendimento = ({ empreendimento, largura = "sm:w-fit" }: { empreend
             </div>
             {/* Imagem */}
             <Image
-               className="group-hover:sepia-60 w-full"
+               className="group-hover:sepia-60 w-full object-cover"
                width={352}
                height={198}
                src={empreendimento.thumbnail}

@@ -62,11 +62,11 @@ export default function Home() {
             <Container>
                <SectionIntro className="text-center" titulo="Empreendimentos" descricao="Conheça os nossos imóveis e encontre seu novo lar." />
                {/* Listagem desktop */}
-               <div className="hidden lg:flex gap-14 *:basis-[fit-content] justify-center flex-wrap">
+               <div className="hidden lg:flex gap-14 lg:*:basis-[29%] xl:*:basis-[28%] justify-center flex-wrap">
                   {empreendimentos
                      .filter((v) => v.destacado)
                      .map((v, k) => (
-                        <CardEmpreendimento empreendimento={v} key={k} />
+                        <CardEmpreendimento largura="w-full" empreendimento={v} key={k} />
                      ))}
                </div>
                {/* Slider Mobile */}
@@ -75,8 +75,8 @@ export default function Home() {
                      {empreendimentos
                         .filter((v) => v.destacado)
                         .map((v, k) => (
-                           <CarouselItem className="basis-[90%] sm:basis-auto" key={k}>
-                              <CardEmpreendimento empreendimento={v} />
+                           <CarouselItem className="basis-[90%] sm:basis-[80%] md:basis-[65%]" key={k}>
+                              <CardEmpreendimento largura="w-full" empreendimento={v} />
                            </CarouselItem>
                         ))}
                   </CarouselContent>
