@@ -1,5 +1,5 @@
 import Paginacao from "@/components/shared/Paginacao";
-import { apanhar_artigos } from "@/lib/api";
+import { apanhar_artigos } from "@/lib/blog";
 import { IArtigo } from "@/models/Artigo";
 import { Metadata } from "next";
 import Image from "next/image";

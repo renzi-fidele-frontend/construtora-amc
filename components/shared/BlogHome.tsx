@@ -1,4 +1,4 @@
-import { apanhar_artigos } from "@/lib/api";
+import { apanhar_artigos } from "@/lib/blog";
 import Container from "../layout/Container";
 import SectionIntro from "./SectionIntro";
 import CardBlog from "./CardBlog";

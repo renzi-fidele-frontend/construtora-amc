@@ -1,4 +1,4 @@
-import { apanhar_artigo } from "@/lib/api";
+import { apanhar_artigo } from "@/lib/blog";
 import { CalendarDays, ClockFading } from "lucide-react";
 import Image from "next/image";
 import styles from "@/app/admin/components/RichEditor.module.css";

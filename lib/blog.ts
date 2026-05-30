@@ -1,9 +1,12 @@
+"use server";
+
 import Artigo, { IArtigo } from "@/models/Artigo";
 import { cache } from "react";
 import { dbConnect } from "./dbConnect";
+import { redirect } from "next/navigation";
 
 // Aqui estão todas as funcionalidades que fazer as requisições públicas ao back-end
-interface IResponse {
+export interface IArticlesResponse {
    artigos: IArtigo[];
    totalPaginas: number;
 }
@@ -19,7 +22,7 @@ export async function apanhar_artigos(limite: number, pagina: number) {
    const totalDocs = await Artigo.countDocuments();
    const totalPaginas = Math.ceil(totalDocs / limite);
 
-   return { artigos, totalPaginas } as IResponse;
+   return { artigos, totalPaginas } as IArticlesResponse;
 }
 
 export async function apanhar_artigos_mais_lidos() {
@@ -33,3 +36,10 @@ export const apanhar_artigo = cache(async (slug: string) => {
    const artigo = await Artigo.findOne({ slug });
    return { artigo } as { artigo: IArtigo };
 });
+
+export async function remover_artigo(slug: string) {
+   await dbConnect();
+   const remover = await Artigo.deleteOne({ slug });
+   console.log("Artigo removido com sucesso");
+   redirect("/admin/gerir_posts");
+}

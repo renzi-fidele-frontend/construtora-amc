@@ -10,7 +10,6 @@ import { MapPin } from "lucide-react";
 import Mapa from "./components/Mapa";
 import MapProvider from "./components/MapProvider";
 import { Metadata } from "next";
-import dynamic from "next/dynamic";
 import GaleriaDoEmpreendimento from "./components/GaleriaDoEmpreendimento";
 
 function encontrarEmpreendimento(idEmpreendimento: string) {

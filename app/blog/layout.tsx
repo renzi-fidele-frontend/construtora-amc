@@ -1,7 +1,7 @@
 import Container from "@/components/layout/Container";
 import CarouselDeBannersDoBlog from "@/components/shared/CarouselDeBannersDoBlog";
 import { fotosDestaquesBlog } from "@/data/data";
-import { apanhar_artigos_mais_lidos } from "@/lib/api";
+import { apanhar_artigos_mais_lidos } from "@/lib/blog";
 import { Plus } from "lucide-react";
 import Link from "next/link";
 import { ReactNode } from "react";
