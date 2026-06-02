@@ -9,8 +9,10 @@ import Image from "next/image";
 import Btn from "@/components/shared/Btn";
 import { publicarArtigo } from "@/lib/admin";
 import { slugify } from "@/lib/utils";
+import { useRouter } from "next/navigation";
 
 export default function CriarPost() {
+   const router = useRouter();
    const [previaThumbanil, setPreviaThumbnail] = useState<ArrayBuffer | string | null>(null);
    const [previaDestaque, setPreviaDestaque] = useState<ArrayBuffer | string | null>(null);
    // Inputs do formulário
@@ -19,6 +21,7 @@ export default function CriarPost() {
    const thumbnailRef = useRef<HTMLInputElement>(null);
    const destaqueRef = useRef<HTMLInputElement>(null);
    const conteudoRef = useRef<string>(null);
+   const [loadingPost, setLoadingPost] = useState(false);
 
    function renderizarPreviaThumbnail(e: ChangeEvent<HTMLInputElement>) {
       if (!e.target.files) return;
@@ -41,6 +44,7 @@ export default function CriarPost() {
    // Publicando o artigo
    async function handleSubmit(e: FormEvent<HTMLFormElement>) {
       e.preventDefault();
+      setLoadingPost(true);
 
       // Pegando os dados do formulário
       const titulo = tituloRef?.current?.value;
@@ -62,9 +66,7 @@ export default function CriarPost() {
       data.append("slug", slugify(titulo));
 
       const res = await publicarArtigo(data);
-
-      // Navegar para a pagina do artigo
-      console.log(res);
+      router.push(res.artigo.slug);
    }
 
    return (
@@ -168,7 +170,7 @@ export default function CriarPost() {
                />
             </fieldset>
 
-            <Btn type="submit">Publicar artigo</Btn>
+            <Btn type="submit">{loadingPost ? "Publicando..." : "Publicar artigo"} </Btn>
          </form>
       </Container>
    );

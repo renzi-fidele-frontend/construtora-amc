@@ -46,6 +46,7 @@ export async function POST(req: NextRequest) {
       const artigo = await Artigo.create({ titulo, descricao, thumbnail: carregarThumbnail, destaque: carregarDestaque, conteudo, slug });
 
       // Retornar a resposta
+      // Redirecionar para a página do artigo
       return NextResponse.json({ message: "Artigo publicado com sucesso!", artigo });
    } catch (error) {
       console.log(error);
