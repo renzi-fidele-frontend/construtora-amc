@@ -5,16 +5,23 @@ import dayjs from "dayjs";
 import { Edit, Eye, Loader, Trash2 } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
+import { toast } from "sonner";
 
 dayjs.locale("pt-br");
 
-const LinhaArtigo = ({ artigo }: { artigo: IArtigo }) => {
+const LinhaArtigo = ({ artigo, refetch }: { artigo: IArtigo; refetch: () => void }) => {
    const [loading, setLoading] = useState(false);
 
    async function handleDelete(slug: string) {
       setLoading(true);
-      await remover_artigo(slug);
+      const remover = await remover_artigo(slug);
+      if (remover) {
+         toast("Artigo removido com sucesso!");
+      } else {
+         toast.error("Erro ao remover o artigo!");
+      }
       setLoading(false);
+      refetch();
    }
 
    return (

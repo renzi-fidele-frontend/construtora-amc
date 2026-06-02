@@ -11,11 +11,16 @@ dayjs.locale("pt-br");
 const GerirPosts = () => {
    const [artigos, setArtigos] = useState<IArticlesResponse | null>(null);
 
+   async function refetch() {
+      const res = await fetch("/api/apanhar_artigos");
+      const data = (await res.json()) as IArticlesResponse;
+      setArtigos(data);
+   }
+
    useEffect(() => {
       async function apanharArtigos() {
          const res = await fetch("/api/apanhar_artigos");
          const data = (await res.json()) as IArticlesResponse;
-         console.log(data);
          setArtigos(data);
       }
       if (!artigos) apanharArtigos();
@@ -32,7 +37,9 @@ const GerirPosts = () => {
                   <th>Ações</th>
                </tr>
             </thead>
-            <tbody>{artigos?.artigos?.length && artigos?.artigos?.map((artigo, k) => <LinhaArtigo artigo={artigo} key={k} />)}</tbody>
+            <tbody>
+               {artigos?.artigos?.length && artigos?.artigos?.map((artigo, k) => <LinhaArtigo refetch={refetch} artigo={artigo} key={k} />)}
+            </tbody>
          </table>
       </Container>
    );

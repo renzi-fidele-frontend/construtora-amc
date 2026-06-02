@@ -66,7 +66,7 @@ export default function CriarPost() {
       data.append("slug", slugify(titulo));
 
       const res = await publicarArtigo(data);
-      router.push(res.artigo.slug);
+      router.push(`/blog/${res.artigo.slug}`);
    }
 
    return (

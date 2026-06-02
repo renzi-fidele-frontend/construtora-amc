@@ -3,7 +3,6 @@
 import Artigo, { IArtigo } from "@/models/Artigo";
 import { cache } from "react";
 import { dbConnect } from "./dbConnect";
-import { redirect } from "next/navigation";
 
 // Aqui estão todas as funcionalidades que fazer as requisições públicas ao back-end
 export interface IArticlesResponse {
@@ -37,9 +36,10 @@ export const apanhar_artigo = cache(async (slug: string) => {
    return { artigo } as { artigo: IArtigo };
 });
 
+// TODO: Ao remover um artigo, deverá ser removido também o thumbnail e a destaque do artigo no cloudinary
 export async function remover_artigo(slug: string) {
    await dbConnect();
    const remover = await Artigo.deleteOne({ slug });
    console.log("Artigo removido com sucesso");
-   redirect("/admin/gerir_posts");
+   return remover.acknowledged;
 }
