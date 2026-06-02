@@ -43,3 +43,19 @@ export async function remover_artigo(slug: string) {
    console.log("Artigo removido com sucesso");
    return remover.acknowledged;
 }
+
+type IArtigoNovo = {
+   titulo: string;
+   descricao: string;
+   conteudo: string;
+   slug: string;
+};
+export async function editar_artigo(artigoNovo: IArtigoNovo, artigoAnterior: IArtigo) {
+   await dbConnect();
+   //  TODO: Caso as imagens sejam alteradas publicar no cloudinary
+
+   const editar = await Artigo.updateOne({ slug: artigoAnterior.slug }, { ...artigoNovo });
+   
+   console.log("Artigo editado com sucesso");
+   return editar.acknowledged;
+}
