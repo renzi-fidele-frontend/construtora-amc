@@ -33,7 +33,7 @@ const LinhaArtigo = ({ artigo, refetch }: { artigo: IArtigo; refetch: () => void
                <Link href={`/blog/${artigo.slug}`} target="_blank" className="bg-theme1">
                   <Eye className="size-4" /> Ver
                </Link>
-               <Link href={`/admin/editar_post/${artigo.slug}`} className="bg-theme2">
+               <Link href={`/admin/editar_post/${artigo._id}`} className="bg-theme2">
                   <Edit className="size-4" /> Editar
                </Link>
                <button onClick={() => handleDelete(artigo.slug)} className="bg-red-700">

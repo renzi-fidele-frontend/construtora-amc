@@ -30,9 +30,15 @@ export async function apanhar_artigos_mais_lidos() {
    return { artigos } as { artigos: IArtigo[] };
 }
 
-export const apanhar_artigo = cache(async (slug: string) => {
+/** Apanha um artigo do banco de dados com base no slug ou id */
+export const apanhar_artigo = cache(async (slug?: string, id?: string) => {
    await dbConnect();
-   const artigo = await Artigo.findOne({ slug });
+   let artigo;
+   if (slug) artigo = await Artigo.findOne({ slug });
+   else if (id) {
+      artigo = await Artigo.findById(id);
+   }
+
    return { artigo } as { artigo: IArtigo };
 });
 
@@ -55,7 +61,7 @@ export async function editar_artigo(artigoNovo: IArtigoNovo, artigoAnterior: IAr
    //  TODO: Caso as imagens sejam alteradas publicar no cloudinary
 
    const editar = await Artigo.updateOne({ slug: artigoAnterior.slug }, { ...artigoNovo });
-   
+
    console.log("Artigo editado com sucesso");
    return editar.acknowledged;
 }

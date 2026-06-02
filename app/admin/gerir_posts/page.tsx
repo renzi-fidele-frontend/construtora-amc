@@ -5,7 +5,6 @@ import { IArticlesResponse } from "@/lib/blog";
 import dayjs from "dayjs";
 import { useEffect, useState } from "react";
 import LinhaArtigo from "../components/LinhaArtigo";
-import { gerarArray } from "@/lib/utils";
 
 dayjs.locale("pt-br");
 
