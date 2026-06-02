@@ -38,9 +38,8 @@ const GerirPosts = () => {
                   <th>Ações</th>
                </tr>
             </thead>
-            <tbody>
-               {artigos?.artigos ? artigos?.artigos?.map((artigo, k) => <LinhaArtigo refetch={refetch} artigo={artigo} key={k} />) : gerarArray(7).map((v, k) => <LinhaArtigo key={k} />)}
-            </tbody>
+            {/* TODO: Adicionar loading de esqueleto para melhoria da UI */}
+            <tbody>{artigos?.artigos && artigos?.artigos?.map((artigo, k) => <LinhaArtigo refetch={refetch} artigo={artigo} key={k} />)}</tbody>
          </table>
       </Container>
    );

@@ -1,13 +1,16 @@
 "use client";
 import { Input } from "@/components/ui/input";
 import { Plus } from "lucide-react";
-import { ChangeEvent, FormEvent, useRef, useState } from "react";
+import { ChangeEvent, FormEvent, useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Btn from "@/components/shared/Btn";
 import { publicarArtigo } from "@/lib/admin";
 import { slugify } from "@/lib/utils";
 import { useRouter } from "next/navigation";
 import RichEditor from "./RichEditor";
+import { IArtigo } from "@/models/Artigo";
+import { editar_artigo } from "@/lib/blog";
+import { toast } from "sonner";
 
 const FormularioDoArtigo = ({ artigoAtual }: { artigoAtual?: IArtigo }) => {
    const router = useRouter();
@@ -52,20 +55,42 @@ const FormularioDoArtigo = ({ artigoAtual }: { artigoAtual?: IArtigo }) => {
       const conteudo = conteudoRef?.current;
 
       // Verificando se todos os inputs foram preenchidos
-      if (!titulo || !descricao || !thumbnail || !destaque || !conteudo) return;
-
+      if (!titulo || !descricao || !conteudo) return;
       // Enviando os dados para o backend
       const data = new FormData();
       data.append("titulo", titulo);
       data.append("descricao", descricao);
-      data.append("thumbnail", thumbnail);
-      data.append("destaque", destaque);
       data.append("conteudo", conteudo);
       data.append("slug", slugify(titulo));
+      if (thumbnail && destaque) {
+         data.append("thumbnail", thumbnail);
+         data.append("destaque", destaque);
+      }
 
-      const res = await publicarArtigo(data);
-      router.push(`/blog/${res.artigo.slug}`);
+      if (!artigoAtual) {
+         const publicar = await publicarArtigo(data);
+         router.push(`/blog/${publicar.artigo.slug}`);
+      } else {
+         // TODO: Adicionar a funcionalidade de editar o artigo via server action
+         const novoArtigo = { titulo, descricao, conteudo, slug: slugify(titulo) };
+         console.log(novoArtigo);
+         const editar = await editar_artigo(novoArtigo, artigoAtual);
+         if (editar) toast("Artigo editado com sucesso!");
+
+         // router.push(`/blog/${editar.artigo.slug}`);
+      }
+      setLoadingPost(false);
    }
+
+   //  Renderizando as prévias dos imagens caso se esteja no modo de edição
+   useEffect(() => {
+      function renderizarImagens() {
+         setPreviaThumbnail(String(artigoAtual?.thumbnail.secure_url));
+         setPreviaDestaque(String(artigoAtual?.destaque.secure_url));
+         conteudoRef.current = String(artigoAtual?.conteudo);
+      }
+      if (artigoAtual) renderizarImagens();
+   }, [artigoAtual]);
 
    return (
       <form
@@ -75,13 +100,20 @@ const FormularioDoArtigo = ({ artigoAtual }: { artigoAtual?: IArtigo }) => {
          {/* Título */}
          <fieldset>
             <label htmlFor="titulo">Titulo do artigo</label>
-            <Input required ref={tituloRef} name="titulo" id="titulo" />
+            <Input defaultValue={artigoAtual && artigoAtual.titulo} required ref={tituloRef} name="titulo" id="titulo" />
          </fieldset>
 
          {/* Descrição */}
          <fieldset>
             <label htmlFor="descricao">Descrição do artigo</label>
-            <textarea required ref={descricaoRef} className="w-full border border-theme1 h-23 p-3" name="descricao" id="descricao"></textarea>
+            <textarea
+               defaultValue={artigoAtual && artigoAtual.descricao}
+               required
+               ref={descricaoRef}
+               className="w-full border border-theme1 h-23 p-3"
+               name="descricao"
+               id="descricao"
+            ></textarea>
          </fieldset>
 
          {/* Thumbnail */}
@@ -109,7 +141,7 @@ const FormularioDoArtigo = ({ artigoAtual }: { artigoAtual?: IArtigo }) => {
             </label>
             {/* Input invisível */}
             <input
-               required
+               required={artigoAtual ? false : true}
                ref={thumbnailRef}
                className="hidden"
                type="file"
@@ -145,7 +177,7 @@ const FormularioDoArtigo = ({ artigoAtual }: { artigoAtual?: IArtigo }) => {
             </label>
             {/* Input invisível */}
             <input
-               required
+               required={artigoAtual ? false : true}
                ref={destaqueRef}
                className="hidden"
                type="file"
@@ -163,10 +195,11 @@ const FormularioDoArtigo = ({ artigoAtual }: { artigoAtual?: IArtigo }) => {
                onChange={(html) => {
                   conteudoRef.current = html;
                }}
+               content={artigoAtual && artigoAtual.conteudo}
             />
          </fieldset>
 
-         <Btn type="submit">{loadingPost ? "Publicando..." : "Publicar artigo"} </Btn>
+         <Btn type="submit">{loadingPost ? "Publicando..." : artigoAtual ? "Salvar alterações" : "Publicar artigo"} </Btn>
       </form>
    );
 };
