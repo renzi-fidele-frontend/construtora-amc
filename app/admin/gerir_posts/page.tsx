@@ -5,6 +5,7 @@ import { IArticlesResponse } from "@/lib/blog";
 import dayjs from "dayjs";
 import { useEffect, useState } from "react";
 import LinhaArtigo from "../components/LinhaArtigo";
+import { gerarArray } from "@/lib/utils";
 
 dayjs.locale("pt-br");
 
@@ -38,7 +39,7 @@ const GerirPosts = () => {
                </tr>
             </thead>
             <tbody>
-               {artigos?.artigos?.length && artigos?.artigos?.map((artigo, k) => <LinhaArtigo refetch={refetch} artigo={artigo} key={k} />)}
+               {artigos?.artigos ? artigos?.artigos?.map((artigo, k) => <LinhaArtigo refetch={refetch} artigo={artigo} key={k} />) : gerarArray(7).map((v, k) => <LinhaArtigo key={k} />)}
             </tbody>
          </table>
       </Container>
