@@ -2,13 +2,7 @@
 import Artigo, { IArtigo } from "@/models/Artigo";
 import { cache } from "react";
 import { dbConnect } from "./dbConnect";
-import { v2 as cloudinary } from "cloudinary";
-
-cloudinary.config({
-   cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
-   api_key: process.env.CLOUDINARY_API_KEY,
-   api_secret: process.env.CLOUDINARY_API_SECRET,
-});
+import { carregar_imagem } from "./cloudinary";
 
 // Aqui estão todas as funcionalidades que fazer as requisições públicas ao back-end
 export interface IArticlesResponse {
@@ -81,33 +75,16 @@ type IArtigoNovo = {
 export async function publicar_artigo(artigoNovo: IArtigoNovo) {
    await dbConnect();
 
-   // Enviar o thumbnail para o cloudinary
    if (!artigoNovo.thumbnail || !artigoNovo.destaque) return;
-   const buffer_thumbnail = Buffer.from(await artigoNovo.thumbnail.arrayBuffer());
-   const carregarThumbnail = await new Promise((resolve, reject) => {
-      cloudinary.uploader
-         .upload_stream({ folder: "AMC Contruções" }, (error, result) => {
-            if (error) reject(error);
-            else resolve(result);
-         })
-         .end(buffer_thumbnail);
-   });
 
-   // Enviar a foto de destaque para o cloudinary
-   const buffer_destaque = Buffer.from(await artigoNovo.destaque.arrayBuffer());
-   const carregarDestaque = await new Promise((resolve, reject) => {
-      cloudinary.uploader
-         .upload_stream({ folder: "AMC Contruções" }, (error, result) => {
-            if (error) reject(error);
-            else resolve(result);
-         })
-         .end(buffer_destaque);
-   });
+   // Enviando as imagens para o cloudinary
+   const thumbnail = await carregar_imagem(artigoNovo.thumbnail);
+   const destaque = await carregar_imagem(artigoNovo.destaque);
 
    const data = {
       ...artigoNovo,
-      thumbnail: carregarThumbnail,
-      destaque: carregarDestaque,
+      thumbnail,
+      destaque,
    };
 
    const publicar = await Artigo.create(data);
