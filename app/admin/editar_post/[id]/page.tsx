@@ -4,11 +4,11 @@ import { apanhar_artigo } from "@/lib/blog";
 import FormularioDoArtigo from "../../components/FormularioDoArtigo";
 import { IArtigo } from "@/models/Artigo";
 
-type Props = { params: Promise<{ slug: string }> };
+type Props = { params: Promise<{ id: string }> };
 
 export default async function EditarPost({ params }: Props) {
    const { id } = await params;
-   const artigo = await apanhar_artigo(null, id);
+   const artigo = await apanhar_artigo(undefined, id);
    const _artigo = JSON.parse(JSON.stringify(artigo.artigo)) as IArtigo;
 
    return (

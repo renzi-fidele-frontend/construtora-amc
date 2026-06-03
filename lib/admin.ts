@@ -65,12 +65,3 @@ export async function removerImagemNoCloudinary(publicId: string) {
    const data = await res.json();
    return data;
 }
-
-export async function publicarArtigo(formData: FormData) {
-   const res = await fetch(`${process.env.DOMAIN}/api/publicar_artigo`, {
-      method: "POST",
-      body: formData,
-   });
-   const data = await res.json();
-   return data;
-}
