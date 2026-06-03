@@ -75,7 +75,7 @@ export default function Home() {
                      {empreendimentos
                         .filter((v) => v.destacado)
                         .map((v, k) => (
-                           <CarouselItem className="basis-[90%] sm:basis-[80%] md:basis-[65%]" key={k}>
+                           <CarouselItem className="basis-[90%] sm:basis-[60%] md:basis-[42%]" key={k}>
                               <CardEmpreendimento largura="w-full" empreendimento={v} />
                            </CarouselItem>
                         ))}
