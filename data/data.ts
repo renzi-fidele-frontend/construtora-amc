@@ -12,9 +12,9 @@ export const fotosDestaques = [
 ];
 
 export const fotosDestaquesBlog = [
-   { foto: "/img/blog/banners/1.jpg", url: "/empreendimentos/solar-de-hamburgo" },
-   { foto: "/img/blog/banners/2.jpg", url: "/empreendimentos/ilha-di-capri" },
-   { foto: "/img/blog/banners/3.jpg", url: "/empreendimentos/solar-dos-alamos" },
+   { foto: "/img/blog/banners/1.jpg", url: "/empreendimentos/portal-do-lago" },
+   { foto: "/img/blog/banners/2.jpg", url: "/empreendimentos/casa-blanca-residence" },
+   { foto: "/img/blog/banners/3.jpg", url: "/empreendimentos/ilha-di-capri" },
 ];
 
 export const empreendimentos: IEmpreendimento[] = [
