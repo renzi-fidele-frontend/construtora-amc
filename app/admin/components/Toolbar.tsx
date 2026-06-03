@@ -2,7 +2,7 @@ import Btn from "@/components/shared/Btn";
 import { Input } from "@/components/ui/input";
 import { Popover, PopoverContent, PopoverTitle, PopoverTrigger } from "@/components/ui/popover";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
-import { carregarImagemNoCloudinary } from "@/lib/admin";
+import { carregar_imagem } from "@/lib/cloudinary";
 import { SetImageOptions } from "@tiptap/extension-image";
 import { useEditorState, type Editor } from "@tiptap/react";
 import {
@@ -128,21 +128,19 @@ const Toolbar = ({ editor }: Props) => {
    async function adicionarImagem(e: ChangeEvent<HTMLInputElement>) {
       setLoadingImgUpload(true);
       const file = e.target.files?.[0];
-      if (file) {
-         const formData = new FormData();
-         formData.append("foto", file);
-         const enviar = await carregarImagemNoCloudinary(formData);
-         if (enviar.foto)
+      if (file) {         
+         const enviar = await carregar_imagem(file);
+         if (enviar)
             editor
                .chain()
                .focus()
                .setImage({
-                  src: enviar.foto.url,
-                  width: enviar.foto.width,
-                  height: enviar.foto.height,
-                  alt: enviar.foto.alt,
-                  title: enviar.foto.title,
-                  publicId: enviar.foto.public_id,
+                  src: enviar.url,
+                  width: enviar.width,
+                  height: enviar.height,
+                  alt: enviar.alt,
+                  title: enviar.title,
+                  publicId: enviar.public_id,
                } as SetImageOptions)
                .run();
          e.target.files = null;

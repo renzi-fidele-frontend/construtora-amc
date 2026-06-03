@@ -1,8 +1,8 @@
 import Image from "@tiptap/extension-image";
 import { ReactNodeViewRenderer } from "@tiptap/react";
 import ImagemEditavelView from "./ImagemEditavelView";
-import { NodeSelection, Plugin, PluginKey } from "@tiptap/pm/state";
-import { removerImagemNoCloudinary } from "@/lib/admin";
+import {  Plugin, PluginKey } from "@tiptap/pm/state";
+import { remover_imagem } from "@/lib/cloudinary";
 
 /** Esta extensão representa uma imagem no editor de texto.
  * - A imagem pode ser removida do cloudinary e do editor
@@ -51,7 +51,7 @@ export const ImagemEditavel = Image.extend({
 
                // Removendo as imagens removidas do cloudinary
                imagensRemovidas.forEach((id) => {
-                  removerImagemNoCloudinary(id);
+                  remover_imagem(id);
                });
 
                return null;

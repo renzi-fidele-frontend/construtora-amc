@@ -1,5 +1,5 @@
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
-import { removerImagemNoCloudinary } from "@/lib/admin";
+import { remover_imagem } from "@/lib/cloudinary";
 import { NodeViewProps, NodeViewWrapper } from "@tiptap/react";
 import { Loader, TextAlignCenter, TextAlignEnd, TextAlignStart, Trash2 } from "lucide-react";
 import Image from "next/image";
@@ -13,7 +13,7 @@ export default function ImagemEditavelView({ node, editor, getPos }: NodeViewPro
       setLoading(true);
       // Remover do cloudinary
       if (publicId) {
-         await removerImagemNoCloudinary(publicId);
+         await remover_imagem(publicId);
       }
 
       // Remover do editor
