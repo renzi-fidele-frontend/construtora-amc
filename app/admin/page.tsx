@@ -37,7 +37,7 @@ export default function Admin() {
             </fieldset>
             {/* Botão */}
             <div className="mt-3">
-               <Btn className="w-full">Entrar como administrador</Btn>
+               <Btn type="submit" className="w-full">Entrar como administrador</Btn>
             </div>
          </form>
       </Container>
