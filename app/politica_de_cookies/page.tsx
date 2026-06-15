@@ -1,14 +1,44 @@
 import Container from "@/components/layout/Container";
 import SectionIntro from "@/components/shared/SectionIntro";
+import type { Metadata } from "next";
 import Image from "next/image";
+
+export const metadata: Metadata = {
+   title: "Política de Cookies",
+
+   description:
+      "Saiba como a AMC Construções utiliza cookies para melhorar a experiência de navegação, analisar o desempenho do site e fornecer funcionalidades essenciais.",
+
+   alternates: {
+      canonical: "https://amc.eng.br/politica-de-cookies",
+   },
+
+   openGraph: {
+      title: "Política de Cookies | AMC Construções",
+      description: "Conheça como a AMC Construções utiliza cookies em seu website.",
+      url: "https://amc.eng.br/politica-de-cookies",
+      type: "article",
+   },
+
+   robots: {
+      index: true,
+      follow: true,
+   },
+};
 
 const PoliticaDeCookies = () => {
    return (
       <div>
          {/* Banner do topo */}
-         <Image width={1920} height={352} src="/img/banners/politica-privacidade.webp" alt="Foto do banner da página de política de privadade" />
+         <Image
+            width={1920}
+            height={352}
+            src="/img/banners/politica-privacidade.webp"
+            alt="Banner da página de Política de Cookies da AMC Construções"
+         />
          <Container className="py-8 sm:py-12 md:py-14 lg:py-18 xl:py-25">
             <SectionIntro
+               heading="h1"
                className="items-start! mb-2!"
                titulo="Política de Cookies"
                descricao="Utilizamos cookies para melhorar o desempenho e a sua experiência como usuário do nosso site."
