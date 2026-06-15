@@ -5,13 +5,18 @@ import SectionIntro from "@/components/shared/SectionIntro";
 import { Input } from "@/components/ui/input";
 import { login } from "@/lib/admin";
 import { useRouter } from "next/navigation";
+import { toast } from "sonner";
 
 export default function Admin() {
    const router = useRouter();
 
    async function handleLogin(formData: FormData) {
-      await login(formData);
-      router.push("/");
+      const user = await login(formData);
+      if (user) {
+         router.push("/");
+      } else {
+         toast.error("Erro ao fazer login!");
+      }
    }
 
    return (
@@ -37,7 +42,9 @@ export default function Admin() {
             </fieldset>
             {/* Botão */}
             <div className="mt-3">
-               <Btn type="submit" className="w-full">Entrar como administrador</Btn>
+               <Btn type="submit" className="w-full">
+                  Entrar como administrador
+               </Btn>
             </div>
          </form>
       </Container>
