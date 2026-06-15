@@ -4,13 +4,15 @@ import { IArtigo } from "@/models/Artigo";
 import dayjs from "dayjs";
 import { Edit, Eye, Loader, Trash2 } from "lucide-react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { toast } from "sonner";
 
 dayjs.locale("pt-br");
 
-const LinhaArtigo = ({ artigo, refetch }: { artigo: IArtigo; refetch: () => void }) => {
+const LinhaArtigo = ({ artigo }: { artigo: IArtigo }) => {
    const [loading, setLoading] = useState(false);
+   const router = useRouter();
 
    async function handleDelete(slug: string) {
       setLoading(true);
@@ -21,7 +23,7 @@ const LinhaArtigo = ({ artigo, refetch }: { artigo: IArtigo; refetch: () => void
          toast.error("Erro ao remover o artigo!");
       }
       setLoading(false);
-      refetch();
+      router.push("/");
    }
 
    return (

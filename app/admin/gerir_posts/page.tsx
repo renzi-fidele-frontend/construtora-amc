@@ -1,30 +1,15 @@
-"use client";
 import Container from "@/components/layout/Container";
 import SectionIntro from "@/components/shared/SectionIntro";
-import { IArticlesResponse } from "@/lib/blog";
 import dayjs from "dayjs";
-import { useEffect, useState } from "react";
 import LinhaArtigo from "../components/LinhaArtigo";
+import { apanhar_artigos } from "@/lib/blog";
+import { IArtigo } from "@/models/Artigo";
 
 dayjs.locale("pt-br");
 
-const GerirPosts = () => {
-   const [artigos, setArtigos] = useState<IArticlesResponse | null>(null);
-
-   async function refetch() {
-      const res = await fetch("/api/apanhar_artigos");
-      const data = (await res.json()) as IArticlesResponse;
-      setArtigos(data);
-   }
-
-   useEffect(() => {
-      async function apanharArtigos() {
-         const res = await fetch("/api/apanhar_artigos");
-         const data = (await res.json()) as IArticlesResponse;
-         setArtigos(data);
-      }
-      if (!artigos) apanharArtigos();
-   }, [artigos]);
+const GerirPosts = async () => {
+   const { artigos } = await apanhar_artigos(1000, 1);
+   const _artigos = JSON.parse(JSON.stringify(artigos)) as IArtigo[];
 
    return (
       <Container className="py-25 flex flex-col items-center">
@@ -38,7 +23,7 @@ const GerirPosts = () => {
                </tr>
             </thead>
             {/* TODO: Adicionar loading de esqueleto para melhoria da UI */}
-            <tbody>{artigos?.artigos && artigos?.artigos?.map((artigo, k) => <LinhaArtigo refetch={refetch} artigo={artigo} key={k} />)}</tbody>
+            <tbody>{_artigos && _artigos?.map((artigo, k) => <LinhaArtigo artigo={artigo} key={k} />)}</tbody>
          </table>
       </Container>
    );
