@@ -1,7 +1,25 @@
 import Container from "@/components/layout/Container";
 import Breadcrumb from "@/components/shared/Breadcrumb";
 import SectionIntro from "@/components/shared/SectionIntro";
+import type { Metadata } from "next";
 import Image from "next/image";
+
+export const metadata: Metadata = {
+   title: "Missão, Visão e Valores",
+
+   description:
+      "Conheça a missão, visão e valores da AMC Construções, que orientam nossas práticas, projetos e compromisso com qualidade, ética e inovação.",
+
+   alternates: {
+      canonical: "https://amc.eng.br/institucional/missao_visao_valores",
+   },
+
+   openGraph: {
+      title: "Missão, Visão e Valores | AMC Construções",
+      description: "Entenda os princípios que guiam a AMC Construções em seus projetos de infraestrutura e construção civil.",
+      url: "https://amc.eng.br/institucional/missao_visao_valores",
+   },
+};
 
 const MissaoVissaoEValores = () => {
    return (
@@ -24,6 +42,7 @@ const MissaoVissaoEValores = () => {
          <section>
             <Container className="py-25">
                <SectionIntro
+                  heading="h1"
                   className="items-start! mb-2! [&_p]:font-bold"
                   titulo="Missão, Visão e Valores"
                   descricao="Identidade Organizacional AMC Construções"
@@ -33,15 +52,14 @@ const MissaoVissaoEValores = () => {
                <div className="mt-9 space-y-16 [&_h3]:text-3xl [&_h3]:font-bold [&_h3]:mb-4 text-xl">
                   <div className="bg-linear-to-r from-blue-50 to-indigo-50 p-8 rounded-lg mb-8 border-l-4 border-theme2">
                      <p className="text-lg text-gray-800 font-semibold">
-                        Na AMC Construções, acreditamos que construir vai além de estruturas. É sobre criar legados, impactar comunidades e
-                        estabelecer padrões de excelência que transcendem gerações. Nossa missão, visão e valores são o alicerce que nos guia em
-                        cada projeto.
+                        Na AMC Construções, acreditamos que construir vai além de estruturas. Criamos soluções que impactam comunidades e
+                        estabelecem padrões de excelência em cada projeto executado.
                      </p>
                   </div>
                   {/* Missão */}
                   <div>
                      <h3>Missão</h3>
-                     <p>Desenvolver produtos com excelência, responsabilidade e ética, garantindo a satisfação de nossos cliente.</p>
+                     <p>Desenvolver produtos com excelência, responsabilidade e ética, garantindo a satisfação de nossos clientes.</p>
                   </div>
 
                   {/* Visão */}
@@ -57,13 +75,13 @@ const MissaoVissaoEValores = () => {
                   <div>
                      <h3>Valores</h3>
                      <ul className="space-y-2 list-disc list-inside">
-                        <li>Atuação ética e transparente</li>
+                        <li>Ética e transparência em todas as operações</li>
                         <li>Respeito e valorização das pessoas</li>
                         <li>Gestão ágil e compartilhada</li>
-                        <li>Excelência no serviço do cliente</li>
+                        <li>Excelência na entrega de projetos</li>
                         <li>Responsabilidade com o meio ambiente e a comunidade</li>
                         <li>Valorização da saúde e segurança</li>
-                        <li>Compromisso com resultados</li>
+                        <li>Compromisso com resultados sustentáveis</li>
                      </ul>
                   </div>
 

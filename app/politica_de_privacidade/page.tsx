@@ -9,13 +9,13 @@ export const metadata: Metadata = {
    description: "Conheça a Política de Privacidade da AMC Construções e saiba como coletamos, utilizamos e protegemos os seus dados pessoais.",
 
    alternates: {
-      canonical: "https://amc.eng.br/politica-de-privacidade",
+      canonical: "https://amc.eng.br/politica_de_privacidade",
    },
 
    openGraph: {
       title: "Política de Privacidade | AMC Construções",
       description: "Saiba como a AMC Construções trata e protege os dados pessoais dos usuários.",
-      url: "https://amc.eng.br/politica-de-privacidade",
+      url: "https://amc.eng.br/politica_de_privacidade",
    },
 };
 

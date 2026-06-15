@@ -29,6 +29,7 @@ const links: TypeLinks = [
       url: "#",
       megaLinks: [
          { titulo: "Quem somos", url: "/institucional/quem_somos" },
+         { titulo: "Missão, visão e valores", url: "/institucional/missao_visao_valores" },
          { titulo: "Infraestrutura", url: "/institucional/infraestrutura" },
          { titulo: "Clientes", url: "/institucional/clientes" },
          { titulo: "Depoimentos", url: "/institucional/depoimentos" },
