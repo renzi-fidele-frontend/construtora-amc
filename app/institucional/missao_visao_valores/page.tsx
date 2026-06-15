@@ -58,13 +58,13 @@ const MissaoVissaoEValores = () => {
                   </div>
                   {/* Missão */}
                   <div>
-                     <h3>Missão</h3>
+                     <h2>Missão</h2>
                      <p>Desenvolver produtos com excelência, responsabilidade e ética, garantindo a satisfação de nossos clientes.</p>
                   </div>
 
                   {/* Visão */}
                   <div>
-                     <h3>Visão</h3>
+                     <h2>Visão</h2>
                      <p>
                         Estar entre as principais Construtoras do Brasil em 5 anos, trazendo sempre soluções inovadoras para o setor, entregando
                         produtos com qualidade e rentabilidade para a empresa.
@@ -73,7 +73,7 @@ const MissaoVissaoEValores = () => {
 
                   {/* Valores */}
                   <div>
-                     <h3>Valores</h3>
+                     <h2>Valores</h2>
                      <ul className="space-y-2 list-disc list-inside">
                         <li>Ética e transparência em todas as operações</li>
                         <li>Respeito e valorização das pessoas</li>
@@ -87,7 +87,7 @@ const MissaoVissaoEValores = () => {
 
                   {/* Política de Qualidade */}
                   <div>
-                     <h3>Política de Qualidade</h3>
+                     <h2>Política de Qualidade</h2>
                      <p>
                         Atuar buscando plena satisfação do cliente por meio da melhoria contínua no processo de qualidade e com nossos
                         escritórios e canteiros de obras comprometidos com a sustentabilidade.

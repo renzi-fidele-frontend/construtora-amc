@@ -2,6 +2,19 @@ import Container from "@/components/layout/Container";
 import Breadcrumb from "@/components/shared/Breadcrumb";
 import Image from "next/image";
 
+export const metadata = {
+   title: "Quem Somos",
+   description: "Conheça a história da AMC Construções, sua trajetória, certificações e atuação em obras em todo o Brasil.",
+   alternates: {
+      canonical: "https://amc.eng.br/institucional/quem_somos",
+   },
+   openGraph: {
+      title: "Quem Somos | AMC Construções",
+      description: "Conheça a história e atuação da AMC Construções.",
+      url: "https://amc.eng.br/institucional/quem_somos",
+   },
+};
+
 const QuemSomos = () => {
    return (
       <div className="pb-10 sm:pb-15 lg:pb-20 xl:pb-25.5">
@@ -19,7 +32,7 @@ const QuemSomos = () => {
             {/* História da AMC */}
             <div className="grid lg:grid-cols-2 gap-4 sm:gap-15">
                <div className="flex flex-col justify-center">
-                  <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold">Conheça a história da construtora AMC</h3>
+                  <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold">Conheça a história da construtora AMC</h1>
                   <div className="flex flex-col gap-3 sm:gap-4 lg:gap-8 my-6 lg:text-lg font-light">
                      <p>Há 29 anos atuando em todo o Brasil. Em cada obra você encontra um padrão de qualidade único.</p>
                      <p>
@@ -33,14 +46,14 @@ const QuemSomos = () => {
                         Construções é uma empresa moderna e diferenciada.
                      </p>
                   </div>
-                  <hr className="border " />
+                  <hr className="border" />
                </div>
                <Image
                   width={660}
                   height={495}
                   className="object-cover object-right h-full"
                   src="/img/quem_somos.webp"
-                  alt="Foto demonstrando um engenheiro professional da AMC Contruções planificando em uma obra"
+                  alt="Engenheiro profissional da AMC Construções planejando em uma obra"
                />
             </div>
             {/* Certificações da AMC */}
