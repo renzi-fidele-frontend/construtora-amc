@@ -17,7 +17,6 @@ export const metadata: Metadata = {
       title: "Política de Cookies | AMC Construções",
       description: "Conheça como a AMC Construções utiliza cookies em seu website.",
       url: "https://amc.eng.br/politica-de-cookies",
-      type: "article",
    },
 
    robots: {

@@ -1,6 +1,28 @@
 import Container from "@/components/layout/Container";
 import SectionIntro from "@/components/shared/SectionIntro";
+import type { Metadata } from "next";
 import Image from "next/image";
+
+export const metadata: Metadata = {
+   title: "Política de Privacidade",
+
+   description: "Conheça a Política de Privacidade da AMC Construções e saiba como coletamos, utilizamos e protegemos os seus dados pessoais.",
+
+   alternates: {
+      canonical: "https://amc.eng.br/politica-de-privacidade",
+   },
+
+   openGraph: {
+      title: "Política de Privacidade | AMC Construções",
+      description: "Saiba como a AMC Construções trata e protege os dados pessoais dos usuários.",
+      url: "https://amc.eng.br/politica-de-privacidade",
+   },
+
+   robots: {
+      index: true,
+      follow: true,
+   },
+};
 
 const PoliticaDePrivacidade = () => {
    return (
@@ -10,13 +32,14 @@ const PoliticaDePrivacidade = () => {
             width={1920}
             height={352}
             src="/img/banners/politica-privacidade.webp"
-            alt="Foto do banner da página de política de privadade"
+            alt="Banner da página de política de privadade da AMC Construções"
          />
          <Container className="py-8 sm:py-12 md:py-14 lg:py-18 xl:py-25">
             <SectionIntro
                className="items-start! mb-2!"
                titulo="Política de Privacidade"
-               descricao="Para saber mais sobre nossos empreendimentos, preencha o formulário que entraremos em contato com você."
+               heading="h1"
+               descricao="Entenda como coletamos, utilizamos, armazenamos e protegemos as informações pessoais fornecidas pelos usuários do nosso site."
             />
             {/* Conteúdo */}
             <div className="mt-8 sm:mt-12">
