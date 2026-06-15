@@ -10,6 +10,7 @@ import {
    DropdownMenuSeparator,
    DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { logout } from "@/lib/admin";
 import { CalendarPlus, ChevronDownIcon, FilePenLine, LogOut, User } from "lucide-react";
 import Link from "next/link";
 
@@ -47,7 +48,7 @@ export function AdminPanel() {
                      </Link>
                   </DropdownMenuGroup>
                   <DropdownMenuSeparator />
-                  <DropdownMenuGroup>
+                  <DropdownMenuGroup onClick={logout}>
                      <DropdownMenuItem variant="destructive">
                         <LogOut />
                         Deslogar
