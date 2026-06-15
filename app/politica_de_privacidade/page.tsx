@@ -17,11 +17,6 @@ export const metadata: Metadata = {
       description: "Saiba como a AMC Construções trata e protege os dados pessoais dos usuários.",
       url: "https://amc.eng.br/politica-de-privacidade",
    },
-
-   robots: {
-      index: true,
-      follow: true,
-   },
 };
 
 const PoliticaDePrivacidade = () => {
