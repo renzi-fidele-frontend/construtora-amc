@@ -8,7 +8,7 @@ import { useState } from "react";
 
 // TODO: Implementar a funcionalidade de envio de email para a construtora
 
-const FormularioDeParceria = () => {
+const FormularioDeContato = () => {
    const [cidadesDisponiveis, setCidadesDisponiveis] = useState([""]);
    const telefoneRef = useMask({
       mask: "+55 (__) _____-____",
@@ -85,4 +85,4 @@ const FormularioDeParceria = () => {
       </form>
    );
 };
-export default FormularioDeParceria;
+export default FormularioDeContato;

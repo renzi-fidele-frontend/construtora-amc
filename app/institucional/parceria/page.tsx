@@ -2,7 +2,7 @@ import Container from "@/components/layout/Container";
 import Breadcrumb from "@/components/shared/Breadcrumb";
 import SectionIntro from "@/components/shared/SectionIntro";
 import Image from "next/image";
-import FormularioDeParceria from "./components/formulario";
+import FormularioDeContato from "./components/formulario";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -20,11 +20,6 @@ export const metadata: Metadata = {
       description: "Conheça as oportunidades de parceria com a AMC Construções.",
       url: "https://amc.eng.br/institucional/parceria",
       type: "website",
-   },
-
-   robots: {
-      index: true,
-      follow: true,
    },
 };
 
@@ -49,7 +44,7 @@ const Parceria = () => {
                   titulo="Seja um parceiro da AMC"
                   descricao="O relacionamento da empresa com seus parceiros é essencial. Priorizamos sempre alianças estratégicas que visam gerar ganhos para toda a cadeia de negócios e resultem em mais benefícios para o cliente: produto de qualidade, preços competitivos e excelência na prestação de serviço."
                />
-               <FormularioDeParceria />
+               <FormularioDeContato />
             </Container>
          </section>
       </div>

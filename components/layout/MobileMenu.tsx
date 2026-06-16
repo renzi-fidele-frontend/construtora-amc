@@ -1,5 +1,5 @@
 "use client";
-import { ArrowUpRightSquareIcon, CircleArrowOutUpRight, Menu, SquareArrowOutUpRight } from "lucide-react";
+import { Menu } from "lucide-react";
 import { Drawer, DrawerContent, DrawerTrigger } from "../ui/drawer";
 import Image from "next/image";
 import {
