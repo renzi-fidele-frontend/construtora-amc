@@ -49,7 +49,7 @@ const MissaoVissaoEValores = () => {
                />
 
                {/* Conteúdo */}
-               <div className="mt-9 space-y-16 [&_h3]:text-3xl [&_h3]:font-bold [&_h3]:mb-4 text-xl">
+               <div className="mt-9 space-y-16 [&_h2]:text-3xl [&_h2]:font-bold [&_h2]:mb-4 text-xl">
                   <div className="bg-linear-to-r from-blue-50 to-indigo-50 p-8 rounded-lg mb-8 border-l-4 border-theme2">
                      <p className="text-lg text-gray-800 font-semibold">
                         Na AMC Construções, acreditamos que construir vai além de estruturas. Criamos soluções que impactam comunidades e

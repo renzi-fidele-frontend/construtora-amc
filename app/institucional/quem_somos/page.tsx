@@ -19,7 +19,14 @@ const QuemSomos = () => {
    return (
       <div className="pb-10 sm:pb-15 lg:pb-20 xl:pb-25.5">
          {/* Banner do topo */}
-         <Image width={1914} height={431} src="/img/banners/institucional.jpg" alt="Banner ilustrando a capa da página de empreendimento" />
+         <Image
+            priority
+            loading="eager"
+            width={1914}
+            height={431}
+            src="/img/banners/institucional.jpg"
+            alt="Banner ilustrando a capa da página de empreendimento"
+         />
          {/* Breadcrumb */}
          <Breadcrumb
             links={[

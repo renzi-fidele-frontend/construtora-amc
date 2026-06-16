@@ -20,17 +20,17 @@ const FormularioDeParceria = () => {
          {/* Nome */}
          <fieldset>
             <label htmlFor="nome">Nome</label>
-            <Input min={3} name="nome" required />
+            <Input minLength={3} id="nome" name="nome" required />
          </fieldset>
          {/* Email */}
          <fieldset>
             <label htmlFor="email">E-mail</label>
-            <Input type="email" name="email" required />
+            <Input type="email" id="nome" name="email" required />
          </fieldset>
          {/* Telefone */}
          <fieldset>
             <label htmlFor="tel">Telefone</label>
-            <Input type="tel" name="tel" ref={telefoneRef} placeholder="+55 (XX) XXXXX-XXXX" required />
+            <Input type="tel" name="tel" id="tel" ref={telefoneRef} placeholder="+55 (XX) XXXXX-XXXX" required />
          </fieldset>
          {/* Estado */}
          <fieldset>
@@ -76,7 +76,7 @@ const FormularioDeParceria = () => {
          {/* Mensagem */}
          <fieldset className="md:col-span-2">
             <label htmlFor="msg">Mensagem</label>
-            <textarea className="w-full border border-theme1 h-23 p-3" name="" id=""></textarea>
+            <textarea className="w-full border border-theme1 h-23 p-3" name="msg" id="msg"></textarea>
          </fieldset>
          {/* Botão */}
          <div>
