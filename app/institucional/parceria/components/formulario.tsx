@@ -3,20 +3,35 @@ import Btn from "@/components/shared/Btn";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { cidadesPorEstado } from "@/data/data";
+import { enviarContato } from "@/lib/email";
 import { useMask } from "@react-input/mask";
-import { useState } from "react";
+import { FormEvent, useState } from "react";
 
 // TODO: Implementar a funcionalidade de envio de email para a construtora
 
 const FormularioDeContato = () => {
    const [cidadesDisponiveis, setCidadesDisponiveis] = useState([""]);
+   const [cidade, setCidade] = useState("");
+   const [estado, setEstado] = useState("");
    const telefoneRef = useMask({
       mask: "+55 (__) _____-____",
       replacement: { _: /\d/ },
    });
 
+   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
+      e.preventDefault();
+      const data = new FormData(e.currentTarget);
+      data.append("cidade", cidade);
+      data.append("estado", estado);
+      const enviar = await enviarContato(data);
+      console.log(enviar);
+   }
+
    return (
-      <form className="grid md:grid-cols-3 gap-4 [&_input]:border-theme1 [&_button]:cursor-pointer **:data-placeholder:text-theme1! mt-7 md:mt-10 text-sm">
+      <form
+         onSubmit={handleSubmit}
+         className="grid md:grid-cols-3 gap-4 [&_input]:border-theme1 [&_button]:cursor-pointer **:data-placeholder:text-theme1! mt-7 md:mt-10 text-sm"
+      >
          {/* Nome */}
          <fieldset>
             <label htmlFor="nome">Nome</label>
@@ -25,7 +40,7 @@ const FormularioDeContato = () => {
          {/* Email */}
          <fieldset>
             <label htmlFor="email">E-mail</label>
-            <Input type="email" id="nome" name="email" required />
+            <Input type="email" id="email" name="email" required />
          </fieldset>
          {/* Telefone */}
          <fieldset>
@@ -36,9 +51,10 @@ const FormularioDeContato = () => {
          <fieldset>
             <label htmlFor="estado">Estado</label>
             <Select
-               onValueChange={(novaCidade) => {
+               onValueChange={(novoEstado) => {
+                  setEstado(novoEstado);
                   cidadesPorEstado.forEach((v) => {
-                     if (v.nome === novaCidade) {
+                     if (v.nome === novoEstado) {
                         setCidadesDisponiveis(v.cidades);
                      }
                   });
@@ -59,7 +75,7 @@ const FormularioDeContato = () => {
          {/* Cidade */}
          <fieldset>
             <label htmlFor="cidade">Cidade</label>
-            <Select disabled={cidadesDisponiveis[0] === ""}>
+            <Select onValueChange={(novaCidade) => setCidade(novaCidade)} disabled={cidadesDisponiveis[0] === ""}>
                <SelectTrigger className="border-theme1 w-full">
                   <SelectValue placeholder="Selecione a cidade" />
                   <SelectContent className="">
@@ -80,7 +96,7 @@ const FormularioDeContato = () => {
          </fieldset>
          {/* Botão */}
          <div>
-            <Btn>Enviar mensagem</Btn>
+            <Btn type="submit">Enviar mensagem</Btn>
          </div>
       </form>
    );

@@ -16,10 +16,9 @@ export default function LoadingBlog() {
          <Skeleton className="w-full h-13 mb-4 sm:mb-7" />
          {/* Conteúdo */}
          <div className="space-y-3">
-
-         {gerarArray(20).map((v) => (
-            <Skeleton className="w-full h-5" key={v} />
-         ))}
+            {gerarArray(20).map((v) => (
+               <Skeleton className="w-full h-5" key={v} />
+            ))}
          </div>
       </div>
    );

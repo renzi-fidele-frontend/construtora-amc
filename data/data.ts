@@ -1090,7 +1090,7 @@ export const clientes: ICliente[] = [
 ];
 
 export const cidadesPorEstado: { nome: string; cidades: string[] }[] = [
-   { nome: "Acre", cidades: ["Rio Branco", "Cruzeiro do Sul", "Senador Guiomard"] },
+   { nome: "Acre", cidades: ["Rio Branco", "Cruzeiro do Sul", "Sena Madureira"] },
    { nome: "Alagoas", cidades: ["Maceió", "Arapiraca", "Palmeira dos Índios"] },
    { nome: "Amapá", cidades: ["Macapá", "Santana", "Laranjal do Jari"] },
    { nome: "Amazonas", cidades: ["Manaus", "Parintins", "Itacoatiara"] },
