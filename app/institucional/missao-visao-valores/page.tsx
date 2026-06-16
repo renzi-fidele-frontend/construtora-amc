@@ -11,13 +11,13 @@ export const metadata: Metadata = {
       "Conheça a missão, visão e valores da AMC Construções, que orientam nossas práticas, projetos e compromisso com qualidade, ética e inovação.",
 
    alternates: {
-      canonical: "https://amc.eng.br/institucional/missao_visao_valores",
+      canonical: "https://amc.eng.br/institucional/missao-visao-valores",
    },
 
    openGraph: {
       title: "Missão, Visão e Valores | AMC Construções",
       description: "Entenda os princípios que guiam a AMC Construções em seus projetos de infraestrutura e construção civil.",
-      url: "https://amc.eng.br/institucional/missao_visao_valores",
+      url: "https://amc.eng.br/institucional/missao-visao-valores",
    },
 };
 
@@ -36,7 +36,7 @@ const MissaoVissaoEValores = () => {
             links={[
                { titulo: "Início", href: "/" },
                { titulo: "Institucional", href: "#" },
-               { titulo: "Missão, Visão e Valores", href: "/institucional/missao_visao_valores", ativo: true },
+               { titulo: "Missão, Visão e Valores", href: "/institucional/missao-visao-valores", ativo: true },
             ]}
          />
          <section>

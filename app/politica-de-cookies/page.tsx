@@ -10,14 +10,14 @@ export const metadata: Metadata = {
       "Saiba como a AMC Construções utiliza cookies para melhorar a experiência de navegação, analisar o desempenho do site e fornecer funcionalidades essenciais.",
 
    alternates: {
-      canonical: "https://amc.eng.br/politica_de_cookies",
+      canonical: "https://amc.eng.br/politica-de-cookies",
    },
 
    openGraph: {
       title: "Política de Cookies | AMC Construções",
       description: "Conheça como a AMC Construções utiliza cookies em seu website.",
-      url: "https://amc.eng.br/politica_de_cookies",
-   }
+      url: "https://amc.eng.br/politica-de-cookies",
+   },
 };
 
 const PoliticaDeCookies = () => {

@@ -23,21 +23,21 @@ const links: TypeLinks = [
       titulo: "Institucional",
       url: "#",
       megaLinks: [
-         { titulo: "Quem somos", url: "/institucional/quem_somos" },
-         {titulo: "Missão, visão e valores", url: "/institucional/missao_visao_valores"},
+         { titulo: "Quem somos", url: "/institucional/quem-somos" },
+         { titulo: "Missão, visão e valores", url: "/institucional/missao-visao-valores" },
          { titulo: "Infraestrutura", url: "/institucional/infraestrutura" },
          { titulo: "Clientes", url: "/institucional/clientes" },
          { titulo: "Depoimentos", url: "/institucional/depoimentos" },
          { titulo: "Parceria", url: "/institucional/parceria" },
-         { titulo: "Ligamos para você", url: "/institucional/ligamos_para_voce" },
-         { titulo: "Política de privacidade", url: "/politica_de_privacidade" },
-         { titulo: "Política de cookies", url: "/politica_de_cookies" },
+         { titulo: "Ligamos para você", url: "/institucional/ligamos-para-voce" },
+         { titulo: "Política de privacidade", url: "/politica-de-privacidade" },
+         { titulo: "Política de cookies", url: "/politica-de-cookies" },
       ],
    },
    { titulo: "Empreendimentos", url: "/empreendimentos" },
    { titulo: "Urbanismo", url: "/empreendimentos?categoria=Urbanismo" },
    { titulo: "Blog", url: "/blog" },
-   { titulo: "Fale conosco", url: "/institucional/ligamos_para_voce", highlight: true },
+   { titulo: "Fale conosco", url: "/institucional/ligamos-para-voce", highlight: true },
 ];
 
 const Nav = () => {

@@ -6,12 +6,12 @@ export const metadata = {
    title: "Quem Somos",
    description: "Conheça a história da AMC Construções, sua trajetória, certificações e atuação em obras em todo o Brasil.",
    alternates: {
-      canonical: "https://amc.eng.br/institucional/quem_somos",
+      canonical: "https://amc.eng.br/institucional/quem-somos",
    },
    openGraph: {
       title: "Quem Somos | AMC Construções",
       description: "Conheça a história e atuação da AMC Construções.",
-      url: "https://amc.eng.br/institucional/quem_somos",
+      url: "https://amc.eng.br/institucional/quem-somos",
    },
 };
 
@@ -32,7 +32,7 @@ const QuemSomos = () => {
             links={[
                { titulo: "Início", href: "/" },
                { titulo: "Institucional", href: "#" },
-               { titulo: "AMC Construções", href: "/institucional/quem_somos", ativo: true },
+               { titulo: "AMC Construções", href: "/institucional/quem-somos", ativo: true },
             ]}
          />
          <Container className="pt-6 sm:pt-8 md:pt-13 xl:pt-25.5">

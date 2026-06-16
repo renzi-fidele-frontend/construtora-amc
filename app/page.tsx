@@ -110,7 +110,7 @@ export default function Home() {
                      </p>
                   }
                   descricao="O compromisso da AMC com o cliente."
-                  link="/institucional/quem_somos"
+                  link="/institucional/quem-somos"
                   className="bg-blue-800"
                />
                <CardDestaque
@@ -122,7 +122,7 @@ export default function Home() {
                      </p>
                   }
                   descricao="Saiba onde encontrar um plantão de vendas perto de você."
-                  link="/institucional/ligamos_para_voce"
+                  link="/institucional/ligamos-para-voce"
                   className="bg-emerald-600"
                />
                <CardDestaque

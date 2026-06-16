@@ -12,14 +12,13 @@ export const metadata: Metadata = {
       "Entre em contato com a AMC Construções. Preencha o formulário e nossa equipe retornará para apresentar nossos empreendimentos e oportunidades.",
 
    alternates: {
-      canonical: "https://amc.eng.br/institucional/ligamos_para_voce",
+      canonical: "https://amc.eng.br/institucional/ligamos-para-voce",
    },
 
    openGraph: {
       title: "Ligamos para Você | AMC Construções",
       description: "Solicite um contato da equipe AMC Construções e conheça nossos empreendimentos.",
-      url: "https://amc.eng.br/institucional/ligamos_para_voce",
-      type: "website",
+      url: "https://amc.eng.br/institucional/ligamos-para-voce",
    },
 };
 
@@ -33,7 +32,7 @@ const LigamosParaVoce = () => {
             links={[
                { titulo: "Início", href: "/" },
                { titulo: "Institucional", href: "#" },
-               { titulo: "Ligamos para você", href: "/institucional/ligamos_para_voce", ativo: true },
+               { titulo: "Ligamos para você", href: "/institucional/ligamos-para-voce", ativo: true },
             ]}
          />
          <section>

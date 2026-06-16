@@ -23,8 +23,8 @@ const Footer = () => {
                <div className="basis-full sm:basis-[28%] pb-3 sm:pb-0 mb-3 sm:mb-0 border-b-2 sm:border-b-0">
                   <Image width={170} height={64} src="/img/logo.png" alt="Logotipo do site" />
                   <div className="flex flex-col gap-2 font-medium mt-2">
-                     <LinkComChevron texto="Quem Somos" link="/institucional/quem_somos" />
-                     <LinkComChevron texto="Missão e valores" link="/institucional/missao_visao_valores" />
+                     <LinkComChevron texto="Quem Somos" link="/institucional/quem-somos" />
+                     <LinkComChevron texto="Missão e valores" link="/institucional/missao-visao-valores" />
                   </div>
                </div>
                {/* Coluna 2 */}
@@ -33,16 +33,16 @@ const Footer = () => {
                   <nav className="flex flex-col gap-2.5 text-sm lg:text-base">
                      <LinkComChevron texto="Infraestrutura" link="/institucional/infraestrutura" />
                      <LinkComChevron texto="Clientes" link="/institucional/clientes" />
-                     <LinkComChevron texto="Contato" link="/institucional/ligamos_para_voce" />
-                     <LinkComChevron texto="Política de Privacidade" link="/politica_de_privacidade" />
+                     <LinkComChevron texto="Contato" link="/institucional/ligamos-para-voce" />
+                     <LinkComChevron texto="Política de Privacidade" link="/politica-de-privacidade" />
                   </nav>
                </div>
                {/* Coluna 3 */}
                <div className="font-medium">
                   <Link href="/empreendimentos">Empreendimentos</Link>
                   <Link href="/institucional/depoimentos">Depoimentos</Link>
-                  <Link href="/institucional/missao_visao_valores">Missão e valores</Link>
-                  <Link href="/institucional/ligamos_para_voce">
+                  <Link href="/institucional/missao-visao-valores">Missão e valores</Link>
+                  <Link href="/institucional/ligamos-para-voce">
                      <Btn className="px-2! py-2!">Fale conosco</Btn>
                   </Link>
                </div>
@@ -57,7 +57,7 @@ const Footer = () => {
                   <MessageSquareText className="size-6 sm:size-8" />
                   <p className="hidden sm:block">WHATSAPP</p>
                </Link>
-               <Link className="bg-[#0CA5AD]" href="/institucional/ligamos_para_voce">
+               <Link className="bg-[#0CA5AD]" href="/institucional/ligamos-para-voce">
                   <Phone className="size-6 sm:size-8" />
                   <p className="hidden sm:block">
                      <span className="font-normal text-lg md:text-xl">LIGAMOS</span>

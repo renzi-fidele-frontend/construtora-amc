@@ -47,7 +47,7 @@ const CarouselDeCTAsHome = () => {
                         </p>
                      }
                      descricao="O compromisso da AMC com o cliente."
-                     link="/institucional/quem_somos"
+                     link="/institucional/quem-somos"
                      className="bg-blue-800"
                   />
                </CarouselItem>
@@ -62,7 +62,7 @@ const CarouselDeCTAsHome = () => {
                         </p>
                      }
                      descricao="Saiba onde encontrar um plantão de vendas perto de você."
-                     link="/institucional/ligamos_para_voce"
+                     link="/institucional/ligamos-para-voce"
                      className="bg-emerald-600"
                   />
                </CarouselItem>
@@ -96,7 +96,9 @@ const CarouselDeCTAsHome = () => {
          {/* Barra de opacidade */}
          <div className="absolute inset-x-0 top-0 bg-white opacity-30 h-5"></div>
          {/* CTA para click no mobile */}
-         <p className="flex items-center flex-nowrap gap-2 absolute text-sm text-white end-3 bottom-10 sm:hidden">Clique para navegar <SquareArrowOutUpRightIcon className="size-5" /></p>
+         <p className="flex items-center flex-nowrap gap-2 absolute text-sm text-white end-3 bottom-10 sm:hidden">
+            Clique para navegar <SquareArrowOutUpRightIcon className="size-5" />
+         </p>
       </div>
    );
 };
