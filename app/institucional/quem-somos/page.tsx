@@ -35,7 +35,7 @@ const QuemSomos = () => {
                { titulo: "AMC Construções", href: "/institucional/quem-somos", ativo: true },
             ]}
          />
-         <Container className="pt-6 sm:pt-8 md:pt-13 xl:pt-25.5">
+         <Container className="pt-6 sm:pt-8 md:pt-13 xl:pt-18">
             {/* História da AMC */}
             <div className="grid lg:grid-cols-2 gap-4 sm:gap-15">
                <div className="flex flex-col justify-center">

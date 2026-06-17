@@ -47,6 +47,12 @@ export default async function Blog({ searchParams }: Props) {
 
    return (
       <>
+         {/* Título do blog */}
+         {Number(page) > 1 && (
+            <h1 className="font-medium text-2xl sm:text-3xl md:text-4xl mb-3 sm:mb-5 underline">
+               Blog AMC - Página {page} de {totalPaginas}
+            </h1>
+         )}
          {/* Seção do hero do blog */}
          {Number(page) === 1 && (
             <div className="relative border">
@@ -63,7 +69,7 @@ export default async function Blog({ searchParams }: Props) {
                   <p className="uppercase">{dayjs(artigos[0].publicadoEm).format("DD/MMMM/YYYY")}</p>
                   {/* Titulo */}
                   <Link className="hover:underline" href={`/blog/${artigos[0].slug}`}>
-                     <h3 className="font-bold text-lg sm:text-xl md:text-2xl mb-2 line-clamp-2">{artigos[0].titulo}</h3>
+                     <h1 className="font-bold text-lg sm:text-xl md:text-2xl mb-2 line-clamp-2">{artigos[0].titulo}</h1>
                   </Link>
                   {/* Descrição */}
                   <p className="line-clamp-2">{artigos[0].descricao}</p>

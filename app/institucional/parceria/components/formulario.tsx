@@ -7,8 +7,6 @@ import { enviarContato } from "@/lib/email";
 import { useMask } from "@react-input/mask";
 import { FormEvent, useState } from "react";
 
-// TODO: Implementar a funcionalidade de envio de email para a construtora
-
 const FormularioDeContato = () => {
    const [cidadesDisponiveis, setCidadesDisponiveis] = useState([""]);
    const [cidade, setCidade] = useState("");
