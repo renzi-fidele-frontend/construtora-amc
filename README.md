@@ -189,15 +189,6 @@ Todos os metadados são geridos pelo sistema nativo do Next.js (Metadata API), c
 
 ---
 
-### Roadmap Futuro
-
-- [ ] Migrar empreendimentos de `data/data.ts` para MongoDB com CRUD completo
-- [ ] Implementar o envio de e-mail no formulário de parceria (`FormularioDeParceria`)
-- [ ] Melhorar o fluxo de logout no `AdminPanel` (actualmente sem Server Action dedicada)
-- [ ] Adicionar funcionalidade de upload e alteração de imagens na edição de artigos
-
----
-
 ## Desenvolvedor
 
 Desenvolvido por **Renzi Fidele** — [GitHub](https://github.com/renzi-fidele-frontend/)
