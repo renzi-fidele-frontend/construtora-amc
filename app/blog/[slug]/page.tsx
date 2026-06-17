@@ -51,42 +51,79 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function PaginaArtigo({ params }: Props) {
    const slug = (await params).slug;
    const { artigo } = await apanhar_artigo(slug);
+   // TODO: Incrementar o número de visualizações
+
+   const schemaDoArtigo = {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      headline: artigo.titulo,
+      description: artigo.descricao,
+      image: artigo.destaque.secure_url,
+      datePublished: artigo.publicadoEm,
+      dateModified: artigo.ultimaAtualizacao,
+      author: {
+         "@type": "Organization",
+         name: "AMC Construções",
+         url: "https://amc.eng.br",
+      },
+      publisher: {
+         "@type": "Organization",
+         name: "AMC Construções",
+         logo: {
+            "@type": "ImageObject",
+            url: "https://amc.eng.br/img/logo.png",
+         },
+      },
+      mainEntityOfPage: {
+         "@type": "WebPage",
+         "@id": `https://amc.eng.br/blog/${artigo.slug}`,
+      },
+      // Incrementa o contador de leitura (já existe no modelo, usar aqui)
+      interactionStatistic: {
+         "@type": "InteractionCounter",
+         interactionType: "https://schema.org/ReadAction",
+         userInteractionCount: artigo.vezesLido,
+      },
+   };
 
    // TODO: Ao escalar, um usuário anônimo deverá ser capaz de adicionar comentários no blog (Investigar se é boa prática ou não)
    // TODO: Investigar a possibilidade de adicionar categorias
 
    return (
-      <article>
-         {/* Foto de destaque */}
-         <Image
-            src={artigo.destaque.secure_url}
-            width={artigo.destaque.width}
-            height={artigo.destaque.height}
-            alt={`Foto de destaque do artigo: ${artigo.titulo}`}
-            priority
-         />
+      <>
+         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaDoArtigo) }} />
+         <article>
+            {/* Foto de destaque */}
+            <Image
+               src={artigo.destaque.secure_url}
+               width={artigo.destaque.width}
+               height={artigo.destaque.height}
+               alt={`Foto de destaque do artigo: ${artigo.titulo}`}
+               priority
+            />
 
-         <div className="flex gap-2 sm:gap-4 flex-wrap mt-2 sm:mt-3 mb-3 sm:mb-5 text-sm sm:text-base">
-            {/* Data de publicação */}
-            <time
-               dateTime={String(artigo.publicadoEm)}
-               className="flex gap-2 items-center text-white bg-theme2 py-1 px-2 sm:px-4 w-fit border-b-4 border-theme1 rounded"
-            >
-               <CalendarDays className="size-4 sm:size-5" />
-               <p>{dayjs(artigo.publicadoEm).format("DD [de] MMMM [de] YYYY")}</p>
-            </time>
-            {/* Data de atualização */}
-            <time dateTime={String(artigo.ultimaAtualizacao)} className="flex items-center gap-2">
-               <ClockFading className="size-4 sm:size-5" />
-               <span>Última atualização: {dayjs(artigo.ultimaAtualizacao).fromNow()}</span>
-            </time>
-         </div>
+            <div className="flex gap-2 sm:gap-4 flex-wrap mt-2 sm:mt-3 mb-3 sm:mb-5 text-sm sm:text-base">
+               {/* Data de publicação */}
+               <time
+                  dateTime={String(artigo.publicadoEm)}
+                  className="flex gap-2 items-center text-white bg-theme2 py-1 px-2 sm:px-4 w-fit border-b-4 border-theme1 rounded"
+               >
+                  <CalendarDays className="size-4 sm:size-5" />
+                  <p>{dayjs(artigo.publicadoEm).format("DD [de] MMMM [de] YYYY")}</p>
+               </time>
+               {/* Data de atualização */}
+               <time dateTime={String(artigo.ultimaAtualizacao)} className="flex items-center gap-2">
+                  <ClockFading className="size-4 sm:size-5" />
+                  <span>Última atualização: {dayjs(artigo.ultimaAtualizacao).fromNow()}</span>
+               </time>
+            </div>
 
-         {/* Título do artigo */}
-         <h1 className="text-2xl sm:text-3xl md:text-4xl font-medium mb-4 sm:mb-7">{artigo.titulo}</h1>
+            {/* Título do artigo */}
+            <h1 className="text-2xl sm:text-3xl md:text-4xl font-medium mb-4 sm:mb-7">{artigo.titulo}</h1>
 
-         {/* Conteúdo */}
-         <div className={styles.ct + " text-zinc-800"} dangerouslySetInnerHTML={{ __html: artigo.conteudo }}></div>
-      </article>
+            {/* Conteúdo */}
+            <div className={styles.ct + " text-zinc-800"} dangerouslySetInnerHTML={{ __html: artigo.conteudo }}></div>
+         </article>
+      </>
    );
 }
