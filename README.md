@@ -14,13 +14,8 @@ Website institucional moderno desenvolvido para a **AMC Construções**, empresa
 - [Stack Tecnológica](#stack-tecnológica)
 - [Arquitetura do Projeto](#arquitetura-do-projeto)
 - [Funcionalidades](#funcionalidades)
-- [Mapa de Rotas](#mapa-de-rotas)
-- [Modelo de Dados](#modelo-de-dados)
 - [Sistema de Autenticação](#sistema-de-autenticação)
 - [SEO & Performance](#seo--performance)
-- [Variáveis de Ambiente](#variáveis-de-ambiente)
-- [Como Executar](#como-executar)
-- [Pendências & Roadmap](#pendências--roadmap)
 - [Desenvolvedor](#desenvolvedor)
 
 ---
