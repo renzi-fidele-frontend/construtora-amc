@@ -2,7 +2,7 @@ import Container from "@/components/layout/Container";
 import CarouselDeBannersDoBlog from "@/components/shared/CarouselDeBannersDoBlog";
 import { fotosDestaquesBlog } from "@/data/data";
 import { apanhar_artigos_mais_lidos } from "@/lib/blog";
-import { Plus } from "lucide-react";
+import { MessageSquareText, Phone, Plus } from "lucide-react";
 import Link from "next/link";
 import { ReactNode } from "react";
 
@@ -39,6 +39,20 @@ export default async function BlogLayout({ children }: { children: ReactNode }) 
                      </div>
                   ))}
                </div>
+            </div>
+            {/* Seção de contato */}
+            <div className="mt-10 *:bg-theme1 *:text-white *:flex *:p-4 space-y-3 lg:space-y-5 lg:text-lg *:items-center *:gap-4 uppercase font-semibold *:justify-center lg:*:justify-start">
+               <Link href="/institucional/ligamos-para-voce">
+                  <MessageSquareText className="size-10" />
+                  <div className="border-white border h-10"></div>
+                  <p>Fale com o corretor</p>
+               </Link>
+               {/* Fale com a AMC */}
+               <Link href="/institucional/ligamos-para-voce">
+                  <Phone className="size-10" />
+                  <div className="border-white border h-10"></div>
+                  <p>A AMC LIGA PARA VOCÊ</p>
+               </Link>
             </div>
          </aside>
       </Container>
