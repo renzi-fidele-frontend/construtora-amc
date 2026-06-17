@@ -62,7 +62,44 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 const Empreendimento = async ({ params }: Props) => {
    const { empreendimento: id } = await params;
-   const empreendimento = encontrarEmpreendimento(id);
+   const empreendimento = encontrarEmpreendimento(id)!;
+
+   // Mapeando a categoria para o schema
+   const tipoDeEmpreendimento = {
+      Lançamento: "https://schema.org/InStoreOnly",
+      "Pré-lançamento": "https://schema.org/PreSale",
+      Entregue: "https://schema.org/InStock",
+      Urbanismo: "https://schema.org/InStoreOnly",
+   };
+
+   const schemaDoEmpreendimento = {
+      "@context": "https://schema.org",
+      "@type": "RealEstateListing",
+      name: empreendimento.nome,
+      description: `${empreendimento.nome} em ${empreendimento.estado}`,
+      url: `https://amc.eng.br/empreendimentos/${empreendimento.id}`,
+      image: `https://amc.eng.br${empreendimento.ogImage}`,
+      offers: {
+         "@type": "Offer",
+         availability: tipoDeEmpreendimento[empreendimento.categoria],
+         seller: {
+            "@type": "Organization",
+            name: "AMC Construções",
+         },
+      },
+      address: {
+         "@type": "PostalAddress",
+         streetAddress: empreendimento.detalhes.endereco_real,
+         addressLocality: empreendimento.estado.split(" - ")[0],
+         addressRegion: empreendimento.estado.split(" - ")[1],
+         addressCountry: "BR",
+      },
+      geo: {
+         "@type": "GeoCoordinates",
+         latitude: empreendimento.detalhes.coordenadas.lat,
+         longitude: empreendimento.detalhes.coordenadas.lng,
+      },
+   };
 
    const evolucaoDaObra = [
       { titulo: "Fundação", foto: "fundacao.png", percentagem: empreendimento?.detalhes.evolucao_da_obra?.fundacao },
@@ -75,6 +112,7 @@ const Empreendimento = async ({ params }: Props) => {
    return (
       empreendimento && (
          <main>
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaDoEmpreendimento) }} />
             <Breadcrumb
                links={[
                   { titulo: "Início", href: "/" },
