@@ -15,12 +15,8 @@ Website institucional moderno desenvolvido para a **AMC Construções**, empresa
 - [Arquitetura do Projeto](#arquitetura-do-projeto)
 - [Funcionalidades](#funcionalidades)
 - [Mapa de Rotas](#mapa-de-rotas)
-- [Modelo de Dados](#modelo-de-dados)
 - [Sistema de Autenticação](#sistema-de-autenticação)
 - [SEO & Performance](#seo--performance)
-- [Variáveis de Ambiente](#variáveis-de-ambiente)
-- [Como Executar](#como-executar)
-- [Pendências & Roadmap](#pendências--roadmap)
 - [Desenvolvedor](#desenvolvedor)
 
 ---
@@ -30,6 +26,8 @@ Website institucional moderno desenvolvido para a **AMC Construções**, empresa
 Este projecto substitui o website anterior da AMC Construções por uma plataforma mais rápida, escalável e optimizada para motores de busca. Além da reformulação visual e estrutural do website institucional, foi implementado um **CMS interno** para gestão de artigos do blog, permitindo que a equipa administrativa publique, edite e remova conteúdos de forma simples e intuitiva — sem dependências de plataformas externas.
 
 A aplicação combina renderização híbrida **SSR/SSG** do Next.js com integrações modernas como **Google Maps**, **Cloudinary** e um editor de rich text baseado em **TipTap v3**. Toda a lógica de servidor é implementada exclusivamente através de **Next.js Server Actions**, sem Route Handlers expostos.
+
+> Desenhado por **Renzi Fidele** — [Link do Figma](https://www.figma.com/design/ehSeDQTChXfdIoX7B8NgYR/AMC-Constru%C3%A7%C3%B5es?node-id=0-1&t=72eUXvtbamVm327U-1)
 
 ---
 
@@ -217,10 +215,6 @@ Todos os metadados são geridos pelo sistema nativo do Next.js (Metadata API), c
 - Dados dos empreendimentos servidos estaticamente a partir de `data.ts`
 
 ---
-
-
-
-
 
 ## Desenvolvedor
 
