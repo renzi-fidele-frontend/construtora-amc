@@ -50,8 +50,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function PaginaArtigo({ params }: Props) {
    const slug = (await params).slug;
-   const { artigo } = await apanhar_artigo(slug);
-   // TODO: Incrementar o número de visualizações
+   const { artigo } = await apanhar_artigo(slug, undefined, true);
 
    const schemaDoArtigo = {
       "@context": "https://schema.org",

@@ -31,8 +31,11 @@ export async function apanhar_artigos_mais_lidos() {
 }
 
 /** Apanha um artigo do banco de dados com base no slug ou id */
-export const apanhar_artigo = cache(async (slug?: string, id?: string) => {
+export const apanhar_artigo = cache(async (slug?: string, id?: string, aumentarContagem?: boolean) => {
    await dbConnect();
+   // Incrementar o número de visualizações
+   if (aumentarContagem) await Artigo.updateOne({ slug }, { $inc: { vezesLido: 1 } });
+
    let artigo;
    if (slug) artigo = await Artigo.findOne({ slug });
    else if (id) {
