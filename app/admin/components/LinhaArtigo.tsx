@@ -27,11 +27,12 @@ const LinhaArtigo = ({ artigo }: { artigo: IArtigo }) => {
    }
 
    return (
-      <tr key={artigo._id} className="*:p-2 hover:bg-zinc-100">
-         <td>{dayjs(artigo.publicadoEm).format("DD/MM/YYYY")}</td>
+      <tr key={artigo._id} className="*:p-2 hover:bg-zinc-100 flex flex-col md:table-row text-center md:text-start">
+         <td className="hidden lg:table-cell">{dayjs(artigo.publicadoEm).format("DD/MM/YYYY")}</td>
          <td>{artigo.titulo}</td>
          <td>
-            <div className="text-base flex gap-3 text-white *:px-2.5 *:py-1 *:hover:scale-105 *:transition *:flex *:items-center *:gap-1 *:cursor-pointer">
+            {/* Ações (Desktop) */}
+            <div className="text-base flex gap-3 justify-center text-white *:px-2.5 *:py-1 *:hover:scale-105 *:transition *:flex *:items-center *:gap-1 *:cursor-pointer mb-3 md:mb-0">
                <Link href={`/blog/${artigo.slug}`} target="_blank" className="bg-theme1">
                   <Eye className="size-4" /> Ver
                </Link>

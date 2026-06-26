@@ -12,14 +12,18 @@ const GerirPosts = async () => {
    const _artigos = JSON.parse(JSON.stringify(artigos)) as IArtigo[];
 
    return (
-      <Container className="py-25 flex flex-col items-center">
-         <SectionIntro titulo="Gerencie os artigos do Blog" descricao="Edite ou remova um artigo do blog da construtora AMC" />
-         <table className="border border-collapse border-theme1 table-auto [&_th]:border [&_td]:border text-lg">
+      <Container className="py-8 sm:py-12 md:py-14 lg:py-18 xl:py-25 flex flex-col items-center">
+         <SectionIntro
+            className="text-center"
+            titulo="Gerencie os artigos do Blog"
+            descricao="Edite ou remova um artigo do blog da construtora AMC"
+         />
+         <table className="border border-collapse border-theme1 table-auto sm:[&_th]:border [&_td]:border md:text-lg">
             <thead className="bg-theme1 text-white">
                <tr className="*:p-2">
-                  <th className="whitespace-nowrap">Data de publicação</th>
+                  <th className="whitespace-nowrap hidden lg:table-cell">Data de publicação</th>
                   <th>Artigo</th>
-                  <th>Ações</th>
+                  <th className="hidden md:table-cell">Ações</th>
                </tr>
             </thead>
             {/* TODO: Adicionar loading de esqueleto para melhoria da UI */}
