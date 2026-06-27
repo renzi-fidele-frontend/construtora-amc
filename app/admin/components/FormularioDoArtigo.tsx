@@ -112,11 +112,11 @@ const FormularioDoArtigo = ({ artigoAtual }: { artigoAtual?: IArtigo }) => {
                Foto do thumbnail <small>(370x290)</small>
             </label>
             <label htmlFor="thumbnail" className="w-fit cursor-pointer hover:opacity-80 hover:text-theme2 transition group relative">
-               <div className="p-18 bg-zinc-300 w-fit">
-                  <div className="rounded border-3 border-theme1 group-hover:border-theme2 transition border-dashed p-8 w-fit mx-auto">
+               <div className="p-15 md:p-18 bg-zinc-300 w-fit">
+                  <div className="rounded border-3 border-theme1 group-hover:border-theme2 transition border-dashed p-5 md:p-8 w-fit mx-auto">
                      <Plus className="size-14" />
                   </div>
-                  <p className="mt-4">Clique para carregar uma imagem</p>
+                  <p className="mt-4 text-center">Clique para carregar uma imagem</p>
                </div>
                {/* Prévia */}
                {previaThumbanil && (
@@ -147,12 +147,12 @@ const FormularioDoArtigo = ({ artigoAtual }: { artigoAtual?: IArtigo }) => {
             <label>
                Foto de destaque <small>(1200x900)</small>
             </label>
-            <label htmlFor="destaque" className="cursor-pointer hover:opacity-80 hover:text-theme2 transition group relative text-center">
-               <div className="p-70 bg-zinc-300">
+            <label htmlFor="destaque" className="cursor-pointer hover:opacity-80 hover:text-theme2 transition group relative">
+               <div className="py-20 sm:p-30 md:p-45 lg:p-70 bg-zinc-300">
                   <div className="rounded border-3 border-theme1 group-hover:border-theme2 transition border-dashed p-8 w-fit mx-auto">
                      <Plus className="size-14" />
                   </div>
-                  <p className="mt-4">Clique para carregar uma imagem</p>
+                  <p className="mt-4 text-center">Clique para carregar uma imagem</p>
                </div>
                {/* Prévia */}
                {previaDestaque && (

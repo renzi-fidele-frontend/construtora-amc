@@ -113,7 +113,7 @@ const Toolbar = ({ editor }: Props) => {
 
    // Estilo padrão
    const buttonStyle =
-      "flex items-center justify-center leading-0 p-2.5 border border-theme1 rounded cursor-pointer hover:bg-theme1 hover:text-white transition-all data-[active=true]:bg-theme1! data-[active=true]:text-white!";
+      "flex items-center justify-center leading-0 p-1 sm:p-2 md:p-2.5 border border-theme1 rounded cursor-pointer hover:bg-theme1 hover:text-white transition-all data-[active=true]:bg-theme1! data-[active=true]:text-white!";
 
    // Adiciona ou remove hiperlink
    function handleLink() {
@@ -149,7 +149,7 @@ const Toolbar = ({ editor }: Props) => {
    }
 
    return (
-      <div className="flex gap-2 mb-2.5">
+      <div className="flex flex-wrap gap-2 mb-2.5">
          {/* Headings */}
          {headings.map(({ label, level }) => (
             <Tooltip key={level}>
