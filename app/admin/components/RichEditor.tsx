@@ -47,7 +47,7 @@ export default function RichEditor({ content, onChange }: Props) {
    return (
       <div className={styles.ct + " border border-theme1 p-2"}>
          <Toolbar editor={editor} />
-         <EditorContent className="*:min-h-60" editor={editor} />
+         <EditorContent  className="*:min-h-60 *:overflow-x-auto" editor={editor} />
       </div>
    );
 }

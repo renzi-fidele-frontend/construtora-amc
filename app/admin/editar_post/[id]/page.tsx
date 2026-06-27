@@ -12,7 +12,7 @@ export default async function EditarPost({ params }: Props) {
    const _artigo = JSON.parse(JSON.stringify(artigo.artigo)) as IArtigo;
 
    return (
-      <Container className="py-25">
+      <Container className="py-8 sm:py-12 md:py-14 lg:py-18 xl:py-25">
          <SectionIntro
             titulo="Edição do artigo"
             descricao="Melhore a qualidade do artigo para o blog da construtora AMC"
