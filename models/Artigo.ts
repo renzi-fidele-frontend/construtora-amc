@@ -16,8 +16,8 @@ export interface IArtigo {
 
 const ArtigoSchema = new Schema<IArtigo>(
    {
-      titulo: { type: String, required: true },
-      descricao: { type: String, required: true },
+      titulo: { type: String, required: true, index: "text" },
+      descricao: { type: String, required: true, index: "text" },
       thumbnail: { type: Schema.Types.Mixed, required: true },
       destaque: { type: Schema.Types.Mixed, required: true },
       conteudo: { type: String, required: true },

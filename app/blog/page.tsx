@@ -5,6 +5,7 @@ import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import dayjs from "dayjs";
+import BlogSearchBar from "@/components/shared/BlogSearchBar";
 
 dayjs.locale("pt-br");
 
@@ -47,6 +48,9 @@ export default async function Blog({ searchParams }: Props) {
 
    return (
       <>
+         {/* Barra de pesquisa */}
+         <BlogSearchBar />
+
          {/* Título do blog */}
          {Number(page) > 1 && (
             <h1 className="font-medium text-2xl sm:text-3xl md:text-4xl mb-3 sm:mb-5 underline">
