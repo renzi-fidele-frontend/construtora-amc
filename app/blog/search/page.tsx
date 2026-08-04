@@ -1,5 +1,5 @@
 import BlogSearchBar from "@/components/shared/BlogSearchBar";
-import Artigo from "@/models/Artigo";
+import { procurar_artigos } from "@/lib/blog";
 import dayjs from "dayjs";
 import { Metadata } from "next";
 import Image from "next/image";
@@ -37,7 +37,7 @@ export async function generateMetadata({
 
 export default async function BlogSearchPage({ searchParams }: { searchParams: Promise<{ [key: string]: string | string[] | undefined }> }) {
    const query = (await searchParams).text;
-   const artigos = await Artigo.find({ $text: { $search: query } });
+   const { artigos } = await procurar_artigos(String(query));
 
    return (
       <div>

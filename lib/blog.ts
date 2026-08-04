@@ -3,6 +3,7 @@ import Artigo, { IArtigo } from "@/models/Artigo";
 import { cache } from "react";
 import { dbConnect } from "./dbConnect";
 import { carregar_imagem } from "./cloudinary";
+import Categoria from "@/models/Categoria";
 
 // Aqui estão todas as funcionalidades que fazer as requisições públicas ao back-end
 export interface IArticlesResponse {
@@ -27,6 +28,12 @@ export async function apanhar_artigos(limite: number, pagina: number) {
 export async function apanhar_artigos_mais_lidos() {
    await dbConnect();
    const artigos = await Artigo.find().limit(5).sort({ vezesLido: -1 });
+   return { artigos } as { artigos: IArtigo[] };
+}
+
+export async function procurar_artigos(query: string) {
+   await dbConnect();
+   const artigos = await Artigo.find({ $text: { $search: query } });
    return { artigos } as { artigos: IArtigo[] };
 }
 
@@ -93,4 +100,16 @@ export async function publicar_artigo(artigoNovo: IArtigoNovo) {
    const publicar = await Artigo.create(data);
    console.log("Artigo publicado com sucesso", publicar);
    return { slug: publicar.slug };
+}
+
+type ICategoria = {
+   _id: string;
+   nome: string;
+   cor: string;
+   slug: string;
+};
+export async function apanhar_categorias() {
+   await dbConnect();
+   const categorias = await Categoria.find();
+   return { categorias } as { categorias: ICategoria[] };
 }
