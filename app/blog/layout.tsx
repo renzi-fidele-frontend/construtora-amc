@@ -9,17 +9,22 @@ import { ReactNode } from "react";
 export default async function BlogLayout({ children }: { children: ReactNode }) {
    const { artigos: artigosMaisLidos } = await apanhar_artigos_mais_lidos();
    const { categorias } = await apanhar_categorias();
-   console.log(categorias);
 
    return (
       <div>
          <div className="bg-[#F0F0F0]">
-            <Container className="flex gap-10 lg:gap-15 xl:gap-30 lg:text-lg xl:text-xl text-center py-2.5">
-               <span className="font-semibold border-2 border-zinc-900 px-3 py-1.5 rounded relative flex items-center">CATEGORIAS <Play className="absolute bottom-3 -end-3.5 fill-zinc-900 size-4" /></span>
-               {/* TODO: Apanhar as categorias do blog no backend */}
+            <Container className="flex flex-wrap sm:flex-nowrap gap-10 lg:gap-15 xl:gap-30 text-sm lg:text-lg xl:text-xl text-center py-2.5">
+               <span className="hidden sm:flex font-semibold border-2 border-zinc-900 px-3 py-1.5 rounded relative items-center">
+                  CATEGORIAS <Play className="absolute bottom-3 -end-3.5 fill-zinc-900 size-4" />
+               </span>
                <nav className="flex items-center justify-between w-full gap-4">
                   {categorias.map((categoria) => (
-                     <Link className="uppercase font-medium" style={{ color: categoria.cor }} key={categoria._id} href={`/blog/categoria/${categoria.slug}`}>
+                     <Link
+                        className="uppercase font-medium"
+                        style={{ color: categoria.cor }}
+                        key={categoria._id}
+                        href={`/blog/categoria/${categoria.slug}`}
+                     >
                         {categoria.nome}
                      </Link>
                   ))}
