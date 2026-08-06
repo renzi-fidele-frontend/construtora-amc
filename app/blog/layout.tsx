@@ -1,8 +1,9 @@
 import Container from "@/components/layout/Container";
 import CarouselDeBannersDoBlog from "@/components/shared/CarouselDeBannersDoBlog";
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import { fotosDestaquesBlog } from "@/data/data";
 import { apanhar_artigos_mais_lidos, apanhar_categorias } from "@/lib/blog";
-import { MessageSquareText, Phone, Play, Plus } from "lucide-react";
+import { ChevronDown, MessageSquareText, Phone, Play, Plus } from "lucide-react";
 import Link from "next/link";
 import { ReactNode } from "react";
 
@@ -13,8 +14,9 @@ export default async function BlogLayout({ children }: { children: ReactNode }) 
    return (
       <div>
          <div className="bg-[#F0F0F0]">
-            <Container className="flex flex-wrap sm:flex-nowrap gap-10 lg:gap-15 xl:gap-15 text-sm lg:text-lg text-center py-2.5">
-               <span className="hidden sm:flex font-semibold border-2 border-theme1 px-4 py-1.5 rounded relative items-center font">
+            {/* Seção das categorias (Desktop) */}
+            <Container className="hidden sm:flex flex-wrap sm:flex-nowrap gap-10 lg:gap-15 xl:gap-15 text-sm lg:text-lg text-center py-2.5">
+               <span className="hidden sm:flex font-semibold border-2 border-theme1 px-4 py-1.5 rounded relative items-center">
                   CATEGORIAS <Play className="absolute bottom-3 -end-3 fill-theme1 size-3.5" />
                </span>
                <nav className="flex items-center w-full gap-14">
@@ -29,6 +31,28 @@ export default async function BlogLayout({ children }: { children: ReactNode }) 
                      </Link>
                   ))}
                </nav>
+            </Container>
+            {/* Seção das categorias (Mobile) */}
+            <Container className="py-2 sm:hidden">
+               <Collapsible>
+                  <CollapsibleTrigger className="flex items-center gap-1 cursor-pointer font-semibold">
+                     Categorias do blog AMC <ChevronDown />
+                  </CollapsibleTrigger>
+                  <CollapsibleContent>
+                     <nav className="flex flex-col w-full gap-2.5 pt-2.25">
+                        {categorias.map((categoria) => (
+                           <Link
+                              className="uppercase font-medium hover:underline"
+                              style={{ color: categoria.cor }}
+                              key={categoria._id}
+                              href={`/blog/categoria/${categoria.slug}`}
+                           >
+                              - {categoria.nome}
+                           </Link>
+                        ))}
+                     </nav>
+                  </CollapsibleContent>
+               </Collapsible>
             </Container>
          </div>
          <Container className="flex flex-col lg:flex-row flex-nowrap gap-10 md:gap-16 xl:gap-25 border-t-2 lg:border-t-0 pt-4 lg:pt-7.5 pb-12">
