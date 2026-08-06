@@ -5,6 +5,7 @@ const CategoriaSchema = new Schema(
       nome: { type: String, required: true, unique: true },
       slug: { type: String, required: true, index: true, unique: true },
       cor: { type: String, required: true },
+      descricao: { type: String, required: true },
    },
    { collection: "categorias" },
 );

@@ -13,14 +13,14 @@ export default async function BlogLayout({ children }: { children: ReactNode }) 
    return (
       <div>
          <div className="bg-[#F0F0F0]">
-            <Container className="flex flex-wrap sm:flex-nowrap gap-10 lg:gap-15 xl:gap-30 text-sm lg:text-lg xl:text-xl text-center py-2.5">
-               <span className="hidden sm:flex font-semibold border-2 border-zinc-900 px-3 py-1.5 rounded relative items-center">
-                  CATEGORIAS <Play className="absolute bottom-3 -end-3.5 fill-zinc-900 size-4" />
+            <Container className="flex flex-wrap sm:flex-nowrap gap-10 lg:gap-15 xl:gap-15 text-sm lg:text-lg text-center py-2.5">
+               <span className="hidden sm:flex font-semibold border-2 border-theme1 px-4 py-1.5 rounded relative items-center font">
+                  CATEGORIAS <Play className="absolute bottom-3 -end-3 fill-theme1 size-3.5" />
                </span>
-               <nav className="flex items-center justify-between w-full gap-4">
+               <nav className="flex items-center w-full gap-14">
                   {categorias.map((categoria) => (
                      <Link
-                        className="uppercase font-medium"
+                        className="uppercase font-medium hover:underline"
                         style={{ color: categoria.cor }}
                         key={categoria._id}
                         href={`/blog/categoria/${categoria.slug}`}

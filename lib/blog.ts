@@ -107,9 +107,17 @@ type ICategoria = {
    nome: string;
    cor: string;
    slug: string;
+   descricao: string;
 };
 export async function apanhar_categorias() {
    await dbConnect();
    const categorias = await Categoria.find();
    return { categorias } as { categorias: ICategoria[] };
+}
+
+export async function apanhar_artigos_de_categoria(slug: string) {
+   await dbConnect();
+   const categoria = await Categoria.findOne({ slug });
+   const artigos = await Artigo.find({ categoria: categoria._id });
+   return { artigos, categoria } as { artigos: IArtigo[]; categoria: ICategoria };
 }

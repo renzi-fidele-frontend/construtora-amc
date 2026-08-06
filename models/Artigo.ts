@@ -12,6 +12,7 @@ export interface IArtigo {
    vezesLido: number;
    ultimaAtualizacao: Date;
    publicadoEm: Date;
+   categoria: Schema.Types.ObjectId;
 }
 
 const ArtigoSchema = new Schema<IArtigo>(
@@ -23,6 +24,7 @@ const ArtigoSchema = new Schema<IArtigo>(
       conteudo: { type: String, required: true },
       vezesLido: { type: Number, default: 0 },
       slug: { type: String, required: true, index: true, unique: true },
+      categoria: { type: Schema.Types.ObjectId, ref: "Categoria", required: true },
    },
    { collection: "artigos", timestamps: { createdAt: "publicadoEm", updatedAt: "ultimaAtualizacao" } },
 );
