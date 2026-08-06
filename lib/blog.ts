@@ -16,7 +16,7 @@ export async function apanhar_artigos(limite: number, pagina: number) {
    const offset = (pagina - 1) * limite;
 
    // Buscando os artigos do banco de dados
-   const artigos = await Artigo.find().skip(offset).limit(limite).sort({ publicadoEm: -1 });
+   const artigos = await Artigo.find().skip(offset).limit(limite).sort({ publicadoEm: -1 }).populate("categoria");
 
    // Calculando o total de documentos e o total de páginas
    const totalDocs = await Artigo.countDocuments();
@@ -27,7 +27,7 @@ export async function apanhar_artigos(limite: number, pagina: number) {
 
 export async function apanhar_artigos_mais_lidos() {
    await dbConnect();
-   const artigos = await Artigo.find().limit(5).sort({ vezesLido: -1 });
+   const artigos = await Artigo.find().limit(5).sort({ vezesLido: -1 }).populate("categoria");
    return { artigos } as { artigos: IArtigo[] };
 }
 
@@ -102,7 +102,7 @@ export async function publicar_artigo(artigoNovo: IArtigoNovo) {
    return { slug: publicar.slug };
 }
 
-type ICategoria = {
+export type ICategoria = {
    _id: string;
    nome: string;
    cor: string;
@@ -124,7 +124,7 @@ export async function apanhar_artigos_de_categoria(slug: string, pagina: number,
    const categoria = await Categoria.findOne({ slug });
 
    // Buscando os artigos do banco de dados
-   const artigos = await Artigo.find({ categoria: categoria._id }).skip(offset).limit(limite).sort({ publicadoEm: -1 });
+   const artigos = await Artigo.find({ categoria: categoria._id }).skip(offset).limit(limite).sort({ publicadoEm: -1 }).populate("categoria");
 
    // Calculando o total de documentos e o total de páginas
    const totalDocs = await Artigo.countDocuments({ categoria: categoria._id });

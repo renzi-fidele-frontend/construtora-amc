@@ -10,6 +10,7 @@ export default async function Page({ params, searchParams }: Props) {
    const search = await searchParams;
    const page = Number(search.page) || 1;
    const { artigos, categoria, totalPaginas } = await apanhar_artigos_de_categoria(slug, page, 6);
+   console.log(categoria);
 
    return (
       <div>

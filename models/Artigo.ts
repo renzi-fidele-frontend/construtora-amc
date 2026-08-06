@@ -1,3 +1,4 @@
+import { ICategoria } from "@/lib/blog";
 import { UploadApiResponse } from "cloudinary";
 import { Schema, model, models } from "mongoose";
 
@@ -12,10 +13,10 @@ export interface IArtigo {
    vezesLido: number;
    ultimaAtualizacao: Date;
    publicadoEm: Date;
-   categoria: Schema.Types.ObjectId;
+   categoria: ICategoria;
 }
 
-const ArtigoSchema = new Schema<IArtigo>(
+const ArtigoSchema = new Schema(
    {
       titulo: { type: String, required: true, index: "text" },
       descricao: { type: String, required: true, index: "text" },
@@ -29,6 +30,6 @@ const ArtigoSchema = new Schema<IArtigo>(
    { collection: "artigos", timestamps: { createdAt: "publicadoEm", updatedAt: "ultimaAtualizacao" } },
 );
 
-export const Artigo = models.Artigo ?? model<IArtigo>("Artigo", ArtigoSchema);
+export const Artigo = models.Artigo ?? model("Artigo", ArtigoSchema);
 
 export default Artigo;
