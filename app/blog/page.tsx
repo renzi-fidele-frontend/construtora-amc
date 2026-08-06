@@ -79,6 +79,16 @@ export default async function Blog({ searchParams }: Props) {
                   {/* Descrição */}
                   <p className="line-clamp-2">{artigos[0].descricao}</p>
                </div>
+               {/* Categoria */}
+               <div className="absolute p-2 sm:p-3 top-0 right-0" style={{ background: artigos[0].categoria.cor }}>
+                  <Image
+                     className="size-9 sm:size-17 invert-100"
+                     width={300}
+                     height={300}
+                     src={`/icons/categorias-blog/${artigos[0].categoria.slug}.png`}
+                     alt="Ilustracao da categoria"
+                  />
+               </div>
             </div>
          )}
          {/* Seção da listagem dos artigos */}
