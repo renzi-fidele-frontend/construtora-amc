@@ -1,15 +1,16 @@
 import BlogSearchBar from "@/components/shared/BlogSearchBar";
 import CardArtigoBlog from "@/components/shared/CardArtigoBlog";
+import Paginacao from "@/components/shared/Paginacao";
 import { apanhar_artigos_de_categoria } from "@/lib/blog";
 
-type Props = { params: Promise<{ slug: string }> };
+type Props = { params: Promise<{ slug: string }>; searchParams: Promise<{ [key: string]: string | string[] | undefined }> };
 
-export default async function Page({ params }: Props) {
+export default async function Page({ params, searchParams }: Props) {
    const { slug } = await params;
-   // TODO: Apanhar artigos da categoria no banco de dados
-   const { artigos, categoria } = await apanhar_artigos_de_categoria(slug);
+   const search = await searchParams;
+   const page = Number(search.page) || 1;
+   const { artigos, categoria, totalPaginas } = await apanhar_artigos_de_categoria(slug, page, 6);
 
-   console.log(slug, artigos, categoria);
    return (
       <div>
          <BlogSearchBar />
@@ -21,11 +22,13 @@ export default async function Page({ params }: Props) {
          </h1>
          <p className="text-lg mb-6">{categoria.descricao}</p>
          {/* Listagem dos artigos */}
-         <div className="grid sm:grid-cols-2 gap-5">
+         <div className="grid sm:grid-cols-2 gap-5 mb-7">
             {artigos.map((artigo, k) => (
                <CardArtigoBlog key={k} artigo={artigo} />
             ))}
          </div>
+         {/* Paginação */}
+         {totalPaginas > 1 && <Paginacao totalPaginas={totalPaginas} paginaAtual={page} />}
       </div>
    );
 }

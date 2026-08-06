@@ -115,9 +115,20 @@ export async function apanhar_categorias() {
    return { categorias } as { categorias: ICategoria[] };
 }
 
-export async function apanhar_artigos_de_categoria(slug: string) {
+export async function apanhar_artigos_de_categoria(slug: string, pagina: number, limite: number) {
    await dbConnect();
+   // Definindo o offset e o limite da query para paginação
+   const offset = (pagina - 1) * limite;
+
+   // Encontrando a categoria
    const categoria = await Categoria.findOne({ slug });
-   const artigos = await Artigo.find({ categoria: categoria._id });
-   return { artigos, categoria } as { artigos: IArtigo[]; categoria: ICategoria };
+
+   // Buscando os artigos do banco de dados
+   const artigos = await Artigo.find({ categoria: categoria._id }).skip(offset).limit(limite).sort({ publicadoEm: -1 });
+
+   // Calculando o total de documentos e o total de páginas
+   const totalDocs = await Artigo.countDocuments({ categoria: categoria._id });
+   const totalPaginas = Math.ceil(totalDocs / limite);
+
+   return { artigos, categoria, totalPaginas } as { artigos: IArtigo[]; categoria: ICategoria; totalPaginas: number };
 }
