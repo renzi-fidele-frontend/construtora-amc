@@ -5,7 +5,7 @@ import { dbConnect } from "./dbConnect";
 import { carregar_imagem } from "./cloudinary";
 import Categoria from "@/models/Categoria";
 
-// Aqui estão todas as funcionalidades que fazer as requisições públicas ao back-end
+// Aqui estão todas as funcionalidades server actions públicas do blog
 export interface IArticlesResponse {
    artigos: IArtigo[];
    totalPaginas: number;
@@ -15,11 +15,13 @@ export async function apanhar_artigos(limite: number, pagina: number) {
    // Definindo o offset e o limite da query para paginação
    const offset = (pagina - 1) * limite;
 
-   // Buscando os artigos do banco de dados
-   const artigos = await Artigo.find().skip(offset).limit(limite).sort({ publicadoEm: -1 }).populate("categoria");
+   const [artigos, totalDocs] = await Promise.all([
+      // Buscando os artigos do banco de dados
+      await Artigo.find().skip(offset).limit(limite).sort({ publicadoEm: -1 }).populate("categoria"),
+      // Calculando o total de documentos e o total de páginas
+      await Artigo.countDocuments(),
+   ]);
 
-   // Calculando o total de documentos e o total de páginas
-   const totalDocs = await Artigo.countDocuments();
    const totalPaginas = Math.ceil(totalDocs / limite);
 
    return { artigos, totalPaginas } as IArticlesResponse;
@@ -123,11 +125,14 @@ export async function apanhar_artigos_de_categoria(slug: string, pagina: number,
    // Encontrando a categoria
    const categoria = await Categoria.findOne({ slug });
 
-   // Buscando os artigos do banco de dados
-   const artigos = await Artigo.find({ categoria: categoria._id }).skip(offset).limit(limite).sort({ publicadoEm: -1 }).populate("categoria");
+   const [artigos, totalDocs] = await Promise.all([
+      // Buscando os artigos do banco de dados
+      await Artigo.find({ categoria: categoria._id }).skip(offset).limit(limite).sort({ publicadoEm: -1 }).populate("categoria"),
+      // Calculando o total de documentos
+      await Artigo.countDocuments({ categoria: categoria._id }),
+   ]);
 
-   // Calculando o total de documentos e o total de páginas
-   const totalDocs = await Artigo.countDocuments({ categoria: categoria._id });
+   // Calculando o total de páginas
    const totalPaginas = Math.ceil(totalDocs / limite);
 
    return { artigos, categoria, totalPaginas } as { artigos: IArtigo[]; categoria: ICategoria; totalPaginas: number };
