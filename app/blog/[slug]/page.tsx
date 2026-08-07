@@ -6,6 +6,7 @@ import dayjs from "dayjs";
 import "dayjs/locale/pt-br";
 import relativeTime from "dayjs/plugin/relativeTime";
 import { Metadata } from "next";
+import Link from "next/link";
 
 dayjs.extend(relativeTime);
 dayjs.locale("pt-br");
@@ -86,7 +87,6 @@ export default async function PaginaArtigo({ params }: Props) {
    };
 
    // TODO: Ao escalar, um usuário anônimo deverá ser capaz de adicionar comentários no blog (Investigar se é boa prática ou não)
-   // TODO: Investigar a possibilidade de adicionar categorias
 
    return (
       <>
@@ -101,7 +101,7 @@ export default async function PaginaArtigo({ params }: Props) {
                priority
             />
 
-            <div className="flex gap-2 sm:gap-4 flex-wrap mt-2 sm:mt-3 mb-3 sm:mb-5 text-sm sm:text-base">
+            <div className="flex gap-2 sm:gap-4 flex-wrap mt-2 sm:mt-3 mb-2 sm:mb-3 text-sm sm:text-base">
                {/* Data de publicação */}
                <time
                   dateTime={String(artigo.publicadoEm)}
@@ -117,8 +117,16 @@ export default async function PaginaArtigo({ params }: Props) {
                </time>
             </div>
 
+            {/* Categoria */}
+            <Link href={`/blog/categoria/${artigo.categoria.slug}`} className="mb-3">
+               <span className="font-medium sm:text-lg me-1">Categoria:</span>{" "}
+               <span className="p-0.5 sm:p-1 px-3 text-white underline" style={{ background: artigo.categoria.cor }}>
+                  {artigo.categoria.nome}
+               </span>
+            </Link>
+
             {/* Título do artigo */}
-            <h1 className="text-2xl sm:text-3xl md:text-4xl font-medium mb-4 sm:mb-7">{artigo.titulo}</h1>
+            <h1 className="text-2xl sm:text-3xl md:text-4xl font-medium mt-2 sm:mt-4 mb-4 sm:mb-7">{artigo.titulo}</h1>
 
             {/* Conteúdo */}
             <div className={styles.ct + " text-zinc-800"} dangerouslySetInnerHTML={{ __html: artigo.conteudo }}></div>

@@ -46,7 +46,7 @@ export const apanhar_artigo = cache(async (slug?: string, id?: string, aumentarC
    if (aumentarContagem) await Artigo.updateOne({ slug }, { $inc: { vezesLido: 1 } });
 
    let artigo;
-   if (slug) artigo = await Artigo.findOne({ slug });
+   if (slug) artigo = await Artigo.findOne({ slug }).populate("categoria");
    else if (id) {
       artigo = await Artigo.findById(id);
    }
