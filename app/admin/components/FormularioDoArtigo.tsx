@@ -83,15 +83,16 @@ const FormularioDoArtigo = ({ artigoAtual }: { artigoAtual?: IArtigo }) => {
          setPreviaDestaque(String(artigoAtual?.destaque.secure_url));
          conteudoRef.current = String(artigoAtual?.conteudo);
       }
-      if (artigoAtual) renderizarImagens();
+      if (artigoAtual) {
+         renderizarImagens();
+         categoriaRef.current = artigoAtual.categoria._id;
+      }
    }, [artigoAtual]);
 
    // Pegando as categorias
    useEffect(() => {
       async function apanhar() {
          const categs = await apanhar_categorias();
-         console.log("Apanhando as categorias... ");
-         console.log(categs);
          setCategorias(categs.categorias);
       }
       if (categorias?.length === 0) apanhar();
@@ -125,10 +126,16 @@ const FormularioDoArtigo = ({ artigoAtual }: { artigoAtual?: IArtigo }) => {
          <fieldset>
             <label htmlFor="categoria">Categoria do artigo</label>
             <Select defaultValue={artigoAtual && artigoAtual.categoria._id} required>
-               <SelectTrigger className="border-theme1 cursor-pointer">
+               <SelectTrigger className="border-theme1 cursor-pointer w-full">
                   <SelectValue placeholder="Selecione o categoria" />
                </SelectTrigger>
-               <SelectContent>{/* TODO: Renderizar as categorias dos artigos no backend */}</SelectContent>
+               <SelectContent>
+                  {categorias?.map((categoria) => (
+                     <SelectItem key={categoria._id} value={categoria._id} className="text-white! hover:bg-theme1! transition cursor-pointer" style={{ background: categoria.cor }}>
+                        {categoria.nome}
+                     </SelectItem>
+                  ))}
+               </SelectContent>
             </Select>
          </fieldset>
 
