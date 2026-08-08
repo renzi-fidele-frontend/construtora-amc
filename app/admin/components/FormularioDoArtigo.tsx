@@ -8,9 +8,13 @@ import { slugify } from "@/lib/utils";
 import { useRouter } from "next/navigation";
 import RichEditor from "./RichEditor";
 import { IArtigo } from "@/models/Artigo";
-import { editar_artigo, publicar_artigo } from "@/lib/blog";
+import { apanhar_categorias, editar_artigo, ICategoria, publicar_artigo } from "@/lib/blog";
 import { toast } from "sonner";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 
+/** Formulario de criação ou edição de um artigo do blog
+ * @param artigo - No modo de edição, recebe o artigo a ser editado e automaticamente preenche o formulário
+ */
 const FormularioDoArtigo = ({ artigoAtual }: { artigoAtual?: IArtigo }) => {
    const router = useRouter();
    const [previaThumbanil, setPreviaThumbnail] = useState<ArrayBuffer | string | null>(null);
@@ -22,6 +26,8 @@ const FormularioDoArtigo = ({ artigoAtual }: { artigoAtual?: IArtigo }) => {
    const destaqueRef = useRef<HTMLInputElement>(null);
    const conteudoRef = useRef<string>(null);
    const [loadingPost, setLoadingPost] = useState(false);
+   const [categorias, setCategorias] = useState<ICategoria[]>([]);
+   const categoriaRef = useRef<string>(null);
 
    function renderizarPreviaThumbnail(e: ChangeEvent<HTMLInputElement>) {
       if (!e.target.files) return;
@@ -63,9 +69,7 @@ const FormularioDoArtigo = ({ artigoAtual }: { artigoAtual?: IArtigo }) => {
          router.push(`/blog/${publicar?.slug}`);
       } else {
          // Editando o artigo
-         // TODO: Adicionar a funcionalidade de editar o artigo via server action
          const novoArtigo = { titulo, descricao, conteudo, slug: slugify(titulo) };
-         console.log(novoArtigo);
          const editar = await editar_artigo(novoArtigo, artigoAtual);
          if (editar) toast("Artigo editado com sucesso!");
       }
@@ -81,6 +85,17 @@ const FormularioDoArtigo = ({ artigoAtual }: { artigoAtual?: IArtigo }) => {
       }
       if (artigoAtual) renderizarImagens();
    }, [artigoAtual]);
+
+   // Pegando as categorias
+   useEffect(() => {
+      async function apanhar() {
+         const categs = await apanhar_categorias();
+         console.log("Apanhando as categorias... ");
+         console.log(categs);
+         setCategorias(categs.categorias);
+      }
+      if (categorias?.length === 0) apanhar();
+   }, [categorias]);
 
    return (
       <form
@@ -104,6 +119,17 @@ const FormularioDoArtigo = ({ artigoAtual }: { artigoAtual?: IArtigo }) => {
                name="descricao"
                id="descricao"
             ></textarea>
+         </fieldset>
+
+         {/* Categoria */}
+         <fieldset>
+            <label htmlFor="categoria">Categoria do artigo</label>
+            <Select defaultValue={artigoAtual && artigoAtual.categoria._id} required>
+               <SelectTrigger className="border-theme1 cursor-pointer">
+                  <SelectValue placeholder="Selecione o categoria" />
+               </SelectTrigger>
+               <SelectContent>{/* TODO: Renderizar as categorias dos artigos no backend */}</SelectContent>
+            </Select>
          </fieldset>
 
          {/* Thumbnail */}
