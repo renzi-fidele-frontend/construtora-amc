@@ -47,7 +47,7 @@ const FormularioDoArtigo = ({ artigoAtual }: { artigoAtual?: IArtigo }) => {
       reader.readAsDataURL(e.target.files[0]);
    }
 
-   // Publicando o artigo
+   // Publicando ou editando o artigo
    async function handleSubmit(e: FormEvent<HTMLFormElement>) {
       e.preventDefault();
       setLoadingPost(true);
@@ -69,7 +69,7 @@ const FormularioDoArtigo = ({ artigoAtual }: { artigoAtual?: IArtigo }) => {
          router.push(`/blog/${publicar?.slug}`);
       } else {
          // Editando o artigo
-         const novoArtigo = { titulo, descricao, conteudo, slug: slugify(titulo) };
+         const novoArtigo = { titulo, descricao, conteudo, slug: slugify(titulo), categoria: categoriaRef.current };
          const editar = await editar_artigo(novoArtigo, artigoAtual);
          if (editar) toast("Artigo editado com sucesso!");
       }
@@ -85,7 +85,7 @@ const FormularioDoArtigo = ({ artigoAtual }: { artigoAtual?: IArtigo }) => {
       }
       if (artigoAtual) {
          renderizarImagens();
-         categoriaRef.current = artigoAtual.categoria._id;
+         categoriaRef.current = String(artigoAtual.categoria);
       }
    }, [artigoAtual]);
 
@@ -123,21 +123,36 @@ const FormularioDoArtigo = ({ artigoAtual }: { artigoAtual?: IArtigo }) => {
          </fieldset>
 
          {/* Categoria */}
-         <fieldset>
-            <label htmlFor="categoria">Categoria do artigo</label>
-            <Select defaultValue={artigoAtual && artigoAtual.categoria._id} required>
-               <SelectTrigger className="border-theme1 cursor-pointer w-full">
-                  <SelectValue placeholder="Selecione o categoria" />
-               </SelectTrigger>
-               <SelectContent>
-                  {categorias?.map((categoria) => (
-                     <SelectItem key={categoria._id} value={categoria._id} className="text-white! hover:bg-theme1! transition cursor-pointer" style={{ background: categoria.cor }}>
-                        {categoria.nome}
-                     </SelectItem>
-                  ))}
-               </SelectContent>
-            </Select>
-         </fieldset>
+         {/* Estou tendo dificuldade para autopreencher o select */}
+         {categorias.length > 0 && (
+            <fieldset>
+               <label htmlFor="categoria">Categoria do artigo</label>
+               <Select
+                  onValueChange={(newValue) => {
+                     console.log("O valor mudou para: ", newValue);
+                     categoriaRef.current = newValue;
+                  }}
+                  defaultValue={artigoAtual && String(artigoAtual.categoria)}
+                  required
+               >
+                  <SelectTrigger className="border-theme1 cursor-pointer w-full">
+                     <SelectValue placeholder="Selecione o categoria" />
+                  </SelectTrigger>
+                  <SelectContent>
+                     {categorias?.map((categoria) => (
+                        <SelectItem
+                           key={categoria._id}
+                           value={categoria._id}
+                           className="text-white! hover:bg-theme1! transition cursor-pointer md:text-lg"
+                           style={{ background: categoria.cor }}
+                        >
+                           {categoria.nome}
+                        </SelectItem>
+                     ))}
+                  </SelectContent>
+               </Select>
+            </fieldset>
+         )}
 
          {/* Thumbnail */}
          <fieldset>
