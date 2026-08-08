@@ -35,7 +35,7 @@ export async function apanhar_artigos_mais_lidos() {
 
 export async function procurar_artigos(query: string) {
    await dbConnect();
-   const artigos = await Artigo.find({ $text: { $search: query } });
+   const artigos = await Artigo.find({ $text: { $search: query } }).populate("categoria");
    return { artigos } as { artigos: IArtigo[] };
 }
 
