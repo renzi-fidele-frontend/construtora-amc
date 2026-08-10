@@ -100,7 +100,7 @@ export async function publicar_artigo(artigoNovo: IArtigoNovo) {
    };
 
    const publicar = await Artigo.create(data);
-   console.log("Artigo publicado com sucesso", publicar);
+   console.log("Artigo publicado com sucesso");
    return { slug: publicar.slug };
 }
 
@@ -113,8 +113,9 @@ export type ICategoria = {
 };
 export async function apanhar_categorias() {
    await dbConnect();
-   const categorias = await Categoria.find();
-   return { categorias } as { categorias: ICategoria[] };
+   const _categorias = await Categoria.find();
+   const categorias = JSON.parse(JSON.stringify(_categorias)) as ICategoria[];
+   return { categorias };
 }
 
 export async function apanhar_artigos_de_categoria(slug: string, pagina: number, limite: number) {

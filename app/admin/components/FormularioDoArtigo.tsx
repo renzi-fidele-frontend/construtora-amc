@@ -123,13 +123,11 @@ const FormularioDoArtigo = ({ artigoAtual }: { artigoAtual?: IArtigo }) => {
          </fieldset>
 
          {/* Categoria */}
-         {/* Estou tendo dificuldade para autopreencher o select */}
          {categorias.length > 0 && (
             <fieldset>
                <label htmlFor="categoria">Categoria do artigo</label>
                <Select
                   onValueChange={(newValue) => {
-                     console.log("O valor mudou para: ", newValue);
                      categoriaRef.current = newValue;
                   }}
                   defaultValue={artigoAtual && String(artigoAtual.categoria)}
